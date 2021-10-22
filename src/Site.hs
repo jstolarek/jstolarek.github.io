@@ -3,7 +3,6 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 
-
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyllWith config $ do
@@ -20,13 +19,8 @@ main = hakyllWith config $ do
         compile compressCssCompiler
 
     match "pages/*.md" $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
-
-    match (fromList ["index.md"]) $ do
-        route   $ setExtension "html"
+        route   $ gsubRoute "pages/" (const "") `composeRoutes`
+                  setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls

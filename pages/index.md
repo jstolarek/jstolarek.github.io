@@ -9,7 +9,7 @@ About me
 
 My name is Jan Stolarek and I am a Research Associate at [Laboratory for
 Foundations of Computer Science](https://wcms.inf.ed.ac.uk/lfcs/), University of
-Edinburgh, UK. I am on sabbatical leave from [Institute of Information
+Edinburgh, UK.  I am on sabbatical leave from [Institute of Information
 Technology](https://it.p.lodz.pl/), [Łódź University of
 Technology](https://p.lodz.pl/), Poland.  My research focuses on functional
 programming and compiler construction, but my scientific interests range to
