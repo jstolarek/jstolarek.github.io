@@ -113,7 +113,7 @@ Publications
     [full text (pdf)](/files/dep-typed-wbl-heaps.pdf),
     [companion code (tar.gz)](/files/dep-typed-wbl-heaps.tar.gz),
     BitBucket repositories:
-    [Agda code](http://www.github.com/goldfirere/singletons),
+    [Agda code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps),
     [Haskell code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps-hs)
 
 

@@ -11,7 +11,7 @@ activities, interests and hobbies.
 
 
 Retro gaming
-============
+------------
 
 <p align="center">![](/images/handhelds.jpg "Some of my handhelds")</p>
 
@@ -21,7 +21,7 @@ collection of handhelds, including several moded GameBoys and two PSVitas.
 
 
 Mountain trekking
-=================
+-----------------
 
 <p align="center">![](/images/mountain_trekking.jpg "In the Cairngorms")</p>
 
@@ -31,7 +31,7 @@ Ukraine and Romania. Nowadays I trek in the Scottish Highlands.
 
 
 Biking
-======
+------
 
 <p align="center">![](/images/biking.jpg "Near Łódź")</p>
 
@@ -39,7 +39,7 @@ When not in the mountains, I enjoy biking in rural areas.
 
 
 History and wargaming
-=====================
+---------------------
 
 <p align="center">![](/images/wargaming.jpg?nolink "Playing \"Ardennes '44\"")</p>
 
@@ -51,7 +51,7 @@ provide entertainment at the same time.
 
 
 Paper models and aviation
-=========================
+-------------------------
 
 <p align="center">![](/images/models.jpg "Curtiss Tomahawk Mk IIB")</p>
 
@@ -61,7 +61,7 @@ most of my models are fighter airplanes from the World War II.
 
 
 Evolutionary biology
-====================
+--------------------
 
 <p align="center">![](/images/ants.jpg "Camponotus ligniperdus")</p>
 
