@@ -105,18 +105,6 @@ Publications
     [citation (BibTeX)](/files/eisenberg_stolarek_promotion.bib)
 
 
-2013
-----
-
-  * Stolarek, J.: Verifying weight biased leftist heaps using dependent types,
-    unpublished,
-    [full text (pdf)](/files/dep-typed-wbl-heaps.pdf),
-    [companion code (tar.gz)](/files/dep-typed-wbl-heaps.tar.gz),
-    BitBucket repositories:
-    [Agda code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps),
-    [Haskell code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps-hs)
-
-
 2012
 ----
 

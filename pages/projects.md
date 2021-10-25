@@ -71,8 +71,8 @@ Below is a list of projects and libraries I am or have been involved with.
     method of converting Haskell term-level functions to the type level.  Our
     approach is implemented in the `singletons` library.
 
-  * **dep-typed-wbl-heaps** (bitbucket:
-    [Agda code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps),
+  * **dep-typed-wbl-heaps** ([tutorial (pdf)](/files/dep-typed-wbl-heaps.pdf),
+    bitbucket: [Agda code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps),
     [Haskell code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps-hs))\
     Verified implementation of a weight biased leftist heap in Agda and Haskell.
     This project is a an intermediate-level tutorial aimed at people who already
