@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Verifying weight biased leftist heaps using dependent types (a draft)</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on January 16, 2014
+    </section>
+    <section>
+        <h1 id="verifying-weight-biased-leftist-heaps-using-dependent-types-a-draft">Verifying weight biased leftist heaps using dependent types (a draft)</h1>
+<p>I recently wrote a paper for the <a href="http://cav2014.iaik.tugraz.at/">26th International Conference on Computer Aided Verification (CAV?14)</a>, Vienna, Austria. The paper is titled “Verifying weight biased leftist heaps using dependent types”. In this paper I have taken a weight biased leftist heap data structure presented by Okasaki in “Purely Functional Data Structures” and created its Agda implementation, which uses dependent types to statically guarantee that rank and priority invariants are maintained. My verification is based on techniques demonstrated by Altenkirch, McKinna and McBride in “Why Dependent Types Matter” but my focus is on things that were left out in that paper. In the end my paper is an intermediate level tutorial on verification in Agda but also a case study of a purely functional data structure implemented in a dependently typed setting. Worth noting is the fact that despite title of Okasaki’s book his implementation is not purely functional as it uses exceptions to deal with edge cases like taking the smallest element from an empty heap.</p>
+<p>Draft version of the paper can be downloaded <a href="http://ics.p.lodz.pl/~stolarek/blog/wp-content/uploads/2014/01/dep-typed-wbl-heaps.pdf">here</a>. It comes with companion source code that contains a thorough discussion of concepts presented in the paper as well as others that didn’t make it into publication due to space limitations. Companion code is available at <a href="https://github.com/jstolarek/dep-typed-wbl-heaps">GitHub</a> (tag “blog-post-draft-release” points to today’s version). The paper is mostly finished. It should only receive small corrections and spelling fixes. However, if you have any suggestions or comments please share them with me - submission deadline is in three weeks so there is still time to include them.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

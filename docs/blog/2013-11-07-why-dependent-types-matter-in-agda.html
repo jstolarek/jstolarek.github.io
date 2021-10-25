@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Why dependent types matter (in Agda)</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on November  7, 2013
+    </section>
+    <section>
+        <h1 id="why-dependent-types-matter-in-agda">Why dependent types matter (in Agda)</h1>
+<p>During my MSR internship I had a chance to learn from people working on type systems. I already had interest in types before going to Cambridge, but somehow I didn’t put my full effort into that topic. I had only made some attempts at learning dependent types but didn’t get farther than standard vector examples. The best thing that happened in Cambridge was Conor McBride’s course on <a href="http://www.cl.cam.ac.uk/~ok259/agda-course-13/">Dependently-typed metaprogramming (in Agda)</a> organized by <a href="http://www.cl.cam.ac.uk/~ok259/">Ohad Kammar</a> at the University’s Computer Laboratory. I learned about the course after it had started so I only had a single day to learn basics of Agda before going to the second session of lectures and labs. I admit that material covered by Conor was difficult for me and I will probably need a few months to digest it.</p>
+<p>Recently I decided to solidify my knowledge of basics of dependent types by reading “Why Dependent Types Matter”. This unpublished paper was written by Thorsten Altenkirch, Conor McBride and James McKinna somewhere in 2006 I believe. It gives a great overview of dependent types and various design decisions related to their usage. But most of all this paper shows how to write a provably correct merge-sort algorithm. Proving correctness of algorithms is something I find very interesting, so this paper was a must-read for me.</p>
+<p>There is only one catch with <a href="http://www.strictlypositive.org/ydtm.ps.gz">“Why Dependent Types Matter”</a>. All the code is written in Epigram, a dependently typed functional language designed by Conor McBride and James McKinna. The problem is that Epigram’s webpage has been offline for few months now ((I recall Conor mentioning that Nottingham people, who were hosting it Epigram’s web page on their servers, sent him the hard drive with said web page.)) and the language basically seems dead. Anyway, since my dependently-typed language of choice is Agda (for the moment at least - I’m thinking a lot about <a href="http://www.idris-lang.org/">Idris</a> recently) I decided to rewrite all the code in the paper to Agda. For the most part this was a straightforward task, once I learned how to read Epigram’s unusual syntax. There were however a few bumps along the way. One problem I encountered early on was Agda’s termination checker complaining about some functions. Luckily, Agda community is as helpful as Haskell’s and within a day <a href="https://lists.chalmers.se/pipermail/agda/2013/005948.html">I was given a detailed explanation of what goes wrong</a>. A slightly larger problem was that paper elides details of some proofs. If I wanted to have working Agda code I had to fill in these details. Since I didn’t know how to do that I had to pause for one day and go through <a href="http://www.cs.nott.ac.uk/~txa/g53cfr/">online materials for Thorsten Altenkirch’s course on Computer Aided Formal Reasoning</a>. In the end I managed to fill in all the missing gaps. My code is <a href="https://github.com/jstolarek/why-dependent-types-matter">available on github</a>. Now I feel ready to prove correctness of a few more algorithms on my own.</p>
+<h1 id="post-scriptum">Post scriptum</h1>
+<p>Conor will be giving his course on “Dependently typed metaprogramming” in November and December at University of Edinburgh. See <a href="http://homepages.inf.ed.ac.uk/s1225336/agda-course-13/">here</a> for details. Be sure not to miss it if you have a chance to attend. Code repository for the course is available <a href="https://github.com/pigworker/MetaprogAgda">here</a>.</p>
+<p>Unofficial mirror of Epigram’s sources is <a href="https://github.com/brixen/Epigram">available on github</a>.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

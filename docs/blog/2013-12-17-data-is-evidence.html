@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Data is evidence</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on December 17, 2013
+    </section>
+    <section>
+        <h1 id="data-is-evidence">Data is evidence</h1>
+<p>Recently I’ve been reading <a href="http://www.cis.upenn.edu/~bcpierce/tapl/">“Types and Programming Langauages”</a> book by Benjamin C. Pierce. It’s a great introduction to theory behind type systems of both functional and object-oriented languages. In the first chapter there’s this really brilliant sentence that says what a type system does:</p>
+<blockquote>
+<p>A type system can be regarded as calculating a kind of static approximation to the run-time behaviours of the terms in a program.</p>
+</blockquote>
+<p>So if a type system is a static approximation of program’s behaviour at runtime a natural question to ask is: “how accurate this approximation can be?” Turns out it can be very accurate.</p>
+<p>Let’s assume that we have following definition of natural numbers<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> Nat <span class="ot">:</span> <span class="dt">Set</span> <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  zero <span class="ot">:</span> Nat</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  suc  <span class="ot">:</span> Nat <span class="ot">→</span> Nat</span></code></pre></div>
+<p>First constructor - <code>zero</code> - says that zero is a natural number. Second - <code>suc</code> - says that successor of any natural number is also a natural number. This representation allows to encode <code>0</code> as <code>zero</code>, <code>1</code> as <code>suc zero</code>, <code>2</code> as <code>suc (suc zero)</code> and so on<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Let’s also define a type of booleans to represent logical true and false:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> Bool <span class="ot">:</span> <span class="dt">Set</span> <span class="kw">where</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  false <span class="ot">:</span> Bool</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  true  <span class="ot">:</span> Bool</span></code></pre></div>
+<p>We can now define a <code>≥</code> operator that returns <code>true</code> if its arguments are in greater-equal relation and <code>false</code> if they are not:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">_</span>≥<span class="ot">_</span> <span class="ot">:</span> Nat <span class="ot">→</span> Nat <span class="ot">→</span> Bool</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m     ≥ zero  <span class="ot">=</span> true</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>zero  ≥ suc n <span class="ot">=</span> false</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>suc m ≥ suc n <span class="ot">=</span> m ≥ n</span></code></pre></div>
+<p>This definition has three cases. First says that any natural number is greater than or equal to zero. Second says that zero is not greater than any successor. Final case says that two non-zero natural numbers are in ≥ relation if their predecessors are also in that relation. What if we replace <code>false</code> with <code>true</code> in our definition?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">_</span>≥<span class="ot">_</span> <span class="ot">:</span> Nat <span class="ot">→</span> Nat <span class="ot">→</span> Bool</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>m     ≥ zero  <span class="ot">=</span> true</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>zero  ≥ suc n <span class="ot">=</span> true</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>suc m ≥ suc n <span class="ot">=</span> m ≥ n</span></code></pre></div>
+<p>Well… nothing. We get a function that has nonsense semantics but other than that it is well-typed. The type system won’t catch this mistake. The reason for this is that our function returns a result but it doesn’t say why that result is true. And since <code>≥</code> doesn’t give us any evidence that result is correct there is no way of statically checking whether the implementation is correct or not.</p>
+<p>But it turns out that we can do better using dependent types. We can write a comparison function that proves its result correct. Let’s forget our definition of <code>≥</code> and instead define datatype called <code>≥</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="ot">_</span>≥<span class="ot">_</span> <span class="ot">:</span> Nat <span class="ot">→</span> Nat <span class="ot">→</span> <span class="dt">Set</span> <span class="kw">where</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ge0 <span class="ot">:</span> <span class="ot">{</span>  y <span class="ot">:</span> Nat<span class="ot">}</span>         <span class="ot">→</span> y     <span class="ot">→</span> zero</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  geS <span class="ot">:</span> <span class="ot">{</span>x y <span class="ot">:</span> Nat<span class="ot">}</span> <span class="ot">→</span> x <span class="ot">→</span> y <span class="ot">→</span> suc x <span class="ot">→</span> suc y</span></code></pre></div>
+<p>This type has two <code>Nat</code> indices that parametrize it. For example: <code>5 ≥ 3</code> and <code>2 ≥ 0</code> are two distinct types. Notice that each constructor can only be used to construct values of a specific type: <code>ge0</code> constructs a value that belongs to types like <code>0 ≥ 0</code>, <code>1 ≥ 0</code>, <code>3 ≥ 0</code> and so on. <code>geS</code> given a value of type <code>x ≥ y</code> constructs a value of type <code>suc x ≥ suc y</code>.</p>
+<p>There are a few interesting properties of <code>≥</code> datatype. Notice that not only <code>ge0</code> can construct value of types <code>y ≥ 0</code>, but it is also the only possible value of such types. In other words the only value of <code>0 ≥ 0</code>, <code>1 ≥ 0</code> or <code>3 ≥ 0</code> is <code>ge0</code>. Types like <code>5 ≥ 3</code> also have only one value (in case of <code>5 ≥ 3</code> it is <code>geS (geS (geS ge0))</code>). That’s why we call <code>≥</code> a <em>singleton type</em>. Note also that there is no way to construct values of type <code>0 ≥ 3</code> or <code>5 ≥ 2</code> - there are no constructors that we could use to get a value of that type. We will thus say that <code>≥</code> datatype is a witness (or evidence): if we can construct a value for a given two indices then this value is a witness that relation represented by the <code>≥</code> datatype holds. For example <code>geS (geS ge0))</code> is a witness that relations <code>2 ≥ 2</code> and <code>2 ≥ 5</code> hold but there is no way to provide evidence that <code>0 ≥ 1</code> holds. Notice that previous definition of <code>≥</code> function had three cases: one base case for <code>true</code>, one base case for <code>false</code> and one inductive case. The <code>≥</code> datatype has only two cases: one being equivalent of <code>true</code> and one inductive. Because the value of <code>≥</code> exists if and only if its two parameters are in ≥ relation there is no need to represent <code>false</code> explicitly.</p>
+<p>We have a way to express proof that one value is greater than another. Let’s now construct a datatype that can say whether one value is greater than another and supply us with a proof of that fact:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> Order <span class="ot">:</span> Nat <span class="ot">→</span> Nat <span class="ot">→</span> <span class="dt">Set</span> <span class="kw">where</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  ge <span class="ot">:</span> <span class="ot">{</span>x <span class="ot">:</span> Nat<span class="ot">}</span> <span class="ot">{</span>y <span class="ot">:</span> Nat<span class="ot">}</span> <span class="ot">→</span> x <span class="ot">→</span> y <span class="ot">→</span> Order x y</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  le <span class="ot">:</span> <span class="ot">{</span>x <span class="ot">:</span> Nat<span class="ot">}</span> <span class="ot">{</span>y <span class="ot">:</span> Nat<span class="ot">}</span> <span class="ot">→</span> y <span class="ot">→</span> x <span class="ot">→</span> Order x y</span></code></pre></div>
+<p>Order is indexed by two natural numbers. These numbers can be anything - there is no restriction on any of the constructors. We can construct values of Order using one of two constructors: <code>ge</code> and <code>le</code>. Constructing value of <code>Order</code> using <code>ge</code> constructor requires a value of type <code>x ≥ y</code>. In other words it requires a proof that <code>x</code> is greater than or equal to <code>y</code>. Constructing value of <code>Order</code> using <code>le</code> constructor requires the opposite proof - that <code>y ≥ x</code>. <code>Order</code> datatype is equivalent of <code>Bool</code> except that it is specialized to one particular relation instead of being a general statement of truth or false. It also carries a proof of the fact that it states.</p>
+<p>Now we can write a function that compares two natural numbers and returns a result that says whether first number is greater than or equal to the second one<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>order <span class="ot">:</span> <span class="ot">(</span>x <span class="ot">:</span> Nat<span class="ot">)</span> <span class="ot">→</span> <span class="ot">(</span>y <span class="ot">:</span> Nat<span class="ot">)</span> <span class="ot">→</span> Order x y</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>order x       zero    <span class="ot">=</span> ge ge0</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>order zero    <span class="ot">(</span>suc b<span class="ot">)</span> <span class="ot">=</span> le ge0</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>order <span class="ot">(</span>suc a<span class="ot">)</span> <span class="ot">(</span>suc b<span class="ot">)</span> <span class="kw">with</span> order a b</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>order <span class="ot">(</span>suc a<span class="ot">)</span> <span class="ot">(</span>suc b<span class="ot">)</span> <span class="ot">|</span> ge a≥b <span class="ot">=</span> ge <span class="ot">(</span>geS a≥b<span class="ot">)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>order <span class="ot">(</span>suc a<span class="ot">)</span> <span class="ot">(</span>suc b<span class="ot">)</span> <span class="ot">|</span> le b≥a <span class="ot">=</span> le <span class="ot">(</span>geS b≥a<span class="ot">)</span></span></code></pre></div>
+<p>In this implementation <code>ge</code> plays the role of <code>true</code> and <code>le</code> plays the role of <code>false</code>. But if we try to replace <code>le</code> with <code>ge</code> the way we previously replaced <code>false</code> with <code>true</code> the result will not be well-typed:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode agda"><code class="sourceCode agda"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>order <span class="ot">:</span> <span class="ot">(</span>x <span class="ot">:</span> Nat<span class="ot">)</span> <span class="ot">→</span> <span class="ot">(</span>y <span class="ot">:</span> Nat<span class="ot">)</span> <span class="ot">→</span> Order x y</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>order x       zero    <span class="ot">=</span> ge ge0</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>order zero    <span class="ot">(</span>suc b<span class="ot">)</span> <span class="ot">=</span> ge ge0 <span class="co">-- TYPE ERROR</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>order <span class="ot">(</span>suc a<span class="ot">)</span> <span class="ot">(</span>suc b<span class="ot">)</span> <span class="kw">with</span> order a b</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>order <span class="ot">(</span>suc a<span class="ot">)</span> <span class="ot">(</span>suc b<span class="ot">)</span> <span class="ot">|</span> ge a≥b <span class="ot">=</span> ge <span class="ot">(</span>geS a≥b<span class="ot">)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>order <span class="ot">(</span>suc a<span class="ot">)</span> <span class="ot">(</span>suc b<span class="ot">)</span> <span class="ot">|</span> le b≥a <span class="ot">=</span> le <span class="ot">(</span>geS b≥a<span class="ot">)</span></span></code></pre></div>
+<p>Why? It is a direct result of the definitions that we used. In the second equation of <code>order</code>, <code>x</code> is <code>zero</code> and <code>y</code> is <code>suc b</code>. To construct a value of <code>Order x y</code> using <code>ge</code> constructor we must provide a proof that <code>x ≥ y</code>. In this case we would have to prove that <code>zero ≥ suc b</code>, but as discussed previously there is no constructor of <code>≥</code> that could construct value of this type. Thus the whole expression is ill-typed and the incorrectness of our definition is caught at compile time.</p>
+<h1 id="summary">Summary</h1>
+<p>The idea that types can represent logical propositions and values can be viewed as proofs of these propositions is not new - it is known as <a href="http://en.wikipedia.org/wiki/Curry_Howard_isomorphism">Curry-Howard correspondence</a> (or isomorphism) and I bet many of you have heard that name. Example presented here is taken from “Why Dependent Types Matter”. See this <a href="2013-11-07-why-dependent-types-matter-in-agda/">recent post</a> for a few more words about this paper.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>All code in this post is in Agda.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>For the sake of readability I will write Nats as numerals, not as applications of suc and zero. So remember that whenever I write 2 I mean <code>suc (suc zero)</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Note that in Agda <code>a≥b</code> is a valid identifier, not an application of <code>≥</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

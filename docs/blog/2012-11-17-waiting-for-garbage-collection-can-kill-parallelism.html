@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Waiting for garbage collection can kill parallelism?</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on November 17, 2012
+    </section>
+    <section>
+        <h1 id="waiting-for-garbage-collection-can-kill-parallelism">Waiting for garbage collection can kill parallelism?</h1>
+<p>I am reposting my mail from Haskell-cafe, since I got no replies in over a week and I think it is an interesting case. I was reading <a href="http://community.haskell.org/~simonmar/papers/threadscope.pdf">“Parallel Performance Tuning for Haskell”</a> by Jones, Marlow and Singh and wanted to replicate the results for their first case study. The code goes like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Control.Parallel</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="fu">print</span> <span class="op">.</span> parSumFibEuler <span class="dv">38</span> <span class="op">$</span> <span class="dv">5300</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ot">fib ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fib <span class="dv">0</span> <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fib <span class="dv">1</span> <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fib n <span class="ot">=</span> fib (n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib (n <span class="op">-</span> <span class="dv">2</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ot">mkList ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> \[<span class="dt">Int</span>\]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>mkList n <span class="ot">=</span> \[<span class="dv">1</span><span class="op">..</span>n<span class="op">-</span><span class="dv">1</span>\]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ot">relprime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>relprime x y <span class="ot">=</span> <span class="fu">gcd</span> x y <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ot">euler ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>euler n <span class="ot">=</span> <span class="fu">length</span> (<span class="fu">filter</span> (relprime n) (mkList n))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ot">sumEuler ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>sumEuler <span class="ot">=</span> <span class="fu">sum</span> <span class="op">.</span> (<span class="fu">map</span> euler) <span class="op">.</span> mkList</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ot">sumFibEuler ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>sumFibEuler a b <span class="ot">=</span> fib a <span class="op">+</span> sumEuler b</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ot">parSumFibEuler ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>parSumFibEuler a b <span class="ot">=</span> f \<span class="ot">`par\`</span> (e \<span class="ot">`pseq\`</span> (e <span class="op">+</span> f))</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">where</span> f <span class="ot">=</span> fib a</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>          e <span class="ot">=</span> sumEuler b</span></code></pre></div>
+<p>In the paper authors show that this code performs computation of <code>fib</code> ans <code>sumEuler</code> in parallel and that good speed-up is achieved:</p>
+<blockquote>
+<p>To make the parallelism more robust, we need to be explicit about the evaluation order we intend. The way to do this is to use <code>pseq</code> in combination with <code>par</code>, the idea being to ensure that the main thread works on <code>sumEuler</code> while the sparked thread works on <code>fib</code>. (…) This version does not make any assumptions about the evaluation order of <code>+</code>, but relies only on the evaluation order of <code>pseq</code>, which is guaranteed to be stable.</p>
+</blockquote>
+<p>These results were obtained on older GHC version ((Paper does not mention which version exactly. I believe it was 6.10, since “Runtime Support for Multicore Haskell” by the same authors released at the same time uses GHC 6.10)). However, compiling program with:</p>
+<pre><code>$ ghc -O2 -Wall -threaded -rtsopts -fforce-recomp -eventlog parallel.hs</code></pre>
+<p>and then running on GHC 7.4.1 using:</p>
+<pre><code>$ ./parallel +RTS -qa -g1 -s -ls -N2</code></pre>
+<p>yields a completely different result. These are statistics for a parallel run on two cores:</p>
+<pre><code>SPARKS: 1 (1 converted, 0 overflowed, 0 dud, 0 GC'd, 0 fizzled)
+
+INIT    time    0.00s  (  0.00s elapsed)
+MUT     time    2.52s  (  2.51s elapsed)
+GC      time    0.03s  (  0.05s elapsed)
+EXIT    time    0.00s  (  0.00s elapsed)
+Total   time    2.55s  (  2.56s elapsed)
+
+Running the same code on one core results in:
+
+SPARKS: 1 (0 converted, 0 overflowed, 0 dud, 1 GC'd, 0 fizzled)
+
+INIT    time    0.00s  (  0.00s elapsed)
+MUT     time    2.51s  (  2.53s elapsed)
+GC      time    0.03s  (  0.05s elapsed)
+EXIT    time    0.00s  (  0.00s elapsed)
+Total   time    2.55s  (  2.58s elapsed)</code></pre>
+<p>Looking and <code>MUT</code> (mutator time) it looks that there is no speed-up at all. Investigating eventlog using ThreadScope sheds some light on execution of a program:</p>
+<p><a href="images/parallel_general_view1.png"><img src="images/parallel_general_view1.png%20%22parallel_general_view%22" /></a></p>
+<p>Both threads start computation, but HEC 1 soon blocks and only resumes when HEC 0 finishes computation. Zooming in it looks that HEC 1 stops because it requests garbage collection, but HEC 0 does not respond to that request so GC begins only when HEC 0 is done with its computation:</p>
+<p><a href="images/parallel_detailed_view.png"><img src="images/parallel_detailed_view.png%20%22parallel_detailed_view%22" /></a></p>
+<p>Why does this happen? I am no expert on GHC’s garbage collection, my only knowledge of that comes from section 6 of “<a href="http://community.haskell.org/~simonmar/papers/multicore-ghc.pdf">Runtime Support for Multicore Haskell</a>”. If I understood correctly this should not happen - it certainly didn’t happen when the paper was published. Do we have a regression or am I misunderstanding something?</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - DeepSpec Summer School 2017 - a summary</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on July 30, 2017
+    </section>
+    <section>
+        <h1 id="deepspec-summer-school-2017---a-summary">DeepSpec Summer School 2017 - a summary</h1>
+<p>I have spent the last two and a half week in Philadelphia attending the first <a href="https://deepspec.org/event/dsss17/">DeepSpec Summer School</a>, In this post I want to summarize the event and give an overview of all the courses.</p>
+<p><a href="https://deepspec.org">The DeepSpec Project</a> is a research project lead by several US East Coast universities (University of Pennsylvania, MIT, Yale University and Princeton University) and aims to <em>“push forward the state of the art in applying computer proof assistants to verify realistic software and hardware stacks at scale”</em>. It consists of <a href="https://deepspec.org/page/Project/">several smaller projects</a>, including a formal verification of a hypervisor (<a href="http://flint.cs.yale.edu/certikos/">CertiKOS</a>), LLVM (<a href="http://www.cis.upenn.edu/~stevez/vellvm/">Vellvm</a>), Coq compiler (<a href="https://www.cs.princeton.edu/~appel/certicoq/">CertiCoq</a>) and GHC’s Core language (<a href="https://deepspec.org/entry/Project/Haskell+CoreSpec">CoreSpec</a>).</p>
+<p>The goal of DeepSpec Summer School was to introduce people to real-life formal verification using Coq proof assistant. School was divided into three parts. All the lectures <a href="https://www.youtube.com/channel/UC5yB0ZRgc4A99ttkwer-dDw">can be found on a YouTube channel</a>. Coq code for the courses <a href="https://github.com/DeepSpec/dsss17">is available on GitHub</a>. Summer school’s web page also provides <a href="https://deepspec.org/event/dsss17/installation.html">installation instructions</a> as well as <a href="https://deepspec.org/event/dsss17/schedule.html">other supplementary material</a> (click on a given lecture or select from “Lectures” tab).</p>
+<h1 id="week-0-coq-intensive">Week 0: Coq Intensive</h1>
+<p>First three days of the summer school were a very intensive introductory course on Coq lead by Benjamin Pierce. This essentially covered the first volume of Software Foundations. (Aside: For those of you who don’t know yet, <a href="https://deepspec.org/page/SF/">original Software Foundations online book has been split into two volumes</a>: Logical Foundations and Programming Language Foundations. Also, a third volume has been added to the series: Verified Functional Algorithms by Andrew Appel. All three volumes can be found <a href="https://softwarefoundations.cis.upenn.edu/draft/">here</a>, although expect that this link will likely become broken soon when this draft versions become an official release. There are also plans for two more volumes, one on Separation Logic and another one on Systems Verification.)</p>
+<h1 id="week-1-programming-language-verification">Week 1: Programming Language Verification</h1>
+<p>First full week of the school consisted of four courses centred around programming language verification:</p>
+<ul>
+<li><p><em>Property-based random testing with QuickChick</em> by Benjamin Pierce. I assume many of you heard about Haskell library called QuickCh<strong>e</strong>ck. It offers property-based testing: programmer writes properties that the should hold for a given piece of code and QuickCheck tests whether they hold for randomly generated test data. QuickCh<strong>i</strong>ck is implementation of the same idea in Coq. Now, you might wonder what is the point of doing such a thing in Coq. After all, Coq is about formally proving that a given property is always true, not randomly testing whether it holds. I was sceptical about this as well, but it actually turns to be quite a good idea. The point is, specifications are difficult to write and often even more difficult to prove. They are especially difficult to prove when they are false ;-) And this is exactly when QuickChick can be beneficial: by trying to find a counter-example for which a stated property does not hold. This can indeed save programmer from spending hours on trying to prove something that is false. If QuickChick doesn’t find a counter-example we can start writing a formal proof. This course also gives a nice overview of type classes in Coq.</p></li>
+<li><p><em>The structure of verified compiler</em> by Xavier Leroy. This series of lectures was based on <a href="http://compcert.inria.fr/">CompCert</a>, which is a formally verified C compiler. The ideas behind formal verification of a compiler were presented on a compiler of Imp (a toy imperative language used in Software Foundations) to a simple virtual machine. Fourth, final lecture covered the CompCert project itself. To me this was the most interesting course of the summer school.</p></li>
+<li><p><em>Language specification and variable binding</em> by Stephanie Weirich. Software Foundations is a great book, but it completely omits one topic that is very important in formalizing programming languages: dealing with variable bindings. In this courses Stephanie presented “locally nameless” representation of variable bindings. This is something I had planned to learn for a very long time but couldn’t find the time.</p></li>
+<li><p><em>Vellvm: Verifying the LLVM</em> by Steve Zdancewic. For a change, in this course Imp was compiled to a simplified variant of LLVM, the compilation process being verified of course. Also, a nice introduction to LLVM.</p></li>
+</ul>
+<h1 id="week-2-systems-verification">Week 2: Systems Verification</h1>
+<p>Courses during the second week put more focus on verifying computer systems. Again, there were four courses:</p>
+<ul>
+<li><p><em>Certifying software with crashes</em> by Frans Kaashoek and Nickolai Zeldovich. The topic of this course was certification of a hard-drive operating routines, including bad-sector remapping and a simple virtual RAID 1 implementation. Although still using toy examples, specifications presented during this course were much more abstract giving a good idea how to scale to a real-world system verification. I found this course very difficult to follow, although the lectures were really superb. Note: materials for this one course are available <a href="https://github.com/mit-pdos/deepspec-pocs">in a separate GitHub repo</a>.</p></li>
+<li><p><em>CertiKOS: Certified kit operating systems</em> by Zhong Shao. Ok, I admit I was completely unable to follow this series of lectures. Way to difficult. In fact, I skipped two out of four lectures because I figured out it will make more sense to work on homework assignments for other lectures.</p></li>
+<li><p><em>Program-specific proof automation</em> by Adam Chlipala. Unsurprisingly to those who know Adam’s <em>“Certified Programming with Dependent Types”</em> book, his course focused on proof automation using Ltac. One lecture was specifically dedicated to proofs by reflection.</p></li>
+<li><p><em>Verified Functional Algorithms</em> by Andrew Appel. This course covered a majority of third volume of new Software Foundations.</p></li>
+</ul>
+<h1 id="summary">Summary</h1>
+<p>First and foremost let me say this: DeepSpec Summer School was the best research meeting I have ever attended. The courses were really good and inspiring, but the most important thing that made this summer school so great were fantastic people who attended it. Spending evening hours together working on homework assignments was especially enjoyable.</p>
+<p>There might be a 2018 edition of the summer school so be on the lookout - this is a really great event for anyone interested in Coq and formal verification.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

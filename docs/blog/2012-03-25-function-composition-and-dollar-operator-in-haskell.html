@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Function composition and $ operator in Haskell</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on March 25, 2012
+    </section>
+    <section>
+        <h1 id="function-composition-and-operator-in-haskell">Function composition and $ operator in Haskell</h1>
+<p>Today I was trying to understand how function application, composition and $ work in Haskell. Consider two following lines of code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">take</span> <span class="dv">3</span> (<span class="fu">reverse</span> (<span class="fu">filter</span> <span class="fu">even</span> [<span class="dv">1</span><span class="op">..</span><span class="dv">10</span>]))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">take</span> <span class="dv">3</span> <span class="op">.</span> <span class="fu">reverse</span> <span class="op">.</span> <span class="fu">filter</span> <span class="fu">even</span> <span class="op">$</span> [<span class="dv">1</span><span class="op">..</span><span class="dv">10</span>]</span></code></pre></div>
+<p>These are equivalent and both produce a list <code>[10, 8, 6]</code>. First version is based on grouping function calls with parentheses and this is pretty straightforward. My problem was the second version which is based on function composition and a special function application operator, denoted as <code>.</code> (dot) and <code>$</code> respectively. This form is often used to write functions in a <a href="http://www.haskell.org/haskellwiki/Pointfree">pointfree style</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. I was trying to work out in what order function calls are executed and why do I have to use $ operator. Here’s what I came up with.</p>
+<p>The function composition (dot) operator is defined as:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">(.) ::</span> (b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> c</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(f <span class="op">.</span> g) x <span class="ot">=</span> f (g x)</span></code></pre></div>
+<p>This operator has priority of 9 and is right-associative<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This means that <code>a . b . c . d</code> is the same as <code>(a . (b . (c . d)))</code>. The <code>$</code> operator is defined as:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">($) ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> b</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">$</span> x <span class="ot">=</span> f x</span></code></pre></div>
+<p>This operator simply applies a function to a given parameter. In contrast to standard function application, which has highest possible priority of 10 and is left-associative, the $ operator has priority of 0 and is right-associative (that second property doesn’t matter in my example). Such a low priority means that all other operators on both sides of <code>$</code> will be evaluated before applying the <code>$</code>. So the call</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">take</span> <span class="dv">3</span> <span class="op">.</span> <span class="fu">reverse</span> <span class="op">.</span> <span class="fu">filter</span> <span class="fu">even</span> <span class="op">$</span> [<span class="dv">1</span><span class="op">..</span><span class="dv">10</span>]</span></code></pre></div>
+<p>will first evaluate <code>take 3 . reverse . filter even</code> constructing a partially applied function that becomes fully applied when it receives one more parameter. The missing parameter is the list on the right side of <code>$</code>. By definition of dot operator, this call is therefore equivalent to <code>take 3 (reverse (filter even [1..10]))</code>. That’s what we expected.</p>
+<p>Why do we need the <code>$</code> operator? If it wasn’t there then the function call <code>filter even [1..10]</code> would evaluate first - remember that function application has priority of 10, while function composition has a lower priority of 9. This would lead to <code>take 3 . reverse . [2,4,6,8,10]</code>, but a list cannot be composed with a function. The dot operator expects it’s second argument to be a function of one argument, not a list, and that’s the reason we need <code>$</code> - to allow function composition to evaluate first.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>The name “pointfree” doesn’t come from the point operator used to compose functions.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>You can verify this by typing <code>:i (.)</code> in ghci. This will display the type definition, fixity (infixr in that case) and priority of the dot operator.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

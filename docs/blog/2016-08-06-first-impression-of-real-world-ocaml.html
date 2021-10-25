@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - First impression of "Real World OCaml"</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on August  6, 2016
+    </section>
+    <section>
+        <h1 id="first-impression-of-real-world-ocaml">First impression of “Real World OCaml”</h1>
+<p>Tomorrow I will be flying to Cambridge to attend <a href="http://www.cl.cam.ac.uk/events/metaprog2016/">International Summer School on Metaprogramming</a>. One of the prerequisites required from the participants is basic knowledge of OCaml, roughly the first nine chapters of “Real World OCaml” (RWO for short). I finished reading them several days ago and thought I will share my impressions about the book.</p>
+<p><a href="images/rwo1.png"><img src="images/rwo1-228x300.png" alt="rwo" /></a></p>
+<p>RWO was written by Yaron Minsky, <a href="http://anil.recoil.org/">Anil Madhavapeddy</a> and Jason Hickey. It is one of a handful of books on OCaml. Other titles out there are <a href="http://ocaml-book.com/">“OCaml from the Very Beginning”</a> and <a href="http://ocaml-book.com/more-ocaml-algorithms-methods-diversions/">“More OCaml: Algorithms, Methods and Diversions”</a> by John Whitington and “Practical OCaml” by Joshua Smith. I decided to go with RWO because when I asked “<em>what is the best book on OCaml</em>” on <code>#ocaml</code> IRC channel RWO was an unanimous response from several users. The title itself is obviously piggybacking on an earlier “Real World Haskell” released in the same series by O’Reilly, which was in general a good book (<a href="2013-01-06-real-world-haskell-impressions-after-initial-chapters">though it had its flaws</a>).</p>
+<p>The first nine chapters comprise about 40% of the book (190 pages out of 470 total) and cover the basics of OCaml: various data types (lists, records, variants), error handling, imperative programming (eg. mutable variables and data structures, I/O) and basics of the module system. Chapters 10 through 12 present advanced features of the module system and introduce object-oriented aspects of OCaml. Language ecosystem (ie. tools and libraries) is discussed in chapters 13 through 18. The remaining chapters 19 through 23 go into details of OCaml compiler like garbage collector or Foreign Function Interface.</p>
+<p>When I think back about reading “Real World Haskell” I recall that quite a lot of space was dedicated to explaining in detail various basic functional programming concepts. “Real World OCaml” is much more dense. It approaches teaching OCaml just as if it was another programming language, without making big deal of functional programming model. I am much more experienced now than when reading RWH four years ago and this is exactly what I wanted. I wonder however how will this approach work for people new to functional programming. It reminds my of my early days as a functional programmer. I began learning Scala having previously learned Scheme and Erlang (both unusual for functional languages in lacking a type system). Both Scala and OCaml are not pure functional languages: they allow free mixing of functional and imperative (side-effecting) code. They also support object-oriented programming. My plan in learning Scala was to learn functional programming and I quickly realized that I was failing. Scala simply offered too many back-doors that allowed escaping into the imperative world. So instead of forcing me to learn a new way of thinking it allowed me to do things the old way. OCaml seems to be exactly the same in this regard and RWO offers beginners little guidance to thinking functionally. Instead, it gives them a full arsenal of imperative features early on in the book. I am not entirely convinced that this approach will work well for people new to FP.</p>
+<p>“Real World OCaml” was published less than three years ago so it is a fairly recent book. Quite surprisingly then several sections have already gone out of date. The code does not work with the latest version of OCaml compiler and requires non-obvious changes to work. (You can of course solve the problem by working with the old version of OCaml compiler.) I was told on IRC that the authors are already working on the second edition of the book to bring it to date with today’s OCaml implementation.</p>
+<p>Given all the above my verdict on “Real World OCaml” is that it is a really good book about OCaml itself (despite being slightly outdated) but not necessarily the best book on basics of functional programming.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

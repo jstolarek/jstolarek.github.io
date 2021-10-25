@@ -1,0 +1,154 @@
+---
+title: First impressions of Coq and "Certified Programming with Dependent Types"
+date: 2015-03-24
+---
+
+First impressions of Coq and "Certified Programming with Dependent Types"
+=========================================================================
+
+A simplistic view of strongly typed functional programming ecosystem is that the
+two most influential languages are Haskell and ML. Haskell is my language of
+choice so when it came to learning dependently-typed programming I stayed on the
+Haskell side of the spectrum and went with Agda and Idris. I chose the two over
+the ML-inspired Coq, most often advertised as a proof assistant rather that a
+programming language, planning to learn it "when I find some free time". I
+wouldn't probably find that time if it wasn't for a friend of mine who recently
+picked up a book ["Certified Programming with Dependent
+Types"](http://adam.chlipala.net/cpdt/) by [Adam
+Chlipala](http://adam.chlipala.net/) of MIT. Having a companion to discuss the
+ideas in the book was a perfect opportunity to pick it up - the truth is I found
+out about the book well over a year ago and since then it stayed on my always
+too long must-read-this-some-day list. So far I have read around 1/3rd of the
+book and would like to share some of my first impressions, both about the book,
+which I will refer to as CPDT, and Coq.
+
+(Note: In what follows I will compare Coq to Agda and Idris but you have to be
+aware that despite similarity in features of these languages they don't aim to
+be the same. Coq is a proof assistant with an extra feature of code extraction
+that allows you to turn your proofs into code - if you ever heard about
+["programs as proofs"](2013-12-17-data-is-evidence/) this is it. Idris is a
+programming language with extra features that allow you to prove your code
+correct. I'm not really sure how to classify Agda. It is definitely on the
+programming-language-end of the spectrum - it allows you to prove your code
+correct but does not provide any extra built-in proof support. At the same time
+turning Agda code into working programs is non-trivial.)
+
+Let me start off by saying that I don't have any real-life Coq project on the
+horizon, so my learning is not motivated by need to solve any practical
+problem. My main driving force for learning Coq is purely interest in
+programming languages and seeing how Coq compares to Agda and Idris. A common
+thing with dependently-typed languages is that the types can get too complicated
+for the programmer to comprehend and thus a language requires an interactive
+mode to provide programmer with compiler feedback about the types. This is true
+for Agda, Idris and Coq. Agda offers a great support for holes: programmer can
+insert question marks into the program code and once it is re-compiled in the
+editor (read: Emacs) question marks become holes ie. places where Agda compiler
+provides user with feedback about expected types, bindings available in the hole
+context as well as some nice inference features allowing to automatically fill
+in contents of holes. So in Agda one proves by constructing terms of appropriate
+types. Coq is different, as it relies on a mechanism called "tactics". Once the
+user writes down a type (theorem) he is presented with a set of goals to
+prove. Applying a tactic transforms the current goal into a different goal (or
+several goals). Conducting consecutive steps of the proof (ie. applying several
+tactics) should lead to some trivial goal that follows from definition and ends
+the proof. To work with Coq I decided to use [Proof
+General](http://proofgeneral.inf.ed.ac.uk/), an Emacs extension for working with
+proofs (many other proof assistants are supported besides Coq)[^1].  It launches
+Coq process in the background and essentially integrates writing code with
+proving. With Proof General I can easily step through my proofs to see how the
+goals are transformed by usage of tactics. Idris falls somewhere between Agda
+and Coq. As stated earlier it is mostly a programming language but it also
+provides tactic-based proving. So for example when I write a definition that
+requires explicit proof to typecheck, idris-mode launches interactive REPL in
+which I can conduct a proof in a fashion similar to Proof General and once I'm
+finished the proof is inserted into the source code. the result looks something
+like this:
+
+```
+par : (n : Nat) -> Parity n
+par Z = even {n=Z}
+par (S Z) = odd {n=Z}
+par (S (S k)) with (par k)
+  par (S (S (j + j)))     | even ?= even {n = S j}
+  par (S (S (S (j + j)))) | odd  ?= odd {n = S j}
+
+---------- Proofs ----------
+
+Basics.par_lemma_2 = proof
+  intros
+  rewrite sym (plusSuccRightSucc j j)
+  trivial
+
+Basics.par_lemma_1 = proof
+  intros
+  rewrite sym (plusSuccRightSucc j j)
+  trivial
+```
+
+The last time I checked Idris once the proof was completed and added to the
+source code it was not possible to step through it back and forth to see how
+goals are transformed. (Things might have changed [since I last
+checked](2013-12-02-idris-first-impressions/).)
+
+So far I've been doing rather basic stuff with Coq so I haven't seen much that
+wouldn't be also possible in Agda or Idris. The biggest difference is that Coq
+feels a much more grown up language than any of the mentioned two. One totally
+new thing I learned so far is co-induction, but I'm only starting with it and
+won't go into details, rather leaving it for a separate post. ([Agda also
+supports
+co-induction.](http://wiki.portal.chalmers.se/agda/pmwiki.php?n=ReferenceManual.Codatatypes))
+
+As for the CPDT book I have to say it is a challenging read: it's very dense and
+focuses on more advanced Coq techniques without going into details of basics. As
+such it is a great demonstration of what can be done in Coq but not a good
+explanation of how it can be done. Depending on what you are expecting this book
+might or might not be what you want. As stated earlier I don't plan on applying
+Coq in any project but rather want to see a demo of Coq features and possibly
+pick up some interesting theoretical concepts. As such CPDT works quite well for
+me although I am not entirely happy with not being able to fully understand some
+of the demonstrated techniques. As such CPDT is definitely not a self-contained
+read, which I believe was a conscious decision on the author's side. Discussing
+with people on #coq IRC channel and reading various posts on the internet leads
+me to a conclusion that CPDT is a great book for people that have been using Coq
+for some time and want to take their skills to a new level. The main theme of
+the book is proof automation, that is replacing tactic-based sequential proofs
+with automated decision procedures adjusted to the problem at hand that can
+construct proofs automatically. Indeed tactic-based proofs are difficult to
+understand and maintain. Consider this proof of a simple property that `n + 0 =
+n`:
+
+```coq
+Theorem n_plus_O : forall (n : nat), plus n O = n.
+  intros.
+  induction n.
+  reflexivity.
+  simpl.
+  rewrite IHn.
+  reflexivity.
+Qed.
+```
+
+To understand that proof one has to step through it to see how goals are
+transformed or have enough knowledge of Coq to know that without the need of
+stepping through. Throughout the book Adam Chlipala demonstrates the power of
+proof automation by using his tactic called _crush_, which feels like a magic
+wand since it usually ends the proof immediately (sometimes it requires some
+minimal guidance before it ends the proof immediately). I admit this is a bit
+frustrating as I don't feel I learn anything by seeing _crush_ applied to
+magically finish a proof. Like I said, a good demo of what can be done but
+without an explanation. The worst thing is that _crush_ does not seem to be
+explained anywhere in the book so readers wanting to understand it are left on
+their own ([well, almost on their
+own](http://jozefg.bitbucket.org/posts/2014-07-09-dissecting-crush.html)).
+
+What about those of you who want to learn Coq starting from the basics? It seems
+like [Software Foundations](http://www.cis.upenn.edu/~bcpierce/sf) is the
+introductory book about Coq and, given that the main author is Benjamin Pierce,
+it looks like you can't go wrong with this book. I am not yet sure whether I'll
+dive into SF but most likely not as this would mean giving up on CPDT and for me
+it's more important to get a general coverage of more advanced topics rather
+than in-depth treatment of basics.
+
+[^1]: Other choices of interactive mode are available for Coq, for example
+  CoqIDE shipped by default with Coq installation
+

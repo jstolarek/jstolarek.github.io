@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Architecture of Glasgow Haskell Compiler</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on May 22, 2012
+    </section>
+    <section>
+        <h1 id="architecture-of-glasgow-haskell-compiler">Architecture of Glasgow Haskell Compiler</h1>
+<p>In one of the previous posts I mentioned that the second volume of <a href="http://www.aosabook.org/">The Architecture of Open Source Applications</a> contains <a href="http://www.aosabook.org/en/ghc.html">chapter about Glasgow Haskell Compiler</a> by Simon Marlow and Simon Peyton Jones (( There’s also <a href="http://community.haskell.org/~simonmar/papers/aos.pdf">PDF draft version</a> of this paper. I didn’t notice any differences between the draft and the final version )). I read this chapter yesterday and I must say it was insightful and interesting. It gives a general view of GHC architecture and it does so very effectively. Things are explained starting from high-level structure and then going into details about some selected parts of the compiler. There’s a nice overview of the compilation pipeline. This pipeline contains many steps that you won’t find in most books about compilers. Since I’m taking the Compilers course at Stanford it is nice to see how theory differs form practice :) What I consider as the most interesting in this paper is the discussion of the design choices made by the GHC creators and how these choices affect what GHC and Haskell are today. Authors also share some of their development practices, which I find very valuable, mainly because GHC is a project developed mostly by 2-3 people for over 20 years and it managed to be successful and extendible. This means that authors got some real experience about what works in real project and what doesn’t - I’m willing to follow their advices.</p>
+<p>The paper is 29 pages long. It reads fairly quickly. It took me about 3,5 hours to get through, mostly because I was googling around trying to find out more about things that were new to me or things I didn’t understand. This means that while reading the paper I was also trying to figure out more about <a href="http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/CoreSynType">Core</a> and find out what the hell is <a href="http://research.microsoft.com/pubs/67083/spineless-tagless-gmachine.ps.gz">STG</a> and <a href="http://www.cminusminus.org/">Cmm</a>. I’d like to get deeper into the architecture of GHC and I think this general overview is a nice introduction. In fact all the information in the paper - and much much more - can be found in the Commentary section of <a href="http://hackage.haskell.org/trac/ghc/wiki/Commentary">GHC wiki</a>.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

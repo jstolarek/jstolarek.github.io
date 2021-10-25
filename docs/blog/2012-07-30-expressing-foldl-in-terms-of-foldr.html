@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Expressing foldl in terms of foldr</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on July 30, 2012
+    </section>
+    <section>
+        <h1 id="expressing-foldl-in-terms-of-foldr">Expressing foldl in terms of foldr</h1>
+<p>In <a href="http://book.realworldhaskell.org/read/functional-programming.html">chapter 4 of Real World Haskell</a> there is a challenge for the reader: express <a href="http://hackage.haskell.org/packages/archive/base/latest/doc/html/Prelude.html#v:foldl"><code>foldl</code></a> using <a href="http://hackage.haskell.org/packages/archive/base/latest/doc/html/Prelude.html#v:foldr"><code>foldr</code></a>. Authors warn that this is not trivial and I must admit that I have not attempted this exercise leaving it for later. Yesterday I read Graham Hutton’s <a href="http://www.cs.nott.ac.uk/~gmh/fold.pdf">“Tutorial on the universality and expressiveness of fold”</a> and it happens that, among other things, it presents an approach that can be applied to solve this problem. Hutton first presents a specific case in which <code>sum</code> function is defined using <code>foldl</code> expressed with <code>foldr</code>. Then he gives a general formula for expressing <code>foldl</code> with <code>foldr</code>. Despite having a derivation for one specific case and a ready result (without its derivation) it wasn’t straightforward to provide my own derivation of the general solution. This was a mind bending exercise and I’d like to go through the details here.</p>
+<p>The solution is based on using the so called <em>universal property</em> of <code>foldr</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This property states that if we have some function <code>g</code> defined as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>g [] <span class="ot">=</span> v</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>g (x<span class="op">:</span>xs) <span class="ot">=</span> f x (g xs)</span></code></pre></div>
+<p>then</p>
+<pre><code>g = foldr f v</code></pre>
+<p>Indeed, if we substitute <code>foldr f v</code> into definition of <code>g</code> we get a definition of <code>foldr</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">foldr</span> f v [] <span class="ot">=</span> v</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">foldr</span> f v (x<span class="op">:</span>xs) <span class="ot">=</span> f x (<span class="fu">foldr</span> f v xs)</span></code></pre></div>
+<p>Moreover, <code>foldr f v</code> is a unique solution to the defining equations of <code>g</code>.</p>
+<p>Recall that <code>foldl</code> is defined as:</p>
+<pre><code>foldl f v [] = v
+foldl f v (x:xs) = foldl f (f v x) xs</code></pre>
+<p>The base case of <code>foldr</code> and <code>foldl</code> is identical, but the recursive one is not. Moreover, the recursive case of <code>foldl</code> cannot be rewritten in the form <code>f x (g xs)</code>. This means that we need to apply some transformation to definition of <code>foldl</code> so it can be rewritten in that form. Let’s create a function <code>foldl2</code> defined as:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>foldl2 f [] v <span class="ot">=</span> v</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) v <span class="ot">=</span> foldl2 f xs (f v x)</span></code></pre></div>
+<p>Nothing special so far. We just made a function that is the same as <code>foldl</code>, but has the last two parameters swapped. We can rewrite the base case as:</p>
+<pre><code>foldl2 f [] v = id v</code></pre>
+<p><code>id</code> is the identity function that accepts one parameter and returns that parameter unchanged. Now we remove the <code>v</code> parameter:</p>
+<pre><code>foldl2 f [] = id</code></pre>
+<p>Such transformation is known as η-reduction<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Let us now concentrate on the recursive case. It can be rewritten as</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) v <span class="ot">=</span> (\w <span class="ot">-&gt;</span> foldl2 f xs (f w x)) v</span></code></pre></div>
+<p>We created an anonymous function with one of the parameters of <code>f</code> factored out. This expression can also be ?-reduced:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) <span class="ot">=</span> \w <span class="ot">-&gt;</span> foldl2 f xs (f w x)</span></code></pre></div>
+<p>Let’s factor out second parameter of function <code>f</code> in the same manner:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) <span class="ot">=</span> (\y w <span class="ot">-&gt;</span> foldl2 f xs (f w y)) x</span></code></pre></div>
+<p>And finally let’s factor out <code>foldl2 f xs</code> and just pass it as another parameter to the lambda expression:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) <span class="ot">=</span> (\y h w <span class="ot">-&gt;</span> h (f w y)) x (foldl2 f xs)</span></code></pre></div>
+<p>We’re almost there. Recall that the universal property requires function of the form<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<p>g (x:xs) = k x (g xs)</p>
+<p>And it so happens that we just converted <code>foldl2</code> to that form, where <code>k = \y h w -&gt; h (f w y)</code>. Comparing last two equation we see that <code>g = foldl2 f</code>, but from the universal property we also know that <code>g = foldr k v</code>, which means that <code>foldl2 f = foldr k v</code>. The notation here might be a bit confusing. From the base case we determined the value of <code>v</code> in the last equality to be equal to <code>id</code> function, which yields <code>foldl2 f = foldr k id</code>. Substituting the value of <code>k</code> we get:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>foldl2 f <span class="ot">=</span> <span class="fu">foldr</span> (\y h w <span class="ot">-&gt;</span> h (f w y)) <span class="fu">id</span></span></code></pre></div>
+<p>Original definition of <code>foldl2</code> had two more parameters, but they were removed by ?-reductions. Let’s restore these two parameters by adding them to both lhs and rhs:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>foldl2 f xs v <span class="ot">=</span> <span class="fu">foldr</span> (\y h w <span class="ot">-&gt;</span> h (f w y)) <span class="fu">id</span> xs v</span></code></pre></div>
+<p>Recall that <code>foldl2</code> was only a convenience function we used for the derivation. Going back to the original <code>foldl</code> function yields the final result:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">foldl</span> f v xs <span class="ot">=</span> <span class="fu">foldr</span> (\y h w <span class="ot">-&gt;</span> h (f w y)) <span class="fu">id</span> xs v</span></code></pre></div>
+<p>OK, formulas don’t lie, but this result is definitely not an intuitive one and deserves some good explanation. You may be surprised that four parameters are passed into <code>foldr</code>, but this should become clear in a moment. We will play with it to get some intuition on how this works.</p>
+<p>Let us begin with verifying that this expression is type-correct. Type of <code>foldr</code> is:</p>
+<pre><code>ghci&gt; :t foldr
+foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</code></pre>
+<p>So the first parameter to <code>foldr</code> should be of type <code>(a -&gt; b -&gt; b)</code>. Lambda that we pass to <code>foldr</code> as the first parameter uses <code>f</code>. This is the function that is passed as first parameter to <code>foldl</code>. Since <code>foldl</code> has type:</p>
+<pre><code>ghci&gt; :t foldl
+foldl :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a</code></pre>
+<p>We require that <code>f</code> has type <code>a -&gt; b -&gt; a</code>. Let’s define simplest possible function that has that type and then check the type of lambda passed to <code>foldr</code>:</p>
+<pre><code>ghci&gt; let f = \a b -&gt; a
+ghci&gt; :t (\y h w -&gt; h (f w y))
+(\y h w -&gt; h (f w y)) :: t2 -&gt; (t1 -&gt; t) -&gt; t1 -&gt; t</code></pre>
+<p>Recall that <code>-&gt;</code> is right-associative, which means that above type is equivalent to <code>t2 -&gt; (t1 -&gt; t) -&gt; (t1 -&gt; t)</code>. Parentheses at the end can be added and the meaning is the same. This corresponds to our expected type of <code>(a -&gt; b -&gt; b)</code>. Here, the value of <code>b</code> is assumed to be <code>t1 -&gt; t</code>. If we substitute (<code>t1 -&gt; t</code>) for <code>b</code> in the type signature of <code>foldr</code> we get</p>
+<pre><code>(a -&gt; (t1 -&gt; t) -&gt; (t1 -&gt; t)) -&gt; (t1 -&gt; t) -&gt; [a] -&gt; (t1 -&gt; t)</code></pre>
+<p>Note that last parentheses can be dropped, which result in function that has four parameters:</p>
+<pre><code>(a -&gt; (t1 -&gt; t) -&gt; (t1 -&gt; t)) -&gt; (t1 -&gt; t) -&gt; [a] -&gt; t1 -&gt; t</code></pre>
+<p>We already verified that lambda passed to <code>foldr</code> is of type <code>(a -&gt; (t1 -&gt; t) -&gt; (t1 -&gt; t))</code>. The second parameter, <code>id</code> function, is of type <code>(a -&gt; a)</code>, which corresponds to <code>(t1 -&gt; t)</code> in the type signature. Therefore usage of <code>id</code> imposes additional restriction that <code>t1</code> ~ <code>t</code> ((~ notation means that two types are the same.)), which means that type signature can be rewritten as:</p>
+<pre><code>(a -&gt; (t -&gt; t) -&gt; (t -&gt; t)) -&gt; (t -&gt; t) -&gt; [a] -&gt; t -&gt; t</code></pre>
+<p><code>[a]</code> corresponds to parameter <code>xs</code>, the list that we are folding. <code>t</code> corresponds to initial value of accumulator and the last <code>t</code> is the return type.</p>
+<p>Now that we have verified type-correctness of the solution, let’s see how it works in practice. Let’s say we want to fold a list of three elements using <code>(+)</code> as folding function and <code>0</code> as initial value of the accumulator. In other words, we want to calculate the sum of elements in a list. If we use <code>foldr</code>, the evaluation process will look like this:</p>
+<pre><code>foldr (+) 0 [1,2,3] =
+(+) 1 (foldr (+) 0 [2,3]) =
+(+) 1 ((+) 2 (foldr (+) 0 [3])) =
+(+) 1 ((+) 2 ((+) 3 (foldr (+) 0 []))) =
+(+) 1 ((+) 2 ((+) 3 0 )) =
+(+) 1 ((+) 2 3) =
+(+) 1 5 =
+6</code></pre>
+<p>If we instead use <code>foldl</code>, evaluation will look like this:</p>
+<pre><code>foldl (+) 0 [1,2,3] =
+foldl ((+) 0 1) [2,3] =
+foldl ((+) ((+) 0 1) 2) [3] =
+foldl ((+) ((+) ((+) 0 1) 2) 3) [] =
+((+) ((+) ((+) 0 1) 2) 3) =
+((+) ((+) 1 2) 3) =
+((+) 3 3) =
+6</code></pre>
+<p>Both folds produce the same result, which is a direct consequence of first duality theorem for folds<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Now let’s see how evaluation will proceed if we use <code>foldl</code> expressed using <code>foldr</code>:</p>
+<pre><code>foldl (+) 0 [1,2,3] =
+foldr (\y h w -&gt; h ((+) w y)) id [1,2,3] 0 =
+(\h w -&gt; h ((+) w 1)) (foldr (\y h w -&gt; h ((+) w y)) id [2,3]) 0 =
+(\h w -&gt; h ((+) w 1)) (\h w -&gt; h ((+) w 2)) (foldr (\y h w -&gt; h ((+) w y)) id [3]) 0 =
+(\h w -&gt; h ((+) w 1)) (\h w -&gt; h ((+) w 2)) (\h w -&gt; h ( (+) w 3) ) (foldr (\y h w -&gt; h ( (+) w y) ) id []) 0 =
+(\h w -&gt; h ((+) w 1)) (\h w -&gt; h ((+) w 2)) (\h w -&gt; h ((+) w 3)) id 0 =
+(\h w -&gt; h ((+) w 1)) (\h w -&gt; h ((+) w 2)) (w -&gt; id ((+) w 3)) 0 =
+(\h w -&gt; h ((+) w 1)) (w -&gt; id ((+) ((+) w 2) 3)) 0 =
+(w -&gt; id ((+) ((+) ((+) w 1) 2) 3)) 0 =
+id ((+) ((+) ((+) 0 1) 2) 3))</code></pre>
+<p>We’ve reached expression that is the same as the one we reached when evaluating <code>foldl</code>. Well, in fact that is what we expected. After all this is also <code>foldl</code>! So the whole trick is based on using <code>foldr</code> to generate a function that accepts initial value of the accumulator and produces the same expression we would get when using <code>foldl</code> (plus the identity function).</p>
+<p>I hope that this post made it clear how to express <code>foldl</code> using <code>foldr</code>. This is of course by no means an exhaustive treatment of the subject of folds. There’s a lot more. I think that Hutton’s paper is a good starting point. Bird’s and Wadler’s “Introduction to Functional Programming” also seems to be a very valuable resource, though I’ve read only chapter about folds<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. There’s still some more stuff to figure out about folds, like the difference in behaviour of <code>foldr</code> and <code>foldl</code> for infinite lists or expressing <code>foldr</code> using <code>foldl</code> (for finite lists only).</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Graham Hutton in his paper uses the name <em>fold</em> to denote <code>foldr</code>. I’m sticking with <code>foldr</code> so my derivation remains consistent with Haskell.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>η is pronounced <em>eta</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Notice that I renamed the name of the first function from <code>f</code> to <code>k</code> to prevent the name clash.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>See: Bird, R., Wadler, P. “Introduction to functional programming”, 1st ed., p. 68<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>There’s also a second edition of this book authored only by Bird, but I wasn’t able to find it.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

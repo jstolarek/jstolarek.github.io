@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Haskell file reading pitfall</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on April 14, 2012
+    </section>
+    <section>
+        <h1 id="haskell-file-reading-pitfall">Haskell file reading pitfall</h1>
+<p>I decided that I should start a small project in Haskell in order to practice the language. I hope that I’ll be able to make the first public release somewhere in a reasonable future and boast about it on the blog, but meanwhile here’s a report from the trenches. Two days ago, while I was developing the code, I fell into a Haskell newbie pitfall. I spent nearly three hours trying to find a solution to a relatively simple problem. Now that I’ve found it it’s time to share it.</p>
+<h1 id="the-problem">The problem</h1>
+<p>My application reads the contents of a text file, processes it and writes the processed contents to the same file it was initially read from. I created two simple functions to act as a back-end for my simple text file database:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">loadTextFileDataBase ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> [<span class="dt">Task</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>loadTextFileDataBase databaseFile <span class="ot">=</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    withFile databaseFile <span class="dt">ReadMode</span> (\handle <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        contents <span class="ot">&lt;-</span> hGetContents handle</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span> (<span class="fu">read</span> contents))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ot">storeTextFileDataBase ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">Task</span>] <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>storeTextFileDataBase databaseFile tasks <span class="ot">=</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">writeFile</span> databaseFile (<span class="fu">show</span> tasks)</span></code></pre></div>
+<p>That’s pretty simple I/O in Haskell based on <a href="http://learnyouahaskell.com/input-and-output#files-and-streams">LYAH</a>. The <code>withFile</code> function opens the file in ReadMode, passes the handle to that file to a lambda and closes the file after the lambda ends. Inside my lambda the file is read lazily as a <code>String</code>, which means that the file is read only when the data from it is requested. The <code>String</code> is parsed to become a <code>[Task]</code> type (<code>read</code> function) and the result of parsing is wrapped into an IO action using the <code>return</code> function. Writing to a file is a simple one-liner that hopefully requires no detailed explanation. Reading and writing of my own data type <code>Task</code> is possible because it derives <code>Read</code> and <code>Show</code> typeclasses. It’s a very nice way of data serialization in Haskell. I’m not sure if it’s very efficient, though it’s easy to use. I compiled the code and tried to run it only to get:</p>
+<pre><code>Prelude.read: no parse</code></pre>
+<p>Houston, we have a problem! I had a feeling that this has something to do with the lazy reading of the file…</p>
+<h1 id="a-solution">A solution</h1>
+<p>I started debugging right away. <a href="http://www.haskell.org/ghc/docs/latest/html/users_guide/ghci-debugger.html">GHCi has a debugger</a>, but I didn’t bother to learn it yet, so my task was a bit more complicated than it could’ve been. Debugging in Haskell using trial-and-error method isn’t that easy. For example, you cannot display text on the console just like that - you have to bother with I/O actions, type signatures and so on, but it can be done.</p>
+<p>Anyway, I started to break my program into the simplest possible components to make sure that they work. I commented out the part of the program responsible for writing to a file, so now my program was supposed only to read data from a file, parse and display it. The error persisted. I replaced the <code>return</code> function with <code>putStrLn</code> to display my list of Tasks on the console so I could be sure that the data is read from the file. Then I used GHCi to make sure that this string can be parsed correctly. In GHCi everything worked.</p>
+<p>I was getting more and more desperate. I’ve already spent over two hours on that. I was looking at the documentation of <a href="http://hackage.haskell.org/packages/archive/base/latest/doc/html/System-IO.html">System.IO</a> module where I accidentally saw <a href="http://hackage.haskell.org/packages/archive/base/latest/doc/html/System-IO.html#v:readIO">readIO</a> function. Description of that functions says: <em>“The readIO function is similar to read except that it signals parse failure to the IO monad instead of terminating the program.”</em> I wasn’t exactly sure what it means, but the type signature of this function was <code>Read a =&gt; String -&gt; IO a</code> and, based on that signature, I saw that I can replace <code>return (read contents)</code> with <code>readIO contents</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">loadTextFileDataBase ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> [<span class="dt">Task</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>loadTextFileDataBase databaseFile <span class="ot">=</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    withFile databaseFile <span class="dt">ReadMode</span> (\handle <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        contents <span class="ot">&lt;-</span> hGetContents handle</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">readIO</span> contents)</span></code></pre></div>
+<p>The types were OK, so this expression should have some reasonable output. And it worked! The <code>no parse</code> error was gone.</p>
+<h1 id="an-explanation">An explanation</h1>
+<p>Now it’s time for the most important part: understanding what actually happened and why the solution works. As always, the great community at #haskell IRC channel provided invaluable support. It turns out that mu suspicion about lazy reading of the file was entirely correct. The file was opened, no reading was done since <code>hGetContents</code> is lazy, and it was closed. At the time when contents was requested, the file was already closed. This caused the error. The definition of <code>readIO</code> looks like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">readIO</span><span class="ot"> ::</span> <span class="dt">Read</span> a <span class="ot">=&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> a</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">readIO</span> s <span class="ot">=</span>  <span class="kw">case</span> (<span class="kw">do</span> { (x,t) <span class="ot">&lt;-</span> <span class="fu">reads</span> s;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                  (<span class="st">&quot;&quot;</span>,<span class="st">&quot;&quot;</span>) <span class="ot">&lt;-</span> <span class="fu">lex</span> t;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">return</span> x } ) <span class="kw">of</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                   [x] <span class="ot">-&gt;</span> <span class="fu">return</span> x</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                   []  <span class="ot">-&gt;</span> <span class="fu">ioError</span> (<span class="fu">userError</span> <span class="st">&quot;Prelude.readIO: no parse&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                   _   <span class="ot">-&gt;</span> <span class="fu">ioError</span> (<span class="fu">userError</span> <span class="st">&quot;Prelude.readIO: ambiguous parse&quot;</span>)</span></code></pre></div>
+<p>This basically forces the evaluation of condition in case-of expression, which effectively leads to reading the file contents<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. During the discussion I was also suggested to read and parse the file using this function:</p>
+<pre><code>loadTextFileDataBase = fmap read . readFile</code></pre>
+<p>This uses <a href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses#the-functor-typeclass">the Functor typeclass</a> and I don’t fully understand yet why this works the way it works. Besides, I wouldn’t be able to use this function in my program because I read from and write to the same file. This means that I need more explicit control of <code>fileOpen</code> and <code>hClose</code>.</p>
+<h1 id="conclusions">Conclusions</h1>
+<p>There are a few lessons learned. First of all, be very careful with <code>hGetContents</code>. I think that it would be wise to avoid it completely if possible. Second, Haskell type’s system is very powerful. Recall that I found the solution thanks to the type signature that fit in my code. Third, learn the debugger. Fourth, learn the more advanced features of Haskell, like functors, monads and so on. They allow to make the program a whole lot shorter. Five, learn the API. I was lucky to stumble upon the <code>readIO</code> function, but I could as well spend two more hours on debugging.</p>
+<p>That was tiring. I think we all deserved <a href="http://www.youtube.com/watch?v=Y23bB13lnNU">a good song</a>.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><strong>Added 19/04/2012:</strong> I think this sentence needs more explanation. Case-of expression is lazy. The reason why it gets evaluated is the fact that we are matching the condition against three different patterns: <code>[x]</code>,<code>[]</code> and wildcard <code>_</code>. The program needs to know which pattern should be matched and therefore evaluates the value of the condition, thus forcing the reading of the file.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

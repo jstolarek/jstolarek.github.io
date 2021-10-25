@@ -1,0 +1,63 @@
+---
+title: How to shoot yourself in the foot with Haskell
+date: 2012-11-06
+---
+
+How to shoot yourself in the foot with Haskell
+==============================================
+
+Haskell is "advertised" as a safe language that does all type checking upfront,
+making sure that you don't experience runtime type errors, null pointers and all
+that kind of stuff. It also gives you ways to bypass some of the safety
+mechanisms, so a conscious programmer can use unsafe functions to get a boost in
+performance (e.g. by not performing bounds checking when indexing a vector).
+
+I've written some very ugly Haskell code that creates a vector using destructive
+updates. It is in fact an imperative algorithm, not a functional one. When the
+initialization is over the vector is frozen using
+[`unsafeFreeze`](http://hackage.haskell.org/packages/archive/vector/latest/doc/html/Data-Vector-Unboxed.html#v:unsafeFreeze).
+I wrote my code using [`read`](http://hackage.haskell.org/packages/archive/vector/latest/doc/html/Data-Vector-Storable-Mutable.html#v:read)
+and [`write`](http://hackage.haskell.org/packages/archive/vector/latest/doc/html/Data-Vector-Storable-Mutable.html#v:write)
+functions, tested it using QuickCheck and when the tests passed I switched to
+[`unsafeRead`](http://hackage.haskell.org/packages/archive/vector/latest/doc/html/Data-Vector-Storable-Mutable.html#v:unsafeRead)
+and [`unsafeWrite`](http://hackage.haskell.org/packages/archive/vector/latest/doc/html/Data-Vector-Storable-Mutable.html#v:unsafeWrite)
+to make my program faster. Some time later I started getting random segfaults
+when running my tests. This never happened before in any of my Haskell programs
+so I almost panicked. At first I didn't had a slightest idea how to even
+approach this problem. I suspected that this might even be a bug in GHC. Then I
+started disabling groups of tests trying to track down the bug and finally
+managed to locate a single test that was causing the problem. Guess what - it
+was the test of my vector initialization with unsafe functions. What happened is
+that after switching to `unsafeRead`/`unsafeWrite` I refactored the function and
+its test. I made a mistake in the testing code and passed incorrect data that
+resulted with an attempt to write an element at address -1. Finding this bug
+took me a little over an hour. A factor that made debugging harder was that
+disabling tests that seemed to cause the segfault resulted in problems appearing
+in a completely different part of the program - or so I thought by looking at
+the output of my program. Looks like I completely forgot about lazy evaluation
+and unspecified evaluation order!
+
+Second bug I encountered was even trickier. I wrote functions that perform
+cyclic shifts of a signal by any value. For example shifting `[1,2,3,4]` left by
+1 yields `[2,3,4,1]`. Note that shifting by 5, 9, 13 and so on gives exactly the
+same result - the shift function is periodic. You might recall that I used shift
+functions to demonstrate [code testing](2012-10-05-code-testing-in-haskell/).
+This time however I written shifts using
+[Repa](www.haskell.org/haskellwiki/Numeric_Haskell:_A_Repa_Tutorial)
+library. Then I created QuickCheck property stating that shifting any signal
+left and then right by same value yields the original signal. This is pretty
+obvious property and the tests passed without any problems. Later, when writing
+some other tests I ended up with one of the tests failing. Using ghci I checked
+that this error should not be happening at all, but after careful debugging it
+turned out that during actual tests some of the values in the results become
+zeros. After two hours of debugging I realized that the actual bug is in the
+shifting functions - they worked only for the basic period, that is shift values
+from 0 to signal length. Why QuickCheck didn't manage to falsify my property of
+left/right shift compositions? Repa is a smart (and tricky) library that
+attempts to fuse many operations on an array into one. And it fused application
+of left shift followed by right shift into identity transform! Well, this is
+great. After all this is the kind of optimization we would like to have in our
+programs. But it turns out that it can also impact tests! After realizing what
+is going on it was actually a matter of 5 minutes to fix the bug, but finding it
+was not a trivial task.
+

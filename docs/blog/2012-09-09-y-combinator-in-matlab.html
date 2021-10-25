@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Y-combinator in Matlab</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on September  9, 2012
+    </section>
+    <section>
+        <h1 id="y-combinator-in-matlab">Y-combinator in Matlab</h1>
+<p>For over 3 years my main programming language was Matlab. Matlab was designed for scientific computations - it has a lot of build in functions for numerical computation as well as some syntactic sugar which allows to manipulate arrays easily. Matlab is imperative, supports object oriented programming (though the implementation is very bad) and uses dynamic typing, so all type checking is done at runtime. One of Matlab’s features is the ability to store function handles in variables. Does this ring a bell?</p>
+<p>Yes! Functions as first-class citizens. This should allow to do some functional programming, right? I decided to give it a try and write Y-combinator in Matlab.</p>
+<h1 id="a-few-words-about-y-combinator">A few words about Y-combinator</h1>
+<p>Let me first write a few words about Y-combinator in case you’re not familiar with it. Look at this recursive definition of Fibonacci function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">val</span> <span class="op">=</span> <span class="va">fib</span>( <span class="va">n</span> )</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> ( <span class="va">n</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">||</span> <span class="va">n</span> <span class="op">==</span> <span class="fl">1</span> )</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">val</span> <span class="op">=</span> <span class="fl">1</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">val</span> <span class="op">=</span> <span class="va">fib</span>( <span class="va">n</span> <span class="op">-</span> <span class="fl">1</span> ) <span class="op">+</span> <span class="va">fib</span>( <span class="va">n</span> <span class="op">-</span> <span class="fl">2</span> )<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>This recursive function - and probably all other recursive functions that you’ve seen - works because we are able to give name to a function, which allows the definition to refer to itself. What would happen however if we were unable to give name to a function? This might seem a bit abstract, but think about anonymous lambdas. As the name suggests they are anonymous. They have no name and therefore cannot refer to themselves. But there is a way to make anonymous recursive functions by using the Y-combinator. I will not go into details of how and why the Y-combinator works the way it does, but I strongly encourage readers to explore this subject. The best way to learn about Y-combinator is to walk through its derivation. This is a truly mind-bending exercise. I needed about 5 days to understand how Y-combinator works but when I finally did it was one of these “ooooohh” moments.</p>
+<p>You will find a derivation of Y-combinator in the 9th chapter of “The Little Schemer”. The book might be a bit hard to find and I consider this derivation to be a bit criptic (though the book itself is great). Luckily Peteris Krumins <a href="http://www.catonmat.net/blog/derivation-of-ycombinator/">extended derivation from “The Little Schemer”</a>. I will base my post on his results. So, the final version of the Y-combinator written in Scheme is:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> Y</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">lambda</span> (le)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    ((<span class="kw">lambda</span> (f) (f f))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     (<span class="kw">lambda</span> (f)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       (le (<span class="kw">lambda</span> (x) ((f f) x)))))))</span></code></pre></div>
+<p>and the example of usage (also in Scheme) is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>((Y (<span class="kw">lambda</span> (<span class="kw">length</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     (<span class="kw">lambda</span> (<span class="kw">list</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       (<span class="kw">cond</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         ((<span class="kw">null?</span> <span class="kw">list</span>) <span class="dv">0</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         (<span class="kw">else</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          (add1 (<span class="kw">length</span> (<span class="kw">cdr</span> <span class="kw">list</span>))))))))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a> '(a b c d e f g h i j))</span></code></pre></div>
+<p>The above listing shows an anonymous recursive function that calculates the length of a list.</p>
+<p>I will present my results to match those above as closely as possible.</p>
+<h1 id="anonymous-functions-in-matlab">Anonymous functions in Matlab</h1>
+<p>In order to work with Y-combinator we will have to define anonymous functions. In the Scheme code above an anonymous function for calculating the length of a list is passed as a parameter to Y-combinator. It turns out however that anonymous functions in Matlab have some limitations. Let’s take a look at the <a href="http://www.mathworks.com/help/techdoc/matlab_prog/f4-70115.html">documentation</a>:</p>
+<blockquote>
+<p>The syntax for creating an anonymous function from an expression is</p>
+<p><code>fhandle = @(arglist) expr</code></p>
+<p>Starting from the right of this syntax statement, the term expr represents the body of the function: the code that performs the main task your function is to accomplish. <strong>This consists of any single, valid MATLAB expression</strong>.</p>
+</blockquote>
+<p>The fact that Matlab allows anonymous functions to consist of only one expressions has serious consequences. Imperative languages divide all their language constructs into two categories: expressions, which return some value and statements, which don’t return any value<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Sadly, the control-flow constructs like <code>if</code> and <code>for</code> are statements, which means that we can’t include them in an anonymous function. This is problem, because <code>length</code> function shown above needs a conditional instruction to check if the list passed to it is empty or not.</p>
+<p>Therefore, our first step is to create a new version of <code>if</code> construct which will be an expression and not a statement. There are a few different ways to achieve this. I decided to use cell arrays. Cell arrays are Matlab’s data structure similar to arrays, except for the fact that every cell can hold different type of value. My custom <code>if</code> instruction will take two parameters: a predicate that evaluates either to 1 (Matlab’s true) or 0 (Matlab’s false) and a cell array with two function handles. The code looks like this:</p>
+<pre><code>if_ = @( pred_, cond_ ) cond_{ 2 - pred_ }();</code></pre>
+<p>The <code>pred_</code> variable is the predicate - either 0 or 1 - and <code>cond_</code> is a cell array. If the predicate is 0 then second function in <code>cond_</code> cell array will be used. If the <code>pred_</code> is 1 then <code>if_</code> will use first function in <code>cond_</code> cell array ((Matlab uses 1-based indexing )). Notice that there’s <code>()</code> after cell array index. This is a function application. This means that after selecting one of two function handles, the function pointed by it is executed immediately and <code>if_</code> returns value returned by that function. Here’s an example<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
+<pre><code>&gt;&gt; if_ ( 1 == 2, { @() disp( 'The predicate is true'), @() disp( 'The predicate is false' ) } )
+The predicate is false</code></pre>
+<p>Had we removed the parens, <code>if_</code> would return a function handle allowing it to be evaluated later:</p>
+<pre><code>&gt;&gt; if_ ( 1 == 2, { @() disp( 'The predicate is true'), @() disp( 'The predicate is false' ) } )
+ans =
+  @()disp('The predicate is false')</code></pre>
+<p>This is somewhat similar to lazy evaluation.</p>
+<p>These are not the only limitations of Matlab. Consider the example below.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">f</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">x</span> <span class="op">==</span> <span class="fl">1</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">g</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">x</span></span></code></pre></div>
+<p>We created two functions: <code>f</code> tests its parameter for equality with 1, while <code>g</code> is the identity function - it returns its parameter. If we apply <code>g</code> to <code>f</code>, we should get <code>f</code>, that is a handle to a function that tests its parameter for equality with one:</p>
+<pre><code>&gt;&gt; g(f)
+ans =
+  @(x)x==1</code></pre>
+<p>That is what we expected. We got a function handle to anonymous function that accepts one parameter. It is reasonable to expect that we can now pass parameter to that handle. Unfortunately, Matlab will not allow us to do so:</p>
+<pre><code>&gt;&gt; (g(f))(1)
+(g(f))(1)
+|
+Error: Unbalanced or unexpected parenthesis or bracket.
+
+&gt;&gt; g(f)(1)
+Error: ()-indexing must appear last in an index expression.</code></pre>
+<p>So we cannot chain anonymous function calls that easily. We have to use Matlab’s <code>feval</code> function, that evaluates a function handle with given parameters:</p>
+<pre><code>&gt;&gt; feval(g(f), 1)
+ans =
+  1</code></pre>
+<h1 id="the-y-combinator">The Y-Combinator</h1>
+<p>With this knowledge we are now able to rewrite Scheme code presented earlier. Here’s how Y-combinator looks like:</p>
+<pre><code>Y   = @( le ) feval(            ...
+          @( f ) f( f ),        ...
+          @( h )                ...
+            le( @( x ) feval( h( h ), x ) ) );</code></pre>
+<p>This is almost the same as Scheme code presented earlier. We just replaced lambda with @ (both denote anonymous function declaration) and changed function application syntax to match Matlab. Before we rewrite the length function in Matlab let us define some helper functions:</p>
+<pre><code>if_  = @( pred_, cond_ ) cond_{ 2 - pred_ }();
+add1 = @( x ) x + 1;
+cdr  = @( list ) list( 2 : end );</code></pre>
+<p>We’ve already seen <code>if_</code>, but it’s here just to remind you that we need that declaration. The <code>add1</code> function increments its parameter by one, while <code>cdr</code> emulates Scheme’s <code>cdr</code> function that returns tail of a list. Finally we can see Y-combinator in action:</p>
+<pre><code>feval( Y ( @( length_ )                           ...
+  @( list )                                       ...
+    if_(                                          ...
+      isempty( list ), {                          ...
+        @() 0,                                    ...
+        @() add1( length_( cdr( list ) ) ) } ) ), ...
+  \['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j' \] )</code></pre>
+<p>This code can be placed into a script (say <code>Y_combinator.m</code>) and evaluated:</p>
+<pre><code>&gt;&gt; Y_combinator
+ans =
+  10</code></pre>
+<h1 id="conclusions-and-further-reading">Conclusions and further reading</h1>
+<p>As you can see, Matlab’s support for function handles allows to write Y-combinator. The result looks fairly simple, but I must admit that it wasn’t straightforward and I had some hard time struggling with syntax. Matlab’s functional programing capabilities are very limited, but there are a few more things that can be done. A more in-depth treatment can be found on A Page of Insanity blog <a href="http://apageofinsanity.wordpress.com/2011/12/01/functional-programming-in-matlab/">here</a>. The solution presented there is very similar to mine. Check out also <a href="https://gist.github.com/2493945">this gist</a> to see a different approach. See also Mike Vanier’s blog for <a href="http://mvanier.livejournal.com/2897.html">more details on Y-combinator</a>. I find Mike’s derivation a bit harder to follow, but Mike discusses both strict ans lazy versions of Y-combinator (I used only strict version).</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Please tell me if there exists an imperative language that does not have this distinction.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Text preceded by <code>&gt;&gt;</code> is typed into Matlab prompt.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

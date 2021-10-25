@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Towards understanding Haskell's monomorphism restriction</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on May 31, 2012
+    </section>
+    <section>
+        <h1 id="towards-understanding-haskells-monomorphism-restriction">Towards understanding Haskell’s monomorphism restriction</h1>
+<p>Haskell has a very mysterious feature - it’s not a bug :) - called the monomorphism restriction. Every Haskell programmer will sooner or later hear about its existence, but most likely will not stumble upon it in practice. The explanations of the restriction that I’ve found so far were either unclear, imprecise or inaccessible to a beginner. <a href="http://www.haskell.org/haskellwiki/Monomorphism_Restriction">Page on Haskell Wiki</a> doesn’t really explain much but instead turns into discussion between people that don’t fully understand the restriction<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <a href="http://www.haskell.org/onlinereport/haskell2010/haskellch4.html#x10-930004.5.5">Definition of monomorphism restriction in Haskell 2010 report</a> is not accessible to a beginner. It relies on knowledge of Haskell standard (bindings in particular) and some theory behind type inference. The restriction is also mentioned in <a href="http://book.realworldhaskell.org/read/using-typeclasses.html#x_H11">chapter 6 of Real World Haskell</a>, but the book doesn’t even attempt to explain it. Only recently, while reading <a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/history-of-haskell/">“A history of Haskell: Being lazy with class”</a>, I managed to partially understand what monomorphism restriction is about. Here’s an explanation that is suited for beginners. This is however not a complete treatment of the subject - I still see some aspects of monomorphism restriction that are unclear to me.</p>
+<p>Let’s begin by explaining what is monomorphism and what is polymorphism. If you come from object-oriented programming community then no doubt you’ve heard about polymorphism. That’s bad, cause this term means a different thing in Haskell, as most other terms do. A <em>term</em> in Haskell is called <em>polymorphic</em> if it can be instantiated to values of different types, depending on the context in which it is used. A good example is <code>genericLength</code> function from the <code>Data.List</code> module. Its type signature is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">genericLength ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> [b] <span class="ot">-&gt;</span> a</span></code></pre></div>
+<p>which means that <code>genericLength</code> returns value of type <code>a</code> that can be any type which is an instance of <code>Num</code> type class. Hence, the return value of <code>genericLength</code> is polymorphic. Here’s an example:</p>
+<pre><code>ghci&gt; genericLength [1,2,3] :: Int
+3
+ghci&gt; genericLength [1,2,3] :: Double
+3.0</code></pre>
+<p>Monomorphism, as you probably guess, is the opposite of polymorphism. A term is monomorphic when it has a value of concrete type and this type doesn’t depend on term’s context.</p>
+<p>The term <em>monomorphism restriction</em> means restricting polymorphic terms to a single type, hence making them monomorphic. Why would anyone like to do that? Consider this example<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>f xs <span class="ot">=</span> (len, len)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="kw">where</span> len <span class="ot">=</span> genericLength xs</span></code></pre></div>
+<p>From this code it looks that <code>len</code> will be computed only once. This would be true if the expected return type of <code>f</code> would be <code>(Int,Int)</code> or <code>(Double,Double)</code>. However, note that the result of <code>genericLength</code> is polymorphic and hence it would be reasonable for someone to expect return type of <code>f</code> to be <code>(Int,Double)</code>. This would however force the value of <code>len</code> to be computed twice (no type casting in Haskell!). Let me to quote from section 6.2 of “A History of Haskell”:</p>
+<blockquote>
+<p>Hughes argued strongly that it was unacceptable to silently duplicate computation in this way. His argument was motivated by a program he had written that ran exponentially slower than he expected. (This was admittedly with a very simple compiler, but we were reluctant to make performance differences as big as this dependent on compiler optimisations.)</p>
+<p>Following much debate, the committee adopted the now-notorious monomorphism restriction. Stated briefly, it says that a definition that does not look like a function (i.e. has no arguments on the left-hand side) should be monomorphic in any overloaded type variables. In this example, the rule forces <code>len</code> to be used at the same type at both its occurrences, which solves the performance problem. The programmer can supply an explicit type signature for <code>len</code> if polymorphic behaviour is required.</p>
+</blockquote>
+<p>And so <code>len</code> becomes monomorphic, because it does not look like a function (takes no parameters) and it is reasonable to expect that it has a concrete type that doesn’t change depending on the context.</p>
+<p>Let’s play with the <code>f</code> function a little bit. We begin by checking it’s type signature inferred by the compiler:</p>
+<pre><code>ghci&gt; :t f
+f :: Num t =&gt; [b] -&gt; (t, t)</code></pre>
+<p>You can notice that both components of the result tuple must be of the same type <code>t</code> that is an instance of <code>Num</code> type class. That’s how it works in practice:</p>
+<pre><code>ghci&gt; f [1,2,3] :: (Int,Int)
+(3,3)
+ghci&gt; f [1,2,3] :: (Double,Double)
+(3.0,3.0)</code></pre>
+<p>Attempt to force a polymorphic return type results in an error:</p>
+<pre><code>ghci&gt; f [1,2,3] :: (Int,Double)
+
+:1:1:
+ Couldn't match expected type `Double' with actual type `Int'
+      Expected type: (Int, Double)
+        Actual type: (Int, Int)
+ In the return type of a call of `f'
+ In the expression: f [1, 2, 3] :: (Int, Double)</code></pre>
+<p>The compiler inferred the <code>t</code> to be <code>Int</code>, because the first element of a tuple is declared to be an <code>Int</code>, and expects that the second element will also have type <code>Int</code>. When it realizes that it’s actually a <code>Double</code> it complains. This does not result with an error message that says anything about monomorphism restriction, but if I understand correctly - and I could be wrong with this one - it’s the monomorphism restriction that underlies this behaviour. Let’s supply a type signature for <code>f</code> that explicitly allows elements of the resulting tuple to be of different types:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">f ::</span> (<span class="dt">Num</span> b, <span class="dt">Num</span> c) <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> (b, c)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>f xs <span class="ot">=</span> (len, len)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="kw">where</span> len <span class="ot">=</span> genericLength xs</span></code></pre></div>
+<p>This definition will not compile producing a horrible error message:</p>
+<pre><code>Could not deduce (b ~ c)
+from the context (Num b, Num c)
+bound by the type signature for
+      f :: (Num b, Num c) =&gt; [a] -&gt; (b, c)
+  at restriction.hs:(4,1)-(5,32)
+  `b' is a rigid type variable bound by
+      the type signature for f :: (Num b, Num c) =&gt; [a] -&gt; (b, c)
+      at restriction.hs:4:1
+  `c' is a rigid type variable bound by
+      the type signature for f :: (Num b, Num c) =&gt; [a] -&gt; (b, c)
+      at restriction.hs:4:1</code></pre>
+<p>The <code>(b ~ c)</code> means that <code>b</code> and <code>c</code> must be of the same type and the <em>rigid type variables</em> means that the programmer supplied a concrete type annotation with the given type variable<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. The monomorphism restriction can be disabled using <code>LANGUAGE</code> pragma. Here’s the full code:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE NoMonomorphismRestriction #-}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Data.List</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ot">f ::</span> (<span class="dt">Num</span> b, <span class="dt">Num</span> c) <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> (b, c)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>f xs <span class="ot">=</span> (len, len)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>       <span class="kw">where</span> len <span class="ot">=</span> genericLength xs</span></code></pre></div>
+<p>This allows <code>len</code> to be polymorphic:</p>
+<pre><code>ghci&gt; f [1,2,3] :: (Int,Double)
+(3,3.0)</code></pre>
+<p>And that’s about it. We forced the len function to be computed twice.</p>
+<p>As I said in the beginning, I still don’t understand everything about the restriction. In particular I don’t understand all the nuances that are in the Haskell Report. If you take a look at the Haskell Wiki page mentioned earlier, you’ll see some examples of code where you actually get an error message about the monomorphism restriction:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- This is allowed</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>f1 x <span class="ot">=</span> <span class="fu">show</span> x</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- This is not allowed</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">=</span> \x <span class="ot">-&gt;</span> <span class="fu">show</span> x</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- ...but this is allowed</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ot">f3 ::</span> (<span class="dt">Show</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">String</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">=</span> \x <span class="ot">-&gt;</span> <span class="fu">show</span> x</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">-- This is not allowed</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">=</span> <span class="fu">show</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">-- ...but this is allowed</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ot">f5 ::</span> (<span class="dt">Show</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">String</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>f5 <span class="ot">=</span> <span class="fu">show</span></span></code></pre></div>
+<p>This is of course consistent with the Haskell Report, which says:</p>
+<blockquote>
+<p>Anything defined with function syntax usually generalizes as a function is expected to. (…) However, the same function defined with pattern syntax requires a type signature if f is to be fully overloaded.</p>
+</blockquote>
+<p>It is not yet clear to my whether the avoidance of duplicate computation was the only motivation behind introducing the restriction. I’m definitely not the only one that is confused with the monomorphism restriction and I think that this is somewhat controversial feature:</p>
+<blockquote>
+<p>The monomorphism restriction is manifestly a wart on the language. It seems to bite every new Haskell programmer by giving rise to an unexpected or obscure error message. There has been much discussion of alternatives. (…) But in all this time, no truly satisfactory alternative has evolved. (from <em>“A History of Haskell”</em>)</p>
+<p>The consensus within the Haskell community is that it doesn’t arise often; it is tricky to explain; it provides almost no practical benefit; and so it mostly serves to trip people up. (from <em>“Real World Haskell”</em>)</p>
+</blockquote>
+<p>As a general rule, supplying explicit type signature will always allow to avoid the restriction. It may be tricky to supply type signature in some cases, e.g. functions defined locally within the <code>where</code> clause may require lexically scoped type variables (see <a href="http://www.haskell.org/haskellwiki/Scoped_type_variables">here</a>).</p>
+<p><strong>UPDATE (01/06/2012):</strong> Someone people at <a href="http://www.reddit.com/r/haskell/comments/udnx2/understanding_haskells_monomorphism_restriction/">reddit</a> correctly pointed out that instead of enabling language extension it would be more natural to deal with the restriction by giving type annotation to <code>f</code> (as said in the last paragraph of the post). Here’s the code that works without language extension:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>f xs <span class="ot">=</span> (len, len)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">where</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ot">      len ::</span> (<span class="dt">Num</span> a) <span class="ot">=&gt;</span> a</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      len <span class="ot">=</span> genericLength xs</span></code></pre></div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Just to make things clear - I don’t claim to fully understand it either.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>You have to import Data.List module for this to compile<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>See: Simon Peyton Jones, Dimitrios Vytiniotis, Stephanie Weirich, and Geoffrey Washburn. <em>Simple unification-based type inference for GADTs</em>. In ICFP, pages 50-61, (2006).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

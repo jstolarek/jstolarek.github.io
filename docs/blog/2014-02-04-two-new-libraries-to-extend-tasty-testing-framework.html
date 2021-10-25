@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Two new libraries to extend tasty testing framework</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on February  4, 2014
+    </section>
+    <section>
+        <h1 id="two-new-libraries-to-extend-tasty-testing-framework">Two new libraries to extend tasty testing framework</h1>
+<p>When I <a href="2014-01-26-code-testing-in-haskell-revisited-with-tasty/">recently wrote about porting my haskell-testing-stub project to tasty</a> I mentioned that <a href="http://hackage.haskell.org/package/test-framework">test-framework</a> still has more libraries than <a href="http://hackage.haskell.org/package/tasty">tasty</a>. I decided to contribute to changing that and released two small packages that extend tasty with extra functionality:</p>
+<ul>
+<li><p><code>tasty-hunit-adapter</code> allows to import existing HUnit tests into tasty (<a href="http://hackage.haskell.org/package/tasty-hunit-adapter">hackage</a>, <a href="https://github.com/jstolarek/tasty-hunit-adapter">github</a>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Test.HUnit</span>               ( (~:), (@=?)            )</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Test.Tasty</span>               ( defaultMain, testGroup )</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Test.Tasty.HUnit.Adapter</span> ( hUnitTestToTestTree    )</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> defaultMain <span class="op">$</span> testGroup <span class="st">&quot;Migrated from HUnit&quot;</span> <span class="op">$</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       hUnitTestToTestTree (<span class="st">&quot;HUnit test&quot;</span> <span class="op">~:</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">@=?</span> <span class="dv">4</span>)</span></code></pre></div></li>
+<li><p><code>tasty-program</code> allows to run external program and test whether it terminates successfully (<a href="http://hackage.haskell.org/package/tasty-program">hackage</a>, <a href="https://github.com/jstolarek/tasty-program">github</a>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  main</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> ) <span class="kw">where</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Test.Tasty</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Test.Tasty.Program</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> defaultMain <span class="op">$</span> testGroup <span class="st">&quot;Compilation with GHC&quot;</span> <span class="op">$</span> [</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    testProgram <span class="st">&quot;Foo&quot;</span> <span class="st">&quot;ghc&quot;</span> [<span class="st">&quot;-fforce-recomp&quot;</span>, <span class="st">&quot;foo.hs&quot;</span>]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                <span class="dt">Nothing</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  ]</span></code></pre></div></li>
+</ul>
+<p>This package has only this basic functionality at the moment. A missing feature is the possibility of logging stdout and stderr to a file so that it can later be inspected or perhaps used by a golden test (but for the latter <a href="https://github.com/feuerbach/tasty/issues/48">tasty needs test dependencies</a>).</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>

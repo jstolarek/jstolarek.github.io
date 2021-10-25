@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Is recursion good?</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on March 22, 2012
+    </section>
+    <section>
+        <h1 id="is-recursion-good">Is recursion good?</h1>
+<p>In today’s post I’m going to write a little bit about recursion. This text is aimed at programmers familiar with structural and object-oriented programming in languages like C/C++ or Java. I’m going to briefly summarize what recursion is, what happens when a recursive function is called, then I’ll explain what is proper tail recursion, tail call optimization and how to convert normal recursion into proper tail recursion using accumulator. Ready? Then let’s begin.</p>
+<h1 id="a-brief-overview">A brief overview</h1>
+<p>“Recursion in computer science is a method where the solution to a problem depends on solutions to smaller instances of the same problem” - that’s what Wikipedia says. The easiest example is the definition of a factorial:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>factorial <span class="dv">0</span> <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>factorial n <span class="ot">=</span> n <span class="op">*</span> factorial (n <span class="op">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>This means that factorial of <code>0</code> is <code>1</code> (this is called a base case, which must exist in order to prevent infinite recursion), and factorial of 3 is <code>3 * factorial 2</code>, which is <code>3 * 2 * factorial 1</code>, which is <code>3 * 2 * 1 * factorial 0</code>, which is <code>3 * 2 * 1 * 1</code> which is 6. The above code is also a valid Haskell program. Many problems in computer science are recursive by nature. Although every recursive algorithm can be converted into an iterative one - otherwise it wouldn’t be possible to perform recursion on sequential computers like the ones we have today - it often turn out that the recursive algorithm is much easier to write and understand<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Nevertheless, recursive definitions are often considered bad. Why? Let’s take a look at factorial definition in C:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> factorial<span class="op">(</span> <span class="dt">int</span> n <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span> n <span class="op">==</span> <span class="dv">0</span> <span class="op">)</span> <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> n <span class="op">*</span> factorial<span class="op">(</span> n <span class="op">-</span> <span class="dv">1</span> <span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>When a recursive call is made - in fact when any function call is made - a new stack frame is created. Stack frame contains copies of arguments passed to function, return address of the procedure and local variables of a function. Creating a stack frame takes a bit of time and if there are many recursive calls there is a risk of overflowing the stack. There are other risk as well, e.g. unnecessary recalculation of some values as in the case of Fibonacci sequence. Many programmers therefore consider that it is better to avoid recursive algorithms and replace them with iterative ones even if they are harder to write and understand. Looking from a Java or C/C++ point of view this might be the right thinking. But what if we could avoid creating a stack frame during the recursive call? Well, sometimes we can.</p>
+<h1 id="proper-tail-recursion">Proper tail recursion</h1>
+<p>Let’s rewrite our factorial function in C:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> factorial<span class="op">(</span> <span class="dt">int</span> n <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span> n <span class="op">==</span> <span class="dv">0</span> <span class="op">)</span> <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> temp <span class="op">=</span> factorial<span class="op">(</span> n <span class="op">-</span> <span class="dv">1</span> <span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> n <span class="op">*</span> temp<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Recursive call is made somewhere in the middle of a function. The result from this call is then used to perform more computations and produce a new result. This is called “body recursion”. Now consider something like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> print_loop<span class="op">(</span> <span class="dt">int</span> n <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span> n <span class="op">==</span> <span class="dv">0</span> <span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> n<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span> <span class="st">&quot;i%</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> m <span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> print_loop<span class="op">(</span> n <span class="op">-</span> <span class="dv">1</span> <span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This function prints a decreasing sequence of even numbers from <code>2n</code> to <code>2</code> (inclusive) and then returns 0. In this example when we reach the stopping condition (i.e. <code>n == 0</code>) we return a result. This result is then returned by the recursive functions without further processing. It means that recursive call is the last thing that is done within a function and when that call returns, the calling function itself will also return immediately. We call this “tail recursion”. When a function returns, its stack frame is removed. The return address from that frame is used to jump to the original calling point and since the return is the last thing we do in a tail recursive function this means that the remaining elements in the stack (arguments, locals) are discarded. Therefore, the call stack that we build is mostly useless - the only thing we need is the return address which is used only to get back to another return address. This can be optimized. In properly tail recursive function, instead of creating new stack frame when making a call, we can overwrite existing stack frame: replace old copies of arguments with the new ones, old local variables will be reused and the original return address is kept. This is called “tail call optimization” or “tail call elimination”.</p>
+<h1 id="tail-recursion-using-accumulator">Tail recursion using accumulator</h1>
+<p>As we’ve seen, our factorial definition isn’t tail recursive. Luckily, there is a technique that allows us to convert body recursion into tail recursion. It is based on using additional parameter - called the accumulator - that accumulates the result of calculations. Let’s rewrite our C function once more, this time to introduce additional parameter which holds the results of computations up to a given call:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> factorial<span class="op">(</span> <span class="dt">int</span> n <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> factorial_help<span class="op">(</span> n<span class="op">,</span> <span class="dv">1</span> <span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> factorial_helper<span class="op">(</span> <span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> acc <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span> n <span class="op">==</span> <span class="dv">0</span> <span class="op">)</span> <span class="cf">return</span> acc<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> factorial_helper<span class="op">(</span> n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> n <span class="op">*</span> acc <span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Let’s see how it works:</p>
+<pre><code>factorial( 3 ) -&gt;
+  factorial_helper( 3, 1 ) -&gt;
+  factorial_helper( 2, 3 * 1 ) -&gt;
+  factorial_helper( 1, 3 * 2 ) -&gt;
+  factorial_helper( 0, 6 ) -&gt;
+  6</code></pre>
+<p>That was simple, wasn’t it? This technique can be used practically always, but it’s not always effective (e.g. when building lists). Does this mean you can use this trick to in your C or Java programs? Well, you could write your recursion using accumulator, but neither Java nor C are required to perform tail call optimization (they might do it in some cases, but they don’t have to in general), so performance of your programs could decrease (more parameters to copy). This is especially a problem for Java, since there are functional languages that run on Java Virtual machine (Scala and Clojure) and that cannot use tail call optimization<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Let my quote a paper “The role of study of programming languages in the education of a programmer” by Daniel P. Friedman:</p>
+<blockquote>
+<p>We don’t want to be bothered with design flaws that have been dropped into languages by well-meaning designers and implementators. Some example of this are (…) Java’s lack of support for tail calls. There are likely very well-intentioned reasons for these mistakes, but mistakes they are, nonetheless. Guy Steele, (…) co-author of “Java Language Specification” now works for SUN and he has communicated with me that he was promised back in 1997 that this flaw would be fixed. Here it is 2001 and there is still no resolution of this problem on the horizon.</p>
+</blockquote>
+<p>It is 2012 and still no solution. I won’t get deeper into this matter (I don’t feel sufficiently competent for that), but if you’re a Java programmer than reading <a href="http://www.ibm.com/developerworks/java/library/j-diag8/index.html">this</a> might be interesting.</p>
+<h1 id="what-should-i-do-now">“What should I do now?”</h1>
+<p>So what languages are properly tail recursive? That’s a good question and I’m still trying to figure out the answer. Certainly Scheme (see: <a href="http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-6.html#%_sec_3.5">R5RS, section 3.5</a>) and Erlang (but see <a href="http://www.erlang.org/doc/efficiency_guide/myths.html">the Erlang myths</a>). Haskell is… ummm… different and I don’t yet fully understand it’s memory model (check <a href="http://www.haskell.org/haskellwiki/Tail_recursion">here</a> and <a href="http://www.haskell.org/haskellwiki/Stack_overflow">here</a>). As I said, some compilers of C and Java can sometimes optimize tail recursion.</p>
+<p>The most important question is: should we really care to use recursion? As I said in the beginning, many computer science problems are recursive by nature, but whether you approach them in an iterative or recursive approach mostly depends on your language. In Java it would be unnatural to process a list using recursion. In Haskell or Erlang it’s idiomatic, since these languages have the operator to get the head of the list (tail of the list is the processed recursively) but they don’t have looping constructs. Most of us programmers expect a simple answer and when we have it we follow assume-don’t-verify policy. I think there is no general rule for tail recursion. There are cases when it’s faster, there are cases when it’s slower so you really have to measure the performance and choose the faster algorithm. You also should be aware of compilers internals, how it optimizes your code, how it calls functions, manages parameters and so on.</p>
+<p>I’ve been learning FP for about 3 months now and I must say that approaching problems in a recursive manner have changed my point of view greatly. I find recursive solutions much easier to understand because they are constructed by decomposing the problem into simple cases. This is easier to code and therefore less error prone, so the more I program in Scheme or Haskell the more I wish Java had features of functional languages. If you’re still not convinced about power and usefulness of recursion then perhaps you should <a href="2012-03-22-recursion-is-good/">read this</a>.</p>
+<p><strong>UPDATE (05/04/2012):</strong> Tail recursion and TCO is also discussed in fourth chapter of Real World Haskell (read it <a href="http://book.realworldhaskell.org/read/functional-programming.html#x_j7">here</a>).</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Try googling iterative version of Quick-sort algorithm to see a good example of this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Clojure <a href="http://clojure.org/functional_programming#Functional%20Programming--Recursive%20Looping">has a workaround</a> for this.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+        </main>
+    </body>
+</html>
