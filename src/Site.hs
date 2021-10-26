@@ -62,5 +62,5 @@ config = defaultConfiguration
 
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
+    dateField "date" "%d/%m/%Y" `mappend` -- "%B %e, %Y"
     defaultContext
