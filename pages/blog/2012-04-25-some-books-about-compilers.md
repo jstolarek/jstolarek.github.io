@@ -49,7 +49,7 @@ book has a chapters about functional languages and polymorphic types. The latter
 one covers the subject of the Hindley-Milner type inference algorithm in a form
 that seems to be accessible.
 
-[![](images/img_1111-300x225.jpg "Compiler books")](images/img_1111.jpg)
+[![](/images/blog/img_1111-300x225.jpg "Compiler books")](/images/blog/img_1111.jpg)
 
 Now, here's a surprise! Just a few days ago I found about a book [The
 Implementation of Functional Programming

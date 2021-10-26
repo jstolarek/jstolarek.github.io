@@ -6,7 +6,7 @@ date: 2013-02-06
 To Mock a Mockingbird or: How I learned to stop worrying and learned combinatory logic
 ======================================================================================
 
-[![mockingbird](images/mockingbird-194x300.jpg)](images/mockingbird.jpg)
+[![mockingbird](/images/blog/mockingbird-194x300.jpg)](/images/blog/mockingbird.jpg)
 
 Yesterday I finished reading one of the most remarkable books I read in my life:
 ["To Mock a Mockingbird and Other Logic Puzzles: Including an Amazing Adventure

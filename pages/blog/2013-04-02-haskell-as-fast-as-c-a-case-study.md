@@ -204,7 +204,7 @@ used FFI to call C implementation from Haskell so that I can benchmark it with
 criterion as well. Here are the results for a list/vector containing one million
 elements:
 
-[![Performance of sumSqr](images/sumsqrperf.png)](images/sumsqrperf.png)
+[![Performance of sumSqr](/images/blog/sumsqrperf.png)](/images/blog/sumsqrperf.png)
 
 C version is still faster than the one based on primops by about 8%. I think
 this is a very good achievement given that the version based on Vector library
@@ -292,7 +292,7 @@ long int c_sumSqrC( long int* xs, long int xn ) {
 The performance turns out to be the same as before ("Bits" represents Mikhail
 Glushenkov's solution, "C" now represents the new C code):
 
-[![sumsqrperf](images/sumsqrperf1.png)](images/sumsqrperf1.png)
+[![sumsqrperf](/images/blog/sumsqrperf1.png)](/images/blog/sumsqrperf1.png)
 
 There was a suggestion to use the following C code:
 

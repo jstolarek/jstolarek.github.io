@@ -10,6 +10,10 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "images/blog/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "files/*" $ do
         route   idRoute
         compile copyFileCompiler

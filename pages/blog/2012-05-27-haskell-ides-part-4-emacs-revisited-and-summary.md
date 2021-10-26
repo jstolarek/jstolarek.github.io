@@ -40,7 +40,7 @@ after some testing, I decided to use:
     to next/previous buffer using F9/F10 keys. That's an alternative to
     IDO-enhanced C-x b command.
 
-[![](images/emacs1-1024x640.png "emacs")](images/emacs1.png)
+[![](/images/blog/emacs1-1024x640.png "emacs")](/images/blog/emacs1.png)
 
 These three extensions are a huge win. They greatly improve overall Emacs
 experience. There's plenty of other window- and buffer-enhancing extensions that

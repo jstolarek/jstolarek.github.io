@@ -86,9 +86,9 @@ GC      time    0.03s  (  0.05s elapsed)
 EXIT    time    0.00s  (  0.00s elapsed)
 Total   time    2.55s  (  2.58s elapsed)</code></pre>
 <p>Looking and <code>MUT</code> (mutator time) it looks that there is no speed-up at all. Investigating eventlog using ThreadScope sheds some light on execution of a program:</p>
-<p><a href="images/parallel_general_view1.png"><img src="images/parallel_general_view1.png%20%22parallel_general_view%22" /></a></p>
+<p><a href="../images/blog/parallel_general_view1.png"><img src="../images/blog/parallel_general_view1.png%20%22parallel_general_view%22" /></a></p>
 <p>Both threads start computation, but HEC 1 soon blocks and only resumes when HEC 0 finishes computation. Zooming in it looks that HEC 1 stops because it requests garbage collection, but HEC 0 does not respond to that request so GC begins only when HEC 0 is done with its computation:</p>
-<p><a href="images/parallel_detailed_view.png"><img src="images/parallel_detailed_view.png%20%22parallel_detailed_view%22" /></a></p>
+<p><a href="../images/blog/parallel_detailed_view.png"><img src="../images/blog/parallel_detailed_view.png%20%22parallel_detailed_view%22" /></a></p>
 <p>Why does this happen? I am no expert on GHC’s garbage collection, my only knowledge of that comes from section 6 of “<a href="http://community.haskell.org/~simonmar/papers/multicore-ghc.pdf">Runtime Support for Multicore Haskell</a>”. If I understood correctly this should not happen - it certainly didn’t happen when the paper was published. Do we have a regression or am I misunderstanding something?</p>
 
         <p><a href="../blog.html">Back</a></p>

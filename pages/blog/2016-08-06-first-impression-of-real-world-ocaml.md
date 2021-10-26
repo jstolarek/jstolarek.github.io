@@ -13,7 +13,7 @@ roughly the first nine chapters of "Real World OCaml" (RWO for short). I
 finished reading them several days ago and thought I will share my impressions
 about the book.
 
-[![rwo](images/rwo1-228x300.png)](images/rwo1.png)
+[![rwo](/images/blog/rwo1-228x300.png)](/images/blog/rwo1.png)
 
 RWO was written by Yaron Minsky, [Anil Madhavapeddy](http://anil.recoil.org/)
 and Jason Hickey. It is one of a handful of books on OCaml. Other titles out

@@ -98,16 +98,16 @@ Looking and `MUT` (mutator time) it looks that there is no speed-up at all.
 Investigating eventlog using ThreadScope sheds some light on execution of a
 program:
 
-[![](images/parallel_general_view1.png
-"parallel_general_view")](images/parallel_general_view1.png)
+[![](/images/blog/parallel_general_view1.png
+"parallel_general_view")](/images/blog/parallel_general_view1.png)
 
 Both threads start computation, but HEC 1 soon blocks and only resumes when HEC
 0 finishes computation. Zooming in it looks that HEC 1 stops because it requests
 garbage collection, but HEC 0 does not respond to that request so GC begins only
 when HEC 0 is done with its computation:
 
-[![](images/parallel_detailed_view.png
-"parallel_detailed_view")](images/parallel_detailed_view.png)
+[![](/images/blog/parallel_detailed_view.png
+"parallel_detailed_view")](/images/blog/parallel_detailed_view.png)
 
 Why does this happen? I am no expert on GHC's garbage collection, my only
 knowledge of that comes from section 6 of "[Runtime Support for Multicore

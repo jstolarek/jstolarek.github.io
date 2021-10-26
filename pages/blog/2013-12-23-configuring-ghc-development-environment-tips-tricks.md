@@ -42,7 +42,7 @@ smart enough to prevent removal of a default sandbox. Finally, I've set up my
 `.bashrc` file to provide auto-completion of sandbox names. Here's how it looks
 in practice (click to enlarge):
 
-[![ghc-sandbox](images/ghc-sandbox-300x129.png)](images/ghc-sandbox.png)
+[![ghc-sandbox](/images/blog/ghc-sandbox-300x129.png)](/images/blog/ghc-sandbox.png)
 
 Scripting for the win
 =====================
