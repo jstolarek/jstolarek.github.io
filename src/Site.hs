@@ -42,7 +42,6 @@ main = hakyllWith config $ do
                   setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
 
     match "pages/blog/*.md" $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes`
