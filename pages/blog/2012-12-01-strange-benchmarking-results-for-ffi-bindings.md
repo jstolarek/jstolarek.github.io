@@ -7,12 +7,12 @@ Strange benchmarking results for FFI bindings
 =============================================
 
 It looks like I am getting pretty good at getting hit by Haskell bugs. My
-[previous post](2012-11-17-waiting-for-garbage-collection-can-kill-parallelism/)
+[previous post](/blog/2012-11-17-waiting-for-garbage-collection-can-kill-parallelism.html)
 described behaviour that turned out to be [a bug in
 GHC](http://hackage.haskell.org/trac/ghc/ticket/367) (thanks to Joachim Breitner
 for pointing this out).  Now I found problems with benchmarking FFI bindings
 using [method described a month
-ago](2012-11-02-benchmarking-c-functions-using-foreign-function-interface/).
+ago](/blog/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html).
 
 I work on a project in which the same algorithm is implemented using different
 data structures - one implementation is done in C, another using Vector library

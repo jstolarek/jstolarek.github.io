@@ -7,8 +7,8 @@ Code benchmarking in Haskell
 ============================
 
 Three weeks ago I wrote about [code testing in
-Haskell](2012-10-05-code-testing-in-haskell/).  Today I will discuss how to
-benchmark code written in Haskell and how to integrate benchmarks into a
+Haskell](/blog/2012-10-05-code-testing-in-haskell.html).  Today I will discuss
+how to benchmark code written in Haskell and how to integrate benchmarks into a
 project. For demonstration purposes I extended [my sample project on
 github](https://github.com/jstolarek/haskell-testing-stub) so now it shows how
 to create both tests and benchmarks.
@@ -30,8 +30,8 @@ value of a function once it can be memoized and reused later without need for
 recomputing. This is of course not what we want during benchmarking. Criterion
 takes care of that, but requires that benchmarks be written in a special
 way. Let's look at an example banchmark for our shift function ((See my [post on
-testing](2012-10-05-code-testing-in-haskell/) if you don't know what shift I'm
-talking about)):
+testing](/blog/2012-10-05-code-testing-in-haskell.html) if you don't know what
+shift I'm talking about)):
 
 ```haskell
 bench "Left shift" $ nf (cyclicShiftLeft 2) [1..8192]
@@ -124,7 +124,7 @@ benchConfig = defaultConfig {
 The most important part is the `benchmarks` function, which takes a random
 number generator and assembles all benchmarks into one suite (**UPDATE
 (24/10/2012):** read a [follow-up post on random data
-generation](2012-10-24-code-benchmarking-in-haskell-some-thoughts-about-random-data-generation/)).
+generation](/blog/2012-10-24-code-benchmarking-in-haskell-some-thoughts-about-random-data-generation.html)).
 Just as with tests we can create logical groups and assign names. A cool thing
 is a [`bcompare`](http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:bcompare)
 function. It takes a list of benchmarks, assumes that the first one is the

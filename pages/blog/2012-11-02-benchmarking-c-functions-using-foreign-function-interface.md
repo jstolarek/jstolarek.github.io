@@ -9,15 +9,15 @@ Benchmarking C functions using Foreign Function Interface
 I am currently working on implementing Discrete Wavelet Transform (DWT) in
 Haskell. I want to make use of Haskell's parallel programing capabilities to
 implement an algorithm that can take advantage of multiple CPU cores. My
-previous posts on [testing](2012-10-05-code-testing-in-haskell/) and
-[benchmarking](2012-10-21-code-benchmarking-in-haskell/) were by-products of
-this project, as I needed to ensure reliability of my implementation and to
-measure its performance. The key question that is in my head all the time is
-"can I write Haskell code that outperforms C when given more CPU cores?". To
-answer this question I needed a way to benchmark performance of algorithm
-written in C and I must admit that this problem was giving me a real
-headache. One obvious solution was to implement the algorithm in C and measure
-its running time. This didn't seem acceptable. I use
+previous posts on [testing](/blog/2012-10-05-code-testing-in-haskell.html) and
+[benchmarking](/blog/2012-10-21-code-benchmarking-in-haskell.html) were
+by-products of this project, as I needed to ensure reliability of my
+implementation and to measure its performance. The key question that is in my
+head all the time is "can I write Haskell code that outperforms C when given
+more CPU cores?". To answer this question I needed a way to benchmark
+performance of algorithm written in C and I must admit that this problem was
+giving me a real headache. One obvious solution was to implement the algorithm
+in C and measure its running time. This didn't seem acceptable. I use
 [Criterion](http://hackage.haskell.org/package/criterion) for benchmarking and
 it does lots of fancy stuff like measuring clock resolution and calculating
 [kernel density

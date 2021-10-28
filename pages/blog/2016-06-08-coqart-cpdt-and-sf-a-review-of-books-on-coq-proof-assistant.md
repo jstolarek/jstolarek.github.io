@@ -9,7 +9,7 @@ Coq'Art, CPDT and SF: a review of books on Coq proof assistant
 I have been pretty quiet on the blog in the past couple of months. One of the
 reasons for this is that I have spent most of my time learning Coq. I had my
 first contact with Coq well over a year ago [when I started reading
-CPDT](2015-03-24-first-impressions-of-coq-and-certified-programming-with-dependent-types/).
+CPDT](/blog/2015-03-24-first-impressions-of-coq-and-certified-programming-with-dependent-types.html).
 Back then I only wanted to learn the basics of Coq to see how it works and what
 it has to offer compared to other languages with dependent types. This time I
 wanted to apply Coq to some ideas I had at work, so I was determined to be much
@@ -61,7 +61,7 @@ importantly because of the sections that explain in detail the inner workings of
 various tactics.
 
 As mentioned at the beginning, I already wrote a [first impressions post about
-CPDT](2015-03-24-first-impressions-of-coq-and-certified-programming-with-dependent-types/).
+CPDT](/blog/2015-03-24-first-impressions-of-coq-and-certified-programming-with-dependent-types.html).
 Back then I said the book "is a great demonstration of what can be done in Coq
 but not a good explanation of how it can be done". Having read all of it I
 sustain my claim. CPDT does not provide a thorough and systematic coverage of

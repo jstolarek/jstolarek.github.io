@@ -10,7 +10,7 @@ During last few weeks I got a pretty good grip of basics of dependent types and
 Agda. Programming in Agda is fun but nevertheless I decided to experiment with
 other dependently-typed programming languages. Back in March I attempted to
 learn [Idris](http://www.idris-lang.org/) from [one of Edwin Brady's
-presentations](http://edwinb.wordpress.com/2013/03/15/idris-course-at-itu-slides-and-video/),
+presentations](http://edwinb.wordpress.com/2013/03/15/idris-course-at-itu-slides-and-video.html),
 but having no knowledge of dependent types I had to give up after about 30
 minutes of first video. Now that I know basics of Agda I decided to give Idris
 another try. This time it was much simpler. Reading [official Idris
@@ -122,7 +122,7 @@ is developed I imagine it could soon become more popular than Agda. Perhaps
 these "missing" features will also be added one day?
 
 As an exercise I rewrote code from "Why dependent types matter" paper from Agda
-(see [my previous post](2013-11-07-why-dependent-types-matter-in-agda/)) to
+(see [my previous post](/blog/2013-11-07-why-dependent-types-matter-in-agda/)) to
 Idris. Code is [available in on
 github](https://github.com/jstolarek/why-dependent-types-matter).
 

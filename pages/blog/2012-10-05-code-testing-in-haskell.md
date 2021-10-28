@@ -7,19 +7,18 @@ Code testing in Haskell
 =======================
 
 A few weeks ago [I wrote that for 3 years I used Matlab as my main programming
-language](2012-09-09-y-combinator-in-matlab/).
-Before that however I was developing in Java. While Java can be criticized for
-its design - and I noticed that some Haskallers look down on it - it learned me
-one very important thing: code testing. Java's JUnit was very important in
-popularizing Test Driven Development (TDD) and code testing in
-general. Personally, I never used JUnit and relied on TestNG instead. At the
-time I was learning TDD TestNG's features were way ahead of JUnit (and it is
-possible that they still are). Having learned TestNG, testing became very
-important for me. For the most time I was creating code that did numerical
-computations according to some sophisticated algorithm. It was very easy to make
-a mistake and tests allowed me to make my code reliable. Later I used TDD
-approach in Matlab thanks to Steve Eddins' [xUnit
-Framework](http://www.mathworks.com/matlabcentral/fileexchange/22846-matlab-xunit-test-framework).
+language](/blog/2012-09-09-y-combinator-in-matlab.html).  Before that however I
+was developing in Java. While Java can be criticized for its design - and I
+noticed that some Haskallers look down on it - it learned me one very important
+thing: code testing. Java's JUnit was very important in popularizing Test Driven
+Development (TDD) and code testing in general. Personally, I never used JUnit
+and relied on TestNG instead. At the time I was learning TDD TestNG's features
+were way ahead of JUnit (and it is possible that they still are). Having learned
+TestNG, testing became very important for me. For the most time I was creating
+code that did numerical computations according to some sophisticated
+algorithm. It was very easy to make a mistake and tests allowed me to make my
+code reliable. Later I used TDD approach in Matlab thanks to Steve Eddins'
+[xUnit Framework](http://www.mathworks.com/matlabcentral/fileexchange/22846-matlab-xunit-test-framework).
 After starting with Haskell I knew one thing - I need a way to test my
 code. Luckily Haskell provides even better ways of creating tests than other
 languages I've seen so far. Still, I had some problems with organizing my
@@ -486,7 +485,7 @@ could be used in my sample project without problems. That's the kind of test
 extensibility I like!
 
 **UPDATE (21/10/2012):** Read a follow-up post about [code benchmarking in
-Haskell](2012-10-21-code-benchmarking-in-haskell/).
+Haskell](/blog/2012-10-21-code-benchmarking-in-haskell.html).
 
 [^1]: When I say cabal I really mean cabal-install, a command-line tool used for
   installing Haskell packages, not the Cabal library. The confusion arises

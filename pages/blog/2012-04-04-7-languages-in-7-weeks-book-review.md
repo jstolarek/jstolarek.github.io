@@ -40,8 +40,8 @@ help. This discouraged me a lot, but luckily the next language, Prolog, turned
 out to be extremely fun. In fact I put down the book and started reading [online
 tutorial](http://www.csupomona.edu/~jrfisher/www/prolog_tutorial/contents.html)
 on my own. From it I learned about [tail recursion using
-accumulator](2012-03-22-recursion-is-good/).  Language number four was Scala. I
-was looking forward to learn it, as I've already heard some stuff about
+accumulator](/blog/2012-03-22-recursion-is-good.html).  Language number four was
+Scala. I was looking forward to learn it, as I've already heard some stuff about
 functional programming. Unfortunately, Scala turned out to be disappointing to
 me. Not that it's a bad language. I think it can be great, but I wanted to learn
 functional programming. Scala, being a hybrid language - both object oriented

@@ -34,7 +34,7 @@ lexical analysis has a section about implementing a lexer. I'm looking forward
 to this one, since I still don't have a clear vision on how to implement lexer
 efficiently. These are only the first impressions of course. I'll verify them
 when I start reading (expect a follow-up on this one [read a follow up on this
-one](2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses/)).
+one](/blog/2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses.html)).
 
 Third of the recommended books - "Modern compiler implementation in C/Java/ML"
 (there are three different editions of this book) by Appel - was also available
@@ -54,16 +54,17 @@ that seems to be accessible.
 Now, here's a surprise! Just a few days ago I found about a book [The
 Implementation of Functional Programming
 Languages](http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/index.htm)
-by Simon Peyton Jones ([see my previous post](2012-04-22-sunday-web-overview/)).
-To my greatest surprise it was in the library! I stumbled upon it by pure
-accident while I was searching the shelves for Appel's book - I never would have
-thought that it's available in the library of my university. Do I have to
-mention that I borrowed it right away? I've read the Introduction and some
-random parts of the first chapter about the lambda calculus. I must say that the
-book looks very accessible so I hope to find some time to read at least couple
-of chapters. What's interesting about the book (or rather about functional
-languages) is the fact that Haskell didn't exist when this book was written, yet
-much of the code in the book is almost Haskell (in fact it's
+by Simon Peyton Jones ([see my previous
+post](/blog/2012-04-22-sunday-web-overview.html)).  To my greatest surprise it
+was in the library! I stumbled upon it by pure accident while I was searching
+the shelves for Appel's book - I never would have thought that it's available in
+the library of my university. Do I have to mention that I borrowed it right
+away? I've read the Introduction and some random parts of the first chapter
+about the lambda calculus. I must say that the book looks very accessible so I
+hope to find some time to read at least couple of chapters. What's interesting
+about the book (or rather about functional languages) is the fact that Haskell
+didn't exist when this book was written, yet much of the code in the book is
+almost Haskell (in fact it's
 [Miranda](http://en.wikipedia.org/wiki/Miranda_%28programming_language%29)).
 
 I've got one more book entitled "Compiler construction" by Waite and Goos. This

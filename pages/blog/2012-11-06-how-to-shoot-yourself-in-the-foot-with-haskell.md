@@ -41,8 +41,9 @@ Second bug I encountered was even trickier. I wrote functions that perform
 cyclic shifts of a signal by any value. For example shifting `[1,2,3,4]` left by
 1 yields `[2,3,4,1]`. Note that shifting by 5, 9, 13 and so on gives exactly the
 same result - the shift function is periodic. You might recall that I used shift
-functions to demonstrate [code testing](2012-10-05-code-testing-in-haskell/).
-This time however I written shifts using
+functions to demonstrate [code
+testing](/blog/2012-10-05-code-testing-in-haskell.html).  This time however I
+written shifts using
 [Repa](www.haskell.org/haskellwiki/Numeric_Haskell:_A_Repa_Tutorial)
 library. Then I created QuickCheck property stating that shifting any signal
 left and then right by same value yields the original signal. This is pretty

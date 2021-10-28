@@ -7,11 +7,12 @@ Two new libraries to extend tasty testing framework
 ===================================================
 
 When I [recently wrote about porting my haskell-testing-stub project to
-tasty](2014-01-26-code-testing-in-haskell-revisited-with-tasty/) I mentioned
-that [test-framework](http://hackage.haskell.org/package/test-framework) still
-has more libraries than [tasty](http://hackage.haskell.org/package/tasty). I
-decided to contribute to changing that and released two small packages that
-extend tasty with extra functionality:
+tasty](/blog/2014-01-26-code-testing-in-haskell-revisited-with-tasty.html) I
+mentioned that
+[test-framework](http://hackage.haskell.org/package/test-framework) still has
+more libraries than [tasty](http://hackage.haskell.org/package/tasty). I decided
+to contribute to changing that and released two small packages that extend tasty
+with extra functionality:
 
   - `tasty-hunit-adapter` allows to import existing HUnit tests into tasty
     ([hackage](http://hackage.haskell.org/package/tasty-hunit-adapter),

@@ -23,10 +23,10 @@ on-line for free](http://book.realworldhaskell.org/read/). I don't like reading
 large amounts of text from a computer screen, so when I decided to learn Haskell
 10 months ago I mailed my university's library and asked if they could get the
 book for me. Three weeks later [brand new copy of RWH was on my
-desk](2012-03-28-a-glance-at-some-haskell-books).  Up till now I read chapters
-1-11, 17 and 25 which is about half of the book. Perhaps a review should be
-based on reading the whole, but after over 300 pages I already have my opinion
-and I don't think it will change much after reading remaining chapters.
+desk](/blog/2012-03-28-a-glance-at-some-haskell-books.html).  Up till now I read
+chapters 1-11, 17 and 25 which is about half of the book. Perhaps a review
+should be based on reading the whole, but after over 300 pages I already have my
+opinion and I don't think it will change much after reading remaining chapters.
 
 The book assumes no prior knowledge of Haskell or functional programming. It
 starts off with simple, introductory topics and explains concepts of functional

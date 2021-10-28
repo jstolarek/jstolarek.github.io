@@ -33,7 +33,7 @@
 <li><code>Num</code> type class no longer has <code>Eq</code> and <code>Show</code> as its superclass;</li>
 <li>Data Parallel Haskell has been improved</li>
 </ul>
-<p>Three months ago I wrote about <a href="2012-03-20-installing-ghc-on-opensuse-linux/">installing Haskell Platform on openSUSE</a>. I recommended that GHC be installed from precompiled binaries and the platform be installed from sources, instead of using packages from repository. Now that the new version is out this post needs an addendum about updating the platform. If the Platform was installed from the repo using a package manager everything would be simple<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. An update of packages would be enough, providing that they were updated by the maintainers of the repository (at the moment packages for openSUSE still contain older version of the platform). With manual installation this process is a bit more difficult.</p>
+<p>Three months ago I wrote about <a href="../blog/2012-03-20-installing-ghc-on-opensuse-linux.html">installing Haskell Platform on openSUSE</a>. I recommended that GHC be installed from precompiled binaries and the platform be installed from sources, instead of using packages from repository. Now that the new version is out this post needs an addendum about updating the platform. If the Platform was installed from the repo using a package manager everything would be simple<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. An update of packages would be enough, providing that they were updated by the maintainers of the repository (at the moment packages for openSUSE still contain older version of the platform). With manual installation this process is a bit more difficult.</p>
 <p>First step is to remove the old installation. I figured out that it would be good to first remove all the packages installed with cabal and then remove GHC. There’s a problem though. Cabal doesn’t have uninstallation feature. This means that each package has to be manually unregistered using ghc-pkg and then all the files belonging to that package have to be removed. After spending about 30 minutes trying to figure out why I can remove one package using</p>
 <pre><code>ghc-pkg list | grep -v &quot;^/&quot; | sed -e &quot;s/\[ {}\]//g&quot; | head -n 1 | xargs ghc-pkg --force unregister</code></pre>
 <p>but can’t remove all the packages using</p>
@@ -44,7 +44,7 @@
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Read <a href="2012-03-20-installing-ghc-on-opensuse-linux/">this post</a>, if you’re wondering why I decided not to use the package repository.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Read <a href="../blog/2012-03-20-installing-ghc-on-opensuse-linux.html">this post</a>, if you’re wondering why I decided not to use the package repository.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

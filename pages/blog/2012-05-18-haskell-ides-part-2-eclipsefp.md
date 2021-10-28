@@ -6,8 +6,8 @@ date: "2012-05-18"
 Haskell IDEs, Part 2: EclipseFP
 ===============================
 
-In [the previous post](2012-05-13-haskell-ide-emacs/) I wrote about using Emacs
-as a Haskell development environment. Today we'll take a look at
+In [the previous post](/blog/2012-05-13-haskell-ide-emacs.html) I wrote about
+using Emacs as a Haskell development environment.  Today we'll take a look at
 [EclipseFP](http://eclipsefp.github.com/), a plugin that enhances Eclipse with
 Haskell support. Let's begin with a brief overview of Eclipse.
 

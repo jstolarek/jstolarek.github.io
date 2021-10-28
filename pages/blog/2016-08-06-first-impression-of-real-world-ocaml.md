@@ -25,7 +25,7 @@ because when I asked "_what is the best book on OCaml_" on `#ocaml` IRC channel
 RWO was an unanimous response from several users. The title itself is obviously
 piggybacking on an earlier "Real World Haskell" released in the same series by
 O'Reilly, which was in general a good book ([though it had its
-flaws](2013-01-06-real-world-haskell-impressions-after-initial-chapters)).
+flaws](/blog/2013-01-06-real-world-haskell-impressions-after-initial-chapters.html)).
 
 The first nine chapters comprise about 40% of the book (190 pages out of 470
 total) and cover the basics of OCaml: various data types (lists, records,

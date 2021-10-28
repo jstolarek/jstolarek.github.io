@@ -82,12 +82,12 @@ Emacs
 =====
 
 I use Emacs for development despite [my initial
-scepticism](2012-05-13-haskell-ide-emacs/).  Since [configuring Emacs is a
-nightmare](2012-11-05-configuring-emacs-is-a-nightmare/) I started a [page on
-GHC wiki](https://ghc.haskell.org/trac/ghc/wiki/Emacs) to gather useful tips,
-tricks and configurations in one place so that others can benefit from
-them. Whatever editor you are using make sure that you take as much advantage of
-its features as possible.
+scepticism](/blog/2012-05-13-haskell-ide-emacs.html).  Since [configuring Emacs
+is a nightmare](/blog/2012-11-05-configuring-emacs-is-a-nightmare.html) I
+started a [page on GHC wiki](https://ghc.haskell.org/trac/ghc/wiki/Emacs) to
+gather useful tips, tricks and configurations in one place so that others can
+benefit from them. Whatever editor you are using make sure that you take as much
+advantage of its features as possible.
 
 Firefox
 =======

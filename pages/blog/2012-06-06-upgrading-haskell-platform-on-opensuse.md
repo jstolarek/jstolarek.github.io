@@ -17,15 +17,15 @@ long and I haven't read all of it but among the most important changes are:
   * Data Parallel Haskell has been improved
 
 Three months ago I wrote about [installing Haskell Platform on
-openSUSE](2012-03-20-installing-ghc-on-opensuse-linux/).  I recommended that GHC
-be installed from precompiled binaries and the platform be installed from
-sources, instead of using packages from repository. Now that the new version is
-out this post needs an addendum about updating the platform. If the Platform was
-installed from the repo using a package manager everything would be simple[^1].
-An update of packages would be enough, providing that they were updated by the
-maintainers of the repository (at the moment packages for openSUSE still contain
-older version of the platform). With manual installation this process is a bit
-more difficult.
+openSUSE](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html).  I
+recommended that GHC be installed from precompiled binaries and the platform be
+installed from sources, instead of using packages from repository. Now that the
+new version is out this post needs an addendum about updating the platform. If
+the Platform was installed from the repo using a package manager everything
+would be simple[^1].  An update of packages would be enough, providing that they
+were updated by the maintainers of the repository (at the moment packages for
+openSUSE still contain older version of the platform). With manual installation
+this process is a bit more difficult.
 
 First step is to remove the old installation. I figured out that it would be
 good to first remove all the packages installed with cabal and then remove GHC.
@@ -87,6 +87,6 @@ over 50MB. This is caused by the [inclusion of RTS (Run Time System) into the
 binary](http://www.haskell.org/ghc/docs/7.4.1/html/users_guide/runtime-control.html)
 but I wonder what else gets included (or is the RTS that large?).
 
-[^1]: Read [this post](2012-03-20-installing-ghc-on-opensuse-linux/), if you're
-wondering why I decided not to use the package repository.
+[^1]: Read [this post](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html),
+if you're wondering why I decided not to use the package repository.
 

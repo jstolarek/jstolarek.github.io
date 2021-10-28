@@ -7,12 +7,12 @@ Code testing in Haskell revisited (with Tasty)
 ==============================================
 
 About 1,5 year ago I wrote a post about [code testing in
-Haskell](2012-10-05-code-testing-in-haskell/).  Post was accompanied by
-[haskell-testing-stub](https://github.com/jstolarek/haskell-testing-stub): a
+Haskell](/blog/2012-10-05-code-testing-in-haskell.html).  Post was accompanied
+by [haskell-testing-stub](https://github.com/jstolarek/haskell-testing-stub): a
 small project showing how to organize tests [and
-benchmarks](2012-10-21-code-benchmarking-in-haskell/) in Haskell. I used
-[test-framework](http://hackage.haskell.org/package/test-framework) package to
-gather tests written in different testing frameworks
+benchmarks](/blog/2012-10-21-code-benchmarking-in-haskell.html) in Haskell. I
+used [test-framework](http://hackage.haskell.org/package/test-framework) package
+to gather tests written in different testing frameworks
 ([QuickCheck](http://hackage.haskell.org/package/QuickCheck) and
 [HUnit](http://hackage.haskell.org/package/HUnit) in my case) in a coherent
 suite. Test-framework might have been a good choice in 2012 but that might not

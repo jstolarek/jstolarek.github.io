@@ -7,15 +7,15 @@ The Little Schemer.  Book review
 ================================
 
 Exactly one year ago I was in the middle of reading ["Seven languages in seven
-weeks"](2012-04-04-7-languages-in-7-weeks-book-review/) by Bruce Tate. This book
-introduced me to functional programming with languages like Erlang, Scala,
-Haskell and Lisp. Now, the Lisp part is the interesting one. I was googling some
-things about Lisp and somehow I landed on Paul Graham's page. [His essays on
-Lisp](http://www.paulgraham.com/lisp.html) fascinated me so much that I decided
-to learn me some Lisp for great good. So when I reached the chapter about
-Clojure (Lisp dialect for JVM) I actually decided to skip it and learn more on
-my own. After some googling I settled on Scheme (another alternative was Common
-Lisp). I began with reading the official
+weeks"](/blog/2012-04-04-7-languages-in-7-weeks-book-review.html) by Bruce Tate.
+This book introduced me to functional programming with languages like Erlang,
+Scala, Haskell and Lisp. Now, the Lisp part is the interesting one. I was
+googling some things about Lisp and somehow I landed on Paul Graham's page. [His
+essays on Lisp](http://www.paulgraham.com/lisp.html) fascinated me so much that
+I decided to learn me some Lisp for great good. So when I reached the chapter
+about Clojure (Lisp dialect for JVM) I actually decided to skip it and learn
+more on my own. After some googling I settled on Scheme (another alternative was
+Common Lisp). I began with reading the official
 [R5RS](http://www.schemers.org/Documents/Standards/R5RS/) specification (only
 about 50 pages) but that definitely wasn't enough. On various blogs and sites on
 the Internet I found people talking about this book The Little Schemer by Daniel

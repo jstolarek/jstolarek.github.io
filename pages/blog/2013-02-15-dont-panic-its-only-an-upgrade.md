@@ -10,17 +10,17 @@ Time for another upgrade of my GHC installation. OK, I know I already posted
 about this twice but yet again the process was different from the previous ones.
 
 My [first attempts of installing GHC and the Haskell
-Platform](2012-03-20-installing-ghc-on-opensuse-linux/) a year ago relied on
-using packages from my distribution's repository. This quickly turned out to be
-problematic so I decided for a direct installation of the Haskell Platform. This
-worked perfectly fine except for the fact that Haskell packages were installed
-in different subdirectories of `/usr/local`, which lead to a bit of a mess and
-problems with controlling what is installed where (this is useful if you want to
-remove a package). So the second time I was installing Haskell Platform [I was
-smarter and refined the whole
-process](2012-06-06-upgrading-haskell-platform-on-opensuse/).  This time I
-confined the installation to a single directory so that both GHC and all the
-packages are located in a single, easy to find place.
+Platform](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html) a year ago
+relied on using packages from my distribution's repository. This quickly turned
+out to be problematic so I decided for a direct installation of the Haskell
+Platform. This worked perfectly fine except for the fact that Haskell packages
+were installed in different subdirectories of `/usr/local`, which lead to a bit
+of a mess and problems with controlling what is installed where (this is useful
+if you want to remove a package). So the second time I was installing Haskell
+Platform [I was smarter and refined the whole
+process](/blog/2012-06-06-upgrading-haskell-platform-on-opensuse.html).  This
+time I confined the installation to a single directory so that both GHC and all
+the packages are located in a single, easy to find place.
 
 Yesterday I figured out it would be great to get a new version of GHC. GHC 7.6.1
 was released on 6th September 2012 and the updated 7.6.2 version is only two

@@ -174,7 +174,7 @@
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">+=</span> xs<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> xs<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> <span class="op">(</span>xs<span class="op">[</span>i<span class="op">]</span> <span class="op">&amp;</span> <span class="dv">1</span><span class="op">);</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Author claims that this code is faster than the version I proposed, but I cannot confirm that on my machine - I get results that are noticeably slower (2.7ms vs 1.7ms for vectors of 1 million elements). Perhaps this comes from me using GCC 4.5, while the latest available version is 4.8.</p>
-<p>Finally, there were questions about overhead added by calling C code via FFI. I was concerned with this also when I first wanted to benchmark my C code via FFI. After making some experiments it turned out that this overhead is so small that it can be ignored. For more information see <a href="2012-11-02-benchmarking-c-functions-using-foreign-function-interface/">this post</a>.</p>
+<p>Finally, there were questions about overhead added by calling C code via FFI. I was concerned with this also when I first wanted to benchmark my C code via FFI. After making some experiments it turned out that this overhead is so small that it can be ignored. For more information see <a href="../blog/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html">this post</a>.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

@@ -7,10 +7,10 @@ Haskell IDEs, Part 4: Emacs revisited and Summary
 =================================================
 
 In the previous parts of this post I reviewed three different development
-environments for Haskell: [Emacs](2012-05-13-haskell-ide-emacs/),
-[EclipseFP](2012-05-18-haskell-ides-part-2-eclipsefp/) and
-[Leksah](2012-05-25-haskell-ide-leksah/).  This is the last part in which I plan
-to write about Emacs once again and then summarize all the reviews.
+environments for Haskell: [Emacs](/blog/2012-05-13-haskell-ide-emacs.html),
+[EclipseFP](/blog/2012-05-18-haskell-ides-part-2-eclipsefp.html) and
+[Leksah](/blog/2012-05-25-haskell-ide-leksah.html).  This is the last part in
+which I plan to write about Emacs once again and then summarize all the reviews.
 
 My main problem with Emacs was inconvenience when working with multiple files,
 mostly because I found switching between buffers (i.e. opened files)

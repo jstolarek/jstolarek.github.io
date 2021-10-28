@@ -12,10 +12,10 @@ Yesterday I finished reading one of the most remarkable books I read in my life:
 ["To Mock a Mockingbird and Other Logic Puzzles: Including an Amazing Adventure
 in Combinatory Logic"](http://en.wikipedia.org/wiki/To_Mock_a_Mockingbird) by
 Raymond Smullyan. When I finished reading [The Little
-Schemer](2013-01-08-the-little-schemer-book-review/) that book was listed as one
-of the suggested further readings. The title was quite intriguing so I got the
-book and started reading it. That was a year ago and I finished the book
-yesterday. Why? Because I got stuck and couldn't understand some of the
+Schemer](/blog/2013-01-08-the-little-schemer-book-review.html) that book was
+listed as one of the suggested further readings. The title was quite intriguing
+so I got the book and started reading it. That was a year ago and I finished the
+book yesterday. Why? Because I got stuck and couldn't understand some of the
 material. Luckily I now had some time to approach the book once again and grok
 it.
 

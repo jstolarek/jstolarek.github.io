@@ -7,13 +7,13 @@ Compiling GHC. Just for fun
 ===========================
 
 A few days ago [I wrote about installing GHC on openSUSE
-Linux](2012-03-20-installing-ghc-on-opensuse-linux/).  I stated that "[compiling
-GHC from source] _is not really a sane option_". I did that based on opinion
-heard from others. In the [next post about
-recursion](2012-03-22-recursion-is-good/) I complained that "_most of us
-programmers (...) follow assume-don't-verify policy_". Oops, I fell into my own
-trap! It's time to fix that. Today I decided to compile GHC from source. Just
-for fun.
+Linux](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html).  I stated that
+"[compiling GHC from source] _is not really a sane option_". I did that based on
+opinion heard from others. In the [next post about
+recursion](/blog/2012-03-22-recursion-is-good.html) I complained that "_most of
+us programmers (...) follow assume-don't-verify policy_". Oops, I fell into my
+own trap! It's time to fix that. Today I decided to compile GHC from
+source. Just for fun.
 
 OK, in fact I didn't plan to do it. It just happened :) I went to github.com to
 see what projects are developed using Haskell. Finding a [GHC

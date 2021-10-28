@@ -27,7 +27,7 @@
     </section>
     <section>
         <h1 id="strange-benchmarking-results-for-ffi-bindings">Strange benchmarking results for FFI bindings</h1>
-<p>It looks like I am getting pretty good at getting hit by Haskell bugs. My <a href="2012-11-17-waiting-for-garbage-collection-can-kill-parallelism/">previous post</a> described behaviour that turned out to be <a href="http://hackage.haskell.org/trac/ghc/ticket/367">a bug in GHC</a> (thanks to Joachim Breitner for pointing this out). Now I found problems with benchmarking FFI bindings using <a href="2012-11-02-benchmarking-c-functions-using-foreign-function-interface/">method described a month ago</a>.</p>
+<p>It looks like I am getting pretty good at getting hit by Haskell bugs. My <a href="../blog/2012-11-17-waiting-for-garbage-collection-can-kill-parallelism.html">previous post</a> described behaviour that turned out to be <a href="http://hackage.haskell.org/trac/ghc/ticket/367">a bug in GHC</a> (thanks to Joachim Breitner for pointing this out). Now I found problems with benchmarking FFI bindings using <a href="../blog/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html">method described a month ago</a>.</p>
 <p>I work on a project in which the same algorithm is implemented using different data structures - one implementation is done in C, another using Vector library and yet another using Repa. Everything is benchmarked with Criterion and C implementation is the fastest one (look at first value after <code>mean</code> - this is mean time of running a function):</p>
 <pre><code>benchmarking DWT/C1
 mean: 87.26403 us, lb 86.50825 us, ub 90.05830 us, ci 0.950

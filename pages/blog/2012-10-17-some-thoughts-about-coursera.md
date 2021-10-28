@@ -7,7 +7,7 @@ Some thoughts about Coursera
 ============================
 
 After [completing Compilers and Automata
-courses](2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses/)
+courses](/blog/2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses.html)
 on [Coursera](https://www.coursera.org/) I am participating in yet another
 course: Writing in the Sciences. I guess the name is pretty self-explanatory but
 just to make it clear: the course is about writing scientific articles. This is

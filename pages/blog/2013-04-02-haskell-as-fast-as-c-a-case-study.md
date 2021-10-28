@@ -311,5 +311,5 @@ Finally, there were questions about overhead added by calling C code via FFI. I
 was concerned with this also when I first wanted to benchmark my C code via FFI.
 After making some experiments it turned out that this overhead is so small that
 it can be ignored. For more information see [this
-post](2012-11-02-benchmarking-c-functions-using-foreign-function-interface/).
+post](/blog/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html).
 

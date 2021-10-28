@@ -163,8 +163,8 @@ definitely points out that running benchmarks is not a good way to precisely
 answer the question "which of the implementations is the most
 efficient?". Another observation I made about criterion was that [results of
 benchmarking functions that use FFI depend on their placement in the benchmark
-suite](2012-12-01-strange-benchmarking-results-for-ffi-bindings/).  I was not
-able to solve that problem and it undermined my trust in the criterion
+suite](/blog/2012-12-01-strange-benchmarking-results-for-ffi-bindings.html).  I
+was not able to solve that problem and it undermined my trust in the criterion
 results. Later during my work I decided to benchmark not only the functions
 performing the Discrete Wavelet Transform but also all the smaller components
 that comprise them. Some of the results were impossible for me to interpret in a
@@ -232,7 +232,7 @@ modules:
     and linked it into Haskell using FFI bindings. I had serious doubts that the
     overhead of calling C via FFI might distort the results, but luckily it
     turned out that it does not - see [this
-    post](2012-11-02-benchmarking-c-functions-using-foreign-function-interface/).
+    post](/blog/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html).
     This implementation uses smart indexing to perform cyclic wrap-around. It
     also operates in place (except for the first layer, as described earlier).
 

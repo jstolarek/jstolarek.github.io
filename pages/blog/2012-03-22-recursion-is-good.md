@@ -190,7 +190,7 @@ decomposing the problem into simple cases. This is easier to code and therefore
 less error prone, so the more I program in Scheme or Haskell the more I wish
 Java had features of functional languages. If you're still not convinced about
 power and usefulness of recursion then perhaps you should [read
-this](2012-03-22-recursion-is-good/).
+this](/blog/2012-03-22-recursion-is-good.html).
 
 **UPDATE (05/04/2012):** Tail recursion and TCO is also discussed in fourth
 chapter of Real World Haskell (read it
