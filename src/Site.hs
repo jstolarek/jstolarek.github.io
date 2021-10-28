@@ -26,7 +26,7 @@ main = hakyllWith config $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes`
                   setExtension "html"
         compile $ do
-            posts <- recentFirst =<< loadAll "pages/blog/*.md"
+            posts <- recentFirst =<< loadAll "pages/posts/*.md"
             let postsCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Yet Another Lambda Blog" `mappend`
@@ -43,7 +43,7 @@ main = hakyllWith config $ do
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
-    match "pages/blog/*.md" $ do
+    match "pages/posts/*.md" $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes`
                   setExtension "html"
         compile $ pandocCompiler
@@ -57,7 +57,7 @@ main = hakyllWith config $ do
         compile $ do
           let feedCtx = postCtx `mappend` bodyField "description"
           posts <- fmap (take 10) . recentFirst =<<
-                   loadAllSnapshots "pages/blog/*.md" "content"
+                   loadAllSnapshots "pages/posts/*.md" "content"
           renderRss feedConfig feedCtx posts
 
     match "templates/*" $ compile templateBodyCompiler
