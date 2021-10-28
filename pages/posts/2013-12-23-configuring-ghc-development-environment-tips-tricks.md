@@ -42,7 +42,7 @@ smart enough to prevent removal of a default sandbox. Finally, I've set up my
 `.bashrc` file to provide auto-completion of sandbox names. Here's how it looks
 in practice (click to enlarge):
 
-[![ghc-sandbox](/images/blog/ghc-sandbox-300x129.png)](/images/blog/ghc-sandbox.png)
+[![ghc-sandbox](/images/posts/ghc-sandbox-300x129.png)](/images/posts/ghc-sandbox.png)
 
 Scripting for the win
 =====================
@@ -82,8 +82,8 @@ Emacs
 =====
 
 I use Emacs for development despite [my initial
-scepticism](/blog/2012-05-13-haskell-ide-emacs.html).  Since [configuring Emacs
-is a nightmare](/blog/2012-11-05-configuring-emacs-is-a-nightmare.html) I
+scepticism](/posts/2012-05-13-haskell-ide-emacs.html).  Since [configuring Emacs
+is a nightmare](/posts/2012-11-05-configuring-emacs-is-a-nightmare.html) I
 started a [page on GHC wiki](https://ghc.haskell.org/trac/ghc/wiki/Emacs) to
 gather useful tips, tricks and configurations in one place so that others can
 benefit from them. Whatever editor you are using make sure that you take as much

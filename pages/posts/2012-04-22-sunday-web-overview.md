@@ -42,10 +42,10 @@ Here's an overview of some interesting web resources I've found recently:
     not the same as log4j from Java, but I think it will come in handy.
 
   * [An old post by Daniel Spiewak gives a very brief overview of Hindley-Milner
-    type system](http://www.codecommit.com/blog/scala/what-is-hindley-milner-and-why-is-it-cool).
+    type system](http://www.codecommit.com/posts/scala/what-is-hindley-milner-and-why-is-it-cool).
     It is presented in Scala, but AFAIK Haskell uses the same. I found the
     comments below the post to be very insightful. Actually the whole [blog by
-    Daniel](http://www.codecommit.com/blog/) is very interesting, but it looks
+    Daniel](http://www.codecommit.com/posts/) is very interesting, but it looks
     like a difficult read.
 
   * There is a classical book by Simon Peyton Jones called "The Implementation

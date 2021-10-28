@@ -26,7 +26,7 @@ which I will refer to as CPDT, and Coq.
 aware that despite similarity in features of these languages they don't aim to
 be the same. Coq is a proof assistant with an extra feature of code extraction
 that allows you to turn your proofs into code - if you ever heard about
-["programs as proofs"](/blog/2013-12-17-data-is-evidence.html) this is it.
+["programs as proofs"](/posts/2013-12-17-data-is-evidence.html) this is it.
 Idris is a programming language with extra features that allow you to prove your
 code correct. I'm not really sure how to classify Agda. It is definitely on the
 programming-language-end of the spectrum - it allows you to prove your code
@@ -88,7 +88,7 @@ Basics.par_lemma_1 = proof
 The last time I checked Idris once the proof was completed and added to the
 source code it was not possible to step through it back and forth to see how
 goals are transformed. (Things might have changed [since I last
-checked](/blog/2013-12-02-idris-first-impressions.html).)
+checked](/posts/2013-12-02-idris-first-impressions.html).)
 
 So far I've been doing rather basic stuff with Coq so I haven't seen much that
 wouldn't be also possible in Agda or Idris. The biggest difference is that Coq

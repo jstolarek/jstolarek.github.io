@@ -8,7 +8,7 @@ New domain is here
 
 On Tuesday I moved my blog to a different domain. Please update your bookmarks
 to point to http://ics.p.lodz.pl/~stolarek/blog (the old address will redirect
-you anyway) and your RSS feeds to http://ics.p.lodz.pl/~stolarek/blog/feed/.
+you anyway) and your RSS feeds to http://ics.p.lodz.pl/~stolarek/posts/feed/.
 Because of domain change your RSS readers might have downloaded all the posts
 that you have already read - sorry for that. I know that in the past some of you
 have been experiencing problems with my blog: the directory listing was

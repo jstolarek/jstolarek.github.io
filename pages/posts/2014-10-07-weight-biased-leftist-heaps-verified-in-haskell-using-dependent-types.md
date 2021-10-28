@@ -7,7 +7,7 @@ Weight-biased leftist heaps verified in Haskell using dependent types
 =====================================================================
 
 In January [I announced my
-implementation](/blog/2014-01-16-verifying-weight-biased-leftist-heaps-using-dependent-types-a-draft.html)
+implementation](/posts/2014-01-16-verifying-weight-biased-leftist-heaps-using-dependent-types-a-draft.html)
 of [weight-biased leftist heaps verified with dependent types in
 Agda](https://github.com/jstolarek/dep-typed-wbl-heaps). This was part of my
 work on a paper submitted to CAV'14 conference. The paper got rejected and I

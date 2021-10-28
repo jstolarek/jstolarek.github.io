@@ -11,7 +11,7 @@ In my last post I showed you how to use
 benchmarks for Haskell code. In [tutorial
 project](https://github.com/jstolarek/haskell-testing-stub/) that I created to
 demonstrate my ideas I decided to generate random data for benchmarking. [Bryan
-O'Sullivan](http://www.serpentine.com/blog/) has [commented on my
+O'Sullivan](http://www.serpentine.com/posts/) has [commented on my
 approach](http://www.reddit.com/r/haskell/comments/11w5c1/code_benchmarking_in_haskell_using_criterion_and/)
 that "the code (...) that generates random inputs on every run would be a good
 antipattern for performance testing." After giving some thought to his words I

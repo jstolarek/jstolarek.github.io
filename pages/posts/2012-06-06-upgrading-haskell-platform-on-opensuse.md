@@ -17,7 +17,7 @@ long and I haven't read all of it but among the most important changes are:
   * Data Parallel Haskell has been improved
 
 Three months ago I wrote about [installing Haskell Platform on
-openSUSE](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html).  I
+openSUSE](/posts/2012-03-20-installing-ghc-on-opensuse-linux.html).  I
 recommended that GHC be installed from precompiled binaries and the platform be
 installed from sources, instead of using packages from repository. Now that the
 new version is out this post needs an addendum about updating the platform. If
@@ -59,7 +59,7 @@ with all programs not installed from the packages being placed in `/usr/local`
 directory). This approach certainly wouldn't work in a multi-user environment
 and I guess it could be problematic if I developed many projects, each with
 different dependencies
-([cabal-dev](http://corp.galois.com/blog/2010/12/20/cabal-dev-sandboxed-development-builds-for-haskell.html)
+([cabal-dev](http://corp.galois.com/posts/2010/12/20/cabal-dev-sandboxed-development-builds-for-haskell.html)
 aims to solve that problem). As a side note, it seems to me that with hundreds
 of packages available from Hackage and a management tool with rather limited
 capabilities (cabal can't even automatically update installed packages!) Haskell
@@ -67,8 +67,8 @@ community is in a place where Linux community was over ten years ago. The
 dependency hell, now gone from Linux, looms over Haskell world and if cabal
 won't be enhanced I see this as a very huge problem hindering large Haskell
 projects. It seems that Yesod team is particularly concerned about this - see
-[here](http://www.yesodweb.com/blog/2012/04/cabal-meta) and
-[here](http://www.yesodweb.com/blog/2012/03/cabal-nirvana).
+[here](http://www.yesodweb.com/posts/2012/04/cabal-meta) and
+[here](http://www.yesodweb.com/posts/2012/03/cabal-nirvana).
 
 Anyway, I decided to place my new installation of the platform in `/usr/local`,
 but this time I was smarter by placing everything in a dedicated directory. Both
@@ -87,6 +87,6 @@ over 50MB. This is caused by the [inclusion of RTS (Run Time System) into the
 binary](http://www.haskell.org/ghc/docs/7.4.1/html/users_guide/runtime-control.html)
 but I wonder what else gets included (or is the RTS that large?).
 
-[^1]: Read [this post](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html),
+[^1]: Read [this post](/posts/2012-03-20-installing-ghc-on-opensuse-linux.html),
 if you're wondering why I decided not to use the package repository.
 

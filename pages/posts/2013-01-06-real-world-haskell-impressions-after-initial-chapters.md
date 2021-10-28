@@ -11,10 +11,10 @@ January will be even more busy, but I want to write some posts I didn't have
 time to finish for the last couple of months. I have some book reviews on my
 mind and today I will begin with Real World Haskell.
 
-[![rwh_cover](/images/blog/rwh_cover-228x300.jpg)](/images/blog/rwh_cover.jpg)
+[![rwh_cover](/images/posts/rwh_cover-228x300.jpg)](/images/posts/rwh_cover.jpg)
 
 Real World Haskell - commonly referred to as RWH - was written by [Bryan
-O'Sullivan](http://www.serpentine.com/blog/), [John
+O'Sullivan](http://www.serpentine.com/posts/), [John
 Goerzen](http://www.complete.org/) and [Don
 Stewart](http://donsbot.wordpress.com/) and published in 2008 by O'Reilly. With
 28 chapters on 670 pages it is _the_ book about Haskell. There is no more
@@ -23,7 +23,7 @@ on-line for free](http://book.realworldhaskell.org/read/). I don't like reading
 large amounts of text from a computer screen, so when I decided to learn Haskell
 10 months ago I mailed my university's library and asked if they could get the
 book for me. Three weeks later [brand new copy of RWH was on my
-desk](/blog/2012-03-28-a-glance-at-some-haskell-books.html).  Up till now I read
+desk](/posts/2012-03-28-a-glance-at-some-haskell-books.html).  Up till now I read
 chapters 1-11, 17 and 25 which is about half of the book. Perhaps a review
 should be based on reading the whole, but after over 300 pages I already have my
 opinion and I don't think it will change much after reading remaining chapters.

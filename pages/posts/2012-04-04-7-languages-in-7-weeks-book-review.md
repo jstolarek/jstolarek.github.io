@@ -6,7 +6,7 @@ date: 2012-04-04
 7 Languages in 7 Weeks. Book review
 ===================================
 
-[![](/images/blog/7lin7w-250x300.jpg "Seven Languages in Seven Weeks")](/images/blog/7lin7w.jpg)
+[![](/images/posts/7lin7w-250x300.jpg "Seven Languages in Seven Weeks")](/images/posts/7lin7w.jpg)
 
 I already mentioned a couple of times that I'm new to functional programming. My
 fascination has a very precise starting point. It was thanks to a book ["Seven
@@ -40,7 +40,7 @@ help. This discouraged me a lot, but luckily the next language, Prolog, turned
 out to be extremely fun. In fact I put down the book and started reading [online
 tutorial](http://www.csupomona.edu/~jrfisher/www/prolog_tutorial/contents.html)
 on my own. From it I learned about [tail recursion using
-accumulator](/blog/2012-03-22-recursion-is-good.html).  Language number four was
+accumulator](/posts/2012-03-22-recursion-is-good.html).  Language number four was
 Scala. I was looking forward to learn it, as I've already heard some stuff about
 functional programming. Unfortunately, Scala turned out to be disappointing to
 me. Not that it's a bad language. I think it can be great, but I wanted to learn
@@ -74,7 +74,7 @@ you can do without it and learn these seven languages just as well, providing
 that you can keep yourself motivated.
 
 P.S. While I was reading the book I found [Ben Nadel's
-blog](http://www.bennadel.com/blog/2109-Seven-Languages-In-Seven-Weeks-By-Bruce-Tate-What-An-Adventure.htm)
+blog](http://www.bennadel.com/posts/2109-Seven-Languages-In-Seven-Weeks-By-Bruce-Tate-What-An-Adventure.htm)
 to be very supportive. P.S.2 This is not a concern for most of you, but I found
 the [Polish edition of the
 book](http://helion.pl/ksiazki/siedem-jezykow-w-siedem-tygodni-praktyczny-przewodnik-nauki-jezykow-programowania-bruce-a-tate,7je7ty.htm)

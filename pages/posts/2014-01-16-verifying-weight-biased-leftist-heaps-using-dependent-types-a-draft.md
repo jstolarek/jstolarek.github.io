@@ -22,7 +22,7 @@ implementation is not purely functional as it uses exceptions to deal with edge
 cases like taking the smallest element from an empty heap.
 
 Draft version of the paper can be downloaded
-[here](http://ics.p.lodz.pl/~stolarek/blog/wp-content/uploads/2014/01/dep-typed-wbl-heaps.pdf).
+[here](http://ics.p.lodz.pl/~stolarek/posts/wp-content/uploads/2014/01/dep-typed-wbl-heaps.pdf).
 It comes with companion source code that contains a thorough discussion of
 concepts presented in the paper as well as others that didn't make it into
 publication due to space limitations. Companion code is available at

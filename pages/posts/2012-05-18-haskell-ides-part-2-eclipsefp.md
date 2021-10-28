@@ -6,7 +6,7 @@ date: "2012-05-18"
 Haskell IDEs, Part 2: EclipseFP
 ===============================
 
-In [the previous post](/blog/2012-05-13-haskell-ide-emacs.html) I wrote about
+In [the previous post](/posts/2012-05-13-haskell-ide-emacs.html) I wrote about
 using Emacs as a Haskell development environment.  Today we'll take a look at
 [EclipseFP](http://eclipsefp.github.com/), a plugin that enhances Eclipse with
 Haskell support. Let's begin with a brief overview of Eclipse.
@@ -52,7 +52,7 @@ Haddock documentation - to name some of them.  You can of course benefit from
 standard features of Eclipse as well as other plugins, e.g. using SVN or GIT
 integration in your Haskell project. Here's a glimpse at EclipseFP in action:
 
-[![](/images/blog/eclipsefp1.png "EclipseFP")](/images/blog/eclipsefp1.png)
+[![](/images/posts/eclipsefp1.png "EclipseFP")](/images/posts/eclipsefp1.png)
 
 No much surprise here: editor with multiple tabs, overview of project structure
 on the left, GHCi at the bottom. The only thing you may find odd is lack of

@@ -163,7 +163,7 @@ as proofs of these propositions is not new - it is known as [Curry-Howard
 correspondence](http://en.wikipedia.org/wiki/Curry_Howard_isomorphism) (or
 isomorphism) and I bet many of you have heard that name. Example presented here
 is taken from "Why Dependent Types Matter". See this [recent
-post](/blog/2013-11-07-why-dependent-types-matter-in-agda.html) for a few more
+post](/posts/2013-11-07-why-dependent-types-matter-in-agda.html) for a few more
 words about this paper.
 
 [^1]: All code in this post is in Agda.

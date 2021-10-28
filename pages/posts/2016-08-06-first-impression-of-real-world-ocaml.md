@@ -13,7 +13,7 @@ roughly the first nine chapters of "Real World OCaml" (RWO for short). I
 finished reading them several days ago and thought I will share my impressions
 about the book.
 
-[![rwo](/images/blog/rwo1-228x300.png)](/images/blog/rwo1.png)
+[![rwo](/images/posts/rwo1-228x300.png)](/images/posts/rwo1.png)
 
 RWO was written by Yaron Minsky, [Anil Madhavapeddy](http://anil.recoil.org/)
 and Jason Hickey. It is one of a handful of books on OCaml. Other titles out
@@ -25,7 +25,7 @@ because when I asked "_what is the best book on OCaml_" on `#ocaml` IRC channel
 RWO was an unanimous response from several users. The title itself is obviously
 piggybacking on an earlier "Real World Haskell" released in the same series by
 O'Reilly, which was in general a good book ([though it had its
-flaws](/blog/2013-01-06-real-world-haskell-impressions-after-initial-chapters.html)).
+flaws](/posts/2013-01-06-real-world-haskell-impressions-after-initial-chapters.html)).
 
 The first nine chapters comprise about 40% of the book (190 pages out of 470
 total) and cover the basics of OCaml: various data types (lists, records,

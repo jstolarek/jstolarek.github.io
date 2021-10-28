@@ -50,7 +50,7 @@ You will find a derivation of Y-combinator in the 9th chapter of "The Little
 Schemer". The book might be a bit hard to find and I consider this derivation to
 be a bit criptic (though the book itself is great). Luckily Peteris Krumins
 [extended derivation from "The Little
-Schemer"](http://www.catonmat.net/blog/derivation-of-ycombinator/). I will base
+Schemer"](http://www.catonmat.net/posts/derivation-of-ycombinator/). I will base
 my post on his results. So, the final version of the Y-combinator written in
 Scheme is:
 

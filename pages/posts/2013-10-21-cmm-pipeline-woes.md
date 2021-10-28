@@ -13,10 +13,10 @@ problems in design of the Cmm pipeline.
 Cmm
 ===
 
-I already mentioned [in my earlier post](/blog/2013-10-06-let-no-escape.html)
+I already mentioned [in my earlier post](/posts/2013-10-06-let-no-escape.html)
 that Cmm is a low-level language, something between C and assembly. Cmm is
 produced from another intermediate language,
-[STG](/blog/2013-06-13-getting-friendly-with-stg.html).  A single Cmm procedure
+[STG](/posts/2013-06-13-getting-friendly-with-stg.html).  A single Cmm procedure
 is represented as a directed graph. Each node in a graph is a Cmm Block of low
 level instructions. Exactly one Cmm Block in a graph is an entry point - a block
 from which the execution starts when procedure represented by a graph is

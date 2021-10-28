@@ -9,8 +9,8 @@ Benchmarking C functions using Foreign Function Interface
 I am currently working on implementing Discrete Wavelet Transform (DWT) in
 Haskell. I want to make use of Haskell's parallel programing capabilities to
 implement an algorithm that can take advantage of multiple CPU cores. My
-previous posts on [testing](/blog/2012-10-05-code-testing-in-haskell.html) and
-[benchmarking](/blog/2012-10-21-code-benchmarking-in-haskell.html) were
+previous posts on [testing](/posts/2012-10-05-code-testing-in-haskell.html) and
+[benchmarking](/posts/2012-10-21-code-benchmarking-in-haskell.html) were
 by-products of this project, as I needed to ensure reliability of my
 implementation and to measure its performance. The key question that is in my
 head all the time is "can I write Haskell code that outperforms C when given

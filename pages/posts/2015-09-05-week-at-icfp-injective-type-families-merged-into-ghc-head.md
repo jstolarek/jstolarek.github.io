@@ -8,7 +8,7 @@ Week at ICFP: Injective Type Families merged into GHC HEAD
 
 I spent last week at Vancouver, Canada attending Haskell Implementors Workshop,
 ICFP and the Haskell Symposium. Yesterday I gave a talk on injective type
-families, [described also in my previous post](/blog/2015-05-26-injective-type-families-for-haskell.html).
+families, [described also in my previous post](/posts/2015-05-26-injective-type-families-for-haskell.html).
 [Slides are on my web page](http://ics.p.lodz.pl/~stolarek/_media/pl:research:injectivity-haskell15-slides.pdf)
 but the talk itself is not yet online. Day prior to the talk I finally managed
 to [merge the injective type families

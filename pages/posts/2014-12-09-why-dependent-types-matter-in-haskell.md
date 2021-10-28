@@ -7,12 +7,12 @@ Why dependent types matter (in Haskell)
 =======================================
 
 A year ago [I published Agda
-code](/blog/2013-11-07-why-dependent-types-matter-in-agda.html) for ["Why
+code](/posts/2013-11-07-why-dependent-types-matter-in-agda.html) for ["Why
 dependent types matter"](http://www.cs.nott.ac.uk/~txa/publ/ydtm.pdf) paper by
 Thorsten Altenkirch, Conor McBride and James McKinna. Now I rewrote that code in
 Haskell. This work is similar to my recent [conversion of weight-biased leftist
 heaps from Agda to
-Haskell](/blog/2014-10-07-weight-biased-leftist-heaps-verified-in-haskell-using-dependent-types.html)
+Haskell](/posts/2014-10-07-weight-biased-leftist-heaps-verified-in-haskell-using-dependent-types.html)
 so I won't go into technical details. As usual [you can view the code on
 Github](https://github.com/jstolarek/why-dependent-types-matter).
 

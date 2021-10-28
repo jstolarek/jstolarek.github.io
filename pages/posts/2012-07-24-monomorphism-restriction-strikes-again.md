@@ -7,7 +7,7 @@ Monomorphism restriction strikes again
 ======================================
 
 A while ago [I blogged about monomorphsim
-restriction](/blog/2012-05-31-towards-understanding-haskells-monomorphism-restriction.html).
+restriction](/posts/2012-05-31-towards-understanding-haskells-monomorphism-restriction.html).
 I thought I understood most of it, but just yesterday I was surprisingly hit by
 it. I was working my way through [chapter 9 of Real World
 Haskell](http://book.realworldhaskell.org/read/io-case-study-a-library-for-searching-the-filesystem.html).

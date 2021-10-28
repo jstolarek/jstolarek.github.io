@@ -34,7 +34,7 @@ lexical analysis has a section about implementing a lexer. I'm looking forward
 to this one, since I still don't have a clear vision on how to implement lexer
 efficiently. These are only the first impressions of course. I'll verify them
 when I start reading (expect a follow-up on this one [read a follow up on this
-one](/blog/2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses.html)).
+one](/posts/2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses.html)).
 
 Third of the recommended books - "Modern compiler implementation in C/Java/ML"
 (there are three different editions of this book) by Appel - was also available
@@ -49,13 +49,13 @@ book has a chapters about functional languages and polymorphic types. The latter
 one covers the subject of the Hindley-Milner type inference algorithm in a form
 that seems to be accessible.
 
-[![](/images/blog/img_1111-300x225.jpg "Compiler books")](/images/blog/img_1111.jpg)
+[![](/images/posts/img_1111-300x225.jpg "Compiler books")](/images/posts/img_1111.jpg)
 
 Now, here's a surprise! Just a few days ago I found about a book [The
 Implementation of Functional Programming
 Languages](http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/index.htm)
 by Simon Peyton Jones ([see my previous
-post](/blog/2012-04-22-sunday-web-overview.html)).  To my greatest surprise it
+post](/posts/2012-04-22-sunday-web-overview.html)).  To my greatest surprise it
 was in the library! I stumbled upon it by pure accident while I was searching
 the shelves for Appel's book - I never would have thought that it's available in
 the library of my university. Do I have to mention that I borrowed it right

@@ -7,7 +7,7 @@ Code testing in Haskell
 =======================
 
 A few weeks ago [I wrote that for 3 years I used Matlab as my main programming
-language](/blog/2012-09-09-y-combinator-in-matlab.html).  Before that however I
+language](/posts/2012-09-09-y-combinator-in-matlab.html).  Before that however I
 was developing in Java. While Java can be criticized for its design - and I
 noticed that some Haskallers look down on it - it learned me one very important
 thing: code testing. Java's JUnit was very important in popularizing Test Driven
@@ -485,7 +485,7 @@ could be used in my sample project without problems. That's the kind of test
 extensibility I like!
 
 **UPDATE (21/10/2012):** Read a follow-up post about [code benchmarking in
-Haskell](/blog/2012-10-21-code-benchmarking-in-haskell.html).
+Haskell](/posts/2012-10-21-code-benchmarking-in-haskell.html).
 
 [^1]: When I say cabal I really mean cabal-install, a command-line tool used for
   installing Haskell packages, not the Cabal library. The confusion arises

@@ -7,7 +7,7 @@ Two new libraries to extend tasty testing framework
 ===================================================
 
 When I [recently wrote about porting my haskell-testing-stub project to
-tasty](/blog/2014-01-26-code-testing-in-haskell-revisited-with-tasty.html) I
+tasty](/posts/2014-01-26-code-testing-in-haskell-revisited-with-tasty.html) I
 mentioned that
 [test-framework](http://hackage.haskell.org/package/test-framework) still has
 more libraries than [tasty](http://hackage.haskell.org/package/tasty). I decided

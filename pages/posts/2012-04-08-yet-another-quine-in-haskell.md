@@ -61,7 +61,7 @@ q = "main = putStr (quine q)\\nquine s = s ++ show s\\nq = "
 
 The solution is by Jon Fairbairn and I found it
 [here](http://www.nyx.net/~gthompso/quine.htm).  The same using a monad (found
-[here](http://porg.es/blog/a-quine-in-haskell)):
+[here](http://porg.es/posts/a-quine-in-haskell)):
 
 ```haskell
 main = (putStr . ap (++) show) "main = (putStr . ap (++) show) "

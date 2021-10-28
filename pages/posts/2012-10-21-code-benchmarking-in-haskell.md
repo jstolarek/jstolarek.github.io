@@ -7,7 +7,7 @@ Code benchmarking in Haskell
 ============================
 
 Three weeks ago I wrote about [code testing in
-Haskell](/blog/2012-10-05-code-testing-in-haskell.html).  Today I will discuss
+Haskell](/posts/2012-10-05-code-testing-in-haskell.html).  Today I will discuss
 how to benchmark code written in Haskell and how to integrate benchmarks into a
 project. For demonstration purposes I extended [my sample project on
 github](https://github.com/jstolarek/haskell-testing-stub) so now it shows how
@@ -20,7 +20,7 @@ While there was a lot of testing libraries to choose from, it seems that
 benchmarking is dominated by only one library - Bryan O'Sullivan's
 [criterion](http://hackage.haskell.org/package/criterion). To get started with
 it you should read [this post on Bryan's
-blog](http://www.serpentine.com/blog/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/).
+blog](http://www.serpentine.com/posts/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/).
 I will present some of the basics in today's post and will also mention a couple
 of things that are undocumented.
 
@@ -30,7 +30,7 @@ value of a function once it can be memoized and reused later without need for
 recomputing. This is of course not what we want during benchmarking. Criterion
 takes care of that, but requires that benchmarks be written in a special
 way. Let's look at an example banchmark for our shift function ((See my [post on
-testing](/blog/2012-10-05-code-testing-in-haskell.html) if you don't know what
+testing](/posts/2012-10-05-code-testing-in-haskell.html) if you don't know what
 shift I'm talking about)):
 
 ```haskell
@@ -124,7 +124,7 @@ benchConfig = defaultConfig {
 The most important part is the `benchmarks` function, which takes a random
 number generator and assembles all benchmarks into one suite (**UPDATE
 (24/10/2012):** read a [follow-up post on random data
-generation](/blog/2012-10-24-code-benchmarking-in-haskell-some-thoughts-about-random-data-generation.html)).
+generation](/posts/2012-10-24-code-benchmarking-in-haskell-some-thoughts-about-random-data-generation.html)).
 Just as with tests we can create logical groups and assign names. A cool thing
 is a [`bcompare`](http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:bcompare)
 function. It takes a list of benchmarks, assumes that the first one is the
@@ -178,7 +178,7 @@ cabal bench
 
 This couldn't be easier. Criterion will produce quite a detailed output on the
 console. As I already said, it's all explained [on Bryan's
-blog](http://www.serpentine.com/blog/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/),
+blog](http://www.serpentine.com/posts/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/),
 but some of the mentioned features are not present any more in criterion. Most
 importantly, you cannot display results in a window or save them to png
 file. Luckily, there is an even fancier feature instead. Run benchmarks like

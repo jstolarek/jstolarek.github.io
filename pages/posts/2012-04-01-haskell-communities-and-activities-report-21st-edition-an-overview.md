@@ -27,7 +27,7 @@ an overview of things I've found the most interesting:
     considering switching to Debian for some time now and it's good to know
     there is a good Haskell support for Debian (although I'd probably [still
     stick to the precompiled
-    binaries](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html) available
+    binaries](/posts/2012-03-20-installing-ghc-on-opensuse-linux.html) available
     from GHC site).
 
   - [HEAT](http://www.cs.kent.ac.uk/projects/heat/) is The Haskell Educational

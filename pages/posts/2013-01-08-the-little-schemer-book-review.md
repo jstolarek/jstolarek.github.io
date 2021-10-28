@@ -7,7 +7,7 @@ The Little Schemer.  Book review
 ================================
 
 Exactly one year ago I was in the middle of reading ["Seven languages in seven
-weeks"](/blog/2012-04-04-7-languages-in-7-weeks-book-review.html) by Bruce Tate.
+weeks"](/posts/2012-04-04-7-languages-in-7-weeks-book-review.html) by Bruce Tate.
 This book introduced me to functional programming with languages like Erlang,
 Scala, Haskell and Lisp. Now, the Lisp part is the interesting one. I was
 googling some things about Lisp and somehow I landed on Paul Graham's page. [His
@@ -23,7 +23,7 @@ P. Friedman and Matthias Felleisen, how great and different from other books it
 is and how it can change the way you think. I decided to give The Little Schemer
 a try.
 
-[![The_Little_Schemer](/images/blog/The_Little_Schemer-243x300.jpg)](/images/blog/The_Little_Schemer.jpg)
+[![The_Little_Schemer](/images/posts/The_Little_Schemer-243x300.jpg)](/images/posts/The_Little_Schemer.jpg)
 
 The first thing I noticed after opening the book is that it is indeed unlike
 anything I have read so far. Instead of explaining things directly, the book
@@ -46,7 +46,7 @@ much easier.  Last two chapters of the book are quite difficult though. Chapter
 step - I had a feeling that some parts were actually left out and I had problems
 understanding what is going on. Luckily [Peteris Krumins has written a great
 post in which he derives
-Y-combinator](http://www.catonmat.net/blog/derivation-of-ycombinator/) and fills
+Y-combinator](http://www.catonmat.net/posts/derivation-of-ycombinator/) and fills
 the gaps present in The Little Schemer. Even after reading that post I still
 needed about 3 days to understand what's going on in the Y-combinator, but once
 things clicked it was my "Aha!" moment. That's probably the most fascinating

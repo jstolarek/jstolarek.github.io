@@ -8,7 +8,7 @@ Some impressions on Stanford's Automata and Compilers online courses
 
 Over two months ago Stanford opened first edition of online courses on Automata
 and Compilers (see [this
-post](/blog/2012-04-20-stanford-opens-new-online-courses-about-compilers-and-automata.html)).
+post](/posts/2012-04-20-stanford-opens-new-online-courses-about-compilers-and-automata.html)).
 I've participated in both. These courses cover basics of each discipline and
 assume no previous knowledge of the subject. Now the courses are over and it's
 time to share some impressions.
@@ -55,7 +55,7 @@ the compiler (type checking especially). The best thing about Compilers course
 is that it was motivating. It encouraged me to finally read some chapters from
 the Dragon Book and "Engineering a Compiler". Which reminds me that [I promised
 to write more about compiler
-books](/blog/2012-04-25-some-books-about-compilers.html).
+books](/posts/2012-04-25-some-books-about-compilers.html).
 
 The Dragon Book turned out to be surprisingly interesting. It is verbose and
 very dry, so it's not suitable for reading from cover to cover. Nevertheless, if

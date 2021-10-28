@@ -122,7 +122,7 @@ is developed I imagine it could soon become more popular than Agda. Perhaps
 these "missing" features will also be added one day?
 
 As an exercise I rewrote code from "Why dependent types matter" paper from Agda
-(see [my previous post](/blog/2013-11-07-why-dependent-types-matter-in-agda/)) to
+(see [my previous post](/posts/2013-11-07-why-dependent-types-matter-in-agda/)) to
 Idris. Code is [available in on
 github](https://github.com/jstolarek/why-dependent-types-matter).
 

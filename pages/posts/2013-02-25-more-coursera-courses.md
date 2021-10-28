@@ -20,7 +20,7 @@ announced I enrolled without hesitation. It looks that this subject draws a lot
 of interest since this was in fact one of the most popular Coursera courses to
 date. The course lasted 12 weeks, which in my opinion is very long for an online
 course - even
-[Compilers](/blog/2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses.html)
+[Compilers](/posts/2012-06-27-some-impressions-on-stanfords-automata-and-compilers-online-courses.html)
 took only 10 weeks. The course wasn't very time-demanding, taking about 2-3
 hours a week to watch the lectures and possibly another hour to complete the
 homework. I didn't get the textbook so I did no additional reading but I guess

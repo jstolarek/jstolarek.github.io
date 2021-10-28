@@ -58,7 +58,7 @@ $$ x' = x \cdot \cos \alpha + y \cdot \sin \alpha \\\\
 
 where $\alpha$ is a real parameter. Base operation is visualised like this:
 
-[![base_op1](/images/blog/base_op1.png)](/images/blog/base_op1.png)
+[![base_op1](/images/posts/base_op1.png)](/images/posts/base_op1.png)
 
 (The idea behind base operation is almost identical as in the [butterfly
 diagram](http://en.wikipedia.org/wiki/Butterfly_diagram) used in Fast Fourier
@@ -68,7 +68,7 @@ The lattice structure accepts input of even length, sends it through a series of
 layers and outputs a transformed signal of the same length as input. Lattice
 structure is organised into layers of base operations connected like this:
 
-[![ls](/images/blog/ls-190x300.png)](/images/blog/ls.png)
+[![ls](/images/posts/ls-190x300.png)](/images/posts/ls.png)
 
 The number of layers may be arbitrary; the number of base operations depends on
 the length of input signal. Within each layer all base operations are identical,
@@ -114,7 +114,7 @@ larger than the expected output. This results from the fact that here we will
 not perform cyclic wrap-around but instead we will narrow down the signal. This
 idea is shown in the image below:
 
-[![ls2](/images/blog/ls2-170x300.png)](/images/blog/ls2.png)
+[![ls2](/images/posts/ls2-170x300.png)](/images/posts/ls2.png)
 
 This example assumes dividing the signal between two threads. Each thread
 receives an input signal of length 8 and produces output of length 4. A couple
@@ -163,7 +163,7 @@ definitely points out that running benchmarks is not a good way to precisely
 answer the question "which of the implementations is the most
 efficient?". Another observation I made about criterion was that [results of
 benchmarking functions that use FFI depend on their placement in the benchmark
-suite](/blog/2012-12-01-strange-benchmarking-results-for-ffi-bindings.html).  I
+suite](/posts/2012-12-01-strange-benchmarking-results-for-ffi-bindings.html).  I
 was not able to solve that problem and it undermined my trust in the criterion
 results. Later during my work I decided to benchmark not only the functions
 performing the Discrete Wavelet Transform but also all the smaller components
@@ -232,7 +232,7 @@ modules:
     and linked it into Haskell using FFI bindings. I had serious doubts that the
     overhead of calling C via FFI might distort the results, but luckily it
     turned out that it does not - see [this
-    post](/blog/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html).
+    post](/posts/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html).
     This implementation uses smart indexing to perform cyclic wrap-around. It
     also operates in place (except for the first layer, as described earlier).
 
@@ -290,7 +290,7 @@ computes average runtime, standard deviation, influence of outlying results on
 the average and a few more things like plotting the results. Below are the
 benchmarking results on Intel i7 M620 CPU using two cores (click to enlarge):
 
-[![ls-results1](/images/blog/ls-results1-300x91.png)](/images/blog/ls-results1.png)
+[![ls-results1](/images/posts/ls-results1-300x91.png)](/images/posts/ls-results1.png)
 
 "DWT" prefix of all the benchmarks denotes the forward DWT. There is also the
 IDWT (inverse DWT) but the results are similar so I elided them. "Seq" suffix

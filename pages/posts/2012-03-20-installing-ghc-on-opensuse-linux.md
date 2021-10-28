@@ -64,6 +64,6 @@ Platform, get the supported GHC version, install GHC, install Platform and then
 fell free to use Cabal to install any additional libraries from Hackage.
 
 **UPDATE (06/06/2012):** The installation method described above can be
-enhanced.  Read [this](/blog/2012-06-06-upgrading-haskell-platform-on-opensuse.html)
+enhanced.  Read [this](/posts/2012-06-06-upgrading-haskell-platform-on-opensuse.html)
 follow-up for more information.
 

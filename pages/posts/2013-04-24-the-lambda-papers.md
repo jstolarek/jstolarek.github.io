@@ -21,7 +21,7 @@ and Gerald Sussman between 1975 and 1980. I originally heard about them while
 browsing [Lambda The Ultimate](http://lambda-the-ultimate.org/) (which, by the
 way, takes its name from these papers).
 
-[![ltui](/images/blog/ltui.png)](/images/blog/ltui.png)
+[![ltui](/images/posts/ltui.png)](/images/posts/ltui.png)
 
 Lambda papers revolve around the programming language Scheme, a simple dialect
 of Lisp developed by Steele and Sussman at MIT in the seventies. So far I have

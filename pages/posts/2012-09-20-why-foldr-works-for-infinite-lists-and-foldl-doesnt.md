@@ -7,7 +7,7 @@ Why foldr works for infinite lists and foldl doesn't
 ====================================================
 
 About two months ago I wrote a post about [expressing `foldl` in terms of
-`foldr`](/blog/2012-07-30-expressing-foldl-in-terms-of-foldr.html).  Back then I
+`foldr`](/posts/2012-07-30-expressing-foldl-in-terms-of-foldr.html).  Back then I
 left one question open - why does `foldr` work for infinite lists, while `foldl`
 doesn't?  I finally found some time sit down and find the answer.
 

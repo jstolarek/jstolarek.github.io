@@ -7,8 +7,8 @@ Haskell IDEs, Part 3: Leksah
 ============================
 
 In the previous parts of this series I presented two development environments
-for Haskell: [Emacs](/blog/2012-05-13-haskell-ide-emacs/) and
-[EclipseFP](/blog/2012-05-18-haskell-ides-part-2-eclipsefp.html).  It's time to
+for Haskell: [Emacs](/posts/2012-05-13-haskell-ide-emacs/) and
+[EclipseFP](/posts/2012-05-18-haskell-ides-part-2-eclipsefp.html).  It's time to
 finish presentation of IDEs with the last one, [Leksah](http://leksah.org/) - a
 Haskell IDE written in Haskell.
 
@@ -19,7 +19,7 @@ installed from openSUSE repositories, but it turned out that Leksah is not in
 the repo. This meant that I had to install it using cabal and I wasn't very keen
 on idea of having GHC installation managed both by zypper[^1] and cabal.  I
 described the full story in [one of the previous
-posts](/blog/2012-03-20-installing-ghc-on-opensuse-linux.html), but long story
+posts](/posts/2012-03-20-installing-ghc-on-opensuse-linux.html), but long story
 short I removed GHC packages installed from the repo, downloaded pre-compiled
 GHC binaries and then installed Leksah using cabal. Previously I said that
 installation of EclipseFP can be tedious, but I should have reserved that word
@@ -47,7 +47,7 @@ doesn't happen very often, but we'll get to that later. After drinking your cup
 of tea (possibly a few) or coming back from the walk - depending which option
 you chose - you're finally ready to work with Leksah. Here's what you get:
 
-[![](/images/blog/leksah1-1024x591.png "Editing Haskell in Leksah")](/images/blog/leksah1.png)
+[![](/images/posts/leksah1-1024x591.png "Editing Haskell in Leksah")](/images/posts/leksah1.png)
 
 List of major features includes:
 

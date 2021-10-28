@@ -7,9 +7,9 @@ Haskell IDEs, Part 4: Emacs revisited and Summary
 =================================================
 
 In the previous parts of this post I reviewed three different development
-environments for Haskell: [Emacs](/blog/2012-05-13-haskell-ide-emacs.html),
-[EclipseFP](/blog/2012-05-18-haskell-ides-part-2-eclipsefp.html) and
-[Leksah](/blog/2012-05-25-haskell-ide-leksah.html).  This is the last part in
+environments for Haskell: [Emacs](/posts/2012-05-13-haskell-ide-emacs.html),
+[EclipseFP](/posts/2012-05-18-haskell-ides-part-2-eclipsefp.html) and
+[Leksah](/posts/2012-05-25-haskell-ide-leksah.html).  This is the last part in
 which I plan to write about Emacs once again and then summarize all the reviews.
 
 My main problem with Emacs was inconvenience when working with multiple files,
@@ -40,7 +40,7 @@ after some testing, I decided to use:
     to next/previous buffer using F9/F10 keys. That's an alternative to
     IDO-enhanced C-x b command.
 
-[![](/images/blog/emacs1-1024x640.png "emacs")](/images/blog/emacs1.png)
+[![](/images/posts/emacs1-1024x640.png "emacs")](/images/posts/emacs1.png)
 
 These three extensions are a huge win. They greatly improve overall Emacs
 experience. There's plenty of other window- and buffer-enhancing extensions that

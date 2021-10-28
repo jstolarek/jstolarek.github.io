@@ -125,7 +125,7 @@ GHC HEAD. There are a couple of considerations though:
     think this problem is hypothetical).
 
 You can download my script and the source code for all the modified packages
-[here](http://ics.p.lodz.pl/~stolarek/blog/downloads/ghc-head-pkgs.tar.gz). I'm
+[here](http://ics.p.lodz.pl/~stolarek/posts/downloads/ghc-head-pkgs.tar.gz). I'm
 not giving you any guarantee that it will work for you, since HEAD changes all
 the time. It's also quite possible that you don't need some of the libraries I'm
 using, for example [Repa](http://hackage.haskell.org/package/repa).
