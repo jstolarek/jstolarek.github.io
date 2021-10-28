@@ -49,8 +49,17 @@ main = hakyllWith config $ do
                   setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
+
+    create ["feed.xml"] $ do
+        route idRoute
+        compile $ do
+          let feedCtx = postCtx `mappend` bodyField "description"
+          posts <- fmap (take 10) . recentFirst =<<
+                   loadAllSnapshots "pages/blog/*.md" "content"
+          renderRss feedConfig feedCtx posts
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -60,7 +69,16 @@ config = defaultConfiguration
     { destinationDirectory = "docs"
     }
 
+feedConfig :: FeedConfiguration
+feedConfig = FeedConfiguration
+    { feedTitle       = "Yet Another Lambda Blog"
+    , feedDescription = "A language that doesn't affect the way you think about programming, is not worth knowing"
+    , feedAuthorName  = "Jan Stolarek"
+    , feedAuthorEmail = "jan.stolarek@ed.ac.uk"
+    , feedRoot        = "https://jstolarek.github.io"
+    }
+
 postCtx :: Context String
 postCtx =
-    dateField "date" "%d/%m/%Y" `mappend` -- "%B %e, %Y"
+    dateField "date" "%d/%m/%Y" `mappend`
     defaultContext

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Yet Another Lambda Blog</title>
+        <link>https://jstolarek.github.io</link>
+        <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
+        <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Sun, 30 Jul 2017 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>DeepSpec Summer School 2017 - a summary</title>
+    <link>https://jstolarek.github.io/blog/2017-07-30-deepspec-summer-school-2017-a-summary.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 30/07/2017
+    </section>
+    <section>
+        <h1 id="deepspec-summer-school-2017---a-summary">DeepSpec Summer School 2017 - a summary</h1>
+<p>I have spent the last two and a half week in Philadelphia attending the first <a href="https://deepspec.org/event/dsss17/">DeepSpec Summer School</a>, In this post I want to summarize the event and give an overview of all the courses.</p>
+<p><a href="https://deepspec.org">The DeepSpec Project</a> is a research project lead by several US East Coast universities (University of Pennsylvania, MIT, Yale University and Princeton University) and aims to <em>“push forward the state of the art in applying computer proof assistants to verify realistic software and hardware stacks at scale”</em>. It consists of <a href="https://deepspec.org/page/Project/">several smaller projects</a>, including a formal verification of a hypervisor (<a href="http://flint.cs.yale.edu/certikos/">CertiKOS</a>), LLVM (<a href="http://www.cis.upenn.edu/~stevez/vellvm/">Vellvm</a>), Coq compiler (<a href="https://www.cs.princeton.edu/~appel/certicoq/">CertiCoq</a>) and GHC’s Core language (<a href="https://deepspec.org/entry/Project/Haskell+CoreSpec">CoreSpec</a>).</p>
+<p>The goal of DeepSpec Summer School was to introduce people to real-life formal verification using Coq proof assistant. School was divided into three parts. All the lectures <a href="https://www.youtube.com/channel/UC5yB0ZRgc4A99ttkwer-dDw">can be found on a YouTube channel</a>. Coq code for the courses <a href="https://github.com/DeepSpec/dsss17">is available on GitHub</a>. Summer school’s web page also provides <a href="https://deepspec.org/event/dsss17/installation.html">installation instructions</a> as well as <a href="https://deepspec.org/event/dsss17/schedule.html">other supplementary material</a> (click on a given lecture or select from “Lectures” tab).</p>
+<h1 id="week-0-coq-intensive">Week 0: Coq Intensive</h1>
+<p>First three days of the summer school were a very intensive introductory course on Coq lead by Benjamin Pierce. This essentially covered the first volume of Software Foundations. (Aside: For those of you who don’t know yet, <a href="https://deepspec.org/page/SF/">original Software Foundations online book has been split into two volumes</a>: Logical Foundations and Programming Language Foundations. Also, a third volume has been added to the series: Verified Functional Algorithms by Andrew Appel. All three volumes can be found <a href="https://softwarefoundations.cis.upenn.edu/draft/">here</a>, although expect that this link will likely become broken soon when this draft versions become an official release. There are also plans for two more volumes, one on Separation Logic and another one on Systems Verification.)</p>
+<h1 id="week-1-programming-language-verification">Week 1: Programming Language Verification</h1>
+<p>First full week of the school consisted of four courses centred around programming language verification:</p>
+<ul>
+<li><p><em>Property-based random testing with QuickChick</em> by Benjamin Pierce. I assume many of you heard about Haskell library called QuickCh<strong>e</strong>ck. It offers property-based testing: programmer writes properties that the should hold for a given piece of code and QuickCheck tests whether they hold for randomly generated test data. QuickCh<strong>i</strong>ck is implementation of the same idea in Coq. Now, you might wonder what is the point of doing such a thing in Coq. After all, Coq is about formally proving that a given property is always true, not randomly testing whether it holds. I was sceptical about this as well, but it actually turns to be quite a good idea. The point is, specifications are difficult to write and often even more difficult to prove. They are especially difficult to prove when they are false ;-) And this is exactly when QuickChick can be beneficial: by trying to find a counter-example for which a stated property does not hold. This can indeed save programmer from spending hours on trying to prove something that is false. If QuickChick doesn’t find a counter-example we can start writing a formal proof. This course also gives a nice overview of type classes in Coq.</p></li>
+<li><p><em>The structure of verified compiler</em> by Xavier Leroy. This series of lectures was based on <a href="http://compcert.inria.fr/">CompCert</a>, which is a formally verified C compiler. The ideas behind formal verification of a compiler were presented on a compiler of Imp (a toy imperative language used in Software Foundations) to a simple virtual machine. Fourth, final lecture covered the CompCert project itself. To me this was the most interesting course of the summer school.</p></li>
+<li><p><em>Language specification and variable binding</em> by Stephanie Weirich. Software Foundations is a great book, but it completely omits one topic that is very important in formalizing programming languages: dealing with variable bindings. In this courses Stephanie presented “locally nameless” representation of variable bindings. This is something I had planned to learn for a very long time but couldn’t find the time.</p></li>
+<li><p><em>Vellvm: Verifying the LLVM</em> by Steve Zdancewic. For a change, in this course Imp was compiled to a simplified variant of LLVM, the compilation process being verified of course. Also, a nice introduction to LLVM.</p></li>
+</ul>
+<h1 id="week-2-systems-verification">Week 2: Systems Verification</h1>
+<p>Courses during the second week put more focus on verifying computer systems. Again, there were four courses:</p>
+<ul>
+<li><p><em>Certifying software with crashes</em> by Frans Kaashoek and Nickolai Zeldovich. The topic of this course was certification of a hard-drive operating routines, including bad-sector remapping and a simple virtual RAID 1 implementation. Although still using toy examples, specifications presented during this course were much more abstract giving a good idea how to scale to a real-world system verification. I found this course very difficult to follow, although the lectures were really superb. Note: materials for this one course are available <a href="https://github.com/mit-pdos/deepspec-pocs">in a separate GitHub repo</a>.</p></li>
+<li><p><em>CertiKOS: Certified kit operating systems</em> by Zhong Shao. Ok, I admit I was completely unable to follow this series of lectures. Way to difficult. In fact, I skipped two out of four lectures because I figured out it will make more sense to work on homework assignments for other lectures.</p></li>
+<li><p><em>Program-specific proof automation</em> by Adam Chlipala. Unsurprisingly to those who know Adam’s <em>“Certified Programming with Dependent Types”</em> book, his course focused on proof automation using Ltac. One lecture was specifically dedicated to proofs by reflection.</p></li>
+<li><p><em>Verified Functional Algorithms</em> by Andrew Appel. This course covered a majority of third volume of new Software Foundations.</p></li>
+</ul>
+<h1 id="summary">Summary</h1>
+<p>First and foremost let me say this: DeepSpec Summer School was the best research meeting I have ever attended. The courses were really good and inspiring, but the most important thing that made this summer school so great were fantastic people who attended it. Spending evening hours together working on homework assignments was especially enjoyable.</p>
+<p>There might be a 2018 edition of the summer school so be on the lookout - this is a really great event for anyone interested in Coq and formal verification.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Sun, 30 Jul 2017 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2017-07-30-deepspec-summer-school-2017-a-summary.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Moving to University of Edinburgh</title>
+    <link>https://jstolarek.github.io/blog/2016-09-14-moving-to-university-of-edinburgh.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 14/09/2016
+    </section>
+    <section>
+        <h1 id="moving-to-university-of-edinburgh">Moving to University of Edinburgh</h1>
+<p>I wanted to let you all know that after working for 8 years as a Lecturer at the Institute of Information Technology (Lodz University of Technology, Poland), I have received a sabbatical leave to focus solely on research. Yesterday I began my work as a Research Associate at the Laboratory for Foundations of Computer Science, University of Edinburgh. This is a two-year post-doc position. I will be part of the team working on the <a href="http://homepages.inf.ed.ac.uk/jcheney/group/skye.html">Skye</a> project under supervision of <a href="http://homepages.inf.ed.ac.uk/jcheney/">James Cheney</a>. This means that from now on I will mostly focus on developing the <a href="http://links-lang.org/">Links programming language</a>.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Wed, 14 Sep 2016 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2016-09-14-moving-to-university-of-edinburgh.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>First impression of "Real World OCaml"</title>
+    <link>https://jstolarek.github.io/blog/2016-08-06-first-impression-of-real-world-ocaml.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 06/08/2016
+    </section>
+    <section>
+        <h1 id="first-impression-of-real-world-ocaml">First impression of “Real World OCaml”</h1>
+<p>Tomorrow I will be flying to Cambridge to attend <a href="http://www.cl.cam.ac.uk/events/metaprog2016/">International Summer School on Metaprogramming</a>. One of the prerequisites required from the participants is basic knowledge of OCaml, roughly the first nine chapters of “Real World OCaml” (RWO for short). I finished reading them several days ago and thought I will share my impressions about the book.</p>
+<p><a href="/images/blog/rwo1.png"><img src="/images/blog/rwo1-228x300.png" alt="rwo" /></a></p>
+<p>RWO was written by Yaron Minsky, <a href="http://anil.recoil.org/">Anil Madhavapeddy</a> and Jason Hickey. It is one of a handful of books on OCaml. Other titles out there are <a href="http://ocaml-book.com/">“OCaml from the Very Beginning”</a> and <a href="http://ocaml-book.com/more-ocaml-algorithms-methods-diversions/">“More OCaml: Algorithms, Methods and Diversions”</a> by John Whitington and “Practical OCaml” by Joshua Smith. I decided to go with RWO because when I asked “<em>what is the best book on OCaml</em>” on <code>#ocaml</code> IRC channel RWO was an unanimous response from several users. The title itself is obviously piggybacking on an earlier “Real World Haskell” released in the same series by O’Reilly, which was in general a good book (<a href="/blog/2013-01-06-real-world-haskell-impressions-after-initial-chapters.html">though it had its flaws</a>).</p>
+<p>The first nine chapters comprise about 40% of the book (190 pages out of 470 total) and cover the basics of OCaml: various data types (lists, records, variants), error handling, imperative programming (eg. mutable variables and data structures, I/O) and basics of the module system. Chapters 10 through 12 present advanced features of the module system and introduce object-oriented aspects of OCaml. Language ecosystem (ie. tools and libraries) is discussed in chapters 13 through 18. The remaining chapters 19 through 23 go into details of OCaml compiler like garbage collector or Foreign Function Interface.</p>
+<p>When I think back about reading “Real World Haskell” I recall that quite a lot of space was dedicated to explaining in detail various basic functional programming concepts. “Real World OCaml” is much more dense. It approaches teaching OCaml just as if it was another programming language, without making big deal of functional programming model. I am much more experienced now than when reading RWH four years ago and this is exactly what I wanted. I wonder however how will this approach work for people new to functional programming. It reminds my of my early days as a functional programmer. I began learning Scala having previously learned Scheme and Erlang (both unusual for functional languages in lacking a type system). Both Scala and OCaml are not pure functional languages: they allow free mixing of functional and imperative (side-effecting) code. They also support object-oriented programming. My plan in learning Scala was to learn functional programming and I quickly realized that I was failing. Scala simply offered too many back-doors that allowed escaping into the imperative world. So instead of forcing me to learn a new way of thinking it allowed me to do things the old way. OCaml seems to be exactly the same in this regard and RWO offers beginners little guidance to thinking functionally. Instead, it gives them a full arsenal of imperative features early on in the book. I am not entirely convinced that this approach will work well for people new to FP.</p>
+<p>“Real World OCaml” was published less than three years ago so it is a fairly recent book. Quite surprisingly then several sections have already gone out of date. The code does not work with the latest version of OCaml compiler and requires non-obvious changes to work. (You can of course solve the problem by working with the old version of OCaml compiler.) I was told on IRC that the authors are already working on the second edition of the book to bring it to date with today’s OCaml implementation.</p>
+<p>Given all the above my verdict on “Real World OCaml” is that it is a really good book about OCaml itself (despite being slightly outdated) but not necessarily the best book on basics of functional programming.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Sat, 06 Aug 2016 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2016-08-06-first-impression-of-real-world-ocaml.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Coq'Art, CPDT and SF&#58; a review of books on Coq proof assistant</title>
+    <link>https://jstolarek.github.io/blog/2016-06-08-coqart-cpdt-and-sf-a-review-of-books-on-coq-proof-assistant.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 08/06/2016
+    </section>
+    <section>
+        <h1 id="coqart-cpdt-and-sf-a-review-of-books-on-coq-proof-assistant">Coq’Art, CPDT and SF: a review of books on Coq proof assistant</h1>
+<p>I have been pretty quiet on the blog in the past couple of months. One of the reasons for this is that I have spent most of my time learning Coq. I had my first contact with Coq well over a year ago <a href="/blog/2015-03-24-first-impressions-of-coq-and-certified-programming-with-dependent-types.html">when I started reading CPDT</a>. Back then I only wanted to learn the basics of Coq to see how it works and what it has to offer compared to other languages with dependent types. This time I wanted to apply Coq to some ideas I had at work, so I was determined to be much more thorough in my learning. Coq is far from being a mainstream language but nevertheless it has some really good learning resources. Today I would like to present a brief overview of what I believe are the three most important books on Coq: <em>“Interactive Theorem Proving and Program Development. Coq’Art: The Calculus of Inductive Constructions”</em> (which I will briefly refer to as Coq’Art) by Yves Bertot and Pierre Castéran, <em>“Certified Programming with Dependent Types”</em> (CPDT) by Adam Chlipala and <em>“Software Foundations”</em> (SF for short) by Benjamin Pierce and over a dozen over contributors. All three books significantly differ in their scope and focus. CPDT and Coq’Art are standard, printed books. CPDT is also <a href="http://adam.chlipala.net/cpdt/">available online for free</a>. Software Foundations is only available <a href="http://www.cis.upenn.edu/~bcpierce/sf/current/toc.html">as an online book</a>. Interestingly, <a href="http://www.cis.upenn.edu/~bcpierce/sf/sf-4.0/">there is also a version of SF that seems to be in the process of being revised</a>.</p>
+<p>I believe Coq’Art was the first book published on Coq. There are two editions - 2004 hardcover version and a 2010 paperback version - but as far as I know there are no differences between them. Too bad the 2010 edition was not updated for the newest versions of Coq - some of the code examples don’t work in the newest compiler. Coq’Art takes a theoretical approach, ie. it teaches Coq largely by explaining how the rules of Calculus of Constructions work. There are also practical elements like case studies and exercises but they do not dominate the book. Personally I found Coq’Art to be a very hard read. Not because it dives too much in theory - it doesn’t - but because the presentation seems to be chaotic. For example, description of a single tactic can be spread throughout deveral places in the book. In principle, I don’t object to extending earlier presentation with new details once the reader gets a hold of some new concepts, but I feel that Coq’Art definitely goes too far. Coq’Art also presents material in a very unusual order. Almost every introduction to Coq or any other functional language begins with defining data types. Coq’Art introduces them in chapter 6. On the other hand sorts and universes - something I would consider an advanced concept for anyone who is not familiar with type-level programming - are presented in the second chapter. (Note that first chapter is a very brief overview of the language.) By contrast, CPDT goes into detailed discussion of universes in chapter 12 and SF does not seem to cover them at all. Overall, Coq’Art is of limited usefulness to me. To tell the truth this is not because of its focus on theory rather than practice, but because of language style, which I find rather inaccessible. Many times I had problems understanding passages I was reading, forcing me to re-read them again and again, trying to figure out what is the message that the authors are trying to convey. I did not have such problems with CPDT, SF, nor any other book I have read in the past few years. At the moment I have given up on the idea of reading the book from cover to cover. Nevertheless I find Coq’Art a good supplementary reading for SF. Most importantly because of the sections that explain in detail the inner workings of various tactics.</p>
+<p>As mentioned at the beginning, I already wrote a <a href="/blog/2015-03-24-first-impressions-of-coq-and-certified-programming-with-dependent-types.html">first impressions post about CPDT</a>. Back then I said the book “is a great demonstration of what can be done in Coq but not a good explanation of how it can be done”. Having read all of it I sustain my claim. CPDT does not provide a thorough and systematic coverage of basics, but instead focuses on advanced topics. As such, it is not the best place to start for beginners but it is a priceless resource for Coq practitioners. The main focus of the book is proof automation with Ltac, Coq’s language for writing automated proof procedures. Reader is exposed to Ltac early on in the book, but detailed treatment of Ltac is delayed until chapter 14. Quite surprisingly, given that it is hard to understand earlier chapters without knowing Ltac. Luckily, the chapters are fairly independent of each other and can be read in any order the reader wishes. Definitely it is worth to dive into chapter 14 and fragments of apter 13 as early as possible - it makes understanding the book a whole lot easier. So far I have already read chapter 14 three times. As I learn Coq more and more I discover new bits of knowledge with each read. In fact, I expect to be going back regularly to CPDT.</p>
+<p>Coq’Art and CPDT approach teaching Coq in totally different ways. It might then be surprising that Software Foundations uses yet another approach. Unlike Coq’Art it is focused on practice and unlike CPDT it places a very strong emphasis on learning the basics. I feel that SF makes Coq learning curve as flat as possible. The main focus of SF is applying Coq to formalizing programming languages semantics, especially their type systems. This should not come as a big surprise given that Benjamin Pierce, the author of SF, authored also “<em>Types and Programming Languages”</em> (TAPL), the best book on the topic of type systems and programming language semantics I have seen. It should not also be surprising that a huge chunk of material overlaps between TAPL and SF. I find this to be amongst the best things about SF. All the proofs that I read in TAPL make a lot more sense to me when I can convert them to a piece of code. This gives me a much deeper insight into the meaning of lemmas and theorems. Also, when I get stuck on an exercise I can take a look at TAPL to see what is the general idea behind the proof I am implementing.</p>
+<p>SF is packed with material and thus it is a very long read. Three months after beginning the book and spending with it about two days a week I am halfway through. The main strength of SF is a plethora of exercises. (Coq’Art has some exercises, but not too many. CPDT has none). They can take a lot of time - and I <em>really</em> mean a lot - but I think this is the only way to learn a programming language. Besides, the exercises are very rewarding. One downside of the exercises is that the book provides no solutions, which is bad for self-studying. Moreover, the authors ask people not to publish the solutions on the internet, since “having solutions easily available makes [SF] much less useful for courses, which typically have graded homework assignments”. That being said, there are plenty of github repositories that contain the solved exercises (I also pledge guilty!). Although it goes against the authors’ will I consider it a really good thing for self-study: many times I have been stuck on exercises and was able to make progress only by peeking at someone else’s solution. This doesn’t mean I copied the solutions. I just used them to overcome difficulties and in some cases ended up with proofs more elegant than the ones I have found. As a side note I’ll add that I do not share the belief that publishing solutions on the web makes SF less useful for courses. Students who want to cheat will get the solutions from other students anyway. At least that has been my experience as an academic teacher.</p>
+<p>To sum up, each of the books presents a different approach. Coq’Art focuses on learning Coq by understanding its theoretical foundations. SF focuses on learning Coq through practice. CPDT focuses on advanced techniques for proof automation. Personally, I feel I’ve learned the most from SF, with CPDT closely on the second place. YMMV</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Wed, 08 Jun 2016 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2016-06-08-coqart-cpdt-and-sf-a-review-of-books-on-coq-proof-assistant.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Installing OCaml under openSUSE 11.4, or&#58; "the compilation of conf-ncurses failed"</title>
+    <link>https://jstolarek.github.io/blog/2016-05-31-installing-ocaml-under-opensuse-11-4-or-the-compilation-of-conf-ncurses-failed.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 31/05/2016
+    </section>
+    <section>
+        <h1 id="installing-ocaml-under-opensuse-11.4-or-the-compilation-of-conf-ncurses-failed">Installing OCaml under openSUSE 11.4, or: “the compilation of conf-ncurses failed”</h1>
+<p>Recently I decided to learn the basics of OCaml and I spent yesterday installing the compiler and some basic tools. On my machine at work I have a Debian 7 installation, while on my home laptop I have openSUSE 11.4. Both systems are quite dated and ship with OCaml 3.x compiler, which is five years old. Obviously, I wanted to have the latest version of the language. I could have compiled OCaml from sources - and in fact I have done that in the past to compile the latest version of Coq - but luckily there is a tool called OPAM (OCaml Package manager). OPAM can be used to easily download and install desired version of OCaml compiler. As the name implies, OPAM can be also used for managing packages installed for a particular compiler version.</p>
+<p>The installation process went very smooth on my Debian machine, but on openSUSE I have run into problems. After getting the latest compiler I wanted to install <code>ocamlfind</code>, a tool required by a project I wanted to play with. To my disappointment installation ended with an error:</p>
+<pre><code>[ERROR] The compilation of conf-ncurses failed at &quot;pkg-config ncurses&quot;.
+
+This package relies on external (system) dependencies that may be missing.
+`opam depext conf-ncurses.1&#39; may help you find the correct installation for
+your system.</code></pre>
+<p>I verified that I indeed have installed development files for the <code>ncurses</code> library as well as the <code>pkg-config</code> tool. Running the suggested <code>opam</code> command also didn’t find any missing dependencies, and the log files from the installation turned out to be completely empty, so I was left clueless. Googling revealed that <a href="https://github.com/ocaml/opam-repository/issues/5880">I am not the first to encounter this problem</a>, but offered no solution. I did some more reading on <code>pkg-config</code> and learned that: a) it is a tool that provides meta-information about installed libraries, and b) in order to recognize that a library is installed it requires extra configuration files (aka <code>*.pc</code> files) provided by the library. Running <code>pkg-config --list-all</code> revealed that <code>ncurses</code> is not recognized as installed on my system, which suggested that the relevant <code>*.pc</code> files are missing. Some more googling revealed that <code>ncurses</code> library can be configured and then compiled with <code>--enable-pc-files</code> switch, which should build the files needed by <code>pkg-config</code>. I got the sources for the <code>ncurses</code> version installed on my system (5.7) only to learn that this build option is unsupported. This explains why the files are missing on my system. I got the sources for the latest version of <code>ncurses</code> (6.0), configured them with <code>--enable-pc-files</code> and compiled, only to learn that the <code>*.pc</code> files were not built. After several minutes of debugging I realized that for some unexplained reasons the <code>configure</code>-generated script which should build the <code>*.pc</code> files (located at <code>misc/gen-pkgconfig</code>) did not receive <code>+x</code> (executable) permission. After adding this permission manually I ran the script and got five <code>*.pc</code> files for the <code>ncurses</code> 6.0 library. Then I had to edit the files to match the version of <code>ncurses</code> of my system - relevant information can be obtained by running <code>ncurses5-config --version</code>. The only remaining thing was to place the five <code>*.pc</code> files in a place where <code>pkg-config</code> can find them. On openSUSE this was <code>/usr/local/pkgconfig</code>, but this can differ between various Linux flavours.</p>
+<p>After all these magical incantations the installation of <code>ocamlfind</code> went through fine and I can enjoy a working OCaml installation on both of my machines. Now I’m waiting for the “Real-world OCaml” book ordered from Amazon (orders shipped from UK Amazon to Poland tend to take around two weeks to arrive).</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Tue, 31 May 2016 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2016-05-31-installing-ocaml-under-opensuse-11-4-or-the-compilation-of-conf-ncurses-failed.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Typed holes support in Template Haskell</title>
+    <link>https://jstolarek.github.io/blog/2015-10-28-typed-holes-support-in-template-haskell.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 28/10/2015
+    </section>
+    <section>
+        <h1 id="typed-holes-support-in-template-haskell">Typed holes support in Template Haskell</h1>
+<p>Back in April I found myself in a need for typed holes in Template Haskell. To my disappointment it turned out that typed holes are not implemented in TH. Sadly, this happens too often: a feature is added to GHC but no Template Haskell support is implemented for it. This was the time when I was working on injective type families and I already had some experience in extending TH implementation. I figured that adding support for typed holes should be a trivial task, no more than 30 minutes of coding. I created a <a href="https://ghc.haskell.org/trac/ghc/ticket/10267">feature request on Trac</a> and started coding. I quickly realized that it won’t be that simple. Not that the amount of required work was that extensive. I simply tripped over the way GHC handles names internally. As a result the work got stalled for several months and I only finished it two weeks ago thanks to help from Richard Eisenberg.</p>
+<p>My patch allows you to do several interesting things. Firstly, it allows to quote typed holes, ie. expressions with name starting with an underscore:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>[d| i :: a -&gt; a</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    i x = _ |]</span></code></pre></div>
+<p>This declaration quote will represent <code>_</code> using an <code>UnboundVarE</code> constructor. Secondly, you can now splice unbound variables:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">i ::</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>i x <span class="ot">=</span> <span class="op">$</span>( <span class="fu">return</span> <span class="op">$</span> <span class="dt">VarE</span> (mkName <span class="st">&quot;_&quot;</span>) )</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ot">j ::</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>j x <span class="ot">=</span> <span class="op">$</span>( <span class="fu">return</span> <span class="op">$</span> <span class="dt">UnboundVarE</span> (mkName <span class="st">&quot;_&quot;</span>) )</span></code></pre></div>
+<p>Notice that in a splice you can use either <code>VarE</code> or <code>UnboundVarE</code> to represent an unbound variable - they are treated the same.</p>
+<p>A very important side-effect of my implementation is that you can actually quote unbound variables. This means that you can now use nested pattern splices, as demonstrated by one of the tests in GHC testsuite:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>baz <span class="ot">=</span> [<span class="op">|</span> \ <span class="op">$</span>( <span class="fu">return</span> <span class="op">$</span> <span class="dt">VarP</span> <span class="op">$</span> mkName <span class="st">&quot;x&quot;</span> ) <span class="ot">-&gt;</span> x <span class="op">|</span>]</span></code></pre></div>
+<p>Previously this code was rejected. The reason is that:</p>
+<ol type="1">
+<li><p>nested pattern splice is not compiled immediately, because it is possible that it refers to local variables defined outside of the bracket;</p></li>
+<li><p>the bracket is renamed immediately at the declaration site and all the variables were required to be in scope at that time.</p></li>
+</ol>
+<p>The combination of the above means that the pattern splice does not bring anything into scope (because it is not compiled until the outer bracket is spliced in), which lead to <code>x</code> being out of scope. But now it is perfectly fine to have unbound variables in a bracket. So the above definition of <code>baz</code> is now accepted. When it is first renamed <code>x</code> is treated as an unbound variable, which is now fine, and when the bracket is spliced in, the inner splice is compiled and it correctly brings binding for <code>x</code> into scope. Getting nested pattern splices to work was not my intention when I started implementing this patch but it turned out we essentially got this feature for free.</p>
+<p>One stumbling block during my work was typed Template Haskell. With normal, untyped TH I can place a splice at top-level in a file:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">$$</span>(<span class="fu">return</span> [</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="dt">SigD</span> (mkName <span class="st">&quot;m&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        (<span class="dt">ForallT</span> [<span class="dt">PlainTV</span> (mkName <span class="st">&quot;a&quot;</span>)]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                 []</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                 (<span class="dt">AppT</span> (<span class="dt">AppT</span> <span class="dt">ArrowT</span> (<span class="dt">VarT</span> (mkName <span class="st">&quot;a&quot;</span>))) (<span class="dt">VarT</span> (mkName <span class="st">&quot;a&quot;</span>))))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> , <span class="dt">FunD</span> (mkName <span class="st">&quot;m&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        [<span class="dt">Clause</span> [<span class="dt">VarP</span> (mkName <span class="st">&quot;x&quot;</span>)] (<span class="dt">NormalB</span> (<span class="dt">VarE</span> (mkName <span class="st">&quot;x&quot;</span>))) [] ]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   ])</span></code></pre></div>
+<p>and this will build a definition that will be spliced into the source code. But converting this into a typed splice, by saying <code>$$(return ....</code>, resulted in compiler panic. I reported this as <a href="https://ghc.haskell.org/trac/ghc/ticket/10945">#10945</a>. The reason turned out to be quite tricky. When Template Haskell is enabled, top-level expressions are allowed. Each such expression is treated as an implicit splice. The problem with typed TH splice is that it doesn’t really make sense at the top-level and it should be treated as an implicit splice. Yet it was treated as an explicit splice, which resulted in a panic later in the compiler pipeline.</p>
+<p>Another issue that came up with typed TH was that typed holes cannot be quoted, again leading to panic. I reported this as <a href="https://ghc.haskell.org/trac/ghc/ticket/10946">#10946</a>. This issue has not yet been solved.</p>
+<p>The above work is now <a href="https://git.haskell.org/ghc.git/commitdiff/75492e7467ff962f2f2e29e5c8b2c588c94ae8a7">merged with HEAD</a> and will be available in GHC 8.0.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Wed, 28 Oct 2015 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2015-10-28-typed-holes-support-in-template-haskell.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Week at ICFP&#58; Injective Type Families merged into GHC HEAD</title>
+    <link>https://jstolarek.github.io/blog/2015-09-05-week-at-icfp-injective-type-families-merged-into-ghc-head.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 05/09/2015
+    </section>
+    <section>
+        <h1 id="week-at-icfp-injective-type-families-merged-into-ghc-head">Week at ICFP: Injective Type Families merged into GHC HEAD</h1>
+<p>I spent last week at Vancouver, Canada attending Haskell Implementors Workshop, ICFP and the Haskell Symposium. Yesterday I gave a talk on injective type families, <a href="/blog/2015-05-26-injective-type-families-for-haskell.html">described also in my previous post</a>. <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:injectivity-haskell15-slides.pdf">Slides are on my web page</a> but the talk itself is not yet online. Day prior to the talk I finally managed to <a href="https://github.com/ghc/ghc/commit/374457809de343f409fbeea0a885877947a133a2">merge the injective type families branch</a>, which means that this feature is definitely making it into the next stable release of GHC. (In case you haven’t heard this will be GHC 8.0, not 7.12.)</p>
+<p>My next plans include extending injective type families to fully match expressiveness of functional dependencies, as outlined in Section 7.2 of the injectivity paper. I also hope to finally implement <a href="https://ghc.haskell.org/trac/ghc/ticket/10267">support for typed holes in Template Haskell</a>. The patch was supposed to be trivial and I started working on it several months ago. But then I ran into several problems with it and abandoned it to focus on ITFs.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Sat, 05 Sep 2015 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2015-09-05-week-at-icfp-injective-type-families-merged-into-ghc-head.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Injective type families for Haskell</title>
+    <link>https://jstolarek.github.io/blog/2015-05-26-injective-type-families-for-haskell.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 26/05/2015
+    </section>
+    <section>
+        <h1 id="injective-type-families-for-haskell">Injective type families for Haskell</h1>
+<p>For the last few months I have been working on extending Glasgow Haskell Compiler with injective type families. At first this seemed like a fairly simple project but in the end it turned out to be much more interesting than initially thought. (I suppose that’s how research mostly turns out.) There are still some rough edges in the implementation and it will take a few more weeks before my branch gets merged into the master development branch of GHC. But for now there is <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_peyton-jones_eisenberg_injectivity.pdf">a draft paper “Injective type families for Haskell”</a> written by me, Simon Peyton Jones, and Richard Eisenberg, that we submitted for this year’s Haskell Symposium. This is not yet the final version of the paper so any feedback will be appreciated.</p>
+<p>The idea behind injective type families is to infer the arguments of a type family from the result. For example, given a definition:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">F</span> a <span class="ot">=</span> r <span class="op">|</span> r <span class="ot">-&gt;</span> a <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">F</span> <span class="dt">Char</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">F</span> <span class="dt">Bool</span> <span class="ot">=</span> <span class="dt">Char</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">F</span> a    <span class="ot">=</span> a</span></code></pre></div>
+<p>if we know <code>(F a ~ Bool)</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> then we want to infer <code>(a ~ Char)</code>. And if we know <code>(F a ~ Double)</code> then we want to infer <code>(a ~ Double)</code>. Going one step further from this, if we know <code>(F a ~ F b)</code> then - knowing that <code>F</code> is injective - we want to infer <code>(a ~ b)</code>.</p>
+<p>Notice that in order to declare <code>F</code> as injective I used new syntax. Firstly, I used “<code>= r</code>” to introduce a name for the result returned by the type family. Secondly, I used syntax borrowed from functional dependencies to declare injectivity. For multi-argument type families this syntax allows to declare injectivity in only some of the arguments, e.g.:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">G</span> a b c <span class="ot">=</span> r <span class="op">|</span> r <span class="ot">-&gt;</span> a c</span></code></pre></div>
+<p>Actually, you can even have kind injectivity, assuming that type arguments have polymorphic kinds.</p>
+<p>Obviously, to make use of injectivity declared by the user GHC needs to check that the injectivity annotation is true. And that’s the really tricky part that the paper focuses on. Here’s an example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">T</span> a <span class="ot">=</span> r <span class="op">|</span> r <span class="ot">-&gt;</span> a <span class="kw">where</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">T</span> [a] <span class="ot">=</span> a</span></code></pre></div>
+<p>This type family returns the type of elements stored in a list. It certainly looks injective. Surprisingly, it is not. Say we have <code>(T [T Int])</code>. By the only equation of <code>T</code> this gives us <code>(T [T Int] ~ T Int)</code>. And by injectivity we have <code>([T Int] ~ Int)</code>. We just proved that lists and integers are equal, which is a disaster.</p>
+<p>The above is only a short teaser. The paper covers much more: more corner cases, our algorithm for verifying user’s injectivity annotations, details of exploiting knowledge of injectivity inside the compiler and relationship of injective type families to functional dependencies. <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_peyton-jones_eisenberg_injectivity_extended.pdf">Extended version of the paper</a> also comes with proofs of soundness and completeness of our algorithm.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><code>~</code> means unification. Think of “<code>~</code>” as “having a proof that two types are equal”.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Tue, 26 May 2015 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2015-05-26-injective-type-families-for-haskell.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>Smarter conditionals with dependent types&#58; a quick case study</title>
+    <link>https://jstolarek.github.io/blog/2015-04-30-smarter-conditionals-with-dependent-types-a-quick-case-study.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 30/04/2015
+    </section>
+    <section>
+        <h1 id="smarter-conditionals-with-dependent-types-a-quick-case-study">Smarter conditionals with dependent types: a quick case study</h1>
+<blockquote>
+<p>Find the type error in the following Haskell expression:</p>
+<p>if null xs then tail xs else xs</p>
+<p>You can’t, of course: this program is obviously nonsense unless you’re a typechecker. The trouble is that only certain computations make sense if the <code>null xs</code> test is <code>True</code>, whilst others make sense if it is <code>False</code>. However, as far as the type system is concerned, the type of the then branch is the type of the else branch is the type of the entire conditional. Statically, the test is irrelevant. Which is odd, because if the test really were irrelevant, we wouldn’t do it. Of course, <code>tail []</code> doesn’t go wrong - well-typed programs don’t go wrong - so we’d better pick a different word for the way they do go.</p>
+</blockquote>
+<p>The above quote is an opening paragraph of Conor McBride’s “Epigram: Practical Programming with Dependent Types” paper. As always, Conor makes a good point - this test is completely irrelevant for the typechecker although it is very relevant at run time. Clearly the type system fails to accurately approximate runtime behaviour of our program. In this short post I will show how to fix this in Haskell using dependent types.</p>
+<p>The problem is that the types used in this short program carry no information about the manipulated data. This is true both for <code>Bool</code> returned by <code>null xs</code>, which contains no evidence of the result, as well as lists, that store no information about their length. As some of you probably realize the latter is easily fixed by using vectors, ie. length-indexed lists:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">N</span> <span class="ot">=</span> <span class="dt">Z</span> <span class="op">|</span> <span class="dt">S</span> <span class="dt">N</span>  <span class="co">-- natural numbers</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Vec</span> a (<span class="ot">n ::</span> <span class="dt">N</span>) <span class="kw">where</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">Nil</span><span class="ot">  ::</span> <span class="dt">Vec</span> a <span class="dt">Z</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">Cons</span><span class="ot"> ::</span> a <span class="ot">-&gt;</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Vec</span> a (<span class="dt">S</span> n)</span></code></pre></div>
+<p>The type of vector encodes its length, which means that the type checker can now be aware whether it is dealing with an empty vector. Now let’s write <code>null</code> and <code>tail</code> functions that work on vectors:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">vecNull ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vecNull <span class="dt">Nil</span>        <span class="ot">=</span> <span class="dt">True</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>vecNull (<span class="dt">Cons</span> _ _) <span class="ot">=</span> <span class="dt">False</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ot">vecTail ::</span> <span class="dt">Vec</span> a (<span class="dt">S</span> n) <span class="ot">-&gt;</span> <span class="dt">Vec</span> a n</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>vecTail (<span class="dt">Cons</span> _ tl) <span class="ot">=</span> tl</span></code></pre></div>
+<p><code>vecNull</code> is nothing surprising - it returns <code>True</code> for empty vector and <code>False</code> for non-empty one. But the tail function for vectors differs from its implementation for lists. <code>tail</code> from Haskell’s standard prelude is not defined for an empty list so calling <code>tail []</code> results in an exception (that would be the case in Conor’s example). But the type signature of <code>vecTail</code> requires that input vector is non-empty. As a result we can rule out the <code>Nil</code> case. That also means that Conor’s example will no longer typecheck (( Assuming we don’t abuse Haskell’s unsoundness as logic, eg. by using <code>undefined</code>. )). But how can we write a correct version of this example, one that removes first element of a vector only when it is non-empty? Here’s an attempt:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">shorten ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Vec</span> a m</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>shorten xs <span class="ot">=</span> <span class="kw">case</span> vecNull xs <span class="kw">of</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               <span class="dt">True</span>  <span class="ot">-&gt;</span> xs</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               <span class="dt">False</span> <span class="ot">-&gt;</span> vecTail xs</span></code></pre></div>
+<p>That however won’t compile: now that we written type-safe tail function typechecker requires a proof that vector passed to it as an argument is non empty. The weak link in this code is the <code>vecNull</code> function. It tests whether a vector is empty but delivers no type-level proof of the result. In other words we need:</p>
+<pre><code>vecNull&#39; :: Vec a n -&gt; IsNull n</code></pre>
+<p>ie. a function with result type carrying the information about the length of the list. This data type will have the runtime representation isomorphic to <code>Bool</code>, ie. it will be an enumeration with two constructors, and the type index will correspond to length of a vector:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">IsNull</span> (<span class="ot">n ::</span> <span class="dt">N</span>) <span class="kw">where</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="dt">Null</span><span class="ot">    ::</span> <span class="dt">IsNull</span> <span class="dt">Z</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="dt">NotNull</span><span class="ot"> ::</span> <span class="dt">IsNull</span> (<span class="dt">S</span> n)</span></code></pre></div>
+<p><code>Null</code> represents empty vectors, <code>NotNull</code> represents non-empty ones. We can now implement a version of <code>vecNull</code> that carries proof of the result at the type level:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ot">vecNull&#39; ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">IsNull</span> n</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vecNull&#39; <span class="dt">Nil</span>        <span class="ot">=</span> <span class="dt">Null</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>vecNull&#39; (<span class="dt">Cons</span> _ _) <span class="ot">=</span> <span class="dt">NotNull</span></span></code></pre></div>
+<p>The type signature of <code>vecNull`</code> says that the return type must have the same index as the input vector. Pattern matching on the <code>Nil</code> case provides the type checker with the information that the <code>n</code> index of <code>Vec</code> is <code>Z</code>. This means that the return value in this case must be <code>Null</code> - the <code>NotNull</code> constructor is indexed with <code>S</code> and that obviously does not match <code>Z</code>. Similarly in the <code>Cons</code> case the return value must be <code>NotNull</code>. However, replacing <code>vecNull</code> in the definition of <code>shorten</code> with our new <code>vecNull`</code> will again result in a type error. The problem comes from the type signature of <code>shorten</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">shorten ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Vec</span> a m</span></code></pre></div>
+<p>By indexing input and output vectors with different length indices (<code>n</code> and <code>m</code>) we tell the typechecker that these are completely unrelated. But that is not true! Knowing the input length <code>n</code> we know exactly what the result should be: if the input vector is empty the result vector is also empty; if the input vector is not empty it should be shortened by one. Since we need to express this at the type level we will use a type family:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Pred</span> (<span class="ot">n ::</span> <span class="dt">N</span>)<span class="ot"> ::</span> <span class="dt">N</span> <span class="kw">where</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Pred</span> <span class="dt">Z</span>     <span class="ot">=</span> <span class="dt">Z</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Pred</span> (<span class="dt">S</span> n) <span class="ot">=</span> n</span></code></pre></div>
+<p>(In a fully-fledged dependently-typed language we would write normal function and then apply it at the type level.) Now we can finally write:</p>
+<pre><code>shorten :: Vec a n -&gt; Vec a (Pred n)
+shorten xs = case vecNull&#39; xs of
+               Null    -&gt; xs
+               NotNull -&gt; vecTail xs</code></pre>
+<p>This definition should not go wrong. Trying to swap expression in the branches will result in a type error.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Thu, 30 Apr 2015 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2015-04-30-smarter-conditionals-with-dependent-types-a-quick-case-study.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
+    <title>The basics of coinduction</title>
+    <link>https://jstolarek.github.io/blog/2015-03-27-the-basics-of-coinduction.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 27/03/2015
+    </section>
+    <section>
+        <h1 id="the-basics-of-coinduction">The basics of coinduction</h1>
+<p>I don’t remember when I first heard the terms “coinduction” and “corecursion” but it must have been quite long ago. I had this impression that they are yet another of these difficult theoretical concepts and that I should learn about them one day. That “one day” happened recently while reading <a href="http://adam.chlipala.net/cpdt/html/Coinductive.html">chapter 5 of “Certified Programming with Dependent Types”</a>. It turns out that basics of coinduction are actually quite simple. In this post I’ll share with you what I already know on the subject.</p>
+<h1 id="recursion-in-haskell">Recursion in Haskell</h1>
+<p>Let’s begin with looking at Haskell because it is a good example of language not formalizing coinduction in any way. Two features of Haskell are of interest to us. First one is laziness. Thanks to Haskell being lazy we can write definitions like these (in GHCi):</p>
+<pre><code>ghci&gt; let ones = 1 : ones
+ghci&gt; let fib = zipWith (+) (1:fib) (1:1:fib)</code></pre>
+<p><code>ones</code> is - as the name implies - an infinite sequence (list) of ones. <code>fib</code> is a sequence of Fibonacci numbers. Both these definitions produce infinite lists but we can use these definitions safely because laziness allows us to force a finite number of elements in the sequence:</p>
+<pre><code>ghci&gt; take 5 ones
+[1,1,1,1,1]
+ghci&gt; take 10 fib
+[2,3,5,8,13,21,34,55,89,144]</code></pre>
+<p>Now consider this definition:</p>
+<pre><code>ghci&gt; let inf = 1 + inf</code></pre>
+<p>No matter how hard we try there is no way to use the definition of <code>inf</code> in a safe way. It always causes an infinite loop:</p>
+<pre><code>ghci&gt; (0 /= inf)
+*** Exception: &lt;\&gt;</code></pre>
+<p>The difference between definitions of <code>ones</code> or <code>fib</code> an the definition of <code>inf</code> is that the former use something what is called a <em>guarded recursion</em>. The term <em>guarded</em> comes from the fact that recursive reference to self is hidden under datatype constructor (or: guarded by a constructor). The way lazy evaluation is implemented gives a guarantee that we can stop the recursion by not evaluating the recursive constructor argument. This kind of infinite recursion can also be called <em>productive recursion</em>, which means that although recursion is infinite each recursive call is guaranteed to produce something (in my examples either a 1 or next Fibonacci number). By contrast recursion in the definition of <code>inf</code> is not guarded or productive in any way.</p>
+<p>Haskell happily accepts the definition of <code>inf</code> even though it is completely useless. When we write Haskell programs we of course don’t want them to fall into silly infinite loops but the only tool we have to prevent us from writing such code is our intelligence. Situation changes when it comes to….</p>
+<h1 id="dependently-typed-programming-languages">Dependently-typed programming languages</h1>
+<p>These languages deeply care about termination. By “termination” I mean ensuring that a program written by the user is guaranteed to terminate for any input. I am aware of two reasons why these languages care about termination. First reason is theoretical: without termination the resulting language is inconsistent as logic. This happens because non-terminating term can prove any proposition. Consider this non-terminating Coq definition:</p>
+<pre><code>Fixpoint evil (A : Prop) : A := evil A.</code></pre>
+<p>If that definition was accepted we could use it to prove any proposition. Recall that when it comes to viewing types as proofs and programs as evidence “proving a proposition” means constructing a term of a given type. <code>evil</code> would allow to construct a term inhabiting any type <code>A</code>. (<code>Prop</code> is a <em>kind</em> of logical propositions so <code>A</code> is a type.) Since dependently-typed languages aim to be consistent logics they must reject non-terminating programs. Second reason for checking termination is practical: dependently typed languages admit functions in type signatures. If we allowed non-terminating functions then typechecking would also become non-terminating and again this is something we don’t want. (Note that Haskell gives you <code>UndecidableInstances</code> that can cause typechecking to fall into an infinite loop).</p>
+<p>Now, if you paid attention on your Theoretical Computer Science classes all of this should ring a bell: the halting problem! The halting problem says that the problem of determining whether a given Turing machine (read: a given computer program) will ever terminate is undecidable. So how is that possible that languages like Agda, Coq or Idris can answer that question? That’s simple: they are not Turing-complete (or at least their terminating subsets are not Turing complete). (<strong>UPDATE:</strong> but see Conor McBride’s comment below<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.) They prohibit user from using some constructs, probably the most important one being <em>general recursion</em>. Think of general recursion as any kind of recursion imaginable. Dependently typed languages require structural recursion on subterms of the arguments. That means that if a function receives an argument of an inductive data type (think: algebraic data type/generalized algebraic data type) then you can only make recursive calls on terms that are syntactic subcomponents of the argument. Consider this definition of <code>map</code> in Idris:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode idris"><code class="sourceCode idris"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span> <span class="ot">:</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> <span class="dt">List</span> a <span class="ot">-&gt;</span> <span class="dt">List</span> b</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>map f []      <span class="fu">=</span> []</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>map f (x<span class="ot">::</span>xs) <span class="fu">=</span> f x <span class="ot">::</span> map f xs</span></code></pre></div>
+<p>In the second equation we use pattern matching to deconstruct the list argument. The recursive call is made on <code>xs</code>, which is structurally smaller then the original argument. This guarantees that any call to <code>map</code> will terminate. There is a silent assumption here that the <code>List A</code> argument passed to <code>map</code> is finite, but with the rules given so far it is not possible to construct infinite list.</p>
+<p>So we just eliminated non-termination by limiting what can be done with recursion. This means that our Haskell definitions of <code>ones</code> and <code>fib</code> would not be accepted in a dependently-typed language because they don’t recurse on an argument that gets smaller and as a result they construct an infinite data structure. Does that mean we are stuck with having only finite data structures? Luckily, no.</p>
+<h1 id="coinduction-to-the-rescue">Coinduction to the rescue</h1>
+<p>Coinduction provides a way of defining and operating on infinite data structures as long as we can prove that our operations are safe, that is they are guarded and productive. In what follows I will use Coq because it seems that it has better support for coinduction than Agda or Idris (and if I’m wrong here please correct me).</p>
+<p>Coq, Agda and Idris all require that a datatype that can contain infinite values has a special declaration. Coq uses <code>CoInductive</code> keyword instead of <code>Inductive</code> keyword used for standard inductive data types. In a similar fashion Idris uses <code>codata</code> instead of <code>data</code>, while Agda requires ? annotation on a coinductive constructor argument.</p>
+<p>Let’s define a type of infinite <code>nat</code> streams in Coq:</p>
+<pre class="coq"><code>CoInductive stream : Set :=
+| Cons : nat -&gt; stream -&gt; stream.</code></pre>
+<p>I could have defined a polymorphic stream but for the purpose of this post stream of nats will do. I could have also defined a <code>Nil</code> constructor to allow finite coinductive streams - declaring data as coinductive means it <em>can</em> have infinite values, not that it <em>must</em> have infinite values.</p>
+<p>Now that we have infinite streams let’s revisit our examples from Haskell: <code>ones</code> and <code>fib</code>. <code>ones</code> is simple:</p>
+<pre class="coq"><code>CoFixpoint ones : stream := Cons 1 ones.</code></pre>
+<p>We just had to use <code>CoFixpoint</code> keyword to tell Coq that our definition will be corecursive and it is happily accepted even though a similar recursive definition (ie. using <code>Fixpoint</code> keyword) would be rejected. Allow me to quote directly from CPDT:</p>
+<blockquote>
+<p>whereas recursive definitions were necessary to <em>use</em> values of recursive inductive types effectively, here we find that we need <em>co-recursive definitions</em> to <em>build</em> values of co-inductive types effectively.</p>
+</blockquote>
+<p>That one sentence pins down an important difference between induction and coinduction.</p>
+<p>Now let’s define <code>zipWith</code> and try our second example <code>fib</code>:</p>
+<pre class="coq"><code>CoFixpoint zipWith (f : nat -&gt; nat -&gt; nat) (a : stream)
+                   (b : stream) : stream :=
+  match a, b with
+    | Cons x xs, Cons y ys =&gt; Cons (f x y) (zipWith f xs ys)
+  end.
+
+CoFixpoint fib : stream :=
+   zipWith plus (Cons 1 fib) (Cons 1 (Cons 1 fib)).</code></pre>
+<p>Unfortunately this definition is rejected by Coq due to “unguarded recursive call”. What exactly goes wrong? Coq requires that all recursive calls in a corecursive definition are:</p>
+<ol type="1">
+<li>direct arguments to a data constructor</li>
+<li>not inside function arguments</li>
+</ol>
+<p>Our definition of <code>fib</code> violates the second condition - both recursive calls to <code>fib</code> are hidden inside arguments to <code>zipWith</code> function. Why does Coq enforce such a restriction? Consider this simple example:</p>
+<pre class="coq"><code>Definition tl (s : stream) : stream :=
+  match s with
+    | Cons _ tl&#39; =&gt; tl&#39;
+  end.
+
+CoFixpoint bad : stream := tl (Cons 1 bad).</code></pre>
+<p><code>tl</code> is a standard tail function that discards the first element of a stream and returns its tail. Just like our definition of <code>fib</code> the definition of <code>bad</code> places the corecursive call inside a function argument. I hope it is easy to see that accepting the definition of <code>bad</code> would lead to non-termination - inlining definition of <code>tl</code> and simplifying it leads us to:</p>
+<pre class="coq"><code>CoFixpoint bad : stream := bad.</code></pre>
+<p>and that is bad. You might be thinking that the definition of <code>bad</code> really has no chance of working whereas our definition of <code>fib</code> could in fact be run safely without the risk of non-termination. So how do we persuade Coq that our corecursive definition of <code>fib</code> is in fact valid? Unfortunately there seems to be no simple answer. What was meant to be a simple exercise in coinduction turned out to be a real research problem. This past Monday I spent well over an hour with my friend staring at the code and trying to come up with a solution. We didn’t find one but instead we found a really nice paper “Using Structural Recursion for Corecursion” by Yves Bertot and Ekaterina Komendantskaya. The paper presents a way of converting definitions like <code>fib</code> to a guarded and productive form accepted by Coq. Unfortunately the converted definition looses the linear computational complexity of the original definition so the conversion method is far from perfect. I encourage to read the paper. It is not long and is written in a very accessible way. Another set of possible solutions is given in <a href="http://adam.chlipala.net/cpdt/html/GeneralRec.html">chapter 7 of CPDT</a> but I am very far from labelling them as “accessible”.</p>
+<p>I hope this post demonstrates that basics ideas behind coinduction are actually quite simple. For me this whole subject of coinduction looks really fascinating and I plan to dive deeper into it. I already have my eyes set on several research papers about coinduction so there’s a good chance that I’ll write more about it in future posts.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Conor says: <em>“Now represent the semantics of Turing machines as coinductive processes and review your hasty and inaccurate repetition of the common falsehood that totality prevents Turing-completeness. You exactly get to say “we know how to run it for as long as we’re willing to wait, but we can’t promise you it will stop”, which is both the truth, and exactly the deal when you work in a partial language. The only difference is that when you promise something does work, you’re believable. The expressive weakness is on the partial side.”</em><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Fri, 27 Mar 2015 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/blog/2015-03-27-the-basics-of-coinduction.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+
+    </channel>
+</rss>
