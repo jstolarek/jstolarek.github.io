@@ -2,10 +2,10 @@
 title: About me
 ---
 
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
 About me
 ========
 
+<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
 <img src="/images/my_photo.jpg" style="float: left; margin: 10px;" />
 
 My name is Jan Stolarek and I am a Research Associate at [Laboratory for
