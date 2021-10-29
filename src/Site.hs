@@ -10,6 +10,10 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "favicon.ico" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "images/posts/*" $ do
         route   idRoute
         compile copyFileCompiler
