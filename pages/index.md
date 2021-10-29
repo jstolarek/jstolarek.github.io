@@ -6,7 +6,7 @@ About me
 ========
 
 <table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
-<img src="/images/my_photo.jpg" style="float: left; margin: 10px;" />
+<img src="/images/my_photo.jpg" style="float: left; margin-right: 10px;" />
 
 My name is Jan Stolarek and I am a Research Associate at [Laboratory for
 Foundations of Computer Science](https://wcms.inf.ed.ac.uk/lfcs/), University of

@@ -42,11 +42,11 @@ nav a {
 }
 
 nav a:visited {
-  font-size: 1.8rem;
-  font-weight: bold;
   color: black;
+}
+
+nav a:hover {
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 footer {
