@@ -14,15 +14,11 @@ Edinburgh, UK.  I am on sabbatical leave from [Institute of Information
 Technology](https://it.p.lodz.pl/), [Łódź University of
 Technology](https://p.lodz.pl/), Poland.  My research focuses on functional
 programming and compiler construction, but my scientific interests range to
-other areas of computer science.
+other areas of computer science.  For more information please visit [list of
+projects I worked on](projects.html), [list of my research
+publications](publications.html), and [archive of my blog about functional
+programming](blog.html).
 
-<!--
-For more information please visit
-[[en:research:topics|list of research topics and scientific interests]],
-[[en:research:publications|list of my publications]],
-[[http://ics.p.lodz.pl/~stolarek/blog|technical blog about functional
-programming]] and {{en:jstolarek-cv-en.pdf|CV}}.
--->
 </td></tr></table>
 
 Find me here
