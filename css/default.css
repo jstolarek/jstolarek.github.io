@@ -5,6 +5,7 @@ html {
 body {
   font-size: 1.6rem;
   color: #000;
+  background-color: white;
 }
 
 header {
@@ -13,6 +14,14 @@ header {
 
 nav {
   text-align: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: square;
 }
 
 nav a {
@@ -111,7 +120,7 @@ article .header {
 
 @media (min-width: 640px) {
   body {
-    width: 60rem;
+    width: 80rem;
     margin: 0 auto;
     padding: 0;
   }
