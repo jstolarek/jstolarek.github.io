@@ -14,7 +14,8 @@ Publications
     2020), London, UK. [full text (pdf)](/files/emrich_lindley_stolarek_cheney_coates_freezeml.pdf),
     [extended version (pdf)](/files/emrich_lindley_stolarek_cheney_coates_freezeml_extended.pdf),
     DOI: [10.1145/3385412.3386003](https://doi.org/10.1145/3385412.3386003),
-    arXiv: [2004.00396](https://arxiv.org/abs/2004.00396)
+    arXiv: [2004.00396](https://arxiv.org/abs/2004.00396),
+    [citation (BibTeX)](/files/emrich_lindley_stolarek_cheney_coates_freezeml_extended.bib)
 
   * Stolarek, J. and Nowak, P.: A Modular, Practical Test for a Programming
     Course, Proceedings of the 51st ACM Technical Symposium on Computer Science
@@ -38,7 +39,8 @@ Publications
     [slides (pdf)](/files/stolarek_cheney_verified_self_explaining_computation_slides.pdf),
     [BitBucket repository](https://bitbucket.org/jstolarek/gc_imp_slicing), DOI:
     [10.1007/978-3-030-33636-3_4](https://doi.org/10.1007/978-3-030-33636-3_4),
-    [BibTeX citation](/files/stolarek_cheney_verified_self_explaining_computation.bib)
+    arXiv: [1907.05818](https://arxiv.org/abs/1907.05818),
+    [citation (BibTeX)](/files/stolarek_cheney_verified_self_explaining_computation.bib)
 
   * Emrich, F., Lindley, S., Stolarek, J., Cheney J.: FreezeML: Complete and
     Easy Type Inference for First-Class Polymorphism, presentated at: 4th
@@ -56,7 +58,8 @@ Publications
     [slides (pdf)](/files/stolarek_cheney_language_integrated_provenance_in_haskell_slides.pdf),
     [GitHub repository](https://github.com/jstolarek/skye-dsh),
     DOI: [10.22152/programming-journal.org/2018/2/11](https://doi.org/10.22152/programming-journal.org/2018/2/11),
-    [BibTeX citation](/files/stolarek_cheney_language_integrated_provenance_in_haskell.bib)
+    arXiv: [1803.10202](https://arxiv.org/abs/1803.10202),
+    [citation (BibTeX)](/files/stolarek_cheney_language_integrated_provenance_in_haskell.bib)
 
 
 2017
@@ -87,6 +90,7 @@ Publications
     [video (Youtube)](https://www.youtube.com/watch?v=s0wkCKZU3WI),
     [slides (pdf)](/files/injectivity-haskell15-slides.pdf),
     DOI: [10.1145/2804302.2804314](http://dx.doi.org/10.1145/2804302.2804314),
+    arXiv: [1705.07678](https://arxiv.org/abs/1705.07678),
     [citation (BibTeX)](/files/stolarek_peyton-jones_eisenberg_injectivity.bib)
 
 
@@ -216,8 +220,7 @@ Publications
 
   * Stolarek, J.: Nowe kryteria wykrywania minucji w algorytmie rozpoznawania
     odcisków palców, XVI Konferencja Sieci i Systemy Informatyczne. Teoria,
-    Projekty, Wdrożenia, Aplikacje [Electronic document], 1 optical disc
-    (CD-ROM) D:/referaty/16003.pdf s.[1-6], Łódź, Polska, 2008,
+    Projekty, Wdrożenia, Aplikacje, Łódź, Polska, 2008,
     [wersja online (pdf)](/files/stolarek_sis2008.pdf),
     [presentation (pdf)](/files/stolarek_sis2008_slides.pdf),
     [citation (BibTeX)](/files/stolarek_sis2008.bib)
