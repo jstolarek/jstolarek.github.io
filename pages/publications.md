@@ -15,7 +15,7 @@ Publications
     [extended version (pdf)](/files/emrich_lindley_stolarek_cheney_coates_freezeml_extended.pdf),
     DOI: [10.1145/3385412.3386003](https://doi.org/10.1145/3385412.3386003),
     arXiv: [2004.00396](https://arxiv.org/abs/2004.00396),
-    [citation (BibTeX)](/files/emrich_lindley_stolarek_cheney_coates_freezeml_extended.bib)
+    [citation (BibTeX)](/files/emrich_lindley_stolarek_cheney_coates_freezeml.bib)
 
   * Stolarek, J. and Nowak, P.: A Modular, Practical Test for a Programming
     Course, Proceedings of the 51st ACM Technical Symposium on Computer Science
