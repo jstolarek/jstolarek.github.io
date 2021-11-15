@@ -16,7 +16,7 @@ Retro gaming
 <img src="/images/handhelds.jpg" title="Some of my handhelds" style="float: left; margin: 10px;" />
 
 I am interested in the history of gaming.  I enjoy playing retro games, both on
-original hardware and using emulators.  I have a Sega Dreamcast, Nintendo
+original hardware and using emulators.  I own a Sega Dreamcast, Nintendo
 GameCube, Nintendo Wii U, and a humble collection of handhelds, including
 several modded GameBoys and two PSVitas.
 </td></tr></table>
