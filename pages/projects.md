@@ -5,7 +5,7 @@ title: Projects
 Projects
 ========
 
-Below is a list of projects and libraries I am or have been involved with.
+Below is a list of projects and libraries I have been involved with.
 
   * **Skye: A programming language bridging theory and practice for scientific
     data curation**
@@ -20,13 +20,15 @@ Below is a list of projects and libraries I am or have been involved with.
       Polymorphism](/files/emrich_lindley_stolarek_cheney_coates_freezeml.pdf)
       paper.
 
-    - I have developed a prototype implementation of provenance tracking as a
-      library.  Details are described in [Language-integrated provenance in
+    - I developed a prototype implementation of provenance tracking as a
+      software library, which is unlike earlier implementations that were
+      compiler extensions.  Details are described in [Language-integrated
+      provenance in
       Haskell](/files/stolarek_cheney_language_integrated_provenance_in_haskell.pdf)
       paper.  Implementation is available on
       [github](https://github.com/jstolarek/skye-dsh).
 
-    - I have worked together with
+    - I worked together with
       [Wilmer Ricciotti](http://www.wilmer-ricciotti.net/),
       [Roly Perera](http://www.dcs.gla.ac.uk/~roly/) and
       [James Cheney](http://homepages.inf.ed.ac.uk/jcheney/) on slicing
@@ -56,10 +58,11 @@ Below is a list of projects and libraries I am or have been involved with.
       families.  Details are described in the paper [Injective Type Families for
       Haskell](/files/stolarek_peyton-jones_eisenberg_injectivity.pdf).
 
-    - I contributed patches to Template Haskell.
+    - I contributed various patches to Template Haskell.
 
-    - I have implemented new PrimOps for comparing built-in primitive types.
-      This allows to write branchless algorithms.  See [GHC
+    - I implemented new PrimOps for comparing built-in primitive types.  These
+      PrimOps allow writing branchless comparisons required in certain
+      high-performace computations.  See [GHC
       wiki](https://gitlab.haskell.org/ghc/ghc/-/wikis/prim-bool) for an
       in-depth discussion of the problem and implementation details.
 
@@ -67,7 +70,7 @@ Below is a list of projects and libraries I am or have been involved with.
 
   * **singletons** ([github](http://www.github.com/goldfirere/singletons),
     [hackage](http://hackage.haskell.org/package/singletons))\
-    Together with [Richard Eisenberg](https://richarde.dev/) we developed a
+    Together with [Richard Eisenberg](https://richarde.dev/) I developed a
     method of converting Haskell term-level functions to the type level.  Our
     approach is implemented in the `singletons` library.
 
@@ -80,7 +83,8 @@ Below is a list of projects and libraries I am or have been involved with.
 
   * **haskell-testing-stub**
     ([bitbucket](https://bitbucket.org/jstolarek/haskell-testing-stub))\
-    Demonstration of how to organize tests and benchmarks in a Haskell project.
+    A small stub project that demonstrates how to organize tests and benchmarks
+    in a Haskell project.
 
   * **tasty-program**
     ([bitbucket](https://bitbucket.org/jstolarek/tasty-program),

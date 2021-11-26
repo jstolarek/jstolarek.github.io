@@ -24,13 +24,13 @@
 
         <main role="main">
             <h1 id="projects">Projects</h1>
-<p>Below is a list of projects and libraries I am or have been involved with.</p>
+<p>Below is a list of projects and libraries I have been involved with.</p>
 <ul>
 <li><p><strong>Skye: A programming language bridging theory and practice for scientific data curation</strong> (<a href="http://homepages.inf.ed.ac.uk/jcheney/group/skye.html">project homepage</a>)</p>
 <ul>
 <li><p>I worked together with Frank Emrich, <a href="https://homepages.inf.ed.ac.uk/slindley/">Sam Lindley</a>, <a href="http://homepages.inf.ed.ac.uk/jcheney/">James Cheney</a> and Jonathan Coates on design of FreezeML, an extension of ML with first-class polymorphism. This system was then implemented in the <a href="https://links-lang.org/">Links programming language</a>. Details are described in <a href="/files/emrich_lindley_stolarek_cheney_coates_freezeml.pdf">FreezeML: Complete and Easy Type Inference for First-Class Polymorphism</a> paper.</p></li>
-<li><p>I have developed a prototype implementation of provenance tracking as a library. Details are described in <a href="/files/stolarek_cheney_language_integrated_provenance_in_haskell.pdf">Language-integrated provenance in Haskell</a> paper. Implementation is available on <a href="https://github.com/jstolarek/skye-dsh">github</a>.</p></li>
-<li><p>I have worked together with <a href="http://www.wilmer-ricciotti.net/">Wilmer Ricciotti</a>, <a href="http://www.dcs.gla.ac.uk/~roly/">Roly Perera</a> and <a href="http://homepages.inf.ed.ac.uk/jcheney/">James Cheney</a> on slicing imperative functional programs. Details are described in <a href="/files/ricciotti_stolarek_perera_cheney_icfp2017.pdf">Imperative Functional Programs That Explain Their Work</a> paper. Implementation is available on <a href="https://github.com/jstolarek/slicer">github</a>.</p></li>
+<li><p>I developed a prototype implementation of provenance tracking as a software library, which is unlike earlier implementations that were compiler extensions. Details are described in <a href="/files/stolarek_cheney_language_integrated_provenance_in_haskell.pdf">Language-integrated provenance in Haskell</a> paper. Implementation is available on <a href="https://github.com/jstolarek/skye-dsh">github</a>.</p></li>
+<li><p>I worked together with <a href="http://www.wilmer-ricciotti.net/">Wilmer Ricciotti</a>, <a href="http://www.dcs.gla.ac.uk/~roly/">Roly Perera</a> and <a href="http://homepages.inf.ed.ac.uk/jcheney/">James Cheney</a> on slicing imperative functional programs. Details are described in <a href="/files/ricciotti_stolarek_perera_cheney_icfp2017.pdf">Imperative Functional Programs That Explain Their Work</a> paper. Implementation is available on <a href="https://github.com/jstolarek/slicer">github</a>.</p></li>
 <li><p>I designed a slicing algorithm for Imp, an imperative toy programming language, and formally proved correctness of my algorithm in Coq. Details are described in <a href="/files/stolarek_cheney_verified_self_explaining_computation.pdf">Verified Self-Explaining Computation</a> paper. Implementation is available on <a href="https://bitbucket.org/jstolarek/gc_imp_slicing">bitbucket</a>.</p></li>
 <li><p>I contributed numerous patches to <a href="https://links-lang.org/">Links programming language</a>.</p></li>
 </ul></li>
@@ -38,16 +38,16 @@
 I have been involved in development of GHC between 2013 and 2016.</p>
 <ul>
 <li><p>Together with <a href="http://research.microsoft.com/en-us/people/simonpj/">Simon Peyton Jones</a> and <a href="https://richarde.dev/">Richard Eisenberg</a> we extended GHC with injective type families. Details are described in the paper <a href="/files/stolarek_peyton-jones_eisenberg_injectivity.pdf">Injective Type Families for Haskell</a>.</p></li>
-<li><p>I contributed patches to Template Haskell.</p></li>
-<li><p>I have implemented new PrimOps for comparing built-in primitive types. This allows to write branchless algorithms. See <a href="https://gitlab.haskell.org/ghc/ghc/-/wikis/prim-bool">GHC wiki</a> for an in-depth discussion of the problem and implementation details.</p></li>
+<li><p>I contributed various patches to Template Haskell.</p></li>
+<li><p>I implemented new PrimOps for comparing built-in primitive types. These PrimOps allow writing branchless comparisons required in certain high-performace computations. See <a href="https://gitlab.haskell.org/ghc/ghc/-/wikis/prim-bool">GHC wiki</a> for an in-depth discussion of the problem and implementation details.</p></li>
 <li><p>I worked on improving GHC’s Cmm optimization pipeline.</p></li>
 </ul></li>
 <li><p><strong>singletons</strong> (<a href="http://www.github.com/goldfirere/singletons">github</a>, <a href="http://hackage.haskell.org/package/singletons">hackage</a>)<br />
-Together with <a href="https://richarde.dev/">Richard Eisenberg</a> we developed a method of converting Haskell term-level functions to the type level. Our approach is implemented in the <code>singletons</code> library.</p></li>
+Together with <a href="https://richarde.dev/">Richard Eisenberg</a> I developed a method of converting Haskell term-level functions to the type level. Our approach is implemented in the <code>singletons</code> library.</p></li>
 <li><p><strong>dep-typed-wbl-heaps</strong> (<a href="/files/dep-typed-wbl-heaps.pdf">tutorial (pdf)</a>, bitbucket: <a href="https://bitbucket.org/jstolarek/dep-typed-wbl-heaps">Agda code</a>, <a href="https://bitbucket.org/jstolarek/dep-typed-wbl-heaps-hs">Haskell code</a>)<br />
 Verified implementation of a weight biased leftist heap in Agda and Haskell. This project is a an intermediate-level tutorial aimed at people who already have a basic knowledge on program verification using dependent types.</p></li>
 <li><p><strong>haskell-testing-stub</strong> (<a href="https://bitbucket.org/jstolarek/haskell-testing-stub">bitbucket</a>)<br />
-Demonstration of how to organize tests and benchmarks in a Haskell project.</p></li>
+A small stub project that demonstrates how to organize tests and benchmarks in a Haskell project.</p></li>
 <li><p><strong>tasty-program</strong> (<a href="https://bitbucket.org/jstolarek/tasty-program">bitbucket</a>, <a href="http://hackage.haskell.org/package/tasty-program">hackage</a>)<br />
 Library that extends <a href="http://hackage.haskell.org/package/tasty">tasty</a> testing framework. Allows to test whether a given program executes successfully.</p></li>
 <li><p><strong>tasty-hunit-adapter</strong> (<a href="https://bitbucket.org/jstolarek/tasty-hunit-adapter/">bitbucket</a>, <a href="http://hackage.haskell.org/package/tasty-hunit-adapter">hackage</a>)<br />
