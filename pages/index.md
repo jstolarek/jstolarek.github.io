@@ -8,14 +8,14 @@ About me
 <table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
 <img src="/images/my_photo.jpg" style="float: left; margin-right: 10px;" />
 
-My name is Jan Stolarek and I am a Research Associate at [Laboratory for
-Foundations of Computer Science](https://wcms.inf.ed.ac.uk/lfcs/), University of
-Edinburgh, UK.  I am on sabbatical leave from [Institute of Information
+My name is Jan Stolarek and I work as Haskell developer for [BinarApps Sp. z
+o.o.](https://binarapps.com).  I used to be an academic working at [Laboratory
+for Foundations of Computer Science](https://wcms.inf.ed.ac.uk/lfcs/),
+University of Edinburgh, UK and at [Institute of Information
 Technology](https://it.p.lodz.pl/), [Łódź University of
-Technology](https://p.lodz.pl/), Poland.  My research focuses on functional
-programming and compiler construction, but my scientific interests range to
-other areas of computer science.  For more information please visit [list of
-projects I worked on](projects.html), [list of my research
+Technology](https://p.lodz.pl/), Poland.  I am interested in functional
+programming and compiler construction.  For more information please visit [list
+of projects I worked on](projects.html), [list of my research
 publications](publications.html), and [archive of my blog about functional
 programming](blog.html).
 
@@ -32,4 +32,4 @@ Find me here
 Contact
 =======
 
-`jan.stolarek (at) ed.ac.uk`
+`jan.stolarek (at) binarapps.com`
