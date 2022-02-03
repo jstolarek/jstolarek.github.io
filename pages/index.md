@@ -8,7 +8,7 @@ About me
 <table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
 <img src="/images/my_photo.jpg" style="float: left; margin-right: 10px;" />
 
-My name is Jan Stolarek and I work as Haskell developer for [BinarApps Sp. z
+My name is Jan Stolarek and I work as a Haskell developer for [BinarApps sp. z
 o.o.](https://binarapps.com).  I used to be an academic working at [Laboratory
 for Foundations of Computer Science](https://wcms.inf.ed.ac.uk/lfcs/),
 University of Edinburgh, UK and at [Institute of Information
