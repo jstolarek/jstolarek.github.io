@@ -5,6 +5,19 @@ title: Publications
 Publications
 ============
 
+2022
+----
+
+  * Emrich, F., Stolarek, J., Cheney, J., Lindley, S.: Constraint-Based Type
+    Inference for FreezeML, Proceedings of the ACM on Programming Languages,
+    Volume 6, Issue ICFP, August 2022, Article No.: 111, pp 570-595.
+    [full text (pdf)](/files/emrich_stolarek_cheney_lindley_constraint-based_type_inference_for_freezeml.pdf),
+    [extended version (pdf)](/files/emrich_stolarek_cheney_lindley_constraint-based_type_inference_for_freezeml_extended.pdf),
+    DOI: [10.1145/3547642](https://dl.acm.org/doi/10.1145/3547642),
+    arXiv: [2207.09914](https://arxiv.org/abs/2207.09914),
+    [citation (BibTeX)](/files/emrich_stolarek_cheney_lindley_constraint-based_type_inference_for_freezeml.bib)
+
+
 2020
 ----
 
