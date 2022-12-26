@@ -6,19 +6,10 @@ import           Hakyll
 
 main :: IO ()
 main = hakyllWith config $ do
-    match "images/**" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "favicon.ico" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "images/posts/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "files/*" $ do
+    match ("images/**" -- copy image directory recursively
+      .||. "favicon.ico"
+      .||. "images/posts/*"
+      .||. "files/*") $ do
         route   idRoute
         compile copyFileCompiler
 
