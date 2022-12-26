@@ -68,7 +68,7 @@ feedConfig = FeedConfiguration
     { feedTitle       = "Yet Another Lambda Blog"
     , feedDescription = "A language that doesn't affect the way you think about programming, is not worth knowing"
     , feedAuthorName  = "Jan Stolarek"
-    , feedAuthorEmail = "jan.stolarek@ed.ac.uk"
+    , feedAuthorEmail = "jan.stolarek@binarapps.com"
     , feedRoot        = "https://jstolarek.github.io"
     }
 
