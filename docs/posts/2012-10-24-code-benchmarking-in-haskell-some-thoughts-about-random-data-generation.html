@@ -29,16 +29,48 @@
     </section>
     <section>
         <h1 id="code-benchmarking-in-haskell---some-thoughts-about-random-data-generation">Code benchmarking in Haskell - some thoughts about random data generation</h1>
-<p>In my last post I showed you how to use <a href="http://hackage.haskell.org/package/criterion">criterion</a> library to write benchmarks for Haskell code. In <a href="https://github.com/jstolarek/haskell-testing-stub/">tutorial project</a> that I created to demonstrate my ideas I decided to generate random data for benchmarking. <a href="http://www.serpentine.com/posts/">Bryan O’Sullivan</a> has <a href="http://www.reddit.com/r/haskell/comments/11w5c1/code_benchmarking_in_haskell_using_criterion_and/">commented on my approach</a> that “the code (…) that generates random inputs on every run would be a good antipattern for performance testing.” After giving some thought to his words I think I see his point.</p>
+<p>In my last post I showed you how to use
+<a href="http://hackage.haskell.org/package/criterion">criterion</a> library to write
+benchmarks for Haskell code. In <a href="https://github.com/jstolarek/haskell-testing-stub/">tutorial
+project</a> that I created to
+demonstrate my ideas I decided to generate random data for benchmarking. <a href="http://www.serpentine.com/posts/">Bryan
+O’Sullivan</a> has <a href="http://www.reddit.com/r/haskell/comments/11w5c1/code_benchmarking_in_haskell_using_criterion_and/">commented on my
+approach</a>
+that “the code (…) that generates random inputs on every run would be a good
+antipattern for performance testing.” After giving some thought to his words I
+think I see his point.</p>
 <p>The code that Bryan refers to looks like this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> newStdGen <span class="op">&gt;&gt;=</span> defaultMainWith benchConfig (<span class="fu">return</span> ()) <span class="op">.</span> benchmarks</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ot">benchmarks ::</span> <span class="dt">RandomGen</span> g <span class="ot">=&gt;</span> g <span class="ot">-&gt;</span> \[<span class="dt">Benchmark</span>\]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>benchmarks <span class="ot">=</span> <span class="op">...</span></span></code></pre></div>
-<p>Each time a benchmark suite is run a different random numbers generator is created with <code>newStdGen</code>. This generator is then used by the <code>benchmarks</code> function to create values used for benchmarking. When I designed this <strong>I made an assumption that values of the data don’t influence the flow of computations</strong>. I believe that this holds for the shift functions I benchmarked in my tutorial. It doesn’t really matter what values are in the shifted list. As long as lists have the same length on different runs of the benchmark the results are comparable, but if you want to have the same random values generated on each run you can create a <code>StdGen</code> based on a seed that you supply. The modified <code>main</code> function would look like this:</p>
+<p>Each time a benchmark suite is run a different random numbers generator is
+created with <code>newStdGen</code>. This generator is then used by the <code>benchmarks</code>
+function to create values used for benchmarking. When I designed this <strong>I made
+an assumption that values of the data don’t influence the flow of
+computations</strong>. I believe that this holds for the shift functions I benchmarked
+in my tutorial. It doesn’t really matter what values are in the shifted list. As
+long as lists have the same length on different runs of the benchmark the
+results are comparable, but if you want to have the same random values generated
+on each run you can create a <code>StdGen</code> based on a seed that you supply. The
+modified <code>main</code> function would look like this:</p>
 <pre><code>main = return (mkStdGen 123456) &gt;&gt;= defaultMainWith benchConfig (return ()) . benchmarks</code></pre>
-<p>What happens however when data values do influence the flow of computation? In that case you definitely don’t want <code>newStdGen</code>, as it would make results of benchmark incomparable between different runs: you wouldn’t know if the speed-up is caused by changes in the code or data. It is also very likely that you don’t want to use <code>mkStdGen</code>. Why? Well, you would certainly get results comparable between different runs. The problem is that you wouldn’t know the characteristics of the data used for this particular benchmark. For example let’s assume that your algorithm executes faster when the data it processes contains many zeros. You benchmark the algorithm with random values created with a fixed <code>StdGen</code> and get a very good result. But how many zeros were in the data used for benchmarking? Perhaps 50% of input were zeros? You don’t know that. In this case you definitely want to prepare your own input data sets (e.g. one with many zeros and one without any) to measure the performance of your code based on input it receives. I guess Bryan is right here - careless use of random data generation for benchmarking can be a shot in the foot.</p>
+<p>What happens however when data values do influence the flow of computation? In
+that case you definitely don’t want <code>newStdGen</code>, as it would make results of
+benchmark incomparable between different runs: you wouldn’t know if the speed-up
+is caused by changes in the code or data. It is also very likely that you don’t
+want to use <code>mkStdGen</code>. Why? Well, you would certainly get results comparable
+between different runs. The problem is that you wouldn’t know the
+characteristics of the data used for this particular benchmark. For example
+let’s assume that your algorithm executes faster when the data it processes
+contains many zeros. You benchmark the algorithm with random values created with
+a fixed <code>StdGen</code> and get a very good result. But how many zeros were in the data
+used for benchmarking? Perhaps 50% of input were zeros? You don’t know that. In
+this case you definitely want to prepare your own input data sets (e.g. one with
+many zeros and one without any) to measure the performance of your code based on
+input it receives. I guess Bryan is right here - careless use of random data
+generation for benchmarking can be a shot in the foot.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

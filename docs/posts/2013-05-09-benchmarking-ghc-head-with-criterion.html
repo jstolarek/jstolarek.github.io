@@ -29,16 +29,47 @@
     </section>
     <section>
         <h1 id="benchmarking-ghc-head-with-criterion">Benchmarking GHC HEAD with Criterion</h1>
-<p>So you’re developing GHC. You make some changes that affect performance of compiled programs, but how do you check whether the performance is really improved? Well, if you’re making some general optimisations - a new Core-to-Core transformation perhaps - than you can use the <a href="http://hackage.haskell.org/trac/ghc/wiki/Building/RunningNoFib">NoFib</a> benchmark suite, which is a commonly accepted method of measuring GHC performance. But what if you’re developing some very specific optimisations that are unlikely to be benchmarked by NoFib? What if you extended the compiler in a way that allows you to write faster code in a way that was previously impossible and there is now way for NoFib to measure your improvements? Sounds like writing some <a href="http://hackage.haskell.org/package/criterion">criterion</a> benchmarks would be a Good Thing. There’s a problem though - installing criterion with GHC HEAD. Criterion has lots of dependencies, but you cannot install them automatically with cabal-install, because cabal-install usually doesn’t work with GHC HEAD (although the Cabal library is one of GHC boot libraries). On the other hand installing dependencies manually is a pain. Besides, many libraries will not compile with GHC HEAD. So how to write criterion benchmarks for HEAD? I faced this problem some time ago and found a solution which, although not perfect, works fine for me.</p>
+<p>So you’re developing GHC. You make some changes that affect performance of
+compiled programs, but how do you check whether the performance is really
+improved? Well, if you’re making some general optimisations - a new Core-to-Core
+transformation perhaps - than you can use the
+<a href="http://hackage.haskell.org/trac/ghc/wiki/Building/RunningNoFib">NoFib</a>
+benchmark suite, which is a commonly accepted method of measuring GHC
+performance. But what if you’re developing some very specific optimisations that
+are unlikely to be benchmarked by NoFib? What if you extended the compiler in a
+way that allows you to write faster code in a way that was previously impossible
+and there is now way for NoFib to measure your improvements? Sounds like writing
+some <a href="http://hackage.haskell.org/package/criterion">criterion</a> benchmarks would
+be a Good Thing. There’s a problem though - installing criterion with GHC
+HEAD. Criterion has lots of dependencies, but you cannot install them
+automatically with cabal-install, because cabal-install usually doesn’t work
+with GHC HEAD (although the Cabal library is one of GHC boot libraries). On the
+other hand installing dependencies manually is a pain. Besides, many libraries
+will not compile with GHC HEAD. So how to write criterion benchmarks for HEAD? I
+faced this problem some time ago and found a solution which, although not
+perfect, works fine for me.</p>
 <p>In principle my idea is nothing fancy:</p>
 <ol type="1">
-<li>download all the required dependencies from hackage to the disk and extract them in a single directory,</li>
+<li>download all the required dependencies from hackage to the disk and extract
+them in a single directory,</li>
 <li>determine the order in which they need to be installed,</li>
 <li>build each library with GHC HEAD, resolving the build errors if necessary</li>
 <li>register each library with GHC HEAD (see Appendix below)</li>
 </ol>
-<p>Doing these things for the first time was very tedious and took me about 2-3 hours. Determining package dependencies was probably the most time consuming. Resolving build errors wasn’t that bad, though there were a couple of difficulties. It turned out that many packages put an upper bound on the version of the base package and removing these dependency is the only change required to build that package.</p>
-<p>The key to my solution is that once you figure out in what order packages should be installed and remove the build errors, you can write a shell script that builds and installs packages automatically. This means that after installing GHC HEAD in a sandbox (see Appendix below) you can run the script to build and install all the packages. This will give you a fully working GHC installation in which you can write Criterion benchmarks for new features that you implemented in the compiler. Here’s what the script looks like (full version available <a href="https://gist.github.com/jstolarek/5546184">here</a>):</p>
+<p>Doing these things for the first time was very tedious and took me about 2-3
+hours. Determining package dependencies was probably the most time
+consuming. Resolving build errors wasn’t that bad, though there were a couple of
+difficulties. It turned out that many packages put an upper bound on the version
+of the base package and removing these dependency is the only change required to
+build that package.</p>
+<p>The key to my solution is that once you figure out in what order packages should
+be installed and remove the build errors, you can write a shell script that
+builds and installs packages automatically. This means that after installing GHC
+HEAD in a sandbox (see Appendix below) you can run the script to build and
+install all the packages. This will give you a fully working GHC installation in
+which you can write Criterion benchmarks for new features that you implemented
+in the compiler. Here’s what the script looks like (full version available
+<a href="https://gist.github.com/jstolarek/5546184">here</a>):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">PKGS</span><span class="op">=</span><span class="st">&quot;</span><span class="dt">\</span></span>
@@ -79,20 +110,41 @@
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="bu">cd</span> ..</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div>
-<p>The script is nothing elaborate. Running without any parameters will build and install all packages on the list. If you run it with “<code>clean</code>” parameter it will remove build artefacts from package directories. If for some reason the script fails – e.g. one of the libraries fails to build - you can comment out already installed libraries so that the script resumes from the point it previously stopped.</p>
+<p>The script is nothing elaborate. Running without any parameters will build and
+install all packages on the list. If you run it with “<code>clean</code>” parameter it will
+remove build artefacts from package directories. If for some reason the script
+fails – e.g. one of the libraries fails to build - you can comment out already
+installed libraries so that the script resumes from the point it previously
+stopped.</p>
 <h1 id="summary">Summary</h1>
-<p>Using the approach described above I can finally write criterion benchmarks for GHC HEAD. There are a couple of considerations though:</p>
+<p>Using the approach described above I can finally write criterion benchmarks for
+GHC HEAD. There are a couple of considerations though:</p>
 <ul>
-<li><p>things are likely to break as HEAD gets updated. Be prepared to add new libraries as dependencies, change compilation parameters or fix new build errors,</p></li>
-<li><p>since some time you need to pass <code>--enable-shared</code> flag to <code>cabal configure</code> when building a shared library. This causes every library to be compiled twice. I don’t know if there’s anything one can do about that,</p></li>
+<li><p>things are likely to break as HEAD gets updated. Be prepared to add new
+libraries as dependencies, change compilation parameters or fix new build
+errors,</p></li>
+<li><p>since some time you need to pass <code>--enable-shared</code> flag to <code>cabal configure</code>
+when building a shared library. This causes every library to be compiled
+twice. I don’t know if there’s anything one can do about that,</p></li>
 <li><p>you need to manually download new versions of libraries,</p></li>
 <li><p>fixing build errors manually may not be easy,</p></li>
 <li><p>rerunning the script when something fails may be tedious,</p></li>
-<li><p>changes in HEAD might cause performance problems in libraries you are using. If this goes unnoticed the benchmarking results might be invalid (I think this problem is hypothetical).</p></li>
+<li><p>changes in HEAD might cause performance problems in libraries you are
+using. If this goes unnoticed the benchmarking results might be invalid (I
+think this problem is hypothetical).</p></li>
 </ul>
-<p>You can download my script and the source code for all the modified packages <a href="http://ics.p.lodz.pl/~stolarek/posts/downloads/ghc-head-pkgs.tar.gz">here</a>. I’m not giving you any guarantee that it will work for you, since HEAD changes all the time. It’s also quite possible that you don’t need some of the libraries I’m using, for example <a href="http://hackage.haskell.org/package/repa">Repa</a>.</p>
+<p>You can download my script and the source code for all the modified packages
+<a href="http://ics.p.lodz.pl/~stolarek/posts/downloads/ghc-head-pkgs.tar.gz">here</a>. I’m
+not giving you any guarantee that it will work for you, since HEAD changes all
+the time. It’s also quite possible that you don’t need some of the libraries I’m
+using, for example <a href="http://hackage.haskell.org/package/repa">Repa</a>.</p>
 <h1 id="appendix-sandboxing-ghc">Appendix: Sandboxing GHC</h1>
-<p>For the above method to work effectively you need to have a sandboxed installation of GHC. There are tools designed for sandboxing GHC (e.g. <a href="https://github.com/Paczesiowa/hsenv">hsenv</a>) but I use a method described <a href="http://www.edsko.net/2013/02/10/comprehensive-haskell-sandboxes/">here</a>. It’s perfectly suited for my needs. I like to have full manual control when needed but I also have this shell script to automate switching of sandboxes:</p>
+<p>For the above method to work effectively you need to have a sandboxed
+installation of GHC. There are tools designed for sandboxing GHC
+(e.g. <a href="https://github.com/Paczesiowa/hsenv">hsenv</a>) but I use a method described
+<a href="http://www.edsko.net/2013/02/10/comprehensive-haskell-sandboxes/">here</a>. It’s
+perfectly suited for my needs. I like to have full manual control when needed
+but I also have this shell script to automate switching of sandboxes:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">SANDBOX_DIR</span><span class="op">=</span><span class="st">&quot;/path/to/ghc-sandbox/&quot;</span></span>
@@ -126,7 +178,10 @@
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;Sandbox </span><span class="va">$1</span><span class="st"> not found&quot;</span></span></code></pre></div>
-<p>It displays list of sandboxes when run without any parameter (the active sandbox is displayed in green and marked with an asterisk) and switches the active sandbox when given a command-line parameter. Together with bash auto completion feature switching between different GHC versions is a matter of seconds.</p>
+<p>It displays list of sandboxes when run without any parameter (the active sandbox
+is displayed in green and marked with an asterisk) and switches the active
+sandbox when given a command-line parameter. Together with bash auto completion
+feature switching between different GHC versions is a matter of seconds.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

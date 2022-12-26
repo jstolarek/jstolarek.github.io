@@ -29,16 +29,41 @@
     </section>
     <section>
         <h1 id="taking-magic-out-of-ghc-or-tracing-compilation-by-transformation">Taking magic out of GHC or: Tracing compilation by transformation</h1>
-<p>When I was planning to learn about compilers I heard one phrase that still sticks in my mind:</p>
+<p>When I was planning to learn about compilers I heard one phrase that still
+sticks in my mind:</p>
 <blockquote>
-<p>Taking compilers course is a good thing because it takes magic out of compilers.</p>
+<p>Taking compilers course is a good thing because it takes magic out of
+compilers.</p>
 </blockquote>
-<p>It may have been put into words differently but this was the meaning. Having taken compilers course and learning about GHC’s internals I think this is so true. A compiler is no longer a black box. It’s just a very complicated program built according to some general rules. In this post I want to reveal a little bit of magic that GHC does behind the scenes when compiling your Haskell program.</p>
-<p>Imagine you are writing an image processing algorithm and you want to check whether pixel coordinates <code>x</code> and <code>y</code> are within the image. That’s simple: if any of these coordinates is less than <code>0</code> or if <code>x</code> equals or exceeds image width or if <code>y</code> equals or exceeds image height than coordinates are not within the image. Here’s how we can express this condition in Haskell:</p>
+<p>It may have been put into words differently but this was the meaning. Having
+taken compilers course and learning about GHC’s internals I think this is so
+true. A compiler is no longer a black box. It’s just a very complicated program
+built according to some general rules. In this post I want to reveal a little
+bit of magic that GHC does behind the scenes when compiling your Haskell
+program.</p>
+<p>Imagine you are writing an image processing algorithm and you want to check
+whether pixel coordinates <code>x</code> and <code>y</code> are within the image. That’s simple: if
+any of these coordinates is less than <code>0</code> or if <code>x</code> equals or exceeds image
+width or if <code>y</code> equals or exceeds image height than coordinates are not within
+the image. Here’s how we can express this condition in Haskell:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">case</span> (x <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">||</span> (x <span class="op">&gt;=</span> width) <span class="op">||</span> (y <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">||</span> (y <span class="op">&gt;=</span> height) <span class="kw">of</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">False</span> <span class="ot">-&gt;</span> e1 <span class="co">-- do this when (x,y) is within the image</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">True</span>  <span class="ot">-&gt;</span> e2 <span class="co">-- do that when (x,y) is outside of image</span></span></code></pre></div>
-<p>When compiling a Haskell program GHC uses language called Core as an intermediate representation. It’s a very simplified ((We usually call it “desugared”, because simplifying Haskell to Core simply removes syntactic sugar.)) form of Haskell that has only let and case expressions and type annotations. You don’t need any knowledge of Core to understand this post but if you want to learn more I suggest to start with <a href="http://www.haskellforall.com/2012/10/hello-core.html">a blog post by Gabriel Gonzalez</a> and then take a look at <a href="http://blog.ezyang.com/2011/04/tracing-the-compilation-of-hello-factorial/">Edward Z. Yang’s post</a>, that also shows GHC’s other intermediate languages: STG and Cmm. You can see Core representation to which your program was transformed by passing <code>-ddump-simpl</code> flag to GHC (I also use <code>-dsuppress-al</code>l to get rid of all type informations that obscure the output). If you compile above case expression with optimisations (pass the <code>-O2</code> option to GHC) you end up with following Core representation:</p>
+<p>When compiling a Haskell program GHC uses language called Core as an
+intermediate representation. It’s a very simplified ((We usually call it
+“desugared”, because simplifying Haskell to Core simply removes syntactic
+sugar.)) form of Haskell that has only let and case expressions and type
+annotations. You don’t need any knowledge of Core to understand this post but if
+you want to learn more I suggest to start with <a href="http://www.haskellforall.com/2012/10/hello-core.html">a blog post by Gabriel
+Gonzalez</a> and then take a
+look at <a href="http://blog.ezyang.com/2011/04/tracing-the-compilation-of-hello-factorial/">Edward Z. Yang’s
+post</a>,
+that also shows GHC’s other intermediate languages: STG and Cmm. You can see
+Core representation to which your program was transformed by passing
+<code>-ddump-simpl</code> flag to GHC (I also use <code>-dsuppress-al</code>l to get rid of all type
+informations that obscure the output). If you compile above case expression with
+optimisations (pass the <code>-O2</code> option to GHC) you end up with following Core
+representation:</p>
 <pre><code>case &lt;# x 0# of _ {
   False -&gt;
     case &gt;=# x width of _ {
@@ -55,7 +80,13 @@
     };
   True -&gt; e2;
 }</code></pre>
-<p>GHC turned our infix comparison operators into prefix notation. It also unboxed integer variables. This can be noticed by <code>#</code> appended to integer literals and comparison operators. There’s also some syntactic change in <code>case</code> expressions: there are braces surrounding the branches, semicolon is used to delimit branches from each other and there is a mysterious underscore after the keyword <code>of</code>. We can rewrite this in a more familiar Haskell syntax (I will also reverse the order of <code>True</code> and <code>False</code> branches - it will be more readable):</p>
+<p>GHC turned our infix comparison operators into prefix notation. It also unboxed
+integer variables. This can be noticed by <code>#</code> appended to integer literals and
+comparison operators. There’s also some syntactic change in <code>case</code> expressions:
+there are braces surrounding the branches, semicolon is used to delimit branches
+from each other and there is a mysterious underscore after the keyword <code>of</code>. We
+can rewrite this in a more familiar Haskell syntax (I will also reverse the
+order of <code>True</code> and <code>False</code> branches - it will be more readable):</p>
 <pre><code>case x &lt; 0 of
   True  -&gt; e2
   False -&gt;
@@ -68,15 +99,22 @@
             case y &gt;= height of
               True  -&gt; e2
               False -&gt; e1</code></pre>
-<p>The most noticeable thing however is that our original <code>case</code> expression has suddenly turned into four nested <code>case</code>s, which resulted in duplicating expression <code>e2</code> four times. In this post I will show you how GHC arrived at this representation.</p>
+<p>The most noticeable thing however is that our original <code>case</code> expression has
+suddenly turned into four nested <code>case</code>s, which resulted in duplicating
+expression <code>e2</code> four times. In this post I will show you how GHC arrived at this
+representation.</p>
 <h1 id="a-bit-of-theory">A bit of theory</h1>
-<p>There are some things you need to know in order to understand how GHC transformed the code. First is the definition of <code>(||)</code> operator (logical or):</p>
+<p>There are some things you need to know in order to understand how GHC
+transformed the code. First is the definition of <code>(||)</code> operator (logical or):</p>
 <pre><code>(||) :: Bool -&gt; Bool -&gt; Bool
 (||) x y = case x of
     True  -&gt; True
     False -&gt; y</code></pre>
-<p>When optimizations are turned on GHC performs inlining of short functions. This means that function calls are replaced by function definitions and this will be the case with <code>(||)</code> function.</p>
-<p>Second thing is case-to-case code transformation. Imagine a code fragment like this:</p>
+<p>When optimizations are turned on GHC performs inlining of short functions. This
+means that function calls are replaced by function definitions and this will be
+the case with <code>(||)</code> function.</p>
+<p>Second thing is case-to-case code transformation. Imagine a code fragment like
+this:</p>
 <pre><code>case (
   case C of
       B1 -&gt; F1
@@ -84,7 +122,16 @@
  ) of
     A1 -&gt; E1
     A2 -&gt; E2</code></pre>
-<p>We have a <code>case</code> expression nested within a scrutinee ((A scrutinee is an expression which value is checked by the the <code>case</code> expression. Scrutinee is placed between words ‘case’ and ‘of’.)) of another <code>case</code> expression. You may be thinking that you would never write such a code and you are right. GHC however compiles programs by performing subsequent Core-to-Core transformations and such nesting of <code>case</code> expressions is often generated during that process (as we will see in a moment). If nested <code>case</code> expressions appear in the Core representation of a program they are turned inside out by case-of-case transformation: the nested <code>case</code> scrutinising <code>C</code> becomes the outer <code>case</code> expression and the outer case expression is pushed into branches <code>B1</code> and <code>B2</code>:</p>
+<p>We have a <code>case</code> expression nested within a scrutinee ((A scrutinee is an
+expression which value is checked by the the <code>case</code> expression. Scrutinee is
+placed between words ‘case’ and ‘of’.)) of another <code>case</code> expression. You may be
+thinking that you would never write such a code and you are right. GHC however
+compiles programs by performing subsequent Core-to-Core transformations and such
+nesting of <code>case</code> expressions is often generated during that process (as we will
+see in a moment). If nested <code>case</code> expressions appear in the Core representation
+of a program they are turned inside out by case-of-case transformation: the
+nested <code>case</code> scrutinising <code>C</code> becomes the outer <code>case</code> expression and the outer
+case expression is pushed into branches <code>B1</code> and <code>B2</code>:</p>
 <pre><code>case C of
     B1 -&gt; case F1 of
               A1 -&gt; E1
@@ -92,7 +139,11 @@
     B2 -&gt; case F2 of
               A1 -&gt; E1
               A2 -&gt; E2</code></pre>
-<p>You see that code for <code>E1</code> and <code>E2</code> has been duplicated. This is worst case scenario. In real life programs one of the branches can often be simplified using case-of-known-constructor transformation. See what happens when expression returned by a branch of nested case is a constructor that is matched by outer case (<code>A1</code> in this example):</p>
+<p>You see that code for <code>E1</code> and <code>E2</code> has been duplicated. This is worst case
+scenario. In real life programs one of the branches can often be simplified
+using case-of-known-constructor transformation. See what happens when expression
+returned by a branch of nested case is a constructor that is matched by outer
+case (<code>A1</code> in this example):</p>
 <pre><code>case (
   case C of
       B1 -&gt; A1
@@ -108,7 +159,9 @@
     B2 -&gt; case F2 of
               A1 -&gt; E1
               A2 -&gt; E2</code></pre>
-<p>In the first branch of outer case expression we are now matching <code>A1</code> against <code>A1</code>. So we know that first branch will be taken and thus can get rid of this <code>case</code> expression reducing it to <code>E1</code>:</p>
+<p>In the first branch of outer case expression we are now matching <code>A1</code> against
+<code>A1</code>. So we know that first branch will be taken and thus can get rid of this
+<code>case</code> expression reducing it to <code>E1</code>:</p>
 <pre><code>case C of
     B1 -&gt; E1
     B2 -&gt; case F2 of
@@ -156,7 +209,10 @@
     ) of
     False -&gt; e1
     True  -&gt; e2</code></pre>
-<p>We ended up with three <code>case</code>s nested as scrutinees of other <code>case</code>s - I told you this will happen. Now GHC will start applying case-of-case transformation to get rid of all this nesting. Let’s focus on two most internal <code>case</code>s for simplicity:</p>
+<p>We ended up with three <code>case</code>s nested as scrutinees of other <code>case</code>s - I told
+you this will happen. Now GHC will start applying case-of-case transformation to
+get rid of all this nesting. Let’s focus on two most internal <code>case</code>s for
+simplicity:</p>
 <pre><code>case (
     case (x &lt; 0) of
         True  -&gt; True
@@ -174,7 +230,8 @@
         case (x &gt;= width) of -- ...and into this branch
             True  -&gt; True
             False -&gt; (y &lt; 0)</code></pre>
-<p>Looking at first nested <code>case</code> we see that case-of-known-constructor transformation can be applied:</p>
+<p>Looking at first nested <code>case</code> we see that case-of-known-constructor
+transformation can be applied:</p>
 <pre><code>case (x &lt; 0) of
     True  -&gt; True  -- case-of-known-constructor eliminated
                    -- case expression in this branch
@@ -197,7 +254,8 @@
     ) of
     False -&gt; e1
     True  -&gt; e2</code></pre>
-<p>Now we only have two <code>case</code>s nested as scrutinees of other <code>case</code>. Applying case-of-case one more time will get rid of the first nesting:</p>
+<p>Now we only have two <code>case</code>s nested as scrutinees of other <code>case</code>. Applying
+case-of-case one more time will get rid of the first nesting:</p>
 <pre><code>case (
     case (x &lt; 0) of
         True -&gt;  -- we can use case-of-known-constructor here
@@ -215,7 +273,10 @@
     ) of
     False -&gt; e1
     True  -&gt; e2</code></pre>
-<p>Hey, that’s something new here! We eliminated nested <code>case</code>s in one place only to introduce them in another. But we know what to do with nested <code>case</code>s - use case-of-case of course. Let’s apply it to the second branch and case-of-known-constructor to the first one:</p>
+<p>Hey, that’s something new here! We eliminated nested <code>case</code>s in one place only
+to introduce them in another. But we know what to do with nested <code>case</code>s - use
+case-of-case of course. Let’s apply it to the second branch and
+case-of-known-constructor to the first one:</p>
 <pre><code>case (
     case (x &lt; 0) of
         True  -&gt; True  -- case-of-known-constructor used here
@@ -263,7 +324,9 @@
                 ) of
                 False -&gt; e1
                 True  -&gt; e2</code></pre>
-<p>Do you see how expressions <code>e1</code> and <code>e2</code> got duplicated? Let’s apply case-of-known-constructor in the first branch and case-of-case + case-of-known-constructor in the second one:</p>
+<p>Do you see how expressions <code>e1</code> and <code>e2</code> got duplicated? Let’s apply
+case-of-known-constructor in the first branch and case-of-case +
+case-of-known-constructor in the second one:</p>
 <pre><code>case (x &lt; 0) of
     True  -&gt; e2
     False -&gt;
@@ -306,9 +369,20 @@
                          case (y &gt;= height) of
                              False -&gt; e1
                              True  -&gt; e2</code></pre>
-<p>And we’re done! We arrived at the same expression that GHC compiled. Wasn’t that simple?</p>
+<p>And we’re done! We arrived at the same expression that GHC compiled. Wasn’t that
+simple?</p>
 <h1 id="summary">Summary</h1>
-<p>This should give you an idea of how GHC’s core-to-core transformations work. I’ve only shown you two of them - case-of-case and case-of-known-constructor - but there are many more. If you’re interested in learning others take a look at paper by Simon Peyton Jones and Andre Satnos <a href="http://research.microsoft.com/pubs/67064/comp-by-trans-scp.ps.gz">“A transformation-based optimiser for Haskell”</a>. If you want to learn more details than the paper provides see Andre Santos’ PhD thesis <a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/santos-thesis.ps.gz">“Compilation by Transformation in Non-Strict Functional Languages”</a>. You can also take a look at a discussion at GHC <a href="http://hackage.haskell.org/trac/ghc/ticket/6135">ticket 6135</a>.</p>
+<p>This should give you an idea of how GHC’s core-to-core transformations
+work. I’ve only shown you two of them - case-of-case and
+case-of-known-constructor - but there are many more. If you’re interested in
+learning others take a look at paper by Simon Peyton Jones and Andre Satnos <a href="http://research.microsoft.com/pubs/67064/comp-by-trans-scp.ps.gz">“A
+transformation-based optimiser for
+Haskell”</a>. If
+you want to learn more details than the paper provides see Andre Santos’ PhD
+thesis <a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/santos-thesis.ps.gz">“Compilation by Transformation in Non-Strict Functional
+Languages”</a>.
+You can also take a look at a discussion at GHC <a href="http://hackage.haskell.org/trac/ghc/ticket/6135">ticket
+6135</a>.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

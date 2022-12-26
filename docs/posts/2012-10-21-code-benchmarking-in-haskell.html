@@ -29,32 +29,71 @@
     </section>
     <section>
         <h1 id="code-benchmarking-in-haskell">Code benchmarking in Haskell</h1>
-<p>Three weeks ago I wrote about <a href="../posts/2012-10-05-code-testing-in-haskell.html">code testing in Haskell</a>. Today I will discuss how to benchmark code written in Haskell and how to integrate benchmarks into a project. For demonstration purposes I extended <a href="https://github.com/jstolarek/haskell-testing-stub">my sample project on github</a> so now it shows how to create both tests and benchmarks.</p>
+<p>Three weeks ago I wrote about <a href="../posts/2012-10-05-code-testing-in-haskell.html">code testing in
+Haskell</a>. Today I will discuss
+how to benchmark code written in Haskell and how to integrate benchmarks into a
+project. For demonstration purposes I extended <a href="https://github.com/jstolarek/haskell-testing-stub">my sample project on
+github</a> so now it shows how
+to create both tests and benchmarks.</p>
 <h1 id="overview-of-criterion-benchmarking-library">Overview of Criterion benchmarking library</h1>
-<p>While there was a lot of testing libraries to choose from, it seems that benchmarking is dominated by only one library - Bryan O’Sullivan’s <a href="http://hackage.haskell.org/package/criterion">criterion</a>. To get started with it you should read <a href="http://www.serpentine.com/posts/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/">this post on Bryan’s blog</a>. I will present some of the basics in today’s post and will also mention a couple of things that are undocumented.</p>
-<p>Writing benchmarks for a functional language like Haskell is a bit tricky. There are no side effects in pure functional code, which means that after computing value of a function once it can be memoized and reused later without need for recomputing. This is of course not what we want during benchmarking. Criterion takes care of that, but requires that benchmarks be written in a special way. Let’s look at an example banchmark for our shift function ((See my <a href="../posts/2012-10-05-code-testing-in-haskell.html">post on testing</a> if you don’t know what shift I’m talking about)):</p>
+<p>While there was a lot of testing libraries to choose from, it seems that
+benchmarking is dominated by only one library - Bryan O’Sullivan’s
+<a href="http://hackage.haskell.org/package/criterion">criterion</a>. To get started with
+it you should read <a href="http://www.serpentine.com/posts/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/">this post on Bryan’s
+blog</a>.
+I will present some of the basics in today’s post and will also mention a couple
+of things that are undocumented.</p>
+<p>Writing benchmarks for a functional language like Haskell is a bit tricky. There
+are no side effects in pure functional code, which means that after computing
+value of a function once it can be memoized and reused later without need for
+recomputing. This is of course not what we want during benchmarking. Criterion
+takes care of that, but requires that benchmarks be written in a special
+way. Let’s look at an example banchmark for our shift function ((See my <a href="../posts/2012-10-05-code-testing-in-haskell.html">post on
+testing</a> if you don’t know what
+shift I’m talking about)):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bench <span class="st">&quot;Left shift&quot;</span> <span class="op">$</span> nf (cyclicShiftLeft <span class="dv">2</span>) [<span class="dv">1</span><span class="op">..</span><span class="dv">8192</span>]</span></code></pre></div>
-<p>The <a href="http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:nf"><code>nf</code></a> function is the key here. It takes two parameters: first is the benchmarked function saturated with all but its last argument; second is the last parameter to the benchmarked function. The type of <code>nf</code> is:</p>
+<p>The <a href="http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:nf"><code>nf</code></a>
+function is the key here. It takes two parameters: first is the benchmarked
+function saturated with all but its last argument; second is the last parameter
+to the benchmarked function. The type of <code>nf</code> is:</p>
 <pre><code>ghci&gt; :t nf
 nf :: Control.DeepSeq.NFData b =&gt; (a -&gt; b) -&gt; a -&gt; Pure</code></pre>
-<p>When the benchmark is run <code>nf</code> applies the argument to the function and evaluates it to normal form, which means that the result gets fully evaluated. This is needed to ensure that laziness doesn’t distort the outcomes of a benchmark.</p>
-<p>Code shown above will work perfectly, but I find such way of creating benchmarks very inconvenient due to four reasons:</p>
+<p>When the benchmark is run <code>nf</code> applies the argument to the function and
+evaluates it to normal form, which means that the result gets fully
+evaluated. This is needed to ensure that laziness doesn’t distort the outcomes
+of a benchmark.</p>
+<p>Code shown above will work perfectly, but I find such way of creating benchmarks
+very inconvenient due to four reasons:</p>
 <ul>
 <li>presence of <a href="http://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants">magic numbers</a></li>
 <li>problems with creating more complex input data</li>
-<li>verbosity of benchmarks when there are many parameters taken by the benchmarked function</li>
-<li>problems of keeping consistency between benchmarks that should take the same inputs (it wouldn?t make sense to benchmark shift left and right functions with signals of different length)</li>
+<li>verbosity of benchmarks when there are many parameters taken by the
+benchmarked function</li>
+<li>problems of keeping consistency between benchmarks that should take the same
+inputs (it wouldn?t make sense to benchmark shift left and right functions
+with signals of different length)</li>
 </ul>
 <p>To deal with these problems I decided to write my benchmarks using wrappers:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bench <span class="st">&quot;Left shift&quot;</span>  <span class="op">$</span> nf benchCyclicShiftLeft paramCyclicShift</span></code></pre></div>
-<p>The <code>benchCyclicShiftLeft</code> function takes a tuple containing all the data needed for a benchmarked function:</p>
+<p>The <code>benchCyclicShiftLeft</code> function takes a tuple containing all the data needed
+for a benchmarked function:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# INLINE benchCyclicShiftLeft #-}</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ot">benchCyclicShiftLeft ::</span> (<span class="dt">Int</span>, [<span class="dt">Double</span>]) <span class="ot">-&gt;</span> [<span class="dt">Double</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>benchCyclicShiftLeft (n, sig) <span class="ot">=</span> cyclicShiftLeft n sig</span></code></pre></div>
-<p>The <code>INLINE</code> pragma is used to make sure that the function doesn’t add unnecessary call overhead. As you have probably guessed, the <code>paramCyclicShift</code> takes care of creating the tuple. In my code <code>paramCyclicShift</code> is actually a wrapper around such function:</p>
+<p>The <code>INLINE</code> pragma is used to make sure that the function doesn’t add
+unnecessary call overhead. As you have probably guessed, the <code>paramCyclicShift</code>
+takes care of creating the tuple. In my code <code>paramCyclicShift</code> is actually a
+wrapper around such function:</p>
 <pre><code>dataShift :: RandomGen g =&gt; g -&gt; Int -&gt; Int -&gt; (Int, [Double])
 dataShift gen n sigSize = (n, take sigSize $ randoms gen)</code></pre>
-<p>To keep benchmarking code easily manageable I organize it similarly to tests. Project root contains <code>bench</code> directory with structure identical to <code>src</code> and <code>tests</code> directories. File containing benchmarks for a module is named like that module but with ?Bench? appended before file extension. For example <code>benchCyclicShiftLeft</code> and <code>dataShift</code> functions needed to benchmark code in <code>src/``Signal/``Utils.hs</code> are placed in <code>bench/``Signal/``UtilsBench.hs</code>. Just like tests, benchmarks are assembled into one suite in <code>bench/``MainBenchmarkSuite.hs</code> file:</p>
+<p>To keep benchmarking code easily manageable I organize it similarly to tests.
+Project root contains <code>bench</code> directory with structure identical to <code>src</code> and
+<code>tests</code> directories. File containing benchmarks for a module is named like that
+module but with ?Bench? appended before file extension. For example
+<code>benchCyclicShiftLeft</code> and <code>dataShift</code> functions needed to benchmark code in
+<code>src/``Signal/``Utils.hs</code> are placed in <code>bench/``Signal/``UtilsBench.hs</code>. Just
+like tests, benchmarks are assembled into one suite in
+<code>bench/``MainBenchmarkSuite.hs</code> file:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">BenchParam</span>        <span class="kw">as</span> <span class="dt">P</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Signal.UtilsBench</span> <span class="kw">as</span> <span class="dt">U</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -76,10 +115,35 @@ dataShift gen n sigSize = (n, take sigSize $ randoms gen)</code></pre>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>benchConfig <span class="ot">=</span> defaultConfig {</span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>             cfgPerformGC <span class="ot">=</span> ljust <span class="dt">True</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>           }</span></code></pre></div>
-<p>The most important part is the <code>benchmarks</code> function, which takes a random number generator and assembles all benchmarks into one suite (<strong>UPDATE (24/10/2012):</strong> read a <a href="../posts/2012-10-24-code-benchmarking-in-haskell-some-thoughts-about-random-data-generation.html">follow-up post on random data generation</a>). Just as with tests we can create logical groups and assign names. A cool thing is a <a href="http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:bcompare"><code>bcompare</code></a> function. It takes a list of benchmarks, assumes that the first one is the reference one and reports the relative speed of other functions. In my code I use let to introduce <code>paramCyclicShift</code> wrapper around <code>dataShift</code> function. This allows to use the same input data for both benchmarks. Of course let is not necessary, but it allows to avoid code repetition. I also use <code>shiftSize</code> and <code>sigSize</code> functions from <code>BenchParam</code> module. These functions are defined as constant values and ensure that there is a single source of configuration. Using a separate module for this is a disputable choice - you may as well define <code>shiftSize</code> and <code>sigSize</code> in the same let binding as <code>paramCyclicShift</code>. The main function creates a random generator, uses bind to pass it to benchmarks function and finally runs the created suite. I use custom configuration created with <code>benchConfig</code> function to enable garbage collection between benchmarks ((This can also be enabled with a command line switch -g, but doing this in code ensures that it is always turned on.)). I noticed that enabling GC is generally a good idea, because otherwise it will kick in during the benchmarking and distort the results.</p>
-<p>The good thing about this approach is that benchmarks are concise, follow the structure of the project, magic numbers can be eliminated and it is easy to ensure that benchmarked functions get the same data when needed.</p>
+<p>The most important part is the <code>benchmarks</code> function, which takes a random
+number generator and assembles all benchmarks into one suite (<strong>UPDATE
+(24/10/2012):</strong> read a <a href="../posts/2012-10-24-code-benchmarking-in-haskell-some-thoughts-about-random-data-generation.html">follow-up post on random data
+generation</a>).
+Just as with tests we can create logical groups and assign names. A cool thing
+is a <a href="http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:bcompare"><code>bcompare</code></a>
+function. It takes a list of benchmarks, assumes that the first one is the
+reference one and reports the relative speed of other functions. In my code I
+use let to introduce <code>paramCyclicShift</code> wrapper around <code>dataShift</code>
+function. This allows to use the same input data for both benchmarks. Of course
+let is not necessary, but it allows to avoid code repetition. I also use
+<code>shiftSize</code> and <code>sigSize</code> functions from <code>BenchParam</code> module. These functions
+are defined as constant values and ensure that there is a single source of
+configuration. Using a separate module for this is a disputable choice - you may
+as well define <code>shiftSize</code> and <code>sigSize</code> in the same let binding as
+<code>paramCyclicShift</code>. The main function creates a random generator, uses bind to
+pass it to benchmarks function and finally runs the created suite. I use custom
+configuration created with <code>benchConfig</code> function to enable garbage collection
+between benchmarks ((This can also be enabled with a command line switch -g, but
+doing this in code ensures that it is always turned on.)). I noticed that
+enabling GC is generally a good idea, because otherwise it will kick in during
+the benchmarking and distort the results.</p>
+<p>The good thing about this approach is that benchmarks are concise, follow the
+structure of the project, magic numbers can be eliminated and it is easy to
+ensure that benchmarked functions get the same data when needed.</p>
 <h1 id="automating-benchmarks-using-cabal">Automating benchmarks using cabal</h1>
-<p>Guess what - <a href="http://blog.johantibell.com/2012/04/cabal-bench.html">cabal has a built in support for benchmarks</a>! All we need to do is add one more entry to project’s cabal file:</p>
+<p>Guess what - <a href="http://blog.johantibell.com/2012/04/cabal-bench.html">cabal has a built in support for
+benchmarks</a>! All we need
+to do is add one more entry to project’s cabal file:</p>
 <pre><code>benchmark signal-bench
   type:             exitcode-stdio-1.0
   hs-source-dirs:   src, bench
@@ -89,27 +153,78 @@ dataShift gen n sigSize = (n, take sigSize $ randoms gen)</code></pre>
                     random
   ghc-options:      -Wall
                     -O2</code></pre>
-<p>Structure of this entry is identical to the one related to tests, so I will skip the discussion. To run the benchmarks issue these three commands:</p>
+<p>Structure of this entry is identical to the one related to tests, so I will skip
+the discussion. To run the benchmarks issue these three commands:</p>
 <pre><code>cabal configure --enable-benchmarks
 cabal build
 cabal bench</code></pre>
-<p>This couldn’t be easier. Criterion will produce quite a detailed output on the console. As I already said, it’s all explained <a href="http://www.serpentine.com/posts/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/">on Bryan’s blog</a>, but some of the mentioned features are not present any more in criterion. Most importantly, you cannot display results in a window or save them to png file. Luckily, there is an even fancier feature instead. Run benchmarks like this:</p>
+<p>This couldn’t be easier. Criterion will produce quite a detailed output on the
+console. As I already said, it’s all explained <a href="http://www.serpentine.com/posts/2009/09/29/criterion-a-new-benchmarking-library-for-haskell/">on Bryan’s
+blog</a>,
+but some of the mentioned features are not present any more in criterion. Most
+importantly, you cannot display results in a window or save them to png
+file. Luckily, there is an even fancier feature instead. Run benchmarks like
+this:</p>
 <pre><code>cabal bench --benchmark-options=&quot;-o report.html&quot;</code></pre>
 <p>And criterion will produce a nice html report with interactive graphs.</p>
 <h1 id="a-few-more-comments-on-benchmarking">A few more comments on benchmarking</h1>
-<p>All of this looks very easy and straightforward, but I actually spent about three days trying to figure out whether my code is benchmarked correctly. The problem is laziness. When I call my <code>dataShift</code> function the random data isn’t created until it is demanded by the cyclic shift function. This means that the time needed to actually create the random data would be incorporated in the benchmark. It turns out that criterion is smart enough not to do so. The first run of each benchmark forces the evaluation of lazily created data, but its run time is discarded and not included in the final results. The evaluated data is used in the subsequent runs of the benchmark. You can test this easily by doing something like this:</p>
+<p>All of this looks very easy and straightforward, but I actually spent about
+three days trying to figure out whether my code is benchmarked correctly. The
+problem is laziness. When I call my <code>dataShift</code> function the random data isn’t
+created until it is demanded by the cyclic shift function. This means that the
+time needed to actually create the random data would be incorporated in the
+benchmark. It turns out that criterion is smart enough not to do so. The first
+run of each benchmark forces the evaluation of lazily created data, but its run
+time is discarded and not included in the final results. The evaluated data is
+used in the subsequent runs of the benchmark. You can test this easily by doing
+something like this:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dataShift gen n sigSize <span class="ot">=</span> unsafePerformIO <span class="op">$</span> <span class="kw">do</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    delayThread <span class="dv">1000000</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span> (n, <span class="fu">take</span> sigSize <span class="op">$</span> randoms gen)</span></code></pre></div>
-<p>This will cause a delay of 1 second each time <code>dataShift</code> function is evaluated. When you run the benchmark you will notice that criterion will estimate time needed to run the benchmarks to be over a hundred seconds (this information is not displayed when the estimated time is short), but it will finish much faster and there should be no difference in the performance of benchmarked functions. This will even work if you create your benchmark like this:</p>
+<p>This will cause a delay of 1 second each time <code>dataShift</code> function is
+evaluated. When you run the benchmark you will notice that criterion will
+estimate time needed to run the benchmarks to be over a hundred seconds (this
+information is not displayed when the estimated time is short), but it will
+finish much faster and there should be no difference in the performance of
+benchmarked functions. This will even work if you create your benchmark like
+this:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bench <span class="st">&quot;Left shift&quot;</span> <span class="op">$</span> nf U.benchCyclicShiftLeft</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                     (U.dataShift gen P.shiftSize P.sigSize)</span></code></pre></div>
-<p>Another problem I stumbled upon quite quickly was type constraint on the <code>nf</code> function: it requires that the return value belongs to <code>NFData</code>. This type class represents data that can be evaluated to normal form (i.e. can be fully evaluated). Most of standard Haskell data types belong to it, but this is not the case with data containers like Vector or Repa arrays. For such cases there is a <a href="http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:whnf"><code>whnf</code></a> function that doesn’t have that constraint, but it only evaluates the result to weak head normal form (i.e. to the first data constructor or lambda). Luckily, for unboxed arrays containing primitive types weak head normal form is the same as the normal form so the problem with Vectors is solved.</p>
-<p>I also quickly realised that benchmarking results are not as repeatable as I would like them to be. This is of course something I could expect in a multitasking operating system. I guess that ultimate solution to this would be booting into single user mode and closing all the background services like cron and network.</p>
-<p>I am also experimenting with tuning the options of the runtime system, as they can also influence performance considerably. In a project I am currently working on I benchmark parallel code and got better performance results by setting the thread affinity option (<code>-qa</code> command line switch) and disabling parallel garbage collection (<code>-g1</code> switch). I also found <a href="http://www.haskell.org/haskellwiki/ThreadScope">ThreadScope</a> to be extremely useful for inspecting events occurring during program runtime. It works great also for a single threaded application, as it shows when the garbage collection happens and that alone is very useful information.</p>
+<p>Another problem I stumbled upon quite quickly was type constraint on the <code>nf</code>
+function: it requires that the return value belongs to <code>NFData</code>. This type class
+represents data that can be evaluated to normal form (i.e. can be fully
+evaluated). Most of standard Haskell data types belong to it, but this is not
+the case with data containers like Vector or Repa arrays. For such cases there
+is a <a href="http://hackage.haskell.org/packages/archive/criterion/latest/doc/html/Criterion-Types.html#v:whnf"><code>whnf</code></a>
+function that doesn’t have that constraint, but it only evaluates the result to
+weak head normal form (i.e. to the first data constructor or lambda). Luckily,
+for unboxed arrays containing primitive types weak head normal form is the same
+as the normal form so the problem with Vectors is solved.</p>
+<p>I also quickly realised that benchmarking results are not as repeatable as I
+would like them to be. This is of course something I could expect in a
+multitasking operating system. I guess that ultimate solution to this would be
+booting into single user mode and closing all the background services like cron
+and network.</p>
+<p>I am also experimenting with tuning the options of the runtime system, as they
+can also influence performance considerably. In a project I am currently working
+on I benchmark parallel code and got better performance results by setting the
+thread affinity option (<code>-qa</code> command line switch) and disabling parallel
+garbage collection (<code>-g1</code> switch). I also found
+<a href="http://www.haskell.org/haskellwiki/ThreadScope">ThreadScope</a> to be extremely
+useful for inspecting events occurring during program runtime. It works great
+also for a single threaded application, as it shows when the garbage collection
+happens and that alone is very useful information.</p>
 <h1 id="summary">Summary</h1>
-<p>Up till now I never wrote repeatable benchmarks for my code and relied on a simple methods like measuring the wall time of a single run of my application. Criterion seems like a big step forward and, thanks to an instant feedback it provides, I already managed to speed up my parallel code by a factor of 2. I guess that most of all I like the way cabal allows to seamlessly integrate tests and benchmarks into my project - this speeds up development considerably.</p>
-<p>Remember that all the source code used in this post is available as a <a href="https://github.com/jstolarek/haskell-testing-stub">project on github</a>. There are also some additional comments in the code.</p>
+<p>Up till now I never wrote repeatable benchmarks for my code and relied on a
+simple methods like measuring the wall time of a single run of my
+application. Criterion seems like a big step forward and, thanks to an instant
+feedback it provides, I already managed to speed up my parallel code by a factor
+of 2. I guess that most of all I like the way cabal allows to seamlessly
+integrate tests and benchmarks into my project - this speeds up development
+considerably.</p>
+<p>Remember that all the source code used in this post is available as a <a href="https://github.com/jstolarek/haskell-testing-stub">project
+on github</a>. There are also
+some additional comments in the code.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

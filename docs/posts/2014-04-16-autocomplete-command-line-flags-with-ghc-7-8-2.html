@@ -29,7 +29,14 @@
     </section>
     <section>
         <h1 id="autocomplete-command-line-flags-with-ghc-7.8.2">Autocomplete command-line flags with GHC 7.8.2</h1>
-<p><a href="https://www.haskell.org/ghc/download_ghc_7_8_2">GHC 7.8.2</a> has been released just a few days ago ((Please ignore 7.8.1 release. It shipped with a <a href="https://ghc.haskell.org/trac/ghc/ticket/8978">bug that caused rejection of some valid programs</a>.)). This is the first official release of GHC that contains my contributions. Most of them are improvements in the code generator and are thus practically invisible to most users. But I also implemented one very nice feature that will be useful to an average Haskeller. GHC now has <code>--show-options</code> flag that lists all command-line flags. This feature can be used to auto-complete command-line flags in shells that support this feature. To enable auto-completion in Bash add this code snippet to your <code>~/.bashrc</code> file:</p>
+<p><a href="https://www.haskell.org/ghc/download_ghc_7_8_2">GHC 7.8.2</a> has been released
+just a few days ago<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This is the first official release of GHC that contains
+my contributions. Most of them are improvements in the code generator and are
+thus practically invisible to most users. But I also implemented one very nice
+feature that will be useful to an average Haskeller. GHC now has
+<code>--show-options</code> flag that lists all command-line flags. This feature can be
+used to auto-complete command-line flags in shells that support this feature. To
+enable auto-completion in Bash add this code snippet to your <code>~/.bashrc</code> file:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Autocomplete GHC commands</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">_ghc()</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
@@ -41,7 +48,15 @@
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">COMPREPLY</span><span class="op">=</span><span class="va">(</span> <span class="va">$(</span> <span class="bu">compgen</span> <span class="at">-W</span> <span class="st">&quot;</span><span class="va">$envs</span><span class="st">&quot;</span> <span class="at">--</span> <span class="va">$cur</span> <span class="va">)</span> <span class="va">)</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">complete</span> <span class="at">-F</span> _ghc <span class="at">-o</span> default ghc</span></code></pre></div>
-<p>From my experience the first completion is a bit slow but once the flags are cached things work fast.</p>
+<p>From my experience the first completion is a bit slow but once the flags are
+cached things work fast.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Please ignore 7.8.1 release. It shipped with a <a href="https://ghc.haskell.org/trac/ghc/ticket/8978">bug that caused rejection
+of some valid programs</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

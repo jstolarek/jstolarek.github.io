@@ -29,17 +29,39 @@
     </section>
     <section>
         <h1 id="haskell-as-fast-as-c-a-case-study">Haskell as fast as C: A case study</h1>
-<p>Once in a while someone, most likely new to Haskell, asks how does Haskell performance compare with C. In fact, when I was beginning with Haskell, I asked exactly the same question. During last couple of days I’ve been playing a bit with squeezing out some performance from a very simple piece of Haskell code. Turned out that the results I got are comparable with C so I thought I might share this. This will be a short case study, so I don’t intend to cover the whole subject of Haskell vs. C performance. There was a lot written on this already so I encourage to search through the Haskell-cafe archives as well as some other blogs. Most of all I suggest reading <a href="http://donsbot.wordpress.com/2008/05/06/write-haskell-as-fast-as-c-exploiting-strictness-laziness-and-recursion/">this</a> and <a href="http://donsbot.wordpress.com/2008/06/04/haskell-as-fast-as-c-working-at-a-high-altitude-for-low-level-performance/">this</a> post on Don Stewart’s blog.</p>
+<p>Once in a while someone, most likely new to Haskell, asks how does Haskell
+performance compare with C. In fact, when I was beginning with Haskell, I asked
+exactly the same question. During last couple of days I’ve been playing a bit
+with squeezing out some performance from a very simple piece of Haskell
+code. Turned out that the results I got are comparable with C so I thought I
+might share this. This will be a short case study, so I don’t intend to cover
+the whole subject of Haskell vs. C performance. There was a lot written on this
+already so I encourage to search through the Haskell-cafe archives as well as
+some other blogs. Most of all I suggest reading
+<a href="http://donsbot.wordpress.com/2008/05/06/write-haskell-as-fast-as-c-exploiting-strictness-laziness-and-recursion/">this</a>
+and
+<a href="http://donsbot.wordpress.com/2008/06/04/haskell-as-fast-as-c-working-at-a-high-altitude-for-low-level-performance/">this</a>
+post on Don Stewart’s blog.</p>
 <p>Here is my simple piece of code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">sumSqrL ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sumSqrL <span class="ot">=</span> <span class="fu">sum</span> <span class="op">.</span> <span class="fu">map</span> (<span class="op">^</span><span class="dv">2</span>) <span class="op">.</span> <span class="fu">filter</span> <span class="fu">odd</span></span></code></pre></div>
-<p>It takes a list of <code>Int</code>s, removes all even numbers from it, squares the remaining odd numbers and computes the sum. This is idiomatic Haskell code: it uses built-in list processing functions from the standard Prelude and relies on function composition to get code that is both readable and modular. So how can we make that faster? The simplest thing to do is to switch to a more efficient data structure, namely an unboxed <code>Vector</code>:</p>
+<p>It takes a list of <code>Int</code>s, removes all even numbers from it, squares the
+remaining odd numbers and computes the sum. This is idiomatic Haskell code: it
+uses built-in list processing functions from the standard Prelude and relies on
+function composition to get code that is both readable and modular. So how can
+we make that faster? The simplest thing to do is to switch to a more efficient
+data structure, namely an unboxed <code>Vector</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Data.Vector.Unboxed</span> <span class="kw">as</span> <span class="dt">U</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ot">sumSqrV ::</span> <span class="dt">U.Vector</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sumSqrV <span class="ot">=</span> U.sum <span class="op">.</span> U.map (<span class="op">^</span><span class="dv">2</span>) <span class="op">.</span> U.filter <span class="fu">odd</span></span></code></pre></div>
-<p>The code practically does not change, except for the type signature and namespace prefix to avoid clashing with the names from Prelude. As you will see in a moment this code is approximately three times faster than the one working on lists.</p>
-<p>Can we do better than that? Yes, we can. The code below is three times faster than the one using <code>Vector</code>, but there is a price to pay. We need to sacrifice modularity and elegance of the code:</p>
+<p>The code practically does not change, except for the type signature and
+namespace prefix to avoid clashing with the names from Prelude. As you will see
+in a moment this code is approximately three times faster than the one working
+on lists.</p>
+<p>Can we do better than that? Yes, we can. The code below is three times faster
+than the one using <code>Vector</code>, but there is a price to pay. We need to sacrifice
+modularity and elegance of the code:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">sumSqrPOp ::</span> <span class="dt">U.Vector</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sumSqrPOp vec <span class="ot">=</span> runST <span class="op">$</span> <span class="kw">do</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> add a x <span class="ot">=</span> <span class="kw">do</span></span>
@@ -47,8 +69,16 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            odd<span class="op">#</span>     <span class="ot">=</span> v<span class="op">#</span> <span class="ot">`andI#`</span> <span class="dv">1</span><span class="op">#</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span> <span class="op">$</span> a <span class="op">+</span> <span class="dt">I</span><span class="op">#</span> (odd<span class="op">#</span> <span class="op">*#</span> v<span class="op">#</span> <span class="op">*#</span> v<span class="op">#</span>)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  foldM' add <span class="dv">0</span> vec</span></code></pre></div>
-<p>This code works on an unboxed vector. The <code>add</code> function, used to fold the vector, takes an accumulator <code>a</code> (initiated to <code>0</code> in the call to <code>foldM'</code>) and an element of the vector. To check parity of the element the function unboxes it and zeros all its bits except the least significant one. If the vector element is even then <code>odd#</code> will contain <code>0</code>, if the element is odd then <code>odd#</code> will contain <code>1</code>. By multiplying square of the vector element by <code>odd#</code> we avoid a conditional branch instruction at the expense of possibly performing unnecessary multiplication and addition for even elements.</p>
-<p>Let’s see how these functions compile into Core intermediate language. The <code>sumSqrV</code> looks like this:</p>
+<p>This code works on an unboxed vector. The <code>add</code> function, used to fold the
+vector, takes an accumulator <code>a</code> (initiated to <code>0</code> in the call to <code>foldM'</code>) and
+an element of the vector. To check parity of the element the function unboxes it
+and zeros all its bits except the least significant one. If the vector element
+is even then <code>odd#</code> will contain <code>0</code>, if the element is odd then <code>odd#</code> will
+contain <code>1</code>. By multiplying square of the vector element by <code>odd#</code> we avoid a
+conditional branch instruction at the expense of possibly performing unnecessary
+multiplication and addition for even elements.</p>
+<p>Let’s see how these functions compile into Core intermediate language. The
+<code>sumSqrV</code> looks like this:</p>
 <pre><code>$wa =
   \vec &gt;
     case vec of _ { Vector vecAddressBase vecLength vecData -&gt;
@@ -93,8 +123,16 @@
              workerLoop w1_s37C 0 0)
           })
        )</code></pre>
-<p>I cleaned up the code a bit to make it easier to read. In the second version there is some noise from the ST monad, but aside from that both pieces of code are very similar. They differ in how the worker loop is called inside the most nested case expression. First version does a conditional call of one of the two possible calls to <code>workerLoop</code>, whereas the second version does an unconditional call. This may seem not much, but it turns out that this makes the difference between the code that is comparable in performance with C and code that is three times slower.</p>
-<p>Let’s take a look at the assembly generated by the LLVM backend. The main loop of <code>sumSqrV</code> compiles to:</p>
+<p>I cleaned up the code a bit to make it easier to read. In the second version
+there is some noise from the ST monad, but aside from that both pieces of code
+are very similar. They differ in how the worker loop is called inside the most
+nested case expression. First version does a conditional call of one of the two
+possible calls to <code>workerLoop</code>, whereas the second version does an unconditional
+call. This may seem not much, but it turns out that this makes the difference
+between the code that is comparable in performance with C and code that is three
+times slower.</p>
+<p>Let’s take a look at the assembly generated by the LLVM backend. The main loop
+of <code>sumSqrV</code> compiles to:</p>
 <pre><code>LBB1_4:
     imulq    %rdx, %rdx
     addq     %rdx, %rbx
@@ -123,7 +161,8 @@
     addq    $8, %rsi
     decq    %rdi
     jne     .LBB0_4</code></pre>
-<p>No need to be an assembly expert to see that the second version is much more dense.</p>
+<p>No need to be an assembly expert to see that the second version is much more
+dense.</p>
 <p>I promised you comparison with C. Here’s the code:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">int</span> c_sumSqrC<span class="op">(</span> <span class="dt">long</span> <span class="dt">int</span><span class="op">*</span> xs<span class="op">,</span> <span class="dt">long</span> <span class="dt">int</span> xn <span class="op">)</span> <span class="op">{</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">long</span> <span class="dt">int</span> index   <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
@@ -139,24 +178,65 @@
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a> Return<span class="op">:</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> result<span class="op">;</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>You’re probably wondering why the hell did I use <code>goto</code>s. The reason is that the whole idea of this sum-square-of-odds function was taken from the paper <a href="http://dl.acm.org/citation.cfm?id=102806">“Automatic transformation of series expressions into loops”</a> by Richard Waters and I intended to closely mimic the solution produced by his fusion framework.</p>
-<p>I used criterion to compare the performance of four presented implementations: based on list, base on vector, based on vector using <code>foldM</code>+primops and C. I used FFI to call C implementation from Haskell so that I can benchmark it with criterion as well. Here are the results for a list/vector containing one million elements:</p>
+<p>You’re probably wondering why the hell did I use <code>goto</code>s. The reason is that the
+whole idea of this sum-square-of-odds function was taken from the paper
+<a href="http://dl.acm.org/citation.cfm?id=102806">“Automatic transformation of series expressions into
+loops”</a> by Richard Waters and I
+intended to closely mimic the solution produced by his fusion framework.</p>
+<p>I used criterion to compare the performance of four presented implementations:
+based on list, base on vector, based on vector using <code>foldM</code>+primops and C. I
+used FFI to call C implementation from Haskell so that I can benchmark it with
+criterion as well. Here are the results for a list/vector containing one million
+elements:</p>
 <p><a href="../images/posts/sumsqrperf.png"><img src="../images/posts/sumsqrperf.png" alt="Performance of sumSqr" /></a></p>
-<p>C version is still faster than the one based on primops by about 8%. I think this is a very good achievement given that the version based on Vector library is three times slower.</p>
+<p>C version is still faster than the one based on primops by about 8%. I think
+this is a very good achievement given that the version based on Vector library
+is three times slower.</p>
 <h1 id="a-few-words-of-summary">A few words of summary</h1>
-<p>The <a href="http://hackage.haskell.org/package/vector">vector</a> library uses stream fusion under the hood to optimize the code working on vectors. In the blog posts I mentioned in the beginning Don Stewart talks a bit about stream fusion, but if you want to learn more you’ll probably be interested in two papers: <a href="http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.104.7401">Stream Fusion. From Lists to Streams to Nothing at All</a> and <a href="http://www.eecs.harvard.edu/~mainland/publications/mainland12simd.pdf">Haskell Beats C Using Generalized Stream Fusion</a>. My <code>sumSqrPOp</code> function, although as fast as C, is in fact pretty ugly and I wouldn’t recommend anyone to write Haskell code in such a way. You might have realized that while efficiency of <code>sumSqrPOp</code> comes from avoiding the conditional instruction within the loop, the C version does in fact use the conditional instruction within the loop to determine the parity of the vector element. The interesting thing is that this conditional is eliminated by <code>gcc</code> during the compilation.</p>
-<p>As you can see it might be possible to write Haskell code that is as fast as C. The bad thing is that to get efficient code you might be forced to sacrifice the elegance and abstraction of functional programming. I hope that one day Haskell will have a fusion framework capable of doing more optimisations than the frameworks existing today and that we will be able to have both the elegance of code and high performance. After all, if <code>gcc</code> is able to get rid of unnecessary conditional instructions then it should be possible to make GHC do the same.</p>
+<p>The <a href="http://hackage.haskell.org/package/vector">vector</a> library uses stream
+fusion under the hood to optimize the code working on vectors. In the blog posts
+I mentioned in the beginning Don Stewart talks a bit about stream fusion, but if
+you want to learn more you’ll probably be interested in two papers: <a href="http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.104.7401">Stream
+Fusion. From Lists to Streams to Nothing at
+All</a> and
+<a href="http://www.eecs.harvard.edu/~mainland/publications/mainland12simd.pdf">Haskell Beats C Using Generalized Stream
+Fusion</a>.
+My <code>sumSqrPOp</code> function, although as fast as C, is in fact pretty ugly and I
+wouldn’t recommend anyone to write Haskell code in such a way. You might have
+realized that while efficiency of <code>sumSqrPOp</code> comes from avoiding the
+conditional instruction within the loop, the C version does in fact use the
+conditional instruction within the loop to determine the parity of the vector
+element. The interesting thing is that this conditional is eliminated by <code>gcc</code>
+during the compilation.</p>
+<p>As you can see it might be possible to write Haskell code that is as fast as
+C. The bad thing is that to get efficient code you might be forced to sacrifice
+the elegance and abstraction of functional programming. I hope that one day
+Haskell will have a fusion framework capable of doing more optimisations than
+the frameworks existing today and that we will be able to have both the elegance
+of code and high performance. After all, if <code>gcc</code> is able to get rid of
+unnecessary conditional instructions then it should be possible to make GHC do
+the same.</p>
 <h1 id="a-short-appendix">A short appendix</h1>
-<p>To dump Core produced by GHC use <code>-ddump-simpl</code> flag during compilation. I also recommend using <code>-dsuppress-all</code> flag, which suppresses all information about types - this makes the Core much easier to read.</p>
-<p>To dump the assembly produced by GHC use <code>-ddump-asm</code> flag. When compiling with LLVM backend you need to use <code>-keep-s-files</code> flag instead.</p>
+<p>To dump Core produced by GHC use <code>-ddump-simpl</code> flag during compilation. I also
+recommend using <code>-dsuppress-all</code> flag, which suppresses all information about
+types - this makes the Core much easier to read.</p>
+<p>To dump the assembly produced by GHC use <code>-ddump-asm</code> flag. When compiling with
+LLVM backend you need to use <code>-keep-s-files</code> flag instead.</p>
 <p>To disassemble compiled object files (e.g. compiled C files) use the <code>objdump -d</code> command.</p>
 <h1 id="update---discussion-on-reddit">Update - discussion on Reddit</h1>
-<p>There was some discussion about this post on <a href="http://www.reddit.com/r/haskell/comments/1bikvs/yet_another_lambda_blog_haskell_as_fast_as_c_a/">reddit</a> and I’d like to address some of the objections that were raised there and in the comments below.</p>
-<p>Mikhail Glushenkov pointed out that the following Haskell code produces the same result as my <code>sumSqrPOp</code> function:</p>
+<p>There was some discussion about this post on
+<a href="http://www.reddit.com/r/haskell/comments/1bikvs/yet_another_lambda_blog_haskell_as_fast_as_c_a/">reddit</a>
+and I’d like to address some of the objections that were raised there and in the
+comments below.</p>
+<p>Mikhail Glushenkov pointed out that the following Haskell code produces the same
+result as my <code>sumSqrPOp</code> function:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ot">sumSqrB ::</span> <span class="dt">U.Vector</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sumSqrB <span class="ot">=</span> U.sum <span class="op">.</span> U.map (\x <span class="ot">-&gt;</span> (x <span class="op">.&amp;.</span> <span class="dv">1</span>) <span class="op">*</span> x <span class="op">*</span> x)</span></code></pre></div>
-<p>I admit I didn’t notice this simple solution and could have come with a better example were such a solution would not be possible.</p>
-<p>There was a request to compare performance with idiomatic C code, because the C code I have shown clearly is not idiomatic. So here’s the most idiomatic C code I can come up with (not necessarily the fastest one):</p>
+<p>I admit I didn’t notice this simple solution and could have come with a better
+example were such a solution would not be possible.</p>
+<p>There was a request to compare performance with idiomatic C code, because the C
+code I have shown clearly is not idiomatic. So here’s the most idiomatic C code
+I can come up with (not necessarily the fastest one):</p>
 <pre><code>long int c_sumSqrC( long int* xs, long int xn ) {
   long int result = 0;
   long int i = 0;
@@ -169,14 +249,22 @@
   }
   return result;
 }</code></pre>
-<p>The performance turns out to be the same as before (“Bits” represents Mikhail Glushenkov’s solution, “C” now represents the new C code):</p>
+<p>The performance turns out to be the same as before (“Bits” represents Mikhail
+Glushenkov’s solution, “C” now represents the new C code):</p>
 <p><a href="../images/posts/sumsqrperf1.png"><img src="../images/posts/sumsqrperf1.png" alt="sumsqrperf" /></a></p>
 <p>There was a suggestion to use the following C code:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> xn<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">+=</span> xs<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> xs<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> <span class="op">(</span>xs<span class="op">[</span>i<span class="op">]</span> <span class="op">&amp;</span> <span class="dv">1</span><span class="op">);</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Author claims that this code is faster than the version I proposed, but I cannot confirm that on my machine - I get results that are noticeably slower (2.7ms vs 1.7ms for vectors of 1 million elements). Perhaps this comes from me using GCC 4.5, while the latest available version is 4.8.</p>
-<p>Finally, there were questions about overhead added by calling C code via FFI. I was concerned with this also when I first wanted to benchmark my C code via FFI. After making some experiments it turned out that this overhead is so small that it can be ignored. For more information see <a href="../posts/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html">this post</a>.</p>
+<p>Author claims that this code is faster than the version I proposed, but I cannot
+confirm that on my machine - I get results that are noticeably slower (2.7ms vs
+1.7ms for vectors of 1 million elements). Perhaps this comes from me using GCC
+4.5, while the latest available version is 4.8.</p>
+<p>Finally, there were questions about overhead added by calling C code via FFI. I
+was concerned with this also when I first wanted to benchmark my C code via FFI.
+After making some experiments it turned out that this overhead is so small that
+it can be ignored. For more information see <a href="../posts/2012-11-02-benchmarking-c-functions-using-foreign-function-interface.html">this
+post</a>.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

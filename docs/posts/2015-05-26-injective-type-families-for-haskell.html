@@ -29,25 +29,56 @@
     </section>
     <section>
         <h1 id="injective-type-families-for-haskell">Injective type families for Haskell</h1>
-<p>For the last few months I have been working on extending Glasgow Haskell Compiler with injective type families. At first this seemed like a fairly simple project but in the end it turned out to be much more interesting than initially thought. (I suppose that’s how research mostly turns out.) There are still some rough edges in the implementation and it will take a few more weeks before my branch gets merged into the master development branch of GHC. But for now there is <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_peyton-jones_eisenberg_injectivity.pdf">a draft paper “Injective type families for Haskell”</a> written by me, Simon Peyton Jones, and Richard Eisenberg, that we submitted for this year’s Haskell Symposium. This is not yet the final version of the paper so any feedback will be appreciated.</p>
-<p>The idea behind injective type families is to infer the arguments of a type family from the result. For example, given a definition:</p>
+<p>For the last few months I have been working on extending Glasgow Haskell
+Compiler with injective type families. At first this seemed like a fairly simple
+project but in the end it turned out to be much more interesting than initially
+thought. (I suppose that’s how research mostly turns out.) There are still some
+rough edges in the implementation and it will take a few more weeks before my
+branch gets merged into the master development branch of GHC. But for now there
+is <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_peyton-jones_eisenberg_injectivity.pdf">a draft paper “Injective type families for
+Haskell”</a>
+written by me, Simon Peyton Jones, and Richard Eisenberg, that we submitted for
+this year’s Haskell Symposium. This is not yet the final version of the paper so
+any feedback will be appreciated.</p>
+<p>The idea behind injective type families is to infer the arguments of a type
+family from the result. For example, given a definition:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">F</span> a <span class="ot">=</span> r <span class="op">|</span> r <span class="ot">-&gt;</span> a <span class="kw">where</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">F</span> <span class="dt">Char</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">F</span> <span class="dt">Bool</span> <span class="ot">=</span> <span class="dt">Char</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">F</span> a    <span class="ot">=</span> a</span></code></pre></div>
-<p>if we know <code>(F a ~ Bool)</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> then we want to infer <code>(a ~ Char)</code>. And if we know <code>(F a ~ Double)</code> then we want to infer <code>(a ~ Double)</code>. Going one step further from this, if we know <code>(F a ~ F b)</code> then - knowing that <code>F</code> is injective - we want to infer <code>(a ~ b)</code>.</p>
-<p>Notice that in order to declare <code>F</code> as injective I used new syntax. Firstly, I used “<code>= r</code>” to introduce a name for the result returned by the type family. Secondly, I used syntax borrowed from functional dependencies to declare injectivity. For multi-argument type families this syntax allows to declare injectivity in only some of the arguments, e.g.:</p>
+<p>if we know <code>(F a ~ Bool)</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> then we want to infer <code>(a ~ Char)</code>. And if we know
+<code>(F a ~ Double)</code> then we want to infer <code>(a ~ Double)</code>. Going one step further
+from this, if we know <code>(F a ~ F b)</code> then - knowing that <code>F</code> is injective - we
+want to infer <code>(a ~ b)</code>.</p>
+<p>Notice that in order to declare <code>F</code> as injective I used new syntax. Firstly, I
+used “<code>= r</code>” to introduce a name for the result returned by the type
+family. Secondly, I used syntax borrowed from functional dependencies to declare
+injectivity. For multi-argument type families this syntax allows to declare
+injectivity in only some of the arguments, e.g.:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">G</span> a b c <span class="ot">=</span> r <span class="op">|</span> r <span class="ot">-&gt;</span> a c</span></code></pre></div>
-<p>Actually, you can even have kind injectivity, assuming that type arguments have polymorphic kinds.</p>
-<p>Obviously, to make use of injectivity declared by the user GHC needs to check that the injectivity annotation is true. And that’s the really tricky part that the paper focuses on. Here’s an example:</p>
+<p>Actually, you can even have kind injectivity, assuming that type arguments have
+polymorphic kinds.</p>
+<p>Obviously, to make use of injectivity declared by the user GHC needs to check
+that the injectivity annotation is true. And that’s the really tricky part that
+the paper focuses on. Here’s an example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">T</span> a <span class="ot">=</span> r <span class="op">|</span> r <span class="ot">-&gt;</span> a <span class="kw">where</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">T</span> [a] <span class="ot">=</span> a</span></code></pre></div>
-<p>This type family returns the type of elements stored in a list. It certainly looks injective. Surprisingly, it is not. Say we have <code>(T [T Int])</code>. By the only equation of <code>T</code> this gives us <code>(T [T Int] ~ T Int)</code>. And by injectivity we have <code>([T Int] ~ Int)</code>. We just proved that lists and integers are equal, which is a disaster.</p>
-<p>The above is only a short teaser. The paper covers much more: more corner cases, our algorithm for verifying user’s injectivity annotations, details of exploiting knowledge of injectivity inside the compiler and relationship of injective type families to functional dependencies. <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_peyton-jones_eisenberg_injectivity_extended.pdf">Extended version of the paper</a> also comes with proofs of soundness and completeness of our algorithm.</p>
-<section class="footnotes" role="doc-endnotes">
+<p>This type family returns the type of elements stored in a list. It certainly
+looks injective. Surprisingly, it is not. Say we have <code>(T [T Int])</code>. By the only
+equation of <code>T</code> this gives us <code>(T [T Int] ~ T Int)</code>. And by injectivity we have
+<code>([T Int] ~ Int)</code>. We just proved that lists and integers are equal, which is a
+disaster.</p>
+<p>The above is only a short teaser. The paper covers much more: more corner cases,
+our algorithm for verifying user’s injectivity annotations, details of
+exploiting knowledge of injectivity inside the compiler and relationship of
+injective type families to functional dependencies. <a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_peyton-jones_eisenberg_injectivity_extended.pdf">Extended version of the
+paper</a>
+also comes with proofs of soundness and completeness of our algorithm.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p><code>~</code> means unification. Think of “<code>~</code>” as “having a proof that two types are equal”.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><code>~</code> means unification. Think of “<code>~</code>” as “having a proof that two types
+are equal”.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

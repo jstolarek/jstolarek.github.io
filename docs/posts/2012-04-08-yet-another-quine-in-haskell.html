@@ -29,24 +29,51 @@
     </section>
     <section>
         <h1 id="yet-another-quine-in-haskell">Yet Another Quine In Haskell</h1>
-<p>A few years ago I was asked by a student if I heard about a task to write a program that outputs its own source code. Back then I didn’t know about it and sort of ignored that question, but later a friend of mine told me that such a program is called a <a href="http://en.wikipedia.org/wiki/Quine_(computing)">quine</a> and that he had already solved that in couple of languages. Today I used my beginner’s knowledge of Haskell to write my first quine. If you haven’t written any quine by yourself yet then it may be better that you don’t read this post - knowing the solution will spoil the fun.</p>
-<p>I started of with the general idea of defining a string that will contain the text of the program and displaying that string. This is a strange kind of recursion that I haven’t met before. The idea itself seems rather simple, but it took me about 40 minutes of hacking to get it right. I spent much of that time struggling to get the quote signs display correctly. Anyway, here it is:</p>
+<p>A few years ago I was asked by a student if I heard about a task to write a
+program that outputs its own source code. Back then I didn’t know about it and
+sort of ignored that question, but later a friend of mine told me that such a
+program is called a <a href="http://en.wikipedia.org/wiki/Quine_(computing)">quine</a> and
+that he had already solved that in couple of languages. Today I used my
+beginner’s knowledge of Haskell to write my first quine. If you haven’t written
+any quine by yourself yet then it may be better that you don’t read this post -
+knowing the solution will spoil the fun.</p>
+<p>I started of with the general idea of defining a string that will contain the
+text of the program and displaying that string. This is a strange kind of
+recursion that I haven’t met before. The idea itself seems rather simple, but it
+took me about 40 minutes of hacking to get it right. I spent much of that time
+struggling to get the quote signs display correctly. Anyway, here it is:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span> <span class="co">--&quot;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="kw">do</span> <span class="fu">putStr</span> (quine <span class="op">++</span> <span class="st">&quot;\\nquine = \\&quot;&quot; ++ take 20 quine ++ &quot;</span>\\\\<span class="st">&quot;)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">          print (drop 21 quine)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">quine = &quot;</span>module <span class="dt">Main</span> <span class="kw">where</span> <span class="co">--\\&quot;\\nmain = do putStr (quine ++ \\&quot;\\\\nquine = \\\\\\&quot;\\&quot; ++ take 20 quine ++ \\&quot;\\\\\\\\\\&quot;)\\n          print (drop 21 quine)&quot;</span></span></code></pre></div>
-<p>This requires that there is a new line at the and of source file. It’s rather crappy but I’m still happy with it. I googled around for some other quines in Haskell and, as expected, found <a href="http://switchb.org/kpreid/quines">more elegant solutions</a>:</p>
+<p>This requires that there is a new line at the and of source file. It’s rather
+crappy but I’m still happy with it. I googled around for some other quines in
+Haskell and, as expected, found <a href="http://switchb.org/kpreid/quines">more elegant
+solutions</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(\\a <span class="ot">-&gt;</span> a <span class="op">++</span> <span class="fu">show</span> a) <span class="st">&quot;(\\\\a -&gt; a ++ show a) &quot;</span></span></code></pre></div>
-<p>As <a href="http://www.iis.sinica.edu.tw/~scm/2007/a-haskell-quine/">Shin-Cheng Mu notices</a> this is based on the resemblance to lambda expression <code>(\x -&gt; x x) (\x -&gt; x x)</code>, which reduces to itself. It also resembles the Y-combinator (on which I hope to write soon). There is also a shorter version of the above.</p>
+<p>As <a href="http://www.iis.sinica.edu.tw/~scm/2007/a-haskell-quine/">Shin-Cheng Mu notices</a>
+this is based on the resemblance to lambda expression <code>(\x -&gt; x x) (\x -&gt; x x)</code>,
+which reduces to itself. It also resembles the Y-combinator (on which I hope to
+write soon). There is also a shorter version of the above.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ap (<span class="op">++</span>) <span class="fu">show</span> <span class="st">&quot;ap (++) show &quot;</span></span></code></pre></div>
-<p>It uses the <a href="http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Monad.html#v:ap">ap</a> function operating on a monad and frankly speaking I don’t understand it. The two above solutions are not stand-alone programs and work only in ghci, as opposed to my solution. It is not difficult however to adapt the idea to a stand-alone application:</p>
+<p>It uses the
+<a href="http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Monad.html#v:ap">ap</a>
+function operating on a monad and frankly speaking I don’t understand it. The
+two above solutions are not stand-alone programs and work only in ghci, as
+opposed to my solution. It is not difficult however to adapt the idea to a
+stand-alone application:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="fu">putStr</span> (quine q)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>quine s <span class="ot">=</span> s <span class="op">++</span> <span class="fu">show</span> s</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>q <span class="ot">=</span> <span class="st">&quot;main = putStr (quine q)\\nquine s = s ++ show s\\nq = &quot;</span></span></code></pre></div>
-<p>The solution is by Jon Fairbairn and I found it <a href="http://www.nyx.net/~gthompso/quine.htm">here</a>. The same using a monad (found <a href="http://porg.es/posts/a-quine-in-haskell">here</a>):</p>
+<p>The solution is by Jon Fairbairn and I found it
+<a href="http://www.nyx.net/~gthompso/quine.htm">here</a>. The same using a monad (found
+<a href="http://porg.es/posts/a-quine-in-haskell">here</a>):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> (<span class="fu">putStr</span> <span class="op">.</span> ap (<span class="op">++</span>) <span class="fu">show</span>) <span class="st">&quot;main = (putStr . ap (++) show) &quot;</span></span></code></pre></div>
-<p>Only this will not compile since ap is not in scope and would have to be imported. I don’t know if this should count as a valid solution.</p>
-<p>To me the conclusion is that I’m still thinking in an imperative style. Quine solutions seem to be a lot easier in languages supporting higher order functions, yet I solved it in a way typical to languages like Java or C.</p>
+<p>Only this will not compile since ap is not in scope and would have to be
+imported. I don’t know if this should count as a valid solution.</p>
+<p>To me the conclusion is that I’m still thinking in an imperative style. Quine
+solutions seem to be a lot easier in languages supporting higher order
+functions, yet I solved it in a way typical to languages like Java or C.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

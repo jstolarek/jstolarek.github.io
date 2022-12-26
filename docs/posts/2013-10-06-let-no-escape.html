@@ -29,7 +29,20 @@
     </section>
     <section>
         <h1 id="let-no-escape">Let no escape!</h1>
-<p>I observed that the number of people familiar with Core and using it for debugging purposes is relatively big to the number of people familiar with other two intermediate representations used by GHC further in the pipeline: STG and Cmm. Some seem to treat these two a bit like black magic :-) I have to admit that I used to treat them like this before I came to MSR to work on the GHC backend. Now I am a bit more familiar with code generator and I’d like to share some of my knowledge. Today I will present an optimization called “let-no-escape” (LNE for short). I believe it is almost unknown amongst Haskellers and GHC hackers. Main reasons for that are: a) it is performed in the code generator (STG-to-Cmm pass) and, as I said, people tend to stay away from that part of the compiler; b) it was not described in any paper (“We didn’t consider it to be worth a paper” - Simon Marlow), nor it is described on GHC wiki - the only chance to learn about was to find it in the source code. My plan is to explain what and why LNE does.</p>
+<p>I observed that the number of people familiar with Core and using it for
+debugging purposes is relatively big to the number of people familiar with other
+two intermediate representations used by GHC further in the pipeline: STG and
+Cmm. Some seem to treat these two a bit like black magic :-) I have to admit
+that I used to treat them like this before I came to MSR to work on the GHC
+backend. Now I am a bit more familiar with code generator and I’d like to share
+some of my knowledge. Today I will present an optimization called
+“let-no-escape” (LNE for short). I believe it is almost unknown amongst
+Haskellers and GHC hackers. Main reasons for that are: a) it is performed in the
+code generator (STG-to-Cmm pass) and, as I said, people tend to stay away from
+that part of the compiler; b) it was not described in any paper (“We didn’t
+consider it to be worth a paper” - Simon Marlow), nor it is described on GHC
+wiki - the only chance to learn about was to find it in the source code. My plan
+is to explain what and why LNE does.</p>
 <h1 id="motivation">Motivation</h1>
 <p>Consider this imperative code in C:</p>
 <pre><code>if (y &gt; 0) {
@@ -38,37 +51,91 @@
   x = 4;
 }
 ...x...// use x</code></pre>
-<p>Earlier I mentioned the Cmm intermediate language used by GHC. It is a low-level imperative language, something between C and assembly. If we were to rewrite above C program into Cmm we would get something like this:</p>
+<p>Earlier I mentioned the Cmm intermediate language used by GHC. It is a low-level
+imperative language, something between C and assembly. If we were to rewrite
+above C program into Cmm we would get something like this:</p>
 <pre><code>     if (y &gt; 0) goto L1; else goto L2;
 L1 : x = 3
      goto L3;
 L2 : x = 4;
      goto L3;
 L3 : ....x... // use x</code></pre>
-<p>In both C and Cmm code we would expect the generated assembly to check value of <code>y</code>, perform a conditional jump to one of the branches, set value of <code>x</code> to <code>3</code> or <code>4</code> and finally perform unconditional jump from the branch to code that follows the <code>if</code> construct (i.e. <code>L3</code> label in Cmm version).</p>
-<p>All of this seems obvious and looks very simple, but it gets more complicated when we start thinking in a functional setting. How do we implement this logic in Haskell? Well, we could do something like this:</p>
+<p>In both C and Cmm code we would expect the generated assembly to check value of
+<code>y</code>, perform a conditional jump to one of the branches, set value of <code>x</code> to <code>3</code>
+or <code>4</code> and finally perform unconditional jump from the branch to code that
+follows the <code>if</code> construct (i.e. <code>L3</code> label in Cmm version).</p>
+<p>All of this seems obvious and looks very simple, but it gets more complicated
+when we start thinking in a functional setting. How do we implement this logic
+in Haskell? Well, we could do something like this:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> j x <span class="ot">=</span> <span class="op">...</span>x<span class="op">...</span> <span class="co">-- use x</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">in</span> <span class="kw">case</span> (y <span class="op">&gt;</span> <span class="dv">0</span>) <span class="kw">of</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">True</span>  <span class="ot">-&gt;</span> j <span class="dv">3</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">False</span> <span class="ot">-&gt;</span> j <span class="dv">4</span></span></code></pre></div>
-<p>We introduced a binding <code>j</code>, which corresponds to code after the conditional (again, <code>L3</code> in the Cmm example). <code>case</code> expression corresponds to if statement. In the branches we just make a call to <code>j</code> and pass desired value of <code>x</code> as a parameter. There’s a problem here though. If we simply compile this code then <code>j</code> will be compiled as a function. It will be a closure with two entry points (slow and fast) and possibly stack check and heap check at the very beginning. So with C we had an unconditional jump, whereas here we get a function call with all its overhead. This is very bad and we want something better. One easy way to avoid call to <code>j</code> would be inlining it in every case alternative. But this duplicates code so this is no good either. We really want to produce code that is as fast as produced by C and without unnecessary duplication. Let-no-escape optimization allows us to achieve that.</p>
+<p>We introduced a binding <code>j</code>, which corresponds to code after the conditional
+(again, <code>L3</code> in the Cmm example). <code>case</code> expression corresponds to if
+statement. In the branches we just make a call to <code>j</code> and pass desired value of
+<code>x</code> as a parameter. There’s a problem here though. If we simply compile this
+code then <code>j</code> will be compiled as a function. It will be a closure with two
+entry points (slow and fast) and possibly stack check and heap check at the very
+beginning. So with C we had an unconditional jump, whereas here we get a
+function call with all its overhead. This is very bad and we want something
+better. One easy way to avoid call to <code>j</code> would be inlining it in every case
+alternative. But this duplicates code so this is no good either. We really want
+to produce code that is as fast as produced by C and without unnecessary
+duplication. Let-no-escape optimization allows us to achieve that.</p>
 <h1 id="let-no-escape-1">Let-no-escape</h1>
-<p>When we compile core to STG we distinguish between two types of let bindings: normal and let-no-escape ones. A binding is a let-no-escape binding if it is non-updatable (so it must have some parameters), it is called in a tail position with exactly the right number of arguments and it is “guaranteed to be entered before the stack retreats - i.e. it is not enclosed in a heap-allocated closure or passed as an argument to something” ((Quote from source file <code>compiler/stgSyn/CoreToStg.lhs</code>)). Normal bindings - i.e. bindings for which at least one of these conditions does not hold - are compiled as a closure and follow the calling convention i.e. they expect their parameters to be passed in some particular registers or on the stack. Let-no-escape bindings are compiled in a special way: they are not closures and don’t follow the calling convention. Instead they are compiled as a normal block of Cmm code that expects its entry parameters to be located in some particular local variables (which will later be mapped to hardware registers or spilled to the stack). To “call” a LNE binding we place parameters in the correct local variables and jump to the block of Cmm code.</p>
+<p>When we compile core to STG we distinguish between two types of let bindings:
+normal and let-no-escape ones. A binding is a let-no-escape binding if it is
+non-updatable (so it must have some parameters), it is called in a tail position
+with exactly the right number of arguments and it is “guaranteed to be entered
+before the stack retreats - i.e. it is not enclosed in a heap-allocated closure
+or passed as an argument to something” ((Quote from source file
+<code>compiler/stgSyn/CoreToStg.lhs</code>)). Normal bindings - i.e. bindings for which at
+least one of these conditions does not hold - are compiled as a closure and
+follow the calling convention i.e. they expect their parameters to be passed in
+some particular registers or on the stack. Let-no-escape bindings are compiled
+in a special way: they are not closures and don’t follow the calling
+convention. Instead they are compiled as a normal block of Cmm code that expects
+its entry parameters to be located in some particular local variables (which
+will later be mapped to hardware registers or spilled to the stack). To “call” a
+LNE binding we place parameters in the correct local variables and jump to the
+block of Cmm code.</p>
 <p>Let’s look once again at our example program:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> j x <span class="ot">=</span> <span class="op">...</span>x<span class="op">...</span> <span class="co">-- use x</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">in</span> <span class="kw">case</span> (y <span class="op">&gt;</span> <span class="dv">0</span>) <span class="kw">of</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">True</span>  <span class="ot">-&gt;</span> j <span class="dv">3</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">False</span> <span class="ot">-&gt;</span> j <span class="dv">4</span></span></code></pre></div>
-<p>The binding for <code>j</code> is a let-no-escape one: it is non-updatable, in a tail position, all call sites pass exactly the required number of arguments and it is not passed as a parameter. This means that we can compile <code>j</code> as a let-no-escape binding - it will not be a closure and will expect its parameter in a local variable. Call sites for <code>j</code> - i.e. <code>True</code> and <code>False</code> alternatives of a case expression - need to place the value of argument <code>x</code> in a place where <code>j</code> expects it. This brings us to Cmm code that I presented at the top of this post:</p>
+<p>The binding for <code>j</code> is a let-no-escape one: it is non-updatable, in a tail
+position, all call sites pass exactly the required number of arguments and it is
+not passed as a parameter. This means that we can compile <code>j</code> as a let-no-escape
+binding - it will not be a closure and will expect its parameter in a local
+variable. Call sites for <code>j</code> - i.e. <code>True</code> and <code>False</code> alternatives of a case
+expression - need to place the value of argument <code>x</code> in a place where <code>j</code>
+expects it. This brings us to Cmm code that I presented at the top of this post:</p>
 <pre><code>     if (y &gt; 0) goto L1; else goto L2;
 L1 : x = 3
      goto L3;
 L2 : x = 4;
      goto L3;
 L3 : ....x... // use x</code></pre>
-<p>The conditional <code>if</code> implements case expression that selects one of alternatives. <code>L1</code> is the <code>True</code> branch, while <code>L2</code> is the <code>False</code> alternative. We compiled <code>j</code> in such a way that it expects its parameter to be passed in a local variable <code>x</code>, so every call site needs to initialize <code>x</code> with the value it wants to pass to <code>j</code> as an argument. After initializing the argument we perform unconditional jump to code that implements the binding (instead of making a call). In this example <code>L3</code> implements the <code>j</code> let-no-escape binding. It is not a callable closure, but a normal block of Cmm code which expects its argument to be passed in a local variable <code>x</code>. In this way we compiled a functional program to efficient low-level code that is comparable with C.</p>
+<p>The conditional <code>if</code> implements case expression that selects one of
+alternatives. <code>L1</code> is the <code>True</code> branch, while <code>L2</code> is the <code>False</code>
+alternative. We compiled <code>j</code> in such a way that it expects its parameter to be
+passed in a local variable <code>x</code>, so every call site needs to initialize <code>x</code> with
+the value it wants to pass to <code>j</code> as an argument. After initializing the
+argument we perform unconditional jump to code that implements the binding
+(instead of making a call). In this example <code>L3</code> implements the <code>j</code>
+let-no-escape binding. It is not a callable closure, but a normal block of Cmm
+code which expects its argument to be passed in a local variable <code>x</code>. In this
+way we compiled a functional program to efficient low-level code that is
+comparable with C.</p>
 <h1 id="summary">Summary</h1>
-<p>This was a conceptual explanation of what are let-no-escape bindings and why we use them. A separate question is “how is this optimisation implemented by GHC?”. Relevant code is located in a couple of places, mostly in <code>codeGen/</code> directory (STG -&gt; Cmm pass). If you want to explore implementation details a good starting point might be <code>getCallMethod</code> function and <code>CallMethod</code> data type in <code>StgCmmClosure</code> module and <code>cgIdApp</code> in <code>StgCmmExpr</code> module.</p>
+<p>This was a conceptual explanation of what are let-no-escape bindings and why we
+use them. A separate question is “how is this optimisation implemented by
+GHC?”. Relevant code is located in a couple of places, mostly in <code>codeGen/</code>
+directory (STG -&gt; Cmm pass). If you want to explore implementation details a
+good starting point might be <code>getCallMethod</code> function and <code>CallMethod</code> data type
+in <code>StgCmmClosure</code> module and <code>cgIdApp</code> in <code>StgCmmExpr</code> module.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

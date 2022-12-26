@@ -29,15 +29,58 @@
     </section>
     <section>
         <h1 id="installing-ocaml-under-opensuse-11.4-or-the-compilation-of-conf-ncurses-failed">Installing OCaml under openSUSE 11.4, or: “the compilation of conf-ncurses failed”</h1>
-<p>Recently I decided to learn the basics of OCaml and I spent yesterday installing the compiler and some basic tools. On my machine at work I have a Debian 7 installation, while on my home laptop I have openSUSE 11.4. Both systems are quite dated and ship with OCaml 3.x compiler, which is five years old. Obviously, I wanted to have the latest version of the language. I could have compiled OCaml from sources - and in fact I have done that in the past to compile the latest version of Coq - but luckily there is a tool called OPAM (OCaml Package manager). OPAM can be used to easily download and install desired version of OCaml compiler. As the name implies, OPAM can be also used for managing packages installed for a particular compiler version.</p>
-<p>The installation process went very smooth on my Debian machine, but on openSUSE I have run into problems. After getting the latest compiler I wanted to install <code>ocamlfind</code>, a tool required by a project I wanted to play with. To my disappointment installation ended with an error:</p>
+<p>Recently I decided to learn the basics of OCaml and I spent yesterday installing
+the compiler and some basic tools. On my machine at work I have a Debian 7
+installation, while on my home laptop I have openSUSE 11.4. Both systems are
+quite dated and ship with OCaml 3.x compiler, which is five years
+old. Obviously, I wanted to have the latest version of the language. I could
+have compiled OCaml from sources - and in fact I have done that in the past to
+compile the latest version of Coq - but luckily there is a tool called OPAM
+(OCaml Package manager). OPAM can be used to easily download and install desired
+version of OCaml compiler. As the name implies, OPAM can be also used for
+managing packages installed for a particular compiler version.</p>
+<p>The installation process went very smooth on my Debian machine, but on openSUSE
+I have run into problems. After getting the latest compiler I wanted to install
+<code>ocamlfind</code>, a tool required by a project I wanted to play with. To my
+disappointment installation ended with an error:</p>
 <pre><code>[ERROR] The compilation of conf-ncurses failed at &quot;pkg-config ncurses&quot;.
 
 This package relies on external (system) dependencies that may be missing.
 `opam depext conf-ncurses.1' may help you find the correct installation for
 your system.</code></pre>
-<p>I verified that I indeed have installed development files for the <code>ncurses</code> library as well as the <code>pkg-config</code> tool. Running the suggested <code>opam</code> command also didn’t find any missing dependencies, and the log files from the installation turned out to be completely empty, so I was left clueless. Googling revealed that <a href="https://github.com/ocaml/opam-repository/issues/5880">I am not the first to encounter this problem</a>, but offered no solution. I did some more reading on <code>pkg-config</code> and learned that: a) it is a tool that provides meta-information about installed libraries, and b) in order to recognize that a library is installed it requires extra configuration files (aka <code>*.pc</code> files) provided by the library. Running <code>pkg-config --list-all</code> revealed that <code>ncurses</code> is not recognized as installed on my system, which suggested that the relevant <code>*.pc</code> files are missing. Some more googling revealed that <code>ncurses</code> library can be configured and then compiled with <code>--enable-pc-files</code> switch, which should build the files needed by <code>pkg-config</code>. I got the sources for the <code>ncurses</code> version installed on my system (5.7) only to learn that this build option is unsupported. This explains why the files are missing on my system. I got the sources for the latest version of <code>ncurses</code> (6.0), configured them with <code>--enable-pc-files</code> and compiled, only to learn that the <code>*.pc</code> files were not built. After several minutes of debugging I realized that for some unexplained reasons the <code>configure</code>-generated script which should build the <code>*.pc</code> files (located at <code>misc/gen-pkgconfig</code>) did not receive <code>+x</code> (executable) permission. After adding this permission manually I ran the script and got five <code>*.pc</code> files for the <code>ncurses</code> 6.0 library. Then I had to edit the files to match the version of <code>ncurses</code> of my system - relevant information can be obtained by running <code>ncurses5-config --version</code>. The only remaining thing was to place the five <code>*.pc</code> files in a place where <code>pkg-config</code> can find them. On openSUSE this was <code>/usr/local/pkgconfig</code>, but this can differ between various Linux flavours.</p>
-<p>After all these magical incantations the installation of <code>ocamlfind</code> went through fine and I can enjoy a working OCaml installation on both of my machines. Now I’m waiting for the “Real-world OCaml” book ordered from Amazon (orders shipped from UK Amazon to Poland tend to take around two weeks to arrive).</p>
+<p>I verified that I indeed have installed development files for the <code>ncurses</code>
+library as well as the <code>pkg-config</code> tool. Running the suggested <code>opam</code> command
+also didn’t find any missing dependencies, and the log files from the
+installation turned out to be completely empty, so I was left clueless. Googling
+revealed that <a href="https://github.com/ocaml/opam-repository/issues/5880">I am not the first to encounter this
+problem</a>, but offered no
+solution. I did some more reading on <code>pkg-config</code> and learned that: a) it is a
+tool that provides meta-information about installed libraries, and b) in order
+to recognize that a library is installed it requires extra configuration files
+(aka <code>*.pc</code> files) provided by the library. Running <code>pkg-config --list-all</code>
+revealed that <code>ncurses</code> is not recognized as installed on my system, which
+suggested that the relevant <code>*.pc</code> files are missing. Some more googling
+revealed that <code>ncurses</code> library can be configured and then compiled with
+<code>--enable-pc-files</code> switch, which should build the files needed by
+<code>pkg-config</code>. I got the sources for the <code>ncurses</code> version installed on my system
+(5.7) only to learn that this build option is unsupported. This explains why the
+files are missing on my system. I got the sources for the latest version of
+<code>ncurses</code> (6.0), configured them with <code>--enable-pc-files</code> and compiled, only to
+learn that the <code>*.pc</code> files were not built. After several minutes of debugging I
+realized that for some unexplained reasons the <code>configure</code>-generated script
+which should build the <code>*.pc</code> files (located at <code>misc/gen-pkgconfig</code>) did not
+receive <code>+x</code> (executable) permission. After adding this permission manually I
+ran the script and got five <code>*.pc</code> files for the <code>ncurses</code> 6.0 library. Then I
+had to edit the files to match the version of <code>ncurses</code> of my system - relevant
+information can be obtained by running <code>ncurses5-config --version</code>. The only
+remaining thing was to place the five <code>*.pc</code> files in a place where <code>pkg-config</code>
+can find them. On openSUSE this was <code>/usr/local/pkgconfig</code>, but this can differ
+between various Linux flavours.</p>
+<p>After all these magical incantations the installation of <code>ocamlfind</code> went
+through fine and I can enjoy a working OCaml installation on both of my
+machines. Now I’m waiting for the “Real-world OCaml” book ordered from Amazon
+(orders shipped from UK Amazon to Poland tend to take around two weeks to
+arrive).</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

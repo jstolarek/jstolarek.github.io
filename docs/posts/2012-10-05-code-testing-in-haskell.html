@@ -29,17 +29,61 @@
     </section>
     <section>
         <h1 id="code-testing-in-haskell">Code testing in Haskell</h1>
-<p>A few weeks ago <a href="../posts/2012-09-09-y-combinator-in-matlab.html">I wrote that for 3 years I used Matlab as my main programming language</a>. Before that however I was developing in Java. While Java can be criticized for its design - and I noticed that some Haskallers look down on it - it learned me one very important thing: code testing. Java’s JUnit was very important in popularizing Test Driven Development (TDD) and code testing in general. Personally, I never used JUnit and relied on TestNG instead. At the time I was learning TDD TestNG’s features were way ahead of JUnit (and it is possible that they still are). Having learned TestNG, testing became very important for me. For the most time I was creating code that did numerical computations according to some sophisticated algorithm. It was very easy to make a mistake and tests allowed me to make my code reliable. Later I used TDD approach in Matlab thanks to Steve Eddins’ <a href="http://www.mathworks.com/matlabcentral/fileexchange/22846-matlab-xunit-test-framework">xUnit Framework</a>. After starting with Haskell I knew one thing - I need a way to test my code. Luckily Haskell provides even better ways of creating tests than other languages I’ve seen so far. Still, I had some problems with organizing my tests. I spent about a week reading tutorials, talking with people on #haskell IRC channel, mailing on Haskell-cafe list and in the end even mailing authors of particular libraries. This post summarizes all my efforts. It is not meant to be a comprehensive tutorial on using testing libraries, though I will mention some of the basics. I will mostly focus on logical organization of tests, automating tests and adding some enhancements that improve capabilities of existing testing libraries. For demonstration purposes I set up <a href="https://github.com/jstolarek/haskell-testing-stub">a very simple stub project on github</a> so you can clone it and see how my approach works in practice.</p>
+<p>A few weeks ago <a href="../posts/2012-09-09-y-combinator-in-matlab.html">I wrote that for 3 years I used Matlab as my main programming
+language</a>. Before that however I
+was developing in Java. While Java can be criticized for its design - and I
+noticed that some Haskallers look down on it - it learned me one very important
+thing: code testing. Java’s JUnit was very important in popularizing Test Driven
+Development (TDD) and code testing in general. Personally, I never used JUnit
+and relied on TestNG instead. At the time I was learning TDD TestNG’s features
+were way ahead of JUnit (and it is possible that they still are). Having learned
+TestNG, testing became very important for me. For the most time I was creating
+code that did numerical computations according to some sophisticated
+algorithm. It was very easy to make a mistake and tests allowed me to make my
+code reliable. Later I used TDD approach in Matlab thanks to Steve Eddins’
+<a href="http://www.mathworks.com/matlabcentral/fileexchange/22846-matlab-xunit-test-framework">xUnit Framework</a>.
+After starting with Haskell I knew one thing - I need a way to test my
+code. Luckily Haskell provides even better ways of creating tests than other
+languages I’ve seen so far. Still, I had some problems with organizing my
+tests. I spent about a week reading tutorials, talking with people on #haskell
+IRC channel, mailing on Haskell-cafe list and in the end even mailing authors of
+particular libraries. This post summarizes all my efforts. It is not meant to be
+a comprehensive tutorial on using testing libraries, though I will mention some
+of the basics. I will mostly focus on logical organization of tests, automating
+tests and adding some enhancements that improve capabilities of existing testing
+libraries. For demonstration purposes I set up <a href="https://github.com/jstolarek/haskell-testing-stub">a very simple stub project on
+github</a> so you can clone it
+and see how my approach works in practice.</p>
 <h1 id="why">Why?</h1>
-<p>Before I begin with presenting my approach to testing in Haskell it is important to say why did I even bother to spend so much time and effort trying to figure out test organization. The answer is very simple: none of the approaches I was able to find in Haskell community suited my needs. I wanted to have three things:</p>
+<p>Before I begin with presenting my approach to testing in Haskell it is important
+to say why did I even bother to spend so much time and effort trying to figure
+out test organization. The answer is very simple: none of the approaches I was
+able to find in Haskell community suited my needs. I wanted to have three
+things:</p>
 <ul>
-<li>separate tests from the actual source code so that release version of my software doesn’t depend on testing libraries,</li>
-<li>organize tests in such a way that they are easy to manage (e.g. I wanted to be able to quickly locate tests for a particular module),</li>
+<li>separate tests from the actual source code so that release version of my
+software doesn’t depend on testing libraries,</li>
+<li>organize tests in such a way that they are easy to manage (e.g. I wanted to
+be able to quickly locate tests for a particular module),</li>
 <li>automate my tests.</li>
 </ul>
-<p>I read some blog posts discussing how to test code in Haskell but none of demonstrated approaches met all the above criteria. For example I noticed that many people advocate putting tests in the same source file as the tested code, arguing that tests act as a specification and should be bundled with the code. Tests are part of specification, that is true. Nevertheless this is not the reason to make our final executable (or library) depend on testing libraries! That is why I had to find my own way of doing things.</p>
+<p>I read some blog posts discussing how to test code in Haskell but none of
+demonstrated approaches met all the above criteria. For example I noticed that
+many people advocate putting tests in the same source file as the tested code,
+arguing that tests act as a specification and should be bundled with the
+code. Tests are part of specification, that is true. Nevertheless this is not
+the reason to make our final executable (or library) depend on testing
+libraries! That is why I had to find my own way of doing things.</p>
 <h1 id="project-overview">Project overview</h1>
-<p>I will create a very simple library with tests to demonstrate all the concepts. The library provides two basic signal processing operations - cyclic shifts. A left cyclic shift by one moves all elements in a signal (list in our case) to the left and the formerly first element becomes the last one. For example a cyclic shift to the left of <code>[1,2,3,4]</code> produces <code>[2,3,4,1]</code>. Right shift works in similar way, only it shifts elements in opposite direction. Shifts by one can be extended to shift signal by any natural number, e.g. shift right by 3 of a <code>[1,2,3,4,5]</code> signal yields <code>[3,4,5,1,2]</code>. Here’s the complete implementation of all these functions:</p>
+<p>I will create a very simple library with tests to demonstrate all the
+concepts. The library provides two basic signal processing operations - cyclic
+shifts. A left cyclic shift by one moves all elements in a signal (list in our
+case) to the left and the formerly first element becomes the last one. For
+example a cyclic shift to the left of <code>[1,2,3,4]</code> produces <code>[2,3,4,1]</code>. Right
+shift works in similar way, only it shifts elements in opposite direction.
+Shifts by one can be extended to shift signal by any natural number, e.g. shift
+right by 3 of a <code>[1,2,3,4,5]</code> signal yields <code>[3,4,5,1,2]</code>. Here’s the complete
+implementation of all these functions:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Signal.Utils</span> <span class="kw">where</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">cyclicOneShiftLeft ::</span> (<span class="dt">Num</span> a) <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</span>
@@ -59,8 +103,17 @@
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cyclicShiftRight n xs</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> n <span class="op">&gt;</span> <span class="dv">0</span>     <span class="ot">=</span> cyclicShiftRight (n <span class="op">-</span> <span class="dv">1</span>) <span class="op">.</span> cyclicOneShiftRight <span class="op">$</span> xs</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> xs</span></code></pre></div>
-<p>Note that <code>cyclicOneShiftLeft</code> and <code>cyclicOneShiftRight</code> are partial functions. They do not work for empty lists (the former one will cause a warning about non-exhaustive pattern match). On the other hand <code>cyclicShiftLeft</code> and <code>cyclicShiftRight</code> are total functions. They work for any list and any shift value. These two functions will thus constitute external API of our library.</p>
-<p>The above code is placed into module <code>Signal.Utils</code>. This module - and generally all modules in a library - exports all its internal functions, thus breaking the encapsulation principle. The library contains one main module (<code>Signal</code>) that imports all modules of the library and exports only those functions that are meant to be the part of library’s public API. Thus Signal.hs file looks like this:</p>
+<p>Note that <code>cyclicOneShiftLeft</code> and <code>cyclicOneShiftRight</code> are partial
+functions. They do not work for empty lists (the former one will cause a warning
+about non-exhaustive pattern match). On the other hand <code>cyclicShiftLeft</code> and
+<code>cyclicShiftRight</code> are total functions. They work for any list and any shift
+value. These two functions will thus constitute external API of our library.</p>
+<p>The above code is placed into module <code>Signal.Utils</code>. This module - and generally
+all modules in a library - exports all its internal functions, thus breaking the
+encapsulation principle. The library contains one main module (<code>Signal</code>) that
+imports all modules of the library and exports only those functions that are
+meant to be the part of library’s public API. Thus Signal.hs file looks like
+this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Signal</span> (</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    cyclicShiftLeft</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  , cyclicShiftRight</span>
@@ -74,18 +127,43 @@
   other-modules:       Signal.Utils
   build-depends:       base
   ghc-options:         -Wall</code></pre>
-<p>This ensures that users will have access only to functions that we exposed via <code>Signal</code> module. Internal functions of our library will remain hidden. Why did we give up on module encapsulation within library? This will become clear in a moment, when we talk about automating tests.</p>
+<p>This ensures that users will have access only to functions that we exposed via
+<code>Signal</code> module. Internal functions of our library will remain hidden. Why did
+we give up on module encapsulation within library? This will become clear in a
+moment, when we talk about automating tests.</p>
 <h1 id="overview-of-haskell-testing-libraries">Overview of Haskell testing libraries</h1>
-<p>Haskell offers <a href="http://hackage.haskell.org/packages/archive/pkg-list.html#cat:testing">quite a few testing libraries</a>. Among them there are two that seem to be in wide use and are in fact a standard - <a href="http://hackage.haskell.org/package/HUnit">HUnit</a> and <a href="http://hackage.haskell.org/package/QuickCheck">QuickCheck</a>. HUnit, as the name suggests, is a library providing xUnit capabilities in Haskell. The idea of using HUnit is to feed some data to functions that we are testing and compare the actual result returned by them to the result that we expect. If expected and actual results differ the test fails. Here’s a simple example:</p>
+<p>Haskell offers <a href="http://hackage.haskell.org/packages/archive/pkg-list.html#cat:testing">quite a few testing
+libraries</a>.
+Among them there are two that seem to be in wide use and are in fact a standard
+- <a href="http://hackage.haskell.org/package/HUnit">HUnit</a> and
+<a href="http://hackage.haskell.org/package/QuickCheck">QuickCheck</a>. HUnit, as the name
+suggests, is a library providing xUnit capabilities in Haskell. The idea of
+using HUnit is to feed some data to functions that we are testing and compare
+the actual result returned by them to the result that we expect. If expected and
+actual results differ the test fails. Here’s a simple example:</p>
 <pre><code>testCyclicOneShiftRightHU :: Test
 testCyclicOneShiftRightHU =
     &quot;Cyclic one shift right&quot; ~: [4,1,2,3]  @=? cyclicOneShiftRight [1,2,3,4]</code></pre>
-<p>This code creates an assertion that checks if the result of applying function <code>cyclicShiftLeft</code> to list [1,2,3,4] returns [2,3,4,1]. This assertion is given a name and assigned to a test. The test is run and if the assertion is true the test succeeds. Otherwise it fails. That’s all there is to it. If you used any testing framework that uses the xUnit approach then you already know what HUnit is all about. Note also, that we will NOT create tests in the form given above. Instead we will create tests that create <code>Assertion</code>:</p>
+<p>This code creates an assertion that checks if the result of applying function
+<code>cyclicShiftLeft</code> to list [1,2,3,4] returns [2,3,4,1]. This assertion is given a
+name and assigned to a test. The test is run and if the assertion is true the
+test succeeds. Otherwise it fails. That’s all there is to it. If you used any
+testing framework that uses the xUnit approach then you already know what HUnit
+is all about. Note also, that we will NOT create tests in the form given
+above. Instead we will create tests that create <code>Assertion</code>:</p>
 <pre><code>testCyclicOneShiftLeftAssertion :: Assertion
 testCyclicOneShiftLeftAssertion =
     [4,1,2,3] @=? cyclicOneShiftRight [1,2,3,4]</code></pre>
-<p>This is required for integration with <a href="http://batterseapower.github.com/test-framework/">test-framework</a> library, which I will discuss in a moment.</p>
-<p>One thing to note is that HUnit lacks assertions that would allow to compare floating point numbers effectively. A problem with floating points in any language, not only Haskell, is that comparing them using equality sign my give unexpected results due to round-off errors. Every xUnit testing framework I’ve seen so far provided an “almost equal” assertion that allowed to compare floats with some given precision. Since there is no such assertion in HUnit I created it myself and placed in the <code>Test.Utils</code> module:</p>
+<p>This is required for integration with
+<a href="http://batterseapower.github.com/test-framework/">test-framework</a> library,
+which I will discuss in a moment.</p>
+<p>One thing to note is that HUnit lacks assertions that would allow to compare
+floating point numbers effectively. A problem with floating points in any
+language, not only Haskell, is that comparing them using equality sign my give
+unexpected results due to round-off errors. Every xUnit testing framework I’ve
+seen so far provided an “almost equal” assertion that allowed to compare floats
+with some given precision. Since there is no such assertion in HUnit I created
+it myself and placed in the <code>Test.Utils</code> module:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="dt">AEq</span> a <span class="kw">where</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    (=~) ::</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -97,18 +175,41 @@ testCyclicOneShiftLeftAssertion =
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">where</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      assertionMsg <span class="ot">=</span> <span class="st">&quot;Expected : &quot;</span> <span class="op">++</span> <span class="fu">show</span> expected <span class="op">++</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;\nActual   : &quot;</span> <span class="op">++</span> <span class="fu">show</span> actual</span></code></pre></div>
-<p>I created <code>AEq</code> (Almost Equal) type class defining “almost equal” operator and created instances for <code>Double</code>, lists and <code>Maybe</code> (see source code) and then created HUnit assertion that works just like other assertions. In our code this assertion is not really necessary, but I included it since I think it is very helpful if you want to test functions performing numerical computations.</p>
-<p>Another approach to testing is offered by QuickCheck. Instead of creating test data a programmer defines properties that tested functions should always obey and QuickCheck library takes care of automatically generating test data. An example property is that if we take a signal of length n and shift it by n (either left or right) we should get the original signal as a result. Here’s how this property looks in QuickCheck:</p>
+<p>I created <code>AEq</code> (Almost Equal) type class defining “almost equal” operator and
+created instances for <code>Double</code>, lists and <code>Maybe</code> (see source code) and then
+created HUnit assertion that works just like other assertions. In our code this
+assertion is not really necessary, but I included it since I think it is very
+helpful if you want to test functions performing numerical computations.</p>
+<p>Another approach to testing is offered by QuickCheck. Instead of creating test
+data a programmer defines properties that tested functions should always obey
+and QuickCheck library takes care of automatically generating test data. An
+example property is that if we take a signal of length n and shift it by n
+(either left or right) we should get the original signal as a result. Here’s how
+this property looks in QuickCheck:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">propLeftShiftIdentity ::</span> [<span class="dt">Double</span>] <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>propLeftShiftIdentity xs <span class="ot">=</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    cyclicShiftLeft (<span class="fu">length</span> xs) xs <span class="op">==</span> xs</span></code></pre></div>
-<p>Another property that we can define is that composition of left shift by one and right shift by one is an identity function. In case of our <code>cyclicOneShiftLeft</code> and <code>cyclicOneShiftRight</code> functions this will not exactly be true, because these functions don’t work for empty lists. This means that empty lists must be excluded from the test:</p>
+<p>Another property that we can define is that composition of left shift by one and
+right shift by one is an identity function. In case of our <code>cyclicOneShiftLeft</code>
+and <code>cyclicOneShiftRight</code> functions this will not exactly be true, because these
+functions don’t work for empty lists. This means that empty lists must be
+excluded from the test:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ot">propCyclicOneShiftIdentity1 ::</span> [<span class="dt">Double</span>] <span class="ot">-&gt;</span> <span class="dt">Property</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>propCyclicOneShiftIdentity1 xs <span class="ot">=</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">not</span> (<span class="fu">null</span> xs) <span class="op">==&gt;</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        cyclicOneShiftLeft (cyclicOneShiftRight xs) <span class="op">==</span> xs</span></code></pre></div>
-<p>As you can see QuickCheck properties return either <code>Bool</code> or <code>Property</code> ((You can think of <code>Property</code> as something that can be evaluated to true or false)). When these tests are run QuickCheck generates 100 random lists to see if the property holds for them. If for some input data the property fails then QuickCheck reports a failed test together with data that lead to failure.</p>
-<p>We know how to write tests. Now it is time to run all of them in one coherent testing suite. For this we will use <a href="http://batterseapower.github.com/test-framework/">test-framework</a>. This framework was designed to allow using HUnit and QuickCheck tests together in a uniform fashion. I think this is not the only such framework, but I think that it does its job very well so I did not feel the need to look for anything different. Here is main testing module responsible for running all tests:</p>
+<p>As you can see QuickCheck properties return either <code>Bool</code> or <code>Property</code> ((You
+can think of <code>Property</code> as something that can be evaluated to true or
+false)). When these tests are run QuickCheck generates 100 random lists to see
+if the property holds for them. If for some input data the property fails then
+QuickCheck reports a failed test together with data that lead to failure.</p>
+<p>We know how to write tests. Now it is time to run all of them in one coherent
+testing suite. For this we will use
+<a href="http://batterseapower.github.com/test-framework/">test-framework</a>. This
+framework was designed to allow using HUnit and QuickCheck tests together in a
+uniform fashion. I think this is not the only such framework, but I think that
+it does its job very well so I did not feel the need to look for anything
+different. Here is main testing module responsible for running all tests:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> (</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    main</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a> ) <span class="kw">where</span></span>
@@ -132,11 +233,45 @@ testCyclicOneShiftLeftAssertion =
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>     , testProperty <span class="st">&quot;Left shift identity&quot;</span> propLeftShiftIdentity</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  ]</span></code></pre></div>
-<p>The <code>tests</code> function is the most important one. It groups tests into groups and assigns names to both groups and individual tests. These names will be useful for locating tests that failed. Notice the test group named “Migrated from HUnit”. As the name suggests these are HUnit tests that were adjusted to work with test-framework, which means that if you already have HUnit tests you can easily migrate to test-framework. Nevertheless test-framework expects an <code>Assertion</code> by default and that is why we created such test earlier. Notice also that in the project on github there are more tests than shown above. These are however very similar to the functions already shown.</p>
+<p>The <code>tests</code> function is the most important one. It groups tests into groups and
+assigns names to both groups and individual tests. These names will be useful
+for locating tests that failed. Notice the test group named “Migrated from
+HUnit”. As the name suggests these are HUnit tests that were adjusted to work
+with test-framework, which means that if you already have HUnit tests you can
+easily migrate to test-framework. Nevertheless test-framework expects an
+<code>Assertion</code> by default and that is why we created such test earlier. Notice also
+that in the project on github there are more tests than shown above. These are
+however very similar to the functions already shown.</p>
 <h1 id="automating-tests-using-cabal">Automating tests using cabal</h1>
-<p>It is time to automate our tests so that they can be easily rerun. For that we will use <code>cabal</code>, but before we start we need to discuss how to organize our tests and place them within project’s directories.</p>
-<p>In Java it is a standard practice to put source and tests into two separate directories located in the project root. These directories have identical internal structure. This is due to two facts. First, Java names packages according to directory in which they are located ((Haskell uses the same approach and if I remember correctly it was adapted from Java. )), so files <code>src/SomePackage/SomeSubpackage/SomeClass.java</code> and <code>tests/SomePackage/SomeSubpackage/SomeClassTest.java</code> are considered to be in the same package. The second reason is that classes located in the same package can have access to their protected fields, which allows tests to access internals of a class. This approach breaks object encapsulation within a single package, but this is generally acceptable and not a real problem.</p>
-<p>I decided to follow similar approach in Haskell. In the project directory I have <code>src</code> and <code>tests</code> directories that allow me to separate application/library code from tests. Both directories have the same internal structure. Files containing tests for a module are named like that module but with “Test” appended before file extension. In my simple project this is demonstrated by file <code>src/Signal/Utils.hs</code> and <code>tests/Signal/UtilsTest.hs</code>. This way it is easy to locate tests for a particular module. This mimics approach used in Java, but there is one important difference. In Java tests organized in such a way have access to unexposed internals of a class, but this does not happen in Haskell. If a module does not expose its internal functions there is no way for tests to reach them. I know two solutions to this problem. First is the one I used - export everything from the modules. It was suggested to me by Matthew West on Haskell-Cafe. The second one is using CPP language extension, which will cause source files to be processed by C preprocessor. To use this method our <code>Signal.Utils</code> would have to be modified like this:</p>
+<p>It is time to automate our tests so that they can be easily rerun. For that we
+will use <code>cabal</code>, but before we start we need to discuss how to organize our
+tests and place them within project’s directories.</p>
+<p>In Java it is a standard practice to put source and tests into two separate
+directories located in the project root. These directories have identical
+internal structure. This is due to two facts. First, Java names packages
+according to directory in which they are located ((Haskell uses the same
+approach and if I remember correctly it was adapted from Java. )), so files
+<code>src/SomePackage/SomeSubpackage/SomeClass.java</code> and
+<code>tests/SomePackage/SomeSubpackage/SomeClassTest.java</code> are considered to be
+in the same package. The second reason is that classes located in the same
+package can have access to their protected fields, which allows tests to access
+internals of a class. This approach breaks object encapsulation within a single
+package, but this is generally acceptable and not a real problem.</p>
+<p>I decided to follow similar approach in Haskell. In the project directory I have
+<code>src</code> and <code>tests</code> directories that allow me to separate application/library code
+from tests. Both directories have the same internal structure. Files containing
+tests for a module are named like that module but with “Test” appended before
+file extension. In my simple project this is demonstrated by file
+<code>src/Signal/Utils.hs</code> and <code>tests/Signal/UtilsTest.hs</code>. This way it is easy to
+locate tests for a particular module. This mimics approach used in Java, but
+there is one important difference. In Java tests organized in such a way have
+access to unexposed internals of a class, but this does not happen in
+Haskell. If a module does not expose its internal functions there is no way for
+tests to reach them. I know two solutions to this problem. First is the one I
+used - export everything from the modules. It was suggested to me by Matthew
+West on Haskell-Cafe. The second one is using CPP language extension, which will
+cause source files to be processed by C preprocessor. To use this method our
+<code>Signal.Utils</code> would have to be modified like this:</p>
 <pre><code>{-# LANGUAGE CPP #-}
 module Signal.Utils (
     cyclicShiftLeft
@@ -146,8 +281,16 @@ module Signal.Utils (
   , cyclicOneShiftRight
 #endif
   ) where</code></pre>
-<p>We also have to add <code>cpp-options: -DTEST</code> entry in test section of project’s .cabal file (this will be explained in next paragraph). It might also be convenient to create <code>.ghci</code> file in the project directory containing <code>:set -DTEST -isrc -itest</code>, which will enable <code>TEST</code> flag within ghci. This solution was pointed to me by Simon Hengel, also on Haskell-Cafe. I didn’t use it because it doesn’t look very well and feels more like a hack than a real solution. Nevertheless this is also a way of doing things and it may better suit your needs than the one I chose.</p>
-<p>With all this knowledge we can finally use <a href="http://cabaltest.blogspot.com/"><code>cabal</code>’s support for testing</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For this we must add another section to .cabal file of our project:</p>
+<p>We also have to add <code>cpp-options: -DTEST</code> entry in test section of project’s
+.cabal file (this will be explained in next paragraph). It might also be
+convenient to create <code>.ghci</code> file in the project directory containing <code>:set -DTEST -isrc -itest</code>, which will enable <code>TEST</code> flag within ghci. This solution
+was pointed to me by Simon Hengel, also on Haskell-Cafe. I didn’t use it because
+it doesn’t look very well and feels more like a hack than a real
+solution. Nevertheless this is also a way of doing things and it may better suit
+your needs than the one I chose.</p>
+<p>With all this knowledge we can finally use <a href="http://cabaltest.blogspot.com/"><code>cabal</code>’s support for
+testing</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For this we must add another
+section to .cabal file of our project:</p>
 <pre><code>test-suite signal-tests
   type:              exitcode-stdio-1.0
   hs-source-dirs:    tests, src
@@ -158,23 +301,54 @@ module Signal.Utils (
                      test-framework,
                      test-framework-hunit,
                      test-framework-quickcheck2</code></pre>
-<p>Let’s walk through this configuration and see what it does. The <code>type</code> field defines testing interface used by tests. Theoretically there are two accepted values: <code>exitcode-stdio-1.0</code> and <code>detailed-1.0</code>. First one means that test executable works by displaying test results on the screen and indicates possible failure by non-zero exit code. Second option, <code>detailed-1.0</code>, is meant for test suites that export some special symbols that allow test results to be intercepted and further processed by Cabal. Sadly, while this second options seems very interesting, it is not fully implemented yet and there is no way to make use of it. Thus, for the time being, we are left with <code>exitcode-stdio-1.0</code>. Rest of the entries should be self-explanatory. The <code>hs-source-dirs</code> option points to source directories. Note that it includes both the <code>src</code> and <code>tests</code> directories. Next entry defines a file containing <code>main :: IO ()</code>. Finally there are dependencies on external libraries.</p>
+<p>Let’s walk through this configuration and see what it does. The <code>type</code> field
+defines testing interface used by tests. Theoretically there are two accepted
+values: <code>exitcode-stdio-1.0</code> and <code>detailed-1.0</code>. First one means that test
+executable works by displaying test results on the screen and indicates possible
+failure by non-zero exit code. Second option, <code>detailed-1.0</code>, is meant for test
+suites that export some special symbols that allow test results to be
+intercepted and further processed by Cabal. Sadly, while this second options
+seems very interesting, it is not fully implemented yet and there is no way to
+make use of it. Thus, for the time being, we are left with
+<code>exitcode-stdio-1.0</code>. Rest of the entries should be self-explanatory. The
+<code>hs-source-dirs</code> option points to source directories. Note that it includes both
+the <code>src</code> and <code>tests</code> directories. Next entry defines a file containing <code>main :: IO ()</code>. Finally there are dependencies on external libraries.</p>
 <p>To run tests you need to perform:</p>
 <pre><code>cabal configure --enable-tests
 cabal build
 cabal test</code></pre>
-<p>This will build both the library and testing binary and run the tests. Here’s how the test output looks like:</p>
+<p>This will build both the library and testing binary and run the tests. Here’s
+how the test output looks like:</p>
 <pre><code>[killy@xerxes : ~] cabal test
 Running 1 test suites...
 Test suite wavelet-hs-test: RUNNING...
 Test suite wavelet-hs-test: PASS
 Test suite logged to: dist/test/haskell-testing-stub-1.0.0-signal-tests.log
 1 of 1 test suites (1 of 1 test cases) passed.</code></pre>
-<p>The detailed result is logged to a file. If any of the tests fails then whole output from the suite is displayed on the screen (try it by supplying incorrect expected value in a HUnit test).</p>
-<p>Cabal has also support for testing code coverage with HPC. To use it run <code>cabal configure --enable-tests --enable-library-coverage</code>. This should enable HPC when running tests, automatically exclude testing code from the coverage summaries and generate HTML files. Sadly, I’ve been affected by some bug which results in HTML files not being generated and testing code not being excluded from the report. I reported this to the author so I hope it will get fixed some day.</p>
+<p>The detailed result is logged to a file. If any of the tests fails then whole
+output from the suite is displayed on the screen (try it by supplying incorrect
+expected value in a HUnit test).</p>
+<p>Cabal has also support for testing code coverage with HPC. To use it run <code>cabal configure --enable-tests --enable-library-coverage</code>. This should enable HPC when
+running tests, automatically exclude testing code from the coverage summaries
+and generate HTML files. Sadly, I’ve been affected by some bug which results in
+HTML files not being generated and testing code not being excluded from the
+report. I reported this to the author so I hope it will get fixed some day.</p>
 <h1 id="enhancing-hunit-tests-with-data-providers">Enhancing HUnit tests with data providers</h1>
-<p>In the beginning of my post I mentioned that TestNG library for Java offered better capabilities than JUnit. To me one of key features of TestNG were DataProviders. They allowed user to define a parametrized test function that contained test logic with assertions. For each such parametrized test user had to supply a data provider, that is a function that returned many sets of testing data that could be passed to this single test. This allowed to neatly separate test logic from test data. TestNG of course treated such tests as many different tests and it was possible for one test set to fail and others to pass. This was a big step forward, because earlier solutions to such problems lead either to duplication of test logic (violation of <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>) or locked multiple test data within one test, which caused whole test to fail on first data set that caused failure.</p>
-<p>There are no built-in data providers in HUnit but we can easily add them. In <code>Test.Utils</code> module I created a function for this:</p>
+<p>In the beginning of my post I mentioned that TestNG library for Java offered
+better capabilities than JUnit. To me one of key features of TestNG were
+DataProviders. They allowed user to define a parametrized test function that
+contained test logic with assertions. For each such parametrized test user had
+to supply a data provider, that is a function that returned many sets of testing
+data that could be passed to this single test. This allowed to neatly separate
+test logic from test data. TestNG of course treated such tests as many different
+tests and it was possible for one test set to fail and others to pass. This was
+a big step forward, because earlier solutions to such problems lead either to
+duplication of test logic (violation of
+<a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>) or locked multiple
+test data within one test, which caused whole test to fail on first data set
+that caused failure.</p>
+<p>There are no built-in data providers in HUnit but we can easily add them. In
+<code>Test.Utils</code> module I created a function for this:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Test.Framework</span>                 <span class="kw">as</span> <span class="dt">TF</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Test.Framework.Providers.HUnit</span> <span class="kw">as</span> <span class="dt">TFH</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Test.HUnit</span>                     <span class="kw">as</span> <span class="dt">HU</span></span>
@@ -185,7 +359,13 @@ Test suite logged to: dist/test/haskell-testing-stub-1.0.0-signal-tests.log
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">where</span></span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        createTest (name, dataSet)   <span class="ot">=</span> TFH.testCase name <span class="op">$</span> testFunction dataSet</span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        assignName setNumber dataSet <span class="ot">=</span> (<span class="st">&quot;Data set &quot;</span> <span class="op">++</span> <span class="fu">show</span> setNumber, dataSet)</span></code></pre></div>
-<p>This function is very similar to other functions defined within test-framework and thus should be considered more an enhancement to test-framework than HUnit. The <code>testWithProvider</code> function takes name for a group of tests, a test function, a list of test data (that’s the data provider) and returns a Test. Note that last parameter is omitted due to currying. Tests within created group are named “Dataset n”, where n is the number. This allows to easily locate failing test data set. Now we can write HUnit tests like this:</p>
+<p>This function is very similar to other functions defined within test-framework
+and thus should be considered more an enhancement to test-framework than
+HUnit. The <code>testWithProvider</code> function takes name for a group of tests, a test
+function, a list of test data (that’s the data provider) and returns a
+Test. Note that last parameter is omitted due to currying. Tests within created
+group are named “Dataset n”, where n is the number. This allows to easily locate
+failing test data set. Now we can write HUnit tests like this:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ot">testCyclicShiftLeft ::</span> (<span class="dt">Int</span>, [<span class="dt">Double</span>], [<span class="dt">Double</span>]) <span class="ot">-&gt;</span> <span class="dt">Assertion</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>testCyclicShiftLeft (n, xs, expected) <span class="ot">=</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    expected <span class="op">@=~?</span> cyclicShiftLeft n xs</span>
@@ -197,7 +377,8 @@ Test suite logged to: dist/test/haskell-testing-stub-1.0.0-signal-tests.log
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>     , ( <span class="dv">2</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>] )</span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>     , ( <span class="dv">4</span>, [<span class="dv">1</span>,<span class="dv">2</span>],     [<span class="dv">1</span>,<span class="dv">2</span>]     )</span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    ]</span></code></pre></div>
-<p>Notice that test data are passed as tuples. Finally, we can add these tests to a suite like this:</p>
+<p>Notice that test data are passed as tuples. Finally, we can add these tests to a
+suite like this:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ot">tests ::</span> [<span class="dt">Test</span>]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>tests <span class="ot">=</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  [</span>
@@ -208,15 +389,35 @@ Test suite logged to: dist/test/haskell-testing-stub-1.0.0-signal-tests.log
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                                             dataCyclicShiftLeft</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  ]</span></code></pre></div>
-<p>One might argue that we really don’t need data providers, since there is QuickCheck that generates test data automatically and there is no need for programmer to do it. That is a good point, but I think that data provider capability comes in handy when we want to be sure that border cases of an algorithm are properly tested.</p>
+<p>One might argue that we really don’t need data providers, since there is
+QuickCheck that generates test data automatically and there is no need for
+programmer to do it. That is a good point, but I think that data provider
+capability comes in handy when we want to be sure that border cases of an
+algorithm are properly tested.</p>
 <h1 id="summary">Summary</h1>
-<p>When I started with code testing in Haskell I had three goals in my mind: separation of tests from the code, organizing them in a manageable and flexible way and finally automating tests. The approach I demonstrated meats all these goals and is based on my experience in other programming languages. So far it works very well for me, but I dare not argue that this is the only way of doing things, not even to say that it’s the best one. As always I’m open to discussion and suggestions for improvements.</p>
-<p><strong>LAST MINUTE NEWS:</strong> As I was finishing writing of this post, Roman Cheplyaka announced on Haskell-Cafe release of his <a href="http://hackage.haskell.org/package/test-framework-golden">test-framework-golden</a> library. This library is meant for “Golden testing” which works by writing test output to a file and comparing it with some expected (“golden”) file. I never used this approach, but this library also integrates with test-framework so it could be used in my sample project without problems. That’s the kind of test extensibility I like!</p>
-<p><strong>UPDATE (21/10/2012):</strong> Read a follow-up post about <a href="../posts/2012-10-21-code-benchmarking-in-haskell.html">code benchmarking in Haskell</a>.</p>
-<section class="footnotes" role="doc-endnotes">
+<p>When I started with code testing in Haskell I had three goals in my mind:
+separation of tests from the code, organizing them in a manageable and flexible
+way and finally automating tests. The approach I demonstrated meats all these
+goals and is based on my experience in other programming languages. So far it
+works very well for me, but I dare not argue that this is the only way of doing
+things, not even to say that it’s the best one. As always I’m open to discussion
+and suggestions for improvements.</p>
+<p><strong>LAST MINUTE NEWS:</strong> As I was finishing writing of this post, Roman Cheplyaka
+announced on Haskell-Cafe release of his
+<a href="http://hackage.haskell.org/package/test-framework-golden">test-framework-golden</a>
+library. This library is meant for “Golden testing” which works by writing test
+output to a file and comparing it with some expected (“golden”) file. I never
+used this approach, but this library also integrates with test-framework so it
+could be used in my sample project without problems. That’s the kind of test
+extensibility I like!</p>
+<p><strong>UPDATE (21/10/2012):</strong> Read a follow-up post about <a href="../posts/2012-10-21-code-benchmarking-in-haskell.html">code benchmarking in
+Haskell</a>.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>When I say cabal I really mean cabal-install, a command-line tool used for installing Haskell packages, not the Cabal library. The confusion arises because cabal-install executable is named cabal.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>When I say cabal I really mean cabal-install, a command-line tool used for
+installing Haskell packages, not the Cabal library. The confusion arises
+because cabal-install executable is named cabal.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

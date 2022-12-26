@@ -29,26 +29,53 @@
     </section>
     <section>
         <h1 id="typed-holes-support-in-template-haskell">Typed holes support in Template Haskell</h1>
-<p>Back in April I found myself in a need for typed holes in Template Haskell. To my disappointment it turned out that typed holes are not implemented in TH. Sadly, this happens too often: a feature is added to GHC but no Template Haskell support is implemented for it. This was the time when I was working on injective type families and I already had some experience in extending TH implementation. I figured that adding support for typed holes should be a trivial task, no more than 30 minutes of coding. I created a <a href="https://ghc.haskell.org/trac/ghc/ticket/10267">feature request on Trac</a> and started coding. I quickly realized that it won’t be that simple. Not that the amount of required work was that extensive. I simply tripped over the way GHC handles names internally. As a result the work got stalled for several months and I only finished it two weeks ago thanks to help from Richard Eisenberg.</p>
-<p>My patch allows you to do several interesting things. Firstly, it allows to quote typed holes, ie. expressions with name starting with an underscore:</p>
+<p>Back in April I found myself in a need for typed holes in Template Haskell. To
+my disappointment it turned out that typed holes are not implemented in TH.
+Sadly, this happens too often: a feature is added to GHC but no Template Haskell
+support is implemented for it. This was the time when I was working on injective
+type families and I already had some experience in extending TH
+implementation. I figured that adding support for typed holes should be a
+trivial task, no more than 30 minutes of coding. I created a <a href="https://ghc.haskell.org/trac/ghc/ticket/10267">feature request on
+Trac</a> and started coding. I
+quickly realized that it won’t be that simple. Not that the amount of required
+work was that extensive. I simply tripped over the way GHC handles names
+internally. As a result the work got stalled for several months and I only
+finished it two weeks ago thanks to help from Richard Eisenberg.</p>
+<p>My patch allows you to do several interesting things. Firstly, it allows to
+quote typed holes, ie. expressions with name starting with an underscore:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>[d| i :: a -&gt; a</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    i x = _ |]</span></code></pre></div>
-<p>This declaration quote will represent <code>_</code> using an <code>UnboundVarE</code> constructor. Secondly, you can now splice unbound variables:</p>
+<p>This declaration quote will represent <code>_</code> using an <code>UnboundVarE</code>
+constructor. Secondly, you can now splice unbound variables:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">i ::</span> a <span class="ot">-&gt;</span> a</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>i x <span class="ot">=</span> <span class="op">$</span>( <span class="fu">return</span> <span class="op">$</span> <span class="dt">VarE</span> (mkName <span class="st">&quot;_&quot;</span>) )</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ot">j ::</span> a <span class="ot">-&gt;</span> a</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>j x <span class="ot">=</span> <span class="op">$</span>( <span class="fu">return</span> <span class="op">$</span> <span class="dt">UnboundVarE</span> (mkName <span class="st">&quot;_&quot;</span>) )</span></code></pre></div>
-<p>Notice that in a splice you can use either <code>VarE</code> or <code>UnboundVarE</code> to represent an unbound variable - they are treated the same.</p>
-<p>A very important side-effect of my implementation is that you can actually quote unbound variables. This means that you can now use nested pattern splices, as demonstrated by one of the tests in GHC testsuite:</p>
+<p>Notice that in a splice you can use either <code>VarE</code> or <code>UnboundVarE</code> to represent
+an unbound variable - they are treated the same.</p>
+<p>A very important side-effect of my implementation is that you can actually quote
+unbound variables. This means that you can now use nested pattern splices, as
+demonstrated by one of the tests in GHC testsuite:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>baz <span class="ot">=</span> [<span class="op">|</span> \ <span class="op">$</span>( <span class="fu">return</span> <span class="op">$</span> <span class="dt">VarP</span> <span class="op">$</span> mkName <span class="st">&quot;x&quot;</span> ) <span class="ot">-&gt;</span> x <span class="op">|</span>]</span></code></pre></div>
 <p>Previously this code was rejected. The reason is that:</p>
 <ol type="1">
-<li><p>nested pattern splice is not compiled immediately, because it is possible that it refers to local variables defined outside of the bracket;</p></li>
-<li><p>the bracket is renamed immediately at the declaration site and all the variables were required to be in scope at that time.</p></li>
+<li><p>nested pattern splice is not compiled immediately, because it is possible
+that it refers to local variables defined outside of the bracket;</p></li>
+<li><p>the bracket is renamed immediately at the declaration site and all the
+variables were required to be in scope at that time.</p></li>
 </ol>
-<p>The combination of the above means that the pattern splice does not bring anything into scope (because it is not compiled until the outer bracket is spliced in), which lead to <code>x</code> being out of scope. But now it is perfectly fine to have unbound variables in a bracket. So the above definition of <code>baz</code> is now accepted. When it is first renamed <code>x</code> is treated as an unbound variable, which is now fine, and when the bracket is spliced in, the inner splice is compiled and it correctly brings binding for <code>x</code> into scope. Getting nested pattern splices to work was not my intention when I started implementing this patch but it turned out we essentially got this feature for free.</p>
-<p>One stumbling block during my work was typed Template Haskell. With normal, untyped TH I can place a splice at top-level in a file:</p>
+<p>The combination of the above means that the pattern splice does not bring
+anything into scope (because it is not compiled until the outer bracket is
+spliced in), which lead to <code>x</code> being out of scope. But now it is perfectly fine
+to have unbound variables in a bracket. So the above definition of <code>baz</code> is now
+accepted. When it is first renamed <code>x</code> is treated as an unbound variable, which
+is now fine, and when the bracket is spliced in, the inner splice is compiled
+and it correctly brings binding for <code>x</code> into scope. Getting nested pattern
+splices to work was not my intention when I started implementing this patch but
+it turned out we essentially got this feature for free.</p>
+<p>One stumbling block during my work was typed Template Haskell. With normal,
+untyped TH I can place a splice at top-level in a file:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">$$</span>(<span class="fu">return</span> [</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="dt">SigD</span> (mkName <span class="st">&quot;m&quot;</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        (<span class="dt">ForallT</span> [<span class="dt">PlainTV</span> (mkName <span class="st">&quot;a&quot;</span>)]</span>
@@ -57,9 +84,22 @@
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> , <span class="dt">FunD</span> (mkName <span class="st">&quot;m&quot;</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        [<span class="dt">Clause</span> [<span class="dt">VarP</span> (mkName <span class="st">&quot;x&quot;</span>)] (<span class="dt">NormalB</span> (<span class="dt">VarE</span> (mkName <span class="st">&quot;x&quot;</span>))) [] ]</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   ])</span></code></pre></div>
-<p>and this will build a definition that will be spliced into the source code. But converting this into a typed splice, by saying <code>$$(return ....</code>, resulted in compiler panic. I reported this as <a href="https://ghc.haskell.org/trac/ghc/ticket/10945">#10945</a>. The reason turned out to be quite tricky. When Template Haskell is enabled, top-level expressions are allowed. Each such expression is treated as an implicit splice. The problem with typed TH splice is that it doesn’t really make sense at the top-level and it should be treated as an implicit splice. Yet it was treated as an explicit splice, which resulted in a panic later in the compiler pipeline.</p>
-<p>Another issue that came up with typed TH was that typed holes cannot be quoted, again leading to panic. I reported this as <a href="https://ghc.haskell.org/trac/ghc/ticket/10946">#10946</a>. This issue has not yet been solved.</p>
-<p>The above work is now <a href="https://git.haskell.org/ghc.git/commitdiff/75492e7467ff962f2f2e29e5c8b2c588c94ae8a7">merged with HEAD</a> and will be available in GHC 8.0.</p>
+<p>and this will build a definition that will be spliced into the source code. But
+converting this into a typed splice, by saying <code>$$(return ....</code>, resulted in
+compiler panic. I reported this as
+<a href="https://ghc.haskell.org/trac/ghc/ticket/10945">#10945</a>. The reason turned out
+to be quite tricky. When Template Haskell is enabled, top-level expressions are
+allowed. Each such expression is treated as an implicit splice. The problem with
+typed TH splice is that it doesn’t really make sense at the top-level and it
+should be treated as an implicit splice. Yet it was treated as an explicit
+splice, which resulted in a panic later in the compiler pipeline.</p>
+<p>Another issue that came up with typed TH was that typed holes cannot be quoted,
+again leading to panic. I reported this as
+<a href="https://ghc.haskell.org/trac/ghc/ticket/10946">#10946</a>. This issue has not yet
+been solved.</p>
+<p>The above work is now <a href="https://git.haskell.org/ghc.git/commitdiff/75492e7467ff962f2f2e29e5c8b2c588c94ae8a7">merged with
+HEAD</a>
+and will be available in GHC 8.0.</p>
 
         <p><a href="../blog.html">Back</a></p>
     </section>
