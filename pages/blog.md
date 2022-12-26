@@ -1,17 +1,21 @@
 ---
-title: Personal
+title: Blog
 ---
 
 Yet Another Lambda Blog
 =======================
 
-I used to write a technical blog about functional programming titled Yet Another
-Lambda Blog.  The blog has been inactive for the past couple of years and is no
-longer available under its original location.  Below is an archive of all posts
-preserved for posterity.  Unfortunatelly, comments posted under original blog
-posts were lost.
+In 2012 I started a technical blog about functional programming titled Yet
+Another Lambda Blog.  That blog became inactive in 2016.  Towards the end of
+2021 I salvaged all the posts from a Wordpress instance and placed them here.
+Unfortunately comments, many of which were very insightful, were not preserved
+by the migration.
 
-You can subscribe to [RSS feed](https://jstolarek.github.io/feed.xml) in case
-the blog gets reactivated in the future.
+Towards the end of 2022, I decided to reactivate the blog.  New posts will
+rarely be about functional programming.  Expect posts on whatever it is that
+interests me at the moment: retro gaming, console modding, board games, books,
+programming...
 
 $partial("templates/post-list.html")$
+
+[RSS feed](https://jstolarek.github.io/feed.xml)
