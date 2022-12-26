@@ -9,6 +9,146 @@
                    type="application/rss+xml" />
         <lastBuildDate>Mon, 26 Dec 2022 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Recalbox RGB Dual&#58; some impressions after six months of usage</title>
+    <link>https://jstolarek.github.io/posts/2022-12-26-recalbox-rgb-dual-some-impressions-after-six-months-of-usage.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 26/12/2022
+    </section>
+    <section>
+        <h1 id="recalbox-rgb-dual-some-impressions-after-six-months-of-usage">Recalbox RGB Dual: some impressions after six months of usage</h1>
+<p>I am not a fan of Kickstarter and tend to stay away from it. That being said,
+once in a while I make an exception. Typically my exceptions are books on retro
+gaming, but towards the end of last year I decided to back campaign for
+<a href="https://www.kickstarter.com/projects/recalbox/recalbox-rgb-dual">Recalbox RGB
+Dual</a>, a
+RaspberryPi HAT (Hardware Attached on Top) that provides SCART and VGA output
+ports allowing to connect the Pi to a CRT TV or a VGA monitor:</p>
+<center>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_1_thumbnail.jpg" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_2_thumbnail.jpg" alt="rpi_heatsink" /></a>
+</center>
+<p>RGB Dual allows setting up RaspberryPi as a dedicated retro emulation device and
+running games on a proper CRT screen, ensuring that these old games look exactly
+the way they were intended to. In the last couple of years I transitioned
+towards playing on original hardware and I emulate less than I used to, but
+nevertheless there’s still some retro hardware that I need to emulate:</p>
+<ol type="1">
+<li><p>Playstation 1, a.k.a. PSX. I haven’t pulled the trigger on this one yet.
+Primary reasons are that mods are expensive and difficult (i.e. require
+precision soldering I’m not confident with), while emulation is accurate
+and, unlike Sega Saturn from the same generation, not computationally
+expensive. Raspberry Pi has enough power to run PSX emulation at full
+speed. Or at least it should. As you’ll see below this isn’t necessarily
+the case.</p></li>
+<li><p>NeoGeo MVS, CPS-1/2/3, and other arcade hardware. In principle, collecting
+original arcade hardware isn’t easy due to its sizes and prices. Towards
+the end of 2019 I was close to getting a consolized MVS, i.e. a NeoGeo MVS
+arcade board adapted to be used at home connected to a for a reasonable
+price. This is a relatively cheap and accessible way of owning original
+NeoGeo arcade. Sadly, I didn’t decide on the purchase and during pandemic
+the prices skyrocketed. Now consolized MVS costs 4-5 times more than it
+used to in 2019.</p></li>
+<li><p>Sega MegaDrive (and its CD variant). Not too many MegaDrive games I really
+like so this one isn’t a priority for me.</p></li>
+<li><p>NES. I’ve been omitting this one due to no RGB output on the console,
+though this has recently changed thanks to Krikkz’s <a href="https://krikzz.com/our-products/cartridges/rgb-blaster.html">RGB
+Blaster</a>.</p></li>
+</ol>
+<p>There are a bunch of other 8-bit and 16-bit systems that I’d like to explore one
+day without having to buy the actual hardware, so RGB Dual definitely looked
+like a good investment. I backed the campaign and patiently waited for the
+delivery. After a tolerable delay of 2 months I got my board in June. The
+first obstacle was getting RGB Dual to fit on top of Aluminium Armor heatsink.
+This is a large heatsink that allows to efficiently cool the Pi silently with no
+fans:</p>
+<center>
+<a href="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1_thumbnail.jpg" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2_thumbnail.jpg" alt="rpi_heatsink" /></a>
+</center>
+<p>While I love these heatsinks and have them on all of my Pis I must admit their
+height is a bit of a problem when connecting HATs. After some initial fitting I
+trimmed the bottom pins on RGB Dual board with pliers and secured them with
+Kapton tape to make sure they don’t touch the heatsink. I also gently trimmed
+plastic SCART port mountings:</p>
+<center>
+<a href="/images/posts/2022-12-26-rgb-dual/trimmed_pins.jpg"><img src="/images/posts/2022-12-26-rgb-dual/trimmed_pins_thumbnail.jpg" alt="rpi_heatsink" /></a>
+</center>
+<p>With these adjustments the GPIO connector still doesn’t go all the way down but
+it fits well enough for RGB Dual to operate safely:</p>
+<center>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1_thumbnail.jpg" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2_thumbnail.jpg" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3_thumbnail.jpg" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
+</center>
+<p>I could push it deeper but this comes at a cost of slightly bending the board
+upwards, which I want to avoid not to weaken the solder joints on GPIO
+connector.</p>
+<p>Having fitted the board I began software setup. RGB Dual works only with
+<a href="https://www.recalbox.com/">Recalbox</a>, a Linux distribution dedicated to
+emulation that runs <a href="https://www.libretro.com/">RetroArch</a> under the hood. I
+flashed a memory card, put it into the Pi, connected to my TV via SCART
+port… and got a black screen. As a first debugging step I tried connecting
+the Pi to HDMI monitor and, surely enough, everything Just Worked. I was
+convinced that my board was dead on arrival. After spending 2 hours on
+debugging it turned out that I need a special build of Recalbox distribution
+that supports RGB Dual. Too bad this wasn’t mentioned in any obvious place -
+this would have saved me some time. Note also that this is no longer the case
+as of the moment of this writing. Mainline Recalbox distribution now supports
+RGB Dual without any problems.</p>
+<p>With everything ready I could now properly test how Recalbox works with the
+board. Long story short, it does what it advertises but not without issues.
+While I had no problems with arcade and NES emulation, I’ve run into problems
+with PSX emulation. As mentioned earlier, Recalbox is based on RetroArch. By
+default RetroArch offers multiple cores for emulating Playstation, such as
+Beetle PSX (a fork of <a href="https://mednafen.github.io/">Mednafen</a>), <a href="https://github.com/notaz/pcsx_rearmed">PCSX
+ReARMed</a>, or Swanstation (a fork of
+<a href="https://www.duckstation.org/">Duckstation</a>). However, for the purpose of RGB
+Dual developers of Recalbox limited available PSX cores to just a single one:
+Swanstation. The rationale behind this is that having just a single core allows
+to offer better support and this definitely sounds like reasonable approach on a
+new product. Let me add here that Duckstation, while relatively new, offers
+very high compatibility and in the recent years seems to have become a go-to
+Playstation emulator. (I’m saying this based on reading discussions online, not
+from my experience. I personally never used it, always relying on Beetle PSX.)
+All that being said, PSX emulation quality offered by Swanstation in Recalbox is
+below my expectations. First and foremost there is no support for 480i
+resolution. As a result games that heavily rely on switching resolutions
+between 240p and 480i, e.g. Chrono Cross, look bad when using the latter since
+every other line is missing. Note that this is not a hardware limitation of RGB
+Dual: it supports 480i resolution in the main Recalbox menu without problems.
+Developers are promising 480i support in future versions of Recalbox but at the
+moment this support is missing.</p>
+<p>I have also run into serious performance issues with Swanstation. I am
+currently playing Final Fantasy IX and while the game runs well in locations
+with 2D backgrounds, it stutters horribly on the 3D World Map with framerates
+going down from 60 frames per second to around 45. Framerate drops also
+sometimes happen during battles, either when there are many (4-5) enemies or
+when backgrounds are more complex than usual (e.g. contain animated waterfall).
+Lastly, most FMVs stutter. The only way of improving the situation that I found
+is disabling VSync. Doing this allows to boost FPS count on the world map to
+around 55 but comes at a cost of occasional image flickering. This is very
+disappointing. Raspberry Pi 4 certainly has enough power to run PSX emulation
+at full speed. I’ve run Beetle PSX and PCSX ReARMed cores on
+<a href="https://lakka.tv/">Lakka</a> and never experienced any performance problems. I am
+guessing this higher emulation overhead comes from Swanstation’s alleged higher
+accuracy, but again I have never experienced any accuracy issues under other
+cores while Swanstation freezes every few hours of gameplay. Luckily, Recalbox
+developers are promising more PSX cores compatible with RGB Dual in future
+updates and I hope these new cores will solve the performance problems. I am
+eagerly waiting for new releases of Recalbox. For now I just have to make do
+with Swanstation. Too bad PSX emulation is my primary use case for RGB Dual and
+as of this writing it leaves a lot to be desired.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Mon, 26 Dec 2022 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/posts/2022-12-26-recalbox-rgb-dual-some-impressions-after-six-months-of-usage.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>Reactivation</title>
     <link>https://jstolarek.github.io/posts/2022-12-26-reactivation.html</link>
     <description><![CDATA[<article>
@@ -663,120 +803,6 @@ are equal”.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎<
 ]]></description>
     <pubDate>Tue, 26 May 2015 00:00:00 UT</pubDate>
     <guid>https://jstolarek.github.io/posts/2015-05-26-injective-type-families-for-haskell.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>Smarter conditionals with dependent types&#58; a quick case study</title>
-    <link>https://jstolarek.github.io/posts/2015-04-30-smarter-conditionals-with-dependent-types-a-quick-case-study.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 30/04/2015
-    </section>
-    <section>
-        <h1 id="smarter-conditionals-with-dependent-types-a-quick-case-study">Smarter conditionals with dependent types: a quick case study</h1>
-<blockquote>
-<p>Find the type error in the following Haskell expression:</p>
-<p>if null xs then tail xs else xs</p>
-<p>You can’t, of course: this program is obviously nonsense unless you’re a
-typechecker. The trouble is that only certain computations make sense if the
-<code>null xs</code> test is <code>True</code>, whilst others make sense if it is <code>False</code>. However,
-as far as the type system is concerned, the type of the then branch is the
-type of the else branch is the type of the entire conditional. Statically, the
-test is irrelevant. Which is odd, because if the test really were irrelevant,
-we wouldn’t do it. Of course, <code>tail []</code> doesn’t go wrong - well-typed programs
-don’t go wrong - so we’d better pick a different word for the way they do go.</p>
-</blockquote>
-<p>The above quote is an opening paragraph of Conor McBride’s “Epigram: Practical
-Programming with Dependent Types” paper. As always, Conor makes a good point -
-this test is completely irrelevant for the typechecker although it is very
-relevant at run time. Clearly the type system fails to accurately approximate
-runtime behaviour of our program. In this short post I will show how to fix this
-in Haskell using dependent types.</p>
-<p>The problem is that the types used in this short program carry no information
-about the manipulated data. This is true both for <code>Bool</code> returned by <code>null xs</code>,
-which contains no evidence of the result, as well as lists, that store no
-information about their length. As some of you probably realize the latter is
-easily fixed by using vectors, ie. length-indexed lists:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">N</span> <span class="ot">=</span> <span class="dt">Z</span> <span class="op">|</span> <span class="dt">S</span> <span class="dt">N</span>  <span class="co">-- natural numbers</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Vec</span> a (<span class="ot">n ::</span> <span class="dt">N</span>) <span class="kw">where</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">Nil</span><span class="ot">  ::</span> <span class="dt">Vec</span> a <span class="dt">Z</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">Cons</span><span class="ot"> ::</span> a <span class="ot">-&gt;</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Vec</span> a (<span class="dt">S</span> n)</span></code></pre></div>
-<p>The type of vector encodes its length, which means that the type checker can now
-be aware whether it is dealing with an empty vector. Now let’s write <code>null</code> and
-<code>tail</code> functions that work on vectors:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">vecNull ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>vecNull <span class="dt">Nil</span>        <span class="ot">=</span> <span class="dt">True</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>vecNull (<span class="dt">Cons</span> _ _) <span class="ot">=</span> <span class="dt">False</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ot">vecTail ::</span> <span class="dt">Vec</span> a (<span class="dt">S</span> n) <span class="ot">-&gt;</span> <span class="dt">Vec</span> a n</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>vecTail (<span class="dt">Cons</span> _ tl) <span class="ot">=</span> tl</span></code></pre></div>
-<p><code>vecNull</code> is nothing surprising - it returns <code>True</code> for empty vector and <code>False</code>
-for non-empty one. But the tail function for vectors differs from its
-implementation for lists. <code>tail</code> from Haskell’s standard prelude is not defined
-for an empty list so calling <code>tail []</code> results in an exception (that would be
-the case in Conor’s example). But the type signature of <code>vecTail</code> requires that
-input vector is non-empty. As a result we can rule out the <code>Nil</code> case. That also
-means that Conor’s example will no longer typecheck (( Assuming we don’t abuse
-Haskell’s unsoundness as logic, eg. by using <code>undefined</code>. )). But how can we
-write a correct version of this example, one that removes first element of a
-vector only when it is non-empty? Here’s an attempt:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">shorten ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Vec</span> a m</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>shorten xs <span class="ot">=</span> <span class="kw">case</span> vecNull xs <span class="kw">of</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               <span class="dt">True</span>  <span class="ot">-&gt;</span> xs</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               <span class="dt">False</span> <span class="ot">-&gt;</span> vecTail xs</span></code></pre></div>
-<p>That however won’t compile: now that we written type-safe tail function
-typechecker requires a proof that vector passed to it as an argument is non
-empty. The weak link in this code is the <code>vecNull</code> function. It tests whether a
-vector is empty but delivers no type-level proof of the result. In other words
-we need:</p>
-<pre><code>vecNull&#39; :: Vec a n -&gt; IsNull n</code></pre>
-<p>ie. a function with result type carrying the information about the length of the
-list. This data type will have the runtime representation isomorphic to <code>Bool</code>,
-ie. it will be an enumeration with two constructors, and the type index will
-correspond to length of a vector:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">IsNull</span> (<span class="ot">n ::</span> <span class="dt">N</span>) <span class="kw">where</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="dt">Null</span><span class="ot">    ::</span> <span class="dt">IsNull</span> <span class="dt">Z</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="dt">NotNull</span><span class="ot"> ::</span> <span class="dt">IsNull</span> (<span class="dt">S</span> n)</span></code></pre></div>
-<p><code>Null</code> represents empty vectors, <code>NotNull</code> represents non-empty ones. We can now
-implement a version of <code>vecNull</code> that carries proof of the result at the type
-level:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ot">vecNull&#39; ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">IsNull</span> n</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vecNull&#39; <span class="dt">Nil</span>        <span class="ot">=</span> <span class="dt">Null</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>vecNull&#39; (<span class="dt">Cons</span> _ _) <span class="ot">=</span> <span class="dt">NotNull</span></span></code></pre></div>
-<p>The type signature of <code>vecNull`</code> says that the return type must have the same
-index as the input vector. Pattern matching on the <code>Nil</code> case provides the type
-checker with the information that the <code>n</code> index of <code>Vec</code> is <code>Z</code>. This means that
-the return value in this case must be <code>Null</code> - the <code>NotNull</code> constructor is
-indexed with <code>S</code> and that obviously does not match <code>Z</code>. Similarly in the <code>Cons</code>
-case the return value must be <code>NotNull</code>. However, replacing <code>vecNull</code> in the
-definition of <code>shorten</code> with our new <code>vecNull`</code> will again result in a type
-error. The problem comes from the type signature of <code>shorten</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">shorten ::</span> <span class="dt">Vec</span> a n <span class="ot">-&gt;</span> <span class="dt">Vec</span> a m</span></code></pre></div>
-<p>By indexing input and output vectors with different length indices (<code>n</code> and <code>m</code>)
-we tell the typechecker that these are completely unrelated. But that is not
-true! Knowing the input length <code>n</code> we know exactly what the result should be: if
-the input vector is empty the result vector is also empty; if the input vector
-is not empty it should be shortened by one. Since we need to express this at the
-type level we will use a type family:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Pred</span> (<span class="ot">n ::</span> <span class="dt">N</span>)<span class="ot"> ::</span> <span class="dt">N</span> <span class="kw">where</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Pred</span> <span class="dt">Z</span>     <span class="ot">=</span> <span class="dt">Z</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Pred</span> (<span class="dt">S</span> n) <span class="ot">=</span> n</span></code></pre></div>
-<p>(In a fully-fledged dependently-typed language we would write normal function
-and then apply it at the type level.) Now we can finally write:</p>
-<pre><code>shorten :: Vec a n -&gt; Vec a (Pred n)
-shorten xs = case vecNull&#39; xs of
-               Null    -&gt; xs
-               NotNull -&gt; vecTail xs</code></pre>
-<p>This definition should not go wrong. Trying to swap expression in the branches
-will result in a type error.</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>Thu, 30 Apr 2015 00:00:00 UT</pubDate>
-    <guid>https://jstolarek.github.io/posts/2015-04-30-smarter-conditionals-with-dependent-types-a-quick-case-study.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
