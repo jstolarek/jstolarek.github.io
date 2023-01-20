@@ -7,8 +7,308 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 11 Jan 2023 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Jan 2023 00:00:00 UT</lastBuildDate>
         <item>
+    <title>GameBoy Color NES-themed modkit from FunnyPlaying</title>
+    <link>https://jstolarek.github.io/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 23/01/2023
+    </section>
+    <section>
+        <h1 id="gameboy-color-nes-themed-modkit-from-funnyplaying">GameBoy Color NES-themed modkit from FunnyPlaying</h1>
+<center>
+<strong>DISCLAIMER:</strong> This post is not intended to serve as installation tutorial.
+</center>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg" alt="owned_gb" /></a>
+<figcaption>
+GameBoys from my collection.
+</figcaption>
+</figure>
+</center>
+<p>Above photo has three GameBoys from my collection, left to right:</p>
+<ol type="1">
+<li><p>Unmodded GameBoy Color (GBC) in teal shell. It has original shell as well
+as original screen. Note that the LCD screens back in the 90s and early
+2000s didn’t have a backlight. This means that the only reasonable way of
+playing is by having some light directed at the screen. Personally I found
+playing outdoors on a sunny summer day to be the best experience.</p></li>
+<li><p>Modded GameBoy Color in berry shell. This GameBoy had its screen replaced
+with a modern, backlighted IPS panel. It also has a replaced power board
+(more on the below) and the shell is also new.</p></li>
+<li><p>Modded GameBoy Pocket (GBP) in clear shell. Again, original
+black-and-white screen has been replaced with a backlighted IPS panel.
+Shell and buttons are also new.</p></li>
+</ol>
+<p>Note the screen sizes. GBC, while offering colours, has a smaller screen area
+compared to GBP and original DMG GameBoy. On the other hand, modern IPS screen
+for GBP/DMG isn’t black-and-white - it just pretends to be one, since it only
+receives monochromatic signal from the console. It was only a matter of time
+before someone came up with the idea of putting the IPS screen designed for GBP
+into GBC, thus giving us GameBoy Color with screen as large as in the GBP and
+DMG models.</p>
+<p>I didn’t have a GBC with larger screen in my collection yet, so I decided to
+make one. After buying a new GBC to act as donor console I went to order a
+screen. My go-to destination for GameBoy IPS panels is FunnyPlaying, a Chinese
+company that over the years has shown commitment to making good products and
+innovating their mods. Towards the end of last year they releases a <a href="https://funnyplaying.com/collections/product/products/gbc-nes-ves-retro-pixel-lcd-kit">NES-themed
+GameBoy Color
+modkit</a>
+that not only contains an IPS panel but also comes with NES-themed shell and
+all the other parts such as buttons and silicon pads. I searched for reviews
+and opinions on this kit but couldn’t find any, since the kit was newly
+released. I decided to give it a try and ordered it. While the package from
+China arrived quickly, I took me quite a while to find the time to assemble it.
+Without further ado, lets jump right in.</p>
+<h2 id="kit-overview">Kit overview</h2>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg" alt="fp_kit" /></a>
+<figcaption>
+Kit parts.
+</figcaption>
+</figure>
+</center>
+<p>The kit contains:</p>
+<ul>
+<li>A NES-themed shell</li>
+<li>Laminated screen with a ribbon cable and wires, all stored in a stylish
+plastic case modelled on GB cartridge. Note that there are two versions of
+the kit: with standard glass lens and with 2.5D lens, which is rounded at
+the edges. My kit is the latter one.</li>
+<li>Buttons and silicon pads</li>
+<li>Screws</li>
+<li>Back sticker. This sticker is very high quality. It’s not printed on paper
+but on a thick and durable metal-like material.</li>
+</ul>
+<p>The photo also includes a replacement speaker, which I bought as an extra - it
+is not part of the kit! Here’s one more photo of the kit with the donor GBC and
+unpacked screen:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg" alt="fp_kit" /></a>
+<figcaption>
+Unpacked kit parts and donor GBC.
+</figcaption>
+</figure>
+</center>
+<p>One thing I quickly noticed is that the front and back of the shell don’t seem
+to fit together well:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg" alt="shell_fit" /></a>
+<figcaption>
+Shell fit seemed poor at first glance.
+</figcaption>
+</figure>
+</center>
+<p>This was a big surprise since all FunnyPlaying shells I had before had very good
+fit and didn’t cause any issues. I was seriously worried at this point but I
+need to get ahead of myself and say that after assembling the kit everything
+fits nicely and my initial concerns were unwarranted.</p>
+<h2 id="putting-the-kit-together">Putting the kit together</h2>
+<p>My plan when making this mod was to also replace the original power board<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.
+The problem with original power boards is that they are not very efficient and
+can struggle with higher power draw from IPS panel. This was an issue in my
+berry GBC (middle one in the first photo), where the screen would randomly dim
+to lowest brightness setting. That problem was solved by replacing original
+power board with a modern one. I decided to do the same in this unit as well.</p>
+<p>I began by disassembling the shell, disconnecting the screen ribbon and removing
+the main board from the shell. Then I desoldered the power board and the
+speaker:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg" alt="shell_fit" /></a>
+<figcaption>
+Before desoldering.
+</figcaption>
+</figure>
+</center>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+After desoldering the speaker and power board.
+</figcaption>
+</figure>
+</center>
+<p>I don’t have a desoldering gun and overall don’t feel too confident with
+desoldering. This was something that has caused me the most trouble with past
+mods, sometimes even requiring me to destroy the part being desoldered. That
+being said, things went much smother this time and I managed to desolder both
+the speaker and the power board without damaging them in any way.</p>
+<p>Next I soldered in the speaker and the new power board:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+New power board and speaker soldered in place.
+</figcaption>
+</figure>
+</center>
+<p>FunnyPlaying instructs clients to test the IPS panel before soldering anything
+to the ribbon like so:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+Testing the screen when building the berry GBC.
+</figcaption>
+</figure>
+</center>
+<p>This was my next step. I connected the screen via the ribbon cable, attached
+the back of the shell, which contains the battery compartment, powered on the
+console and… nothing. The console seemed dead. No sound, no image on the
+screen, and no light from the power LED. As the first debugging step I restored
+the original speaker. After powering on the console sound was working, but the
+screen still didn’t display anything. This has caused some serious head
+scratching for me. At first I thought that perhaps the power board replacement
+isn’t compatible with the IPS panel I was using, but then it dawned on me. The
+screen mod used in this kit requires soldering a wire between the ribbon cable
+and the power switch. After reading the description on the FunnyPlaying’s
+website it turns out that the ribbon cable has a built-in power supply and draws
+current directly from the power switch to bypass the original power board. So
+it seems that the modern power board that I installed might be completely
+redundant. It also looks that it’s not possible to carry out FunnyPlaying’s
+instructions of testing the board without soldering any wires. I decided to
+take a leap of faith and solder all the wires where they should be. But before
+proceeding with the wires I trimmed the pins on the cartridge slot:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+Trimmed cartridge slot pins.
+</figcaption>
+</figure>
+</center>
+<p>While the instructions on FP website don’t mention this as a required step, I
+think this is a reasonable safety measure to prevent the pins from pushing on
+the ribbon cable. Other screen mods I made required this and I didn’t want to
+take any risks. Next I installed the screen in the shell. This kit comes with
+a laminated screen, meaning that the glass is already fixed to the IPS panel.
+There’s no need to worry about screen alignment or any dust getting under the
+glass. Once screen was in place I connected the ribbon cable to the motherboard
+and soldered the wires for Select and Start buttons:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+Wires soldered and secured with Kapton tape.
+</figcaption>
+</figure>
+</center>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+Silicon pads in place. Note the security sticker is missing on the
+back of the screen.
+</figcaption>
+</figure>
+</center>
+<p>As you can see I used lots of Kapton tape to:</p>
+<ol type="1">
+<li><p>Attach the ribbon cable to the back of the screen, so that it doesn’t move
+around, and cover the exposed parts on top.</p></li>
+<li><p>Attach Start and Select wires in place since they are significantly longer
+than they need to be. In hindsight, I should have made those wires
+shorter.</p></li>
+<li><p>Secure cartridge slot pins.</p></li>
+</ol>
+<p>There’s one thing done incorrectly in these photos and I only realized that
+after assembling the shell. Kit comes with a protective sticker that’s supposed
+to be attached to the back of the screen to isolate the metal back from the
+ribbon cable. There’s also a smaller sticker that, I’m guessing, is intended to
+secure cartridge pins, but I already used Kapton tape for that. I didn’t want
+to take any risk, so I disassembled the shell and applied the sticker, at least
+to the degree it was possible.</p>
+<p>Finally, I soldered the power cable and touch sensor, assembled the shell, and
+applied the sticker to the back of the shell. Final result looks like this:</p>
+<center>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+Front and back.
+</figcaption>
+</center>
+<p>Here’s my new GameBoy next to the ones I already owned:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+My current collection of GameBoy Colors.
+</figcaption>
+</figure>
+</center>
+<h2 id="summary">Summary</h2>
+<p>This kit was a very nice build. I really liked the laminated screen. It makes
+building a lot faster and I no longer need to worry about dust or getting my
+fingerprints where they shouldn’t be. The screen is also small in size so it
+doesn’t require cutting the the silicon pads, as was the case with earlier
+screens from FunnyPlaying:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+Cutting silicon pad to accommodate larger IPS panel.
+</figcaption>
+</figure>
+</center>
+<p>Obviously, the shell is also designed specifically for this mod and doesn’t
+require trimming the plastic. This is nice progress compared to earlier mods.</p>
+<p>Of course if I were to build that kit again it would take me much less time. I
+wasted quite a lot of time on figuring out why the screen doesn’t power on. It
+also seems that the replacement power board isn’t necessary so I could have
+skipped that as well.</p>
+<p>I’m not sure why the replacement speaker didn’t work. I probably should have
+given it another try after figuring out the screen issue, but at this point the
+build was taken much longer than anticipated and I wanted to finish it ASAP.</p>
+<p>One thing I was concerned about when buying the kit was the logo under the
+screen. That logo is backlighted by the IPS panel itself. I was concerned that
+it will be distracting while playing, but it really isn’t. And in case it is,
+it can be disabled in the settings.</p>
+<p>Speaking of settings, the screen offers several brightness levels (adjusted
+using the touch sensor on top edge of the shell), several vertical scanline
+modes as well as RetroPixel mode. In this mode the screen displays a grid
+that imitates pixel grid seen on older displays:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg" alt="_" /></a>
+<figcaption>
+RetroPixels mode in action.
+</figcaption>
+</figure>
+</center>
+<p>This is possible because the IPS panel has higher pixel density, with each
+original pixel being represented by a 5 by 5 square of pixels. According to
+information on FunnyPlaying’s website and other places on the web it should also
+be possible to adjust vertical and horizontal position of the display area, but
+for some reason this does not work in my unit. Perhaps these settings are
+disabled when laminated screen is used?</p>
+<p>Overall, I am very happy with the final result. The shell looks great and the
+larger screen is really impressive. I am yet to test how long the batteries
+last.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Note that the power board is made by a company that has <a href="https://old.reddit.com/r/Gameboy/comments/ktbgnf/retrosix_is_stealing_other_peoples_work_and/">very bad
+reputation in the retro
+community</a>
+and I have made a point not to buy from them again.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Mon, 23 Jan 2023 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>Playing Final Fantasy IX for the first time in 2022</title>
     <link>https://jstolarek.github.io/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022.html</link>
     <description><![CDATA[<article>
@@ -884,39 +1184,6 @@ and will be available in GHC 8.0.</p>
 ]]></description>
     <pubDate>Wed, 28 Oct 2015 00:00:00 UT</pubDate>
     <guid>https://jstolarek.github.io/posts/2015-10-28-typed-holes-support-in-template-haskell.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>Week at ICFP&#58; Injective Type Families merged into GHC HEAD</title>
-    <link>https://jstolarek.github.io/posts/2015-09-05-week-at-icfp-injective-type-families-merged-into-ghc-head.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 05/09/2015
-    </section>
-    <section>
-        <h1 id="week-at-icfp-injective-type-families-merged-into-ghc-head">Week at ICFP: Injective Type Families merged into GHC HEAD</h1>
-<p>I spent last week at Vancouver, Canada attending Haskell Implementors Workshop,
-ICFP and the Haskell Symposium. Yesterday I gave a talk on injective type
-families, <a href="/posts/2015-05-26-injective-type-families-for-haskell.html">described also in my previous post</a>.
-<a href="http://ics.p.lodz.pl/~stolarek/_media/pl:research:injectivity-haskell15-slides.pdf">Slides are on my web page</a>
-but the talk itself is not yet online. Day prior to the talk I finally managed
-to <a href="https://github.com/ghc/ghc/commit/374457809de343f409fbeea0a885877947a133a2">merge the injective type families
-branch</a>,
-which means that this feature is definitely making it into the next stable
-release of GHC. (In case you haven’t heard this will be GHC 8.0, not 7.12.)</p>
-<p>My next plans include extending injective type families to fully match
-expressiveness of functional dependencies, as outlined in Section 7.2 of the
-injectivity paper. I also hope to finally implement <a href="https://ghc.haskell.org/trac/ghc/ticket/10267">support for typed holes in
-Template Haskell</a>. The patch was
-supposed to be trivial and I started working on it several months ago. But then
-I ran into several problems with it and abandoned it to focus on ITFs.</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>Sat, 05 Sep 2015 00:00:00 UT</pubDate>
-    <guid>https://jstolarek.github.io/posts/2015-09-05-week-at-icfp-injective-type-families-merged-into-ghc-head.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 

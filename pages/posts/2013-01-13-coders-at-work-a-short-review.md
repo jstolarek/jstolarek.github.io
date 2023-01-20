@@ -44,4 +44,3 @@ implement such a list please tell me. The only thing that comes to my mind are
 in both directions and modifying its elements so this might be it.
 
 [^1]: In fact I found [Polish edition](http://helion.pl/ksiazki/sztuka-kodowania-sekrety-wielkich-programistow-peter-seibel,sztkod.htm).
-
