@@ -16,8 +16,7 @@ Technology](https://it.p.lodz.pl/), [Łódź University of
 Technology](https://p.lodz.pl/), Poland.  I am interested in functional
 programming and compiler construction.  For more information please visit [list
 of projects I worked on](projects.html), [list of my research
-publications](publications.html), and [archive of my blog about functional
-programming](blog.html).
+publications](publications.html), and [my blog](blog.html).
 
 </td></tr></table>
 
