@@ -7,8 +7,107 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Tue, 14 Feb 2023 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Mon, 20 Feb 2023 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Getting a Sony PVM</title>
+    <link>https://jstolarek.github.io/posts/2023-02-20-getting-a-sony-pvm.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 20/02/2023
+    </section>
+    <section>
+        <h1 id="getting-a-sony-pvm">Getting a Sony PVM</h1>
+<p>PVM, standing for “Professional Video Monitor”, is a series of CRT monitors that
+were produced by Sony for professional applications, primarily for use in
+hospitals and TV studios. PVM production ended in the noughties and they have
+since been replaced by LCD monitors, PVMs being then treated as junk and often
+scrapped. But in recent years PVMs have been re-discovered by retro enthusiasts
+as great monitors for use with consoles that output analogue RGB video signal
+(roughly fourth to sixth generation of consoles). This is due to superb image
+quality offered by PVMs. After all these were professional monitors equipped
+with electronics whose quality was way above consumer grade TV sets.</p>
+<p>In early 2023 I finally managed get a Sony PVM, which has been my dream for the
+past three years. There were three main obstacles to overcome in order to make
+this happen. Firstly, finding a good quality PVM. These monitors are now
+around two decades old and many units have developed faults such as burn-ins on
+the screen, geometry faults, etc. Secondly, the supply is short and the demand
+is high which means that prices have gotten quite high. Thirdly, and this will
+be trivial, a 20″ PVM weights 30 kilograms and I don’t have a car, making
+transport from another city a logistical nightmare. Luckily for me the stars
+aligned in December 2022 and I found a PVM-20M2MDE that was in good condition,
+at an acceptable price (still expensive, but it was a price I could afford), and
+in a city where I could make a return trip directly by train in one day.
+Transporting a 30kg CRT by train turned out to be quite an ordeal but it was
+definitely worth it.</p>
+<p>Here are some photos comparing Super Metroid on Panasonic TX-21S1TCP and
+PVM-20M2MDE:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg" /></a>
+<figcaption>
+Super Metroid on Panasonic TV (left) and PVM (right). Click to enlarge.
+</figcaption>
+</figure>
+</center>
+<p>The difference in image quality is noticeable immediately, especially when you
+look at background details, though admittedly colours on the PVM are not as
+lively. Here are some closeups:</p>
+<center>
+<figure>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg" /></a>
+<figcaption>
+Samus closeup. Panasonic TV (left) and PVM (right). Click to enlarge.
+</figcaption>
+</figure>
+</center>
+<center>
+<figure>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg" /></a>
+<figcaption>
+Detail closeup. Panasonic TV (top) and PVM (bottom). Click to enlarge.
+</figcaption>
+</figure>
+</center>
+<center>
+<figure>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg" /></a>
+<figcaption>
+Detail closeup. Panasonic TV (top) and PVM (bottom). Click to enlarge.
+</figcaption>
+</figure>
+</center>
+<p>Unfortunately, PVM’s picture quality isn’t perfect due to convergence problems,
+which manifest primarily at the edges of the screen. You can notice this by
+looking at the “Energy” text on the photo above and observing how the white
+letters actually bleed red colour. (They also bleed blue, but since there’s a
+1-pixel blue outline around the font you won’t notice it.) This colour bleeding
+can be fixed but requires disassembling the monitor and adjusting convergence
+rings on the yoke while the monitor is turned on. Voltage inside a PVM (or any
+other CRT) can go as high as several kilovolts, so this requires knowledge in
+order to do it safely. Luckily, Steve from
+<a href="https://www.youtube.com/@RetroTechUSA">RetroTech</a> has lots of good videos on
+servicing PVMs and my plan is to go through them and do the convergence
+adjustments once I feel confident I won’t hurt myself or screw up the monitor.</p>
+<center>
+<figure>
+<img src="/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif" />
+<figcaption>
+Castlevania: Symphony of the Night on Sony PVM.
+</figcaption>
+</figure>
+</center>
+<p>P.S. Aside from gaming, I found the PVM to be great for watching old anime in
+4:3 aspect ratio. At the moment I’m finishing 2nd season of Initial D.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Mon, 20 Feb 2023 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/posts/2023-02-20-getting-a-sony-pvm.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>Metroid II&#58; Return of Samus (and its remakes)</title>
     <link>https://jstolarek.github.io/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes.html</link>
     <description><![CDATA[<article>
@@ -1171,76 +1270,6 @@ on the second place. YMMV</p>
 ]]></description>
     <pubDate>Wed, 08 Jun 2016 00:00:00 UT</pubDate>
     <guid>https://jstolarek.github.io/posts/2016-06-08-coqart-cpdt-and-sf-a-review-of-books-on-coq-proof-assistant.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>Installing OCaml under openSUSE 11.4, or&#58; "the compilation of conf-ncurses failed"</title>
-    <link>https://jstolarek.github.io/posts/2016-05-31-installing-ocaml-under-opensuse-11-4-or-the-compilation-of-conf-ncurses-failed.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 31/05/2016
-    </section>
-    <section>
-        <h1 id="installing-ocaml-under-opensuse-11.4-or-the-compilation-of-conf-ncurses-failed">Installing OCaml under openSUSE 11.4, or: “the compilation of conf-ncurses failed”</h1>
-<p>Recently I decided to learn the basics of OCaml and I spent yesterday installing
-the compiler and some basic tools. On my machine at work I have a Debian 7
-installation, while on my home laptop I have openSUSE 11.4. Both systems are
-quite dated and ship with OCaml 3.x compiler, which is five years
-old. Obviously, I wanted to have the latest version of the language. I could
-have compiled OCaml from sources - and in fact I have done that in the past to
-compile the latest version of Coq - but luckily there is a tool called OPAM
-(OCaml Package manager). OPAM can be used to easily download and install desired
-version of OCaml compiler. As the name implies, OPAM can be also used for
-managing packages installed for a particular compiler version.</p>
-<p>The installation process went very smooth on my Debian machine, but on openSUSE
-I have run into problems. After getting the latest compiler I wanted to install
-<code>ocamlfind</code>, a tool required by a project I wanted to play with. To my
-disappointment installation ended with an error:</p>
-<pre><code>[ERROR] The compilation of conf-ncurses failed at &quot;pkg-config ncurses&quot;.
-
-This package relies on external (system) dependencies that may be missing.
-`opam depext conf-ncurses.1&#39; may help you find the correct installation for
-your system.</code></pre>
-<p>I verified that I indeed have installed development files for the <code>ncurses</code>
-library as well as the <code>pkg-config</code> tool. Running the suggested <code>opam</code> command
-also didn’t find any missing dependencies, and the log files from the
-installation turned out to be completely empty, so I was left clueless. Googling
-revealed that <a href="https://github.com/ocaml/opam-repository/issues/5880">I am not the first to encounter this
-problem</a>, but offered no
-solution. I did some more reading on <code>pkg-config</code> and learned that: a) it is a
-tool that provides meta-information about installed libraries, and b) in order
-to recognize that a library is installed it requires extra configuration files
-(aka <code>*.pc</code> files) provided by the library. Running <code>pkg-config --list-all</code>
-revealed that <code>ncurses</code> is not recognized as installed on my system, which
-suggested that the relevant <code>*.pc</code> files are missing. Some more googling
-revealed that <code>ncurses</code> library can be configured and then compiled with
-<code>--enable-pc-files</code> switch, which should build the files needed by
-<code>pkg-config</code>. I got the sources for the <code>ncurses</code> version installed on my system
-(5.7) only to learn that this build option is unsupported. This explains why the
-files are missing on my system. I got the sources for the latest version of
-<code>ncurses</code> (6.0), configured them with <code>--enable-pc-files</code> and compiled, only to
-learn that the <code>*.pc</code> files were not built. After several minutes of debugging I
-realized that for some unexplained reasons the <code>configure</code>-generated script
-which should build the <code>*.pc</code> files (located at <code>misc/gen-pkgconfig</code>) did not
-receive <code>+x</code> (executable) permission. After adding this permission manually I
-ran the script and got five <code>*.pc</code> files for the <code>ncurses</code> 6.0 library. Then I
-had to edit the files to match the version of <code>ncurses</code> of my system - relevant
-information can be obtained by running <code>ncurses5-config --version</code>. The only
-remaining thing was to place the five <code>*.pc</code> files in a place where <code>pkg-config</code>
-can find them. On openSUSE this was <code>/usr/local/pkgconfig</code>, but this can differ
-between various Linux flavours.</p>
-<p>After all these magical incantations the installation of <code>ocamlfind</code> went
-through fine and I can enjoy a working OCaml installation on both of my
-machines. Now I’m waiting for the “Real-world OCaml” book ordered from Amazon
-(orders shipped from UK Amazon to Poland tend to take around two weeks to
-arrive).</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>Tue, 31 May 2016 00:00:00 UT</pubDate>
-    <guid>https://jstolarek.github.io/posts/2016-05-31-installing-ocaml-under-opensuse-11-4-or-the-compilation-of-conf-ncurses-failed.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
