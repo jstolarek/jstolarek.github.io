@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Free IPS Patcher</title>
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" href="../css/syntax.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on 02/03/2023
+    </section>
+    <section>
+        <h1 id="free-ips-patcher">Free IPS Patcher</h1>
+<p>I recently started playing Final Fantasy IV on SNES. Before playing the game I
+decided to patch the ROM with <a href="https://www.romhacking.net/hacks/2337/">Namingway Edition
+patch</a> and once again found myself
+without a tool for applying IPS patches. Sure, there are <a href="https://bbbradsmith.github.io/ipstool/">online
+patchers</a> but I hate resorting to online
+services for doing such simple tasks. Luckily <a href="https://zerosoft.zophar.net/ips.php">IPS file format is actually very
+simple</a> so I decided to write a patching
+tool. Behold <a href="https://bitbucket.org/jstolarek/free-ips-patcher">Free IPS
+Patcher</a>. Use it from the
+command line like so:</p>
+<pre><code>ips ROM_FILE PATCH_FILE OUTPUT_FILE</code></pre>
+<p>It’s all coded in less than 200 lines of C, with majority of the code being
+error handling. I was tempted to write the program in Haskell but I wanted it
+to be easily accessible and lets face it, most people don’t have Haskell
+toolchain on their machines.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+            </br>
+        </main>
+    </body>
+</html>

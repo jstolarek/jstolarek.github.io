@@ -105,7 +105,7 @@ self-studying. Moreover, the authors ask people not to publish the solutions on
 the internet, since "having solutions easily available makes \[SF\] much less
 useful for courses, which typically have graded homework assignments". That
 being said, there are plenty of github repositories that contain the solved
-exercises (I also pledge guilty!). Although it goes against the authors' will I
+exercises (I also plead guilty!). Although it goes against the authors' will I
 consider it a really good thing for self-study: many times I have been stuck on
 exercises and was able to make progress only by peeking at someone else's
 solution. This doesn't mean I copied the solutions. I just used them to overcome
