@@ -74,6 +74,23 @@ Below is a list of projects and libraries I have been involved with.
     method of converting Haskell term-level functions to the type level.  Our
     approach is implemented in the `singletons` library.
 
+  * **Dreamcast GDMenu maker script for Linux**
+    ([github](https://github.com/jstolarek/dc-card-maker-script))\
+    A simple bash script for preparing an SD memory card to be used with GDEMU
+    optical drive emulator for the Sega Dreamcast console.  Born out of
+    frustration that the only existing tools were for Windows.
+
+  * **Phantasy Star Online section ID calculator**
+    ([github](https://github.com/jstolarek/pso-calc))\
+    A simple utility for computing section ID assigned to player character in
+    Phantasy Star Online.  Once again a product of frustration that there are
+    only Windows and online tools, but no native Linux cli tools.
+
+  * **Free IPS Patcher**
+    ([bitbucket](https://bitbucket.org/jstolarek/free-ips-patcher))\
+    A simple Linux cli tool for applying IPS patches.  Written because I was
+    tired of using online patchers.
+
   * **dep-typed-wbl-heaps** ([tutorial (pdf)](/files/dep-typed-wbl-heaps.pdf),
     bitbucket: [Agda code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps),
     [Haskell code](https://bitbucket.org/jstolarek/dep-typed-wbl-heaps-hs))\
