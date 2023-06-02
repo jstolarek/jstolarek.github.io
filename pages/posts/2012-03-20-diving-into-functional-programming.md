@@ -42,4 +42,3 @@ will abbreviate as FP). This blog will document my journey through this
 field. I'll post various stuff on FP and other fields of computer science. I
 hope that sharing my knowledge will give others the motivation to explore this
 fascinating subject.
-
