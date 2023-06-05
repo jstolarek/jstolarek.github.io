@@ -230,9 +230,11 @@ Finally, I soldered the power cable and touch sensor, assembled the shell, and
 applied the sticker to the back of the shell.  Final result looks like this:
 
 <div class="thumbnail">
+<figure>
 [![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg)
 [![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg)
 <figcaption>Front and back.</figcaption>
+</figure>
 </div>
 
 Here's my new GameBoy next to the ones I already owned:
