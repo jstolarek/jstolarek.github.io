@@ -62,7 +62,7 @@ some delays, finally received it in mid February.
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg)
 <figcaption>xStation kit comes in a nice box.  QSB (Quick Solder Board) is included with the board.</figcaption>
 </figure>
 </center>
@@ -81,7 +81,7 @@ size of a penny coin:
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg)
 <figcaption>IC701.  Several pins of this chip have to be lifted when installing xStation.</figcaption>
 </figure>
 </center>
@@ -93,14 +93,14 @@ wasn't too difficult.
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation.jpg)
 <figcaption>QSB secured in place before soldering.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/4_qcb_done_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/4_qcb_done.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/4_qcb_done_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/4_qcb_done.jpg)
 <figcaption>QSB soldered to PlayStation motherboard.  I'm happy with how cleanly the cable turned out.</figcaption>
 </figure>
 </center>
@@ -111,21 +111,21 @@ a dental pick.  Again, things *seemingly* went smooth.
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/5_pins_lifted_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/5_pins_lifted.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/5_pins_lifted_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/5_pins_lifted.jpg)
 <figcaption>Lifted pins on IC701.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured.jpg)
 <figcaption>I secured the pads with Kapton tape but ended up removing the tape later.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/7_two_boards_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/7_two_boards.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/7_two_boards_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/7_two_boards.jpg)
 <figcaption>Modified motherboard on the left and a spare one on the right.</figcaption>
 </figure>
 </center>
@@ -139,7 +139,7 @@ cable, and re-assembled the console:
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/8_assembly_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/8_assembly.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/8_assembly_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/8_assembly.jpg)
 <figcaption>Putting everything back together.</figcaption>
 </figure>
 </center>
@@ -185,7 +185,7 @@ another re-assembly of the console xStation booted correctly:
 
 <center>
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/9_test.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/9_test.jpg)
 <figcaption>After nearly 8 hours of work xStation finally works.</figcaption>
 </figure>
 </center>

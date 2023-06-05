@@ -12,7 +12,7 @@ GameBoy Color NES-themed modkit from FunnyPlaying
 
 <center>
 <figure>
-[![owned_gb](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg)
+[![owned_gb](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg)
 <figcaption>GameBoys from my collection.</figcaption>
 </figure>
 </center>
@@ -61,7 +61,7 @@ Kit overview
 
 <center>
 <figure>
-[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg)
+[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg)
 <figcaption>Kit parts.</figcaption>
 </figure>
 </center>
@@ -84,7 +84,7 @@ unpacked screen:
 
 <center>
 <figure>
-[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg)
+[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg)
 <figcaption>Unpacked kit parts and donor GBC.</figcaption>
 </figure>
 </center>
@@ -94,7 +94,7 @@ to fit together well:
 
 <center>
 <figure>
-[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg)
+[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg)
 <figcaption>Shell fit seemed poor at first glance.</figcaption>
 </figure>
 </center>
@@ -121,14 +121,14 @@ speaker:
 
 <center>
 <figure>
-[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg)
+[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg)
 <figcaption>Before desoldering.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg)
 <figcaption>After desoldering the speaker and power board.</figcaption>
 </figure>
 </center>
@@ -143,7 +143,7 @@ Next I soldered in the speaker and the new power board:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg)
 <figcaption>New power board and speaker soldered in place.</figcaption>
 </figure>
 </center>
@@ -153,7 +153,7 @@ to the ribbon like so:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg)
 <figcaption>Testing the screen when building the berry GBC.</figcaption>
 </figure>
 </center>
@@ -178,7 +178,7 @@ proceeding with the wires I trimmed the pins on the cartridge slot:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg)
 <figcaption>Trimmed cartridge slot pins.</figcaption>
 </figure>
 </center>
@@ -194,14 +194,14 @@ and soldered the wires for Select and Start buttons:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg)
 <figcaption>Wires soldered and secured with Kapton tape.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg)
 <figcaption>Silicon pads in place.  Note the security sticker is missing on the
  back of the screen.</figcaption>
 </figure>
@@ -230,8 +230,8 @@ Finally, I soldered the power cable and touch sensor, assembled the shell, and
 applied the sticker to the back of the shell.  Final result looks like this:
 
 <center>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg)
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg)
 <figcaption>Front and back.</figcaption>
 </center>
 
@@ -239,7 +239,7 @@ Here's my new GameBoy next to the ones I already owned:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg)
 <figcaption>My current collection of GameBoy Colors.</figcaption>
 </figure>
 </center>
@@ -256,7 +256,7 @@ screens from FunnyPlaying:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg)
 <figcaption>Cutting silicon pad to accommodate larger IPS panel.</figcaption>
 </figure>
 </center>
@@ -285,7 +285,7 @@ that imitates pixel grid seen on older displays:
 
 <center>
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg)
 <figcaption>RetroPixels mode in action.</figcaption>
 </figure>
 </center>

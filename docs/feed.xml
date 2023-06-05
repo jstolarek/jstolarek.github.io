@@ -332,7 +332,7 @@ out of stock but luckily the pre-orders were up. I ordered one unit and, after
 some delays, finally received it in mid February.</p>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg"><img src="/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg"><img src="/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 xStation kit comes in a nice box. QSB (Quick Solder Board) is included with the board.
 </figcaption>
@@ -351,7 +351,7 @@ go wrong given how small the pins are. Here’s a photo with a coin that’s the
 size of a penny coin:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg"><img src="/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg"><img src="/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 IC701. Several pins of this chip have to be lifted when installing xStation.
 </figcaption>
@@ -363,7 +363,7 @@ handy). Having already some soldering experience from the previous mods this
 wasn’t too difficult.</p>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/3_qcb_preparation.jpg"><img src="/images/posts/2023-03-35-installing-xstation/3_qcb_preparation_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/3_qcb_preparation.jpg"><img src="/images/posts/2023-03-35-installing-xstation/3_qcb_preparation_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 QSB secured in place before soldering.
 </figcaption>
@@ -371,7 +371,7 @@ QSB secured in place before soldering.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/4_qcb_done.jpg"><img src="/images/posts/2023-03-35-installing-xstation/4_qcb_done_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/4_qcb_done.jpg"><img src="/images/posts/2023-03-35-installing-xstation/4_qcb_done_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 QSB soldered to PlayStation motherboard. I’m happy with how cleanly the cable turned out.
 </figcaption>
@@ -382,7 +382,7 @@ advice</a> and used
 a dental pick. Again, things <em>seemingly</em> went smooth.</p>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/5_pins_lifted.jpg"><img src="/images/posts/2023-03-35-installing-xstation/5_pins_lifted_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/5_pins_lifted.jpg"><img src="/images/posts/2023-03-35-installing-xstation/5_pins_lifted_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Lifted pins on IC701.
 </figcaption>
@@ -390,7 +390,7 @@ Lifted pins on IC701.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured.jpg"><img src="/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured.jpg"><img src="/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 I secured the pads with Kapton tape but ended up removing the tape later.
 </figcaption>
@@ -398,7 +398,7 @@ I secured the pads with Kapton tape but ended up removing the tape later.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/7_two_boards.jpg"><img src="/images/posts/2023-03-35-installing-xstation/7_two_boards_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/7_two_boards.jpg"><img src="/images/posts/2023-03-35-installing-xstation/7_two_boards_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Modified motherboard on the left and a spare one on the right.
 </figcaption>
@@ -411,7 +411,7 @@ it wasn’t necessary, although you will see things didn’t go smooth.</p>
 cable, and re-assembled the console:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/8_assembly.jpg"><img src="/images/posts/2023-03-35-installing-xstation/8_assembly_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/8_assembly.jpg"><img src="/images/posts/2023-03-35-installing-xstation/8_assembly_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Putting everything back together.
 </figcaption>
@@ -456,7 +456,7 @@ and reflowed the remaining pins on IC701. And this did the job! After yet
 another re-assembly of the console xStation booted correctly:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-03-35-installing-xstation/9_test.jpg"><img src="/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-03-35-installing-xstation/9_test.jpg"><img src="/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 After nearly 8 hours of work xStation finally works.
 </figcaption>
@@ -556,7 +556,7 @@ definitely worth it.</p>
 PVM-20M2MDE:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Super Metroid on Panasonic TV (left) and PVM (right). Click to enlarge.
 </figcaption>
@@ -567,7 +567,7 @@ look at background details, though admittedly colours on the PVM are not as
 lively. Here are some closeups:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Samus closeup. Panasonic TV (left) and PVM (right). Click to enlarge.
 </figcaption>
@@ -575,7 +575,7 @@ Samus closeup. Panasonic TV (left) and PVM (right). Click to enlarge.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Detail closeup. Panasonic TV (top) and PVM (bottom). Click to enlarge.
 </figcaption>
@@ -583,7 +583,7 @@ Detail closeup. Panasonic TV (top) and PVM (bottom). Click to enlarge.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg"><img src="/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Detail closeup. Panasonic TV (top) and PVM (bottom). Click to enlarge.
 </figcaption>
@@ -603,7 +603,7 @@ servicing PVMs and my plan is to go through them and do the convergence
 adjustments once I feel confident I won’t hurt myself or screw up the monitor.</p>
 <center>
 <figure>
-<img src="/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif" />
+<img src="/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif#thumbnail" />
 <figcaption>
 Castlevania: Symphony of the Night on Sony PVM.
 </figcaption>
@@ -688,7 +688,7 @@ works, which I consider to be a small miracle.</p>
 continue with the game! It was a good reason to grab my GameBoy pocket:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay.jpg"><img src="/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay_thumbnail.jpg" /></a>
+<a href="/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay.jpg"><img src="/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay_thumbnail.jpg#thumbnail" /></a>
 <figcaption>
 Preparing to fight Metroid Queen on GameBoy Pocket.
 </figcaption>
@@ -780,7 +780,7 @@ by adding more leniency to the counter timings.<a href="#fnref2" class="footnote
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg" alt="owned_gb" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg#thumbnail" alt="owned_gb" /></a>
 <figcaption>
 GameBoys from my collection.
 </figcaption>
@@ -823,7 +823,7 @@ Without further ado, lets jump right in.</p>
 <h2 id="kit-overview">Kit overview</h2>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg" alt="fp_kit" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg#thumbnail" alt="fp_kit" /></a>
 <figcaption>
 Kit parts.
 </figcaption>
@@ -846,7 +846,7 @@ is not part of the kit! Here’s one more photo of the kit with the donor GBC an
 unpacked screen:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg" alt="fp_kit" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg#thumbnail" alt="fp_kit" /></a>
 <figcaption>
 Unpacked kit parts and donor GBC.
 </figcaption>
@@ -856,7 +856,7 @@ Unpacked kit parts and donor GBC.
 to fit together well:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg" alt="shell_fit" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg#thumbnail" alt="shell_fit" /></a>
 <figcaption>
 Shell fit seemed poor at first glance.
 </figcaption>
@@ -878,7 +878,7 @@ the main board from the shell. Then I desoldered the power board and the
 speaker:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg" alt="shell_fit" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg#thumbnail" alt="shell_fit" /></a>
 <figcaption>
 Before desoldering.
 </figcaption>
@@ -886,7 +886,7 @@ Before desoldering.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 After desoldering the speaker and power board.
 </figcaption>
@@ -900,7 +900,7 @@ the speaker and the power board without damaging them in any way.</p>
 <p>Next I soldered in the speaker and the new power board:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 New power board and speaker soldered in place.
 </figcaption>
@@ -910,7 +910,7 @@ New power board and speaker soldered in place.
 to the ribbon like so:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 Testing the screen when building the berry GBC.
 </figcaption>
@@ -935,7 +935,7 @@ take a leap of faith and solder all the wires where they should be. But before
 proceeding with the wires I trimmed the pins on the cartridge slot:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 Trimmed cartridge slot pins.
 </figcaption>
@@ -951,7 +951,7 @@ glass. Once screen was in place I connected the ribbon cable to the motherboard
 and soldered the wires for Select and Start buttons:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 Wires soldered and secured with Kapton tape.
 </figcaption>
@@ -959,7 +959,7 @@ Wires soldered and secured with Kapton tape.
 </center>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 Silicon pads in place. Note the security sticker is missing on the
 back of the screen.
@@ -985,8 +985,8 @@ to the degree it was possible.</p>
 <p>Finally, I soldered the power cable and touch sensor, assembled the shell, and
 applied the sticker to the back of the shell. Final result looks like this:</p>
 <center>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg" alt="_" /></a>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg#thumbnail" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 Front and back.
 </figcaption>
@@ -994,7 +994,7 @@ Front and back.
 <p>Here’s my new GameBoy next to the ones I already owned:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 My current collection of GameBoy Colors.
 </figcaption>
@@ -1008,7 +1008,7 @@ doesn’t require cutting the the silicon pads, as was the case with earlier
 screens from FunnyPlaying:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 Cutting silicon pad to accommodate larger IPS panel.
 </figcaption>
@@ -1033,7 +1033,7 @@ modes as well as RetroPixel mode. In this mode the screen displays a grid
 that imitates pixel grid seen on older displays:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg" alt="_" /></a>
+<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg#thumbnail" alt="_" /></a>
 <figcaption>
 RetroPixels mode in action.
 </figcaption>
@@ -1088,7 +1088,7 @@ decision to play FFIX and this time the playthrough went smoothly right to the
 end.</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy.jpg"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy_thumbnail.jpg" alt="final_fantasy_ix_physical_copy" /></a>
+<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy.jpg"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy_thumbnail.jpg#thumbnail" alt="final_fantasy_ix_physical_copy" /></a>
 <figcaption>
 A Japanese copy of Final Fantasy IX in my collection. Game comes on
 four CDs.
@@ -1103,7 +1103,7 @@ Final Fantasy. Of course when I say “fantasy” I mean “fantasy with airship
 It wouldn’t be Final Fantasy otherwise!</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen.png"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen_thumbnail.jpg" alt="final_fantasy_ix_title_screen" /></a>
+<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen.png"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen_thumbnail.jpg#thumbnail" alt="final_fantasy_ix_title_screen" /></a>
 <figcaption>
 Final Fantasy IX title screen.
 </figcaption>
@@ -1125,7 +1125,7 @@ initial fixation on having a romantic relationship with Zidane is weird, to say
 the least.</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay.png"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay_thumbnail.jpg" alt="final_fantasy_ix_steiner" /></a>
+<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay.png"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay_thumbnail.jpg#thumbnail" alt="final_fantasy_ix_steiner" /></a>
 <figcaption>
 Just Steiner things.
 </figcaption>
@@ -1144,7 +1144,7 @@ spell in the next turn more powerful. Each character can also learn static
 abilities that can be equipped from the menu between battles:</p>
 <center>
 <figure>
-<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities.png"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities_thumbnail.jpg" alt="final_fantasy_ix_abilities_menu" /></a>
+<a href="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities.png"><img src="/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities_thumbnail.jpg#thumbnail" alt="final_fantasy_ix_abilities_menu" /></a>
 <figcaption>
 Early game abilities.
 </figcaption>
@@ -1267,8 +1267,8 @@ Dual</a>, a
 RaspberryPi HAT (Hardware Attached on Top) that provides SCART and VGA output
 ports allowing to connect the Pi to a CRT TV or a VGA monitor:</p>
 <center>
-<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_1_thumbnail.jpg" alt="rpi_heatsink" /></a>
-<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_2_thumbnail.jpg" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_1_thumbnail.jpg#thumbnail" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_2_thumbnail.jpg#thumbnail" alt="rpi_heatsink" /></a>
 </center>
 <p>RGB Dual allows setting up RaspberryPi as a dedicated retro emulation device and
 running games on a proper CRT screen, ensuring that these old games look exactly
@@ -1305,8 +1305,8 @@ first obstacle was getting RGB Dual to fit on top of Aluminium Armor heatsink.
 This is a large heatsink that allows to efficiently cool the Pi silently with no
 fans:</p>
 <center>
-<a href="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1_thumbnail.jpg" alt="rpi_heatsink" /></a>
-<a href="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2_thumbnail.jpg" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1_thumbnail.jpg#thumbnail" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2_thumbnail.jpg#thumbnail" alt="rpi_heatsink" /></a>
 </center>
 <p>While I love these heatsinks and have them on all of my Pis I must admit their
 height is a bit of a problem when connecting HATs. After some initial fitting I
@@ -1314,14 +1314,14 @@ trimmed the bottom pins on RGB Dual board with pliers and secured them with
 Kapton tape to make sure they don’t touch the heatsink. I also gently trimmed
 plastic SCART port mountings:</p>
 <center>
-<a href="/images/posts/2022-12-26-rgb-dual/trimmed_pins.jpg"><img src="/images/posts/2022-12-26-rgb-dual/trimmed_pins_thumbnail.jpg" alt="rpi_heatsink" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/trimmed_pins.jpg"><img src="/images/posts/2022-12-26-rgb-dual/trimmed_pins_thumbnail.jpg#thumbnail" alt="rpi_heatsink" /></a>
 </center>
 <p>With these adjustments the GPIO connector still doesn’t go all the way down but
 it fits well enough for RGB Dual to operate safely:</p>
 <center>
-<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1_thumbnail.jpg" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
-<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2_thumbnail.jpg" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
-<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3_thumbnail.jpg" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1_thumbnail.jpg#thumbnail" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2_thumbnail.jpg#thumbnail" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
+<a href="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3.jpg"><img src="/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3_thumbnail.jpg#thumbnail" alt="Raspberry Pi with RGB Dual mounted on top" /></a>
 </center>
 <p>I could push it deeper but this comes at a cost of slightly bending the board
 upwards, which I want to avoid not to weaken the solder joints on GPIO

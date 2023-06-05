@@ -35,7 +35,7 @@ PVM-20M2MDE:
 
 <center>
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg)
 <figcaption>Super Metroid on Panasonic TV (left) and PVM (right).  Click to enlarge.</figcaption>
 </figure>
 </center>
@@ -46,21 +46,21 @@ lively.  Here are some closeups:
 
 <center>
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg)
 <figcaption>Samus closeup.  Panasonic TV (left) and PVM (right).  Click to enlarge.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg)
 <figcaption>Detail closeup.  Panasonic TV (top) and PVM (bottom).  Click to enlarge.</figcaption>
 </figure>
 </center>
 
 <center>
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg)
 <figcaption>Detail closeup.  Panasonic TV (top) and PVM (bottom).  Click to enlarge.</figcaption>
 </figure>
 </center>
@@ -80,7 +80,7 @@ adjustments once I feel confident I won't hurt myself or screw up the monitor.
 
 <center>
 <figure>
-![](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif)
+![](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif#thumbnail)
 <figcaption>Castlevania: Symphony of the Night on Sony PVM.</figcaption>
 </figure>
 </center>

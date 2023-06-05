@@ -15,8 +15,8 @@ RaspberryPi HAT (Hardware Attached on Top) that provides SCART and VGA output
 ports allowing to connect the Pi to a CRT TV or a VGA monitor:
 
 <center>
-[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rgb_dual_1_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rgb_dual_1.jpg)
-[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rgb_dual_2_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rgb_dual_2.jpg)
+[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rgb_dual_1_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rgb_dual_1.jpg)
+[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rgb_dual_2_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rgb_dual_2.jpg)
 </center>
 
 RGB Dual allows setting up RaspberryPi as a dedicated retro emulation device and
@@ -58,8 +58,8 @@ This is a large heatsink that allows to efficiently cool the Pi silently with no
 fans:
 
 <center>
-[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1.jpg)
-[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2.jpg)
+[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_1.jpg)
+[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rpi4_heatsink_2.jpg)
 </center>
 
 While I love these heatsinks and have them on all of my Pis I must admit their
@@ -69,16 +69,16 @@ Kapton tape to make sure they don't touch the heatsink.  I also gently trimmed
 plastic SCART port mountings:
 
 <center>
-[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/trimmed_pins_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/trimmed_pins.jpg)
+[![rpi_heatsink](/images/posts/2022-12-26-rgb-dual/trimmed_pins_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/trimmed_pins.jpg)
 </center>
 
 With these adjustments the GPIO connector still doesn't go all the way down but
 it fits well enough for RGB Dual to operate safely:
 
 <center>
-[![Raspberry Pi with RGB Dual mounted on top](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1.jpg)
-[![Raspberry Pi with RGB Dual mounted on top](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2.jpg)
-[![Raspberry Pi with RGB Dual mounted on top](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3_thumbnail.jpg)](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3.jpg)
+[![Raspberry Pi with RGB Dual mounted on top](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_1.jpg)
+[![Raspberry Pi with RGB Dual mounted on top](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_2.jpg)
+[![Raspberry Pi with RGB Dual mounted on top](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3_thumbnail.jpg#thumbnail)](/images/posts/2022-12-26-rgb-dual/rgb_dual_mounted_3.jpg)
 </center>
 
 I could push it deeper but this comes at a cost of slightly bending the board

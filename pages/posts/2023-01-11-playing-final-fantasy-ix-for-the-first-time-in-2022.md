@@ -20,7 +20,7 @@ end.
 
 <center>
 <figure>
-[![final_fantasy_ix_physical_copy](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy.jpg)
+[![final_fantasy_ix_physical_copy](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy.jpg)
 <figcaption>A Japanese copy of Final Fantasy IX in my collection.  Game comes on
  four CDs.</figcaption>
 </figure>
@@ -35,7 +35,7 @@ It wouldn't be Final Fantasy otherwise!
 
 <center>
 <figure>
-[![final_fantasy_ix_title_screen](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen.png)
+[![final_fantasy_ix_title_screen](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen.png)
 <figcaption>Final Fantasy IX title screen.</figcaption>
 </figure>
 </center>
@@ -57,7 +57,7 @@ the least.
 
 <center>
 <figure>
-[![final_fantasy_ix_steiner](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay.png)
+[![final_fantasy_ix_steiner](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay.png)
 <figcaption>Just Steiner things.</figcaption>
 </figure>
 </center>
@@ -76,7 +76,7 @@ abilities that can be equipped from the menu between battles:
 
 <center>
 <figure>
-[![final_fantasy_ix_abilities_menu](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities.png)
+[![final_fantasy_ix_abilities_menu](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities.png)
 <figcaption>Early game abilities.</figcaption>
 </figure>
 </center>
