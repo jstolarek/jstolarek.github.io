@@ -170,20 +170,15 @@ article .header {
   }
 }
 
-img[src*="#thumbnail"] {
-  max-width: 85%;
-  height: auto;
-}
-
 /* Center image thumbails */
-.thumb {
+.thumbnail {
   text-align: center;
   margin: 0pt;
 }
 
 /* Make thumbnails slightly narrower compared to surrounding figure. */
-.thumb img {
-  width: 95%;
+.thumbnail img {
+  max-width: 95%;
   height: auto;
 }
 

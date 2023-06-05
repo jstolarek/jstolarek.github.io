@@ -72,12 +72,12 @@ works, which I consider to be a small miracle.
 But doing all these fixes required a free afternoon and I just wanted to
 continue with the game!  It was a good reason to grab my GameBoy pocket:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay_thumbnail.jpg#thumbnail)](/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay.jpg)
+[![](/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay_thumbnail.jpg)](/images/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes/gbp_gameplay.jpg)
 <figcaption>Preparing to fight Metroid Queen on GameBoy Pocket.</figcaption>
 </figure>
-</center>
+</div>
 
 AM2R
 ----

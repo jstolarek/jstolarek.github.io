@@ -23,17 +23,17 @@ stunningly beautiful worlds, discover their story, and solve environmental
 puzzles.  In Firmament there are three main Realms.  Firstly, mountainous and
 icy Curievale:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/curievale_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_1.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/curievale_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_2.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/curievale_3_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_3.jpg)
 </figure>
@@ -41,17 +41,17 @@ icy Curievale:
 
 Then there's lush St. Andrews with its conservatory:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/st_andrews_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_1.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/st_andrews_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_2.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/st_andrews_3_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_3.jpg)
 </figure>
@@ -60,12 +60,12 @@ Then there's lush St. Andrews with its conservatory:
 And rocky Juleston where you'll find an array of electrical batteries and a
 sulphur processing facility:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/juleston_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_1.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/juleston_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_2.jpg)
 </figure>
@@ -74,7 +74,7 @@ sulphur processing facility:
 Finally there's The Swan, a tiny hub world that allows you to travel between the
 Realms:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/the_swan_thumbnail.jpg)](/images/posts/2023-06-03-firmament/the_swan.jpg)
 </figure>
@@ -90,27 +90,27 @@ Firmament has three core elements that make up the experience.  Firstly, there
 are the visuals, which wowed me from the first minutes of the game.  In case the
 screenshots above weren't enough here are a few more:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/arch_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/arch_1.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/interior_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/interior_1.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/interior_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/interior_2.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/underwater_thumbnail.jpg)](/images/posts/2023-06-03-firmament/underwater.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/juleston_tower_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_tower.jpg)
 </figure>
@@ -154,7 +154,7 @@ people complained about getting softlocked due to puzzle bugs, or narrator voice
 completely disappearing after certain point in the game.  I was spared these
 issues, but my playthrough was plagued by repeated crashes to desktop:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/crash_thumbnail.jpg)](/images/posts/2023-06-03-firmament/crash.jpg)
 <figcaption>A sadly common sight.</figcaption>
@@ -169,12 +169,12 @@ less than 8 hours to play.  I also have to mention the menus.  While the game
 visuals are stunning, the menus look like prototypes that made it into
 production:
 
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/menu_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/menu_1.jpg)
 </figure>
 </div>
-<div class="thumb">
+<div class="thumbnail">
 <figure>
 [![](/images/posts/2023-06-03-firmament/menu_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/menu_2.jpg)
 </figure>

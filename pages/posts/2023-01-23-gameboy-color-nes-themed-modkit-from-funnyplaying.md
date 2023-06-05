@@ -10,12 +10,12 @@ GameBoy Color NES-themed modkit from FunnyPlaying
 **DISCLAIMER:** This post is not intended to serve as installation tutorial.
 </center>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![owned_gb](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg)
+[![owned_gb](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg)
 <figcaption>GameBoys from my collection.</figcaption>
 </figure>
-</center>
+</div>
 
 Above photo has three GameBoys from my collection, left to right:
 
@@ -59,12 +59,12 @@ Without further ado, lets jump right in.
 Kit overview
 ------------
 
-<center>
+<div class="thumbnail">
 <figure>
-[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg)
+[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg)
 <figcaption>Kit parts.</figcaption>
 </figure>
-</center>
+</div>
 
 The kit contains:
 
@@ -82,22 +82,22 @@ The photo also includes a replacement speaker, which I bought as an extra - it
 is not part of the kit!  Here's one more photo of the kit with the donor GBC and
 unpacked screen:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg)
+[![fp_kit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg)
 <figcaption>Unpacked kit parts and donor GBC.</figcaption>
 </figure>
-</center>
+</div>
 
 One thing I quickly noticed is that the front and back of the shell don't seem
 to fit together well:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg)
+[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg)
 <figcaption>Shell fit seemed poor at first glance.</figcaption>
 </figure>
-</center>
+</div>
 
 This was a big surprise since all FunnyPlaying shells I had before had very good
 fit and didn't cause any issues.  I was seriously worried at this point but I
@@ -119,19 +119,19 @@ I began by disassembling the shell, disconnecting the screen ribbon and removing
 the main board from the shell.  Then I desoldered the power board and the
 speaker:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg)
+[![shell_fit](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg)
 <figcaption>Before desoldering.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg)
 <figcaption>After desoldering the speaker and power board.</figcaption>
 </figure>
-</center>
+</div>
 
 I don't have a desoldering gun and overall don't feel too confident with
 desoldering.  This was something that has caused me the most trouble with past
@@ -141,22 +141,22 @@ the speaker and the power board without damaging them in any way.
 
 Next I soldered in the speaker and the new power board:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg)
 <figcaption>New power board and speaker soldered in place.</figcaption>
 </figure>
-</center>
+</div>
 
 FunnyPlaying instructs clients to test the IPS panel before soldering anything
 to the ribbon like so:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg)
 <figcaption>Testing the screen when building the berry GBC.</figcaption>
 </figure>
-</center>
+</div>
 
 This was my next step.  I connected the screen via the ribbon cable, attached
 the back of the shell, which contains the battery compartment, powered on the
@@ -176,12 +176,12 @@ instructions of testing the board without soldering any wires.  I decided to
 take a leap of faith and solder all the wires where they should be.  But before
 proceeding with the wires I trimmed the pins on the cartridge slot:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg)
 <figcaption>Trimmed cartridge slot pins.</figcaption>
 </figure>
-</center>
+</div>
 
 While the instructions on FP website don't mention this as a required step, I
 think this is a reasonable safety measure to prevent the pins from pushing on
@@ -192,20 +192,20 @@ There's no need to worry about screen alignment or any dust getting under the
 glass.  Once screen was in place I connected the ribbon cable to the motherboard
 and soldered the wires for Select and Start buttons:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg)
 <figcaption>Wires soldered and secured with Kapton tape.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg)
 <figcaption>Silicon pads in place.  Note the security sticker is missing on the
  back of the screen.</figcaption>
 </figure>
-</center>
+</div>
 
 As you can see I used lots of Kapton tape to:
 
@@ -229,20 +229,20 @@ to the degree it was possible.
 Finally, I soldered the power cable and touch sensor, assembled the shell, and
 applied the sticker to the back of the shell.  Final result looks like this:
 
-<center>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg)
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg)
+<div class="thumbnail">
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg)
 <figcaption>Front and back.</figcaption>
-</center>
+</div>
 
 Here's my new GameBoy next to the ones I already owned:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg)
 <figcaption>My current collection of GameBoy Colors.</figcaption>
 </figure>
-</center>
+</div>
 
 
 Summary
@@ -254,12 +254,12 @@ fingerprints where they shouldn't be.  The screen is also small in size so it
 doesn't require cutting the the silicon pads, as was the case with earlier
 screens from FunnyPlaying:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg)
 <figcaption>Cutting silicon pad to accommodate larger IPS panel.</figcaption>
 </figure>
-</center>
+</div>
 
 Obviously, the shell is also designed specifically for this mod and doesn't
 require trimming the plastic.  This is nice progress compared to earlier mods.
@@ -283,12 +283,12 @@ using the touch sensor on top edge of the shell), several vertical scanline
 modes as well as RetroPixel mode.  In this mode the screen displays a grid
 that imitates pixel grid seen on older displays:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg#thumbnail)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg)
+[![_](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg)](/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg)
 <figcaption>RetroPixels mode in action.</figcaption>
 </figure>
-</center>
+</div>
 
 This is possible because the IPS panel has higher pixel density, with each
 original pixel being represented by a 5 by 5 square of pixels.  According to

@@ -60,12 +60,12 @@ I went with the xStation.  As with lots of retro mods these days xStation was
 out of stock but luckily the pre-orders were up.  I ordered one unit and, after
 some delays, finally received it in mid February.
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg)
 <figcaption>xStation kit comes in a nice box.  QSB (Quick Solder Board) is included with the board.</figcaption>
 </figure>
-</center>
+</div>
 
 I already learned it's a good idea to install console mods during the weekend.
 Installation usually takes longer than expected and it was no different this
@@ -79,56 +79,56 @@ It's something I haven't done before and something, I imagine, that could easily
 go wrong given how small the pins are.  Here's a photo with a coin that's the
 size of a penny coin:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg)
 <figcaption>IC701.  Several pins of this chip have to be lifted when installing xStation.</figcaption>
 </figure>
-</center>
+</div>
 
 Soldering seemingly went smooth.  There are around 20 solder points, some of
 them requiring uncovering the via pads with a sharp tool (Olfa knife comes in
 handy).  Having already some soldering experience from the previous mods this
 wasn't too difficult.
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/3_qcb_preparation.jpg)
 <figcaption>QSB secured in place before soldering.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/4_qcb_done_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/4_qcb_done.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/4_qcb_done_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/4_qcb_done.jpg)
 <figcaption>QSB soldered to PlayStation motherboard.  I'm happy with how cleanly the cable turned out.</figcaption>
 </figure>
-</center>
+</div>
 
 Lifting pins also wasn't as difficult as I imagined.  I followed [Voultar's
 advice](https://www.youtube.com/live/QC3SAGdNWB8?feature=share&t=3627) and used
 a dental pick.  Again, things *seemingly* went smooth.
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/5_pins_lifted_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/5_pins_lifted.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/5_pins_lifted_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/5_pins_lifted.jpg)
 <figcaption>Lifted pins on IC701.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/6_lifted_pins_secured.jpg)
 <figcaption>I secured the pads with Kapton tape but ended up removing the tape later.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/7_two_boards_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/7_two_boards.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/7_two_boards_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/7_two_boards.jpg)
 <figcaption>Modified motherboard on the left and a spare one on the right.</figcaption>
 </figure>
-</center>
+</div>
 
 As you can see in the last photo I have two PlayStation motherboards.  Given
 that this is a difficult mod I decided to get a spare one in advance.  Luckily
@@ -137,12 +137,12 @@ it wasn't necessary, although you will see things didn't go smooth.
 As the final step I installed the xStation board, connecting it with a ribbon
 cable, and re-assembled the console:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/8_assembly_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/8_assembly.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/8_assembly_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/8_assembly.jpg)
 <figcaption>Putting everything back together.</figcaption>
 </figure>
-</center>
+</div>
 
 After assembling the PlayStation I connected it to the TV, turned it on,
 and... got a black screen.  Console seemed dead.  It was time for hardware
@@ -183,12 +183,12 @@ took my soldering iron with K tip (large tip resembling a chisel or a scalpel)
 and reflowed the remaining pins on IC701.  And this did the job!  After yet
 another re-assembly of the console xStation booted correctly:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg#thumbnail)](/images/posts/2023-03-35-installing-xstation/9_test.jpg)
+[![](/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/9_test.jpg)
 <figcaption>After nearly 8 hours of work xStation finally works.</figcaption>
 </figure>
-</center>
+</div>
 
 I copied a game image to an SD card, plugged it into xStation to make sure it
 indeed works, and finally my work was done.  I started at noon and finished

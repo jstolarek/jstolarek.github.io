@@ -18,13 +18,13 @@ four hours into the game.  Four weeks ago I made a completely spontaneous
 decision to play FFIX and this time the playthrough went smoothly right to the
 end.
 
-<center>
+<div class="thumbnail">
 <figure>
-[![final_fantasy_ix_physical_copy](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy.jpg)
+[![final_fantasy_ix_physical_copy](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/physical_copy.jpg)
 <figcaption>A Japanese copy of Final Fantasy IX in my collection.  Game comes on
  four CDs.</figcaption>
 </figure>
-</center>
+</div>
 
 Final Fantasy IX is sometimes described as a "love letter to earlier entries in
 the series" and a "return to the roots".  Indeed, after three earlier
@@ -33,12 +33,12 @@ sci-fi setting, this entry returns to fantasy roots seen in first five parts of
 Final Fantasy.  Of course when I say "fantasy" I mean "fantasy with airships".
 It wouldn't be Final Fantasy otherwise!
 
-<center>
+<div class="thumbnail">
 <figure>
-[![final_fantasy_ix_title_screen](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen.png)
+[![final_fantasy_ix_title_screen](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/title_screen.png)
 <figcaption>Final Fantasy IX title screen.</figcaption>
 </figure>
-</center>
+</div>
 
 Final Fantasy IX has interesting story and great character writing.  It was
 Final Fantasy VII that became famous for their characters (few gamers haven't
@@ -55,12 +55,12 @@ that her words and actions certainly don't fit a child.  In particular her
 initial fixation on having a romantic relationship with Zidane is weird, to say
 the least.
 
-<center>
+<div class="thumbnail">
 <figure>
-[![final_fantasy_ix_steiner](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay.png)
+[![final_fantasy_ix_steiner](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/gameplay.png)
 <figcaption>Just Steiner things.</figcaption>
 </figure>
-</center>
+</div>
 
 When it comes to character progression system, each character has an assigned
 class.  Those classes will be familiar to FF veterans (Black Mage, White Mage,
@@ -74,12 +74,12 @@ different set of summoning spells, while black mage Vivi can Focus to make his
 spell in the next turn more powerful.  Each character can also learn static
 abilities that can be equipped from the menu between battles:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![final_fantasy_ix_abilities_menu](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities_thumbnail.jpg#thumbnail)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities.png)
+[![final_fantasy_ix_abilities_menu](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities_thumbnail.jpg)](/images/posts/2023-01-11-playing_final_fantasy-ix-for-the-first-time-in-2022/abilities.png)
 <figcaption>Early game abilities.</figcaption>
 </figure>
-</center>
+</div>
 
 All abilities - both class-specific spells as well as static abilities - are
 learned from equipment items (weapons, armours, accessories, etc.), similarly to

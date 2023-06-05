@@ -33,37 +33,37 @@ definitely worth it.
 Here are some photos comparing Super Metroid on Panasonic TX-21S1TCP and
 PVM-20M2MDE:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/super_metroid.jpg)
 <figcaption>Super Metroid on Panasonic TV (left) and PVM (right).  Click to enlarge.</figcaption>
 </figure>
-</center>
+</div>
 
 The difference in image quality is noticeable immediately, especially when you
 look at background details, though admittedly colours on the PVM are not as
 lively.  Here are some closeups:
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/samus_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/samus.jpg)
 <figcaption>Samus closeup.  Panasonic TV (left) and PVM (right).  Click to enlarge.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/map_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/map.jpg)
 <figcaption>Detail closeup.  Panasonic TV (top) and PVM (bottom).  Click to enlarge.</figcaption>
 </figure>
-</center>
+</div>
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/energy_thumbnail.jpg)](/images/posts/2023-02-20-getting-a-sony-pvm/energy.jpg)
 <figcaption>Detail closeup.  Panasonic TV (top) and PVM (bottom).  Click to enlarge.</figcaption>
 </figure>
-</center>
+</div>
 
 Unfortunately, PVM's picture quality isn't perfect due to convergence problems,
 which manifest primarily at the edges of the screen.  You can notice this by
@@ -78,12 +78,12 @@ order to do it safely.  Luckily, Steve from
 servicing PVMs and my plan is to go through them and do the convergence
 adjustments once I feel confident I won't hurt myself or screw up the monitor.
 
-<center>
+<div class="thumbnail">
 <figure>
-[![](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif)](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif)
 <figcaption>Castlevania: Symphony of the Night on Sony PVM.</figcaption>
 </figure>
-</center>
+</div>
 
 P.S. Aside from gaming, I found the PVM to be great for watching old anime in
 4:3 aspect ratio.  At the moment I'm finishing 2nd season of Initial D.
