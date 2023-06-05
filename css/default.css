@@ -169,3 +169,7 @@ article .header {
     font-size: 1.8rem;
   }
 }
+
+img[src*="#thumbnail"] {
+   width:85%;
+}

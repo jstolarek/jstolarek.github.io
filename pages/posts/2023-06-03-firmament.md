@@ -25,20 +25,17 @@ icy Curievale:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/curievale_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_1.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/curievale_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/curievale_1.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/curievale_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_2.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/curievale_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/curievale_2.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/curievale_3_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_3.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/curievale_3_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/curievale_3.jpg)
 </figure>
 </center>
 
@@ -46,20 +43,17 @@ Then there's lush St. Andrews with its conservatory:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/st_andrews_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_1.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/st_andrews_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/st_andrews_1.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/st_andrews_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_2.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/st_andrews_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/st_andrews_2.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/st_andrews_3_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_3.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/st_andrews_3_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/st_andrews_3.jpg)
 </figure>
 </center>
 
@@ -68,14 +62,12 @@ sulphur processing facility:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/juleston_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_1.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/juleston_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/juleston_1.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/juleston_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_2.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/juleston_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/juleston_2.jpg)
 </figure>
 </center>
 
@@ -84,8 +76,7 @@ Realms:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/the_swan_thumbnail.jpg)](/images/posts/2023-06-03-firmament/the_swan.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/the_swan_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/the_swan.jpg)
 </figure>
 </center>
 
@@ -101,32 +92,27 @@ screenshots above weren't enough here are a few more:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/arch_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/arch_1.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/arch_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/arch_1.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/interior_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/interior_1.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/interior_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/interior_1.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/interior_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/interior_2.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/interior_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/interior_2.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/underwater_thumbnail.jpg)](/images/posts/2023-06-03-firmament/underwater.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/underwater_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/underwater.jpg)
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/juleston_tower_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_tower.jpg)
-<figcaption></figcaption>
+[![](/images/posts/2023-06-03-firmament/juleston_tower_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/juleston_tower.jpg)
 </figure>
 </center>
 
@@ -170,7 +156,7 @@ issues, but my playthrough was plagued by repeated crashes to the desktop:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/crash_thumbnail.jpg)](/images/posts/2023-06-03-firmament/crash.jpg)
+[![](/images/posts/2023-06-03-firmament/crash_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/crash.jpg)
 <figcaption>A sadly common sight.</figcaption>
 </figure>
 </center>
@@ -185,13 +171,13 @@ production:
 
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/menu_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/menu_1.jpg)
+[![](/images/posts/2023-06-03-firmament/menu_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/menu_1.jpg)
 <figcaption></figcaption>
 </figure>
 </center>
 <center>
 <figure>
-[![](/images/posts/2023-06-03-firmament/menu_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/menu_2.jpg)
+[![](/images/posts/2023-06-03-firmament/menu_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/menu_2.jpg)
 <figcaption></figcaption>
 </figure>
 </center>
