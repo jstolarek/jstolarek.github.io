@@ -175,23 +175,26 @@ img[src*="#thumbnail"] {
   height: auto;
 }
 
+/* Center image thumbails */
 .thumb {
   text-align: center;
   margin: 0pt;
 }
 
+/* Make thumbnails slightly narrower compared to surrounding figure. */
 .thumb img {
   width: 95%;
-  margin: 0pt;
-  padding: 0pt;
+  height: auto;
 }
 
+/* Keep spacing between successive images to a minimum. */
 figure {
   margin-top: 0pt;
   margin-bottom: 0pt;
 }
 
+/* In case there's a caption between several successive images ensure there is
+   space between the caption and the image below it. */
 figcaption {
-  margin-bottom: 10pt;
-  font-style: italic;
+  margin-bottom: 12pt;
 }

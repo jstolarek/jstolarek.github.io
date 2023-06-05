@@ -32,7 +32,6 @@ icy Curievale:
 <figure>
 [![](/images/posts/2023-06-03-firmament/curievale_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_2.jpg)
 </figure>
-<figcaption>Curievale</figcaption>
 </div>
 <div class="thumb">
 <figure>
@@ -42,44 +41,44 @@ icy Curievale:
 
 Then there's lush St. Andrews with its conservatory:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/st_andrews_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/st_andrews_1.jpg)
+[![](/images/posts/2023-06-03-firmament/st_andrews_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_1.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/st_andrews_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/st_andrews_2.jpg)
+[![](/images/posts/2023-06-03-firmament/st_andrews_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_2.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/st_andrews_3_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/st_andrews_3.jpg)
+[![](/images/posts/2023-06-03-firmament/st_andrews_3_thumbnail.jpg)](/images/posts/2023-06-03-firmament/st_andrews_3.jpg)
 </figure>
-</center>
+</div>
 
 And rocky Juleston where you'll find an array of electrical batteries and a
 sulphur processing facility:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/juleston_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/juleston_1.jpg)
+[![](/images/posts/2023-06-03-firmament/juleston_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_1.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/juleston_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/juleston_2.jpg)
+[![](/images/posts/2023-06-03-firmament/juleston_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_2.jpg)
 </figure>
-</center>
+</div>
 
 Finally there's The Swan, a tiny hub world that allows you to travel between the
 Realms:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/the_swan_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/the_swan.jpg)
+[![](/images/posts/2023-06-03-firmament/the_swan_thumbnail.jpg)](/images/posts/2023-06-03-firmament/the_swan.jpg)
 </figure>
-</center>
+</div>
 
 Each world also contains an Arch, a sky-reaching metallic construction, as well
 as a tower.  You play the role of a Keeper and your task will be to raise these
@@ -91,31 +90,31 @@ Firmament has three core elements that make up the experience.  Firstly, there
 are the visuals, which wowed me from the first minutes of the game.  In case the
 screenshots above weren't enough here are a few more:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/arch_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/arch_1.jpg)
+[![](/images/posts/2023-06-03-firmament/arch_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/arch_1.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/interior_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/interior_1.jpg)
+[![](/images/posts/2023-06-03-firmament/interior_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/interior_1.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/interior_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/interior_2.jpg)
+[![](/images/posts/2023-06-03-firmament/interior_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/interior_2.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/underwater_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/underwater.jpg)
+[![](/images/posts/2023-06-03-firmament/underwater_thumbnail.jpg)](/images/posts/2023-06-03-firmament/underwater.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/juleston_tower_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/juleston_tower.jpg)
+[![](/images/posts/2023-06-03-firmament/juleston_tower_thumbnail.jpg)](/images/posts/2023-06-03-firmament/juleston_tower.jpg)
 </figure>
-</center>
+</div>
 
 
 One of Cyan's trademarks is their design of steampunk machines and environments,
@@ -155,12 +154,12 @@ people complained about getting softlocked due to puzzle bugs, or narrator voice
 completely disappearing after certain point in the game.  I was spared these
 issues, but my playthrough was plagued by repeated crashes to desktop:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/crash_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/crash.jpg)
+[![](/images/posts/2023-06-03-firmament/crash_thumbnail.jpg)](/images/posts/2023-06-03-firmament/crash.jpg)
 <figcaption>A sadly common sight.</figcaption>
 </figure>
-</center>
+</div>
 
 If I was lucky crash to desktop would happen once an hour.  If I was less lucky
 I would experience seven crashes in 30 minutes.  I reported these bugs to Cyan
@@ -170,16 +169,16 @@ less than 8 hours to play.  I also have to mention the menus.  While the game
 visuals are stunning, the menus look like prototypes that made it into
 production:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/menu_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/menu_1.jpg)
+[![](/images/posts/2023-06-03-firmament/menu_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/menu_1.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/menu_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/menu_2.jpg)
+[![](/images/posts/2023-06-03-firmament/menu_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/menu_2.jpg)
 </figure>
-</center>
+</div>
 
 Menu's are not the most important thing, but they certainly make for a bad first
 impression of the game.
