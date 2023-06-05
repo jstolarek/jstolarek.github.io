@@ -23,21 +23,22 @@ stunningly beautiful worlds, discover their story, and solve environmental
 puzzles.  In Firmament there are three main Realms.  Firstly, mountainous and
 icy Curievale:
 
-<center>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/curievale_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/curievale_1.jpg)
+[![](/images/posts/2023-06-03-firmament/curievale_1_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_1.jpg)
 </figure>
-</center>
-<center>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/curievale_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/curievale_2.jpg)
+[![](/images/posts/2023-06-03-firmament/curievale_2_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_2.jpg)
 </figure>
-</center>
-<center>
+<figcaption>Curievale</figcaption>
+</div>
+<div class="thumb">
 <figure>
-[![](/images/posts/2023-06-03-firmament/curievale_3_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/curievale_3.jpg)
+[![](/images/posts/2023-06-03-firmament/curievale_3_thumbnail.jpg)](/images/posts/2023-06-03-firmament/curievale_3.jpg)
 </figure>
-</center>
+</div>
 
 Then there's lush St. Andrews with its conservatory:
 
@@ -152,7 +153,7 @@ to piece together.
 I also have to mention technical problems of Firmament.  After the release many
 people complained about getting softlocked due to puzzle bugs, or narrator voice
 completely disappearing after certain point in the game.  I was spared these
-issues, but my playthrough was plagued by repeated crashes to the desktop:
+issues, but my playthrough was plagued by repeated crashes to desktop:
 
 <center>
 <figure>
@@ -172,13 +173,11 @@ production:
 <center>
 <figure>
 [![](/images/posts/2023-06-03-firmament/menu_1_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/menu_1.jpg)
-<figcaption></figcaption>
 </figure>
 </center>
 <center>
 <figure>
 [![](/images/posts/2023-06-03-firmament/menu_2_thumbnail.jpg#thumbnail)](/images/posts/2023-06-03-firmament/menu_2.jpg)
-<figcaption></figcaption>
 </figure>
 </center>
 

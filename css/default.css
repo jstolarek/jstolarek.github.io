@@ -174,3 +174,24 @@ img[src*="#thumbnail"] {
   max-width: 85%;
   height: auto;
 }
+
+.thumb {
+  text-align: center;
+  margin: 0pt;
+}
+
+.thumb img {
+  width: 95%;
+  margin: 0pt;
+  padding: 0pt;
+}
+
+figure {
+  margin-top: 0pt;
+  margin-bottom: 0pt;
+}
+
+figcaption {
+  margin-bottom: 10pt;
+  font-style: italic;
+}

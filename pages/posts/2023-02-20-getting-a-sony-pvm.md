@@ -80,7 +80,7 @@ adjustments once I feel confident I won't hurt myself or screw up the monitor.
 
 <center>
 <figure>
-![](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif#thumbnail)
+[![](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif#thumbnail)](/images/posts/2023-02-20-getting-a-sony-pvm/castlevania.gif)
 <figcaption>Castlevania: Symphony of the Night on Sony PVM.</figcaption>
 </figure>
 </center>
