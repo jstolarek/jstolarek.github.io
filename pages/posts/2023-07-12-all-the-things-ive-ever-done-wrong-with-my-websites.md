@@ -1,5 +1,10 @@
-All the things I've ever done wrong with my web sites
-=====================================================
+---
+title: All the things I've ever done wrong with my websites
+date: 2023-07-12
+---
+
+All the things I've ever done wrong with my websites
+====================================================
 
 This post has been long in the making.  I started writing it in March, and now,
 four months later, it is finally finished.  I was inspired by Fabien Sanglard's
@@ -31,13 +36,23 @@ Fremen Zone was initially intended to be dedicated to the Dune II strategy game.
 A very rough first prototype looked like this (this is the highest resolution
 screenshot I have):
 
-  PHOTO: fremenzone proto 1
+<div class="thumbnail">
+<figure>
+![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_proto_1.png)
+<figcaption>First prototype.</figcaption>
+</figure>
+</div>
 
 It was quickly discarded and replaced with another prototype, this time with
 scope extended to contain the books.  As you can see the working name of the
 website was also different:
 
-  PHOTO: fremenzone proto 2
+<div class="thumbnail">
+<figure>
+![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_proto_2.png)
+<figcaption>Second prototype.</figcaption>
+</figure>
+</div>
 
 Both prototypes were created using Microsoft FrontPage, a WYSIWYG HTML editor.
 However, I quickly realized that, firstly, I am not learning much by using this
@@ -46,7 +61,12 @@ work on web browsers other than Internet Explorer, such as Netscape Navigator.
 As a result I switched to writing HTML and CSS by hand.  The results were very
 good and I think they still hold up well even today:
 
-  PHOTO: fremenzone now
+<div class="thumbnail">
+<figure>
+![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_old.jpg)
+<figcaption>Fremen Zone displayed in Internet Explorer sometime in the early noughties.</figcaption>
+</figure>
+</div>
 
 Fremen Zone went online in June 2000.  The process of first creating and then
 maintaining it was a lot different from what we do today.  First and foremost, I
@@ -78,6 +98,13 @@ service it took two afternoons to put it online.  In fact it could have been
 hosted as it was, but I wanted to move away from ISO-8859-2 and CP-1250
 encodings in favour of UTF-8.  I also wanted to replace self-extracting RAR
 archives with ZIP ones.
+
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_today_thumbnail.jpg)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_today.png)
+<figcaption>Revived Fremen Zone hosted on GitHub Pages.</figcaption>
+</figure>
+</div>
 
 In retrospect I am very happy about how the Fremen Zone turned out.  The fact
 that after over two decades the page "just works" shows how future-proof pure
@@ -170,7 +197,12 @@ plugins allowed to me have both Polish and English version of each publicly
 visible subpage.  Another provided LaTeX support, allowing to render formulas
 related to wavelet transforms.
 
-  PHOTO
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/dokuwiki_homepage_thumbnail.png)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/dokuwiki_homepage.png)
+<figcaption>My old homepage running on DokuWiki.</figcaption>
+</figure>
+</div>
 
 While at first I was quite impressed with DokuWiki, over time I realized that it
 doesn't quite live up to the promise of its storage being entirely text based.
@@ -233,6 +265,13 @@ of time spent on maintenance.  Even though I now owned all the content I
 created, the fact that it was all stored in a database made it difficult to
 backup or migrate.
 
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/yalb_thumbnail.png)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/yalb.png)
+<figcaption>Yet Another Lambda Blog running on Wordpress.</figcaption>
+</figure>
+</div>
+
 Lessons learned:
 
   * Self-hosting a large CMS is difficult and time consuming.
@@ -292,6 +331,13 @@ which allows me to commit all changes to my wiki by pressing F8 in Emacs.
 Granted, the commit message is not descriptive, but in all honesty I don't think
 I ever found myself referring to my wiki's history.
 
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/gollum_thumbnail.png)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/gollum.png)
+<figcaption>My new personal wiki running on local instance of gollum.</figcaption>
+</figure>
+</div>
+
 Lessons learned:
 
   * Personal wiki is essential for a programmer.
@@ -334,7 +380,12 @@ documentation and online examples were helpful, and after about a week of work
 the migration was complete.  You are most likely viewing the result right now,
 but in case another migration happens in the future here's a screenshot:
 
-  PHOTO: current
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll_thumbnail.png)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll.png)
+<figcaption>Current homepage and blog built with Hakyll.</figcaption>
+</figure>
+</div>
 
 Overall, once setup Hakyll is easy to use and does the job.  It still has its
 downsides though.  Firstly, it is a rather heavyweight technology in a sense
@@ -348,11 +399,11 @@ Markdown and write some extra CSS to ensure images display correctly on mobile
 devices.  So whenever I want to insert an image I have to write something like
 this:
 
-```
+```html
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2023-06-03-firmament/crash_thumbnail.jpg)](/images/posts/2023-06-03-firmament/crash.jpg)
-<figcaption>A sadly common sight.</figcaption>
+[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll_thumbnail.png)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll.png)
+<figcaption>Current homepage and blog built with Hakyll.</figcaption>
 </figure>
 </div>
 ```
