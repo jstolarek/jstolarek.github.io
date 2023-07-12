@@ -22,13 +22,13 @@ share my fascination with the Dune universe as well as learn how to create web
 pages.  This was also the time when lots of online portals offered free hosting.
 In the west this was typically GeoCities, but here in Poland I used Onet.  When
 signing up one would not only get an email address but also a few megabytes of
-disk space to host a web site.  I know that by today's standards 2 or 5
+disk space to host a website.  I know that by today's standards 2 or 5
 megabytes is laughably low, but back then it was more than enough.  Later in its
 lifetime Fremen Zone changed hosting and included some multimedia downloads,
-growing the page size to total of around 75 megabytes.
+growing the page size to a total of around 75 megabytes.
 
-Fremen Zone was initially intended to be dedicated to Dune II strategy game.  A
-very rough first prototype looked like this (this is the highest resolution
+Fremen Zone was initially intended to be dedicated to the Dune II strategy game.
+A very rough first prototype looked like this (this is the highest resolution
 screenshot I have):
 
   PHOTO: fremenzone proto 1
@@ -39,16 +39,16 @@ website was also different:
 
   PHOTO: fremenzone proto 2
 
-Both prototypes where created using Microsoft FrontPage, a WYSIWYG HTML editor.
-However, I quickly realised that, firstly, I am not learning much by using this
-kind of tool and, secondly, that the genereated HTML is bloated and unlikely to
+Both prototypes were created using Microsoft FrontPage, a WYSIWYG HTML editor.
+However, I quickly realized that, firstly, I am not learning much by using this
+kind of tool and, secondly, that the generated HTML is bloated and unlikely to
 work on web browsers other than Internet Explorer, such as Netscape Navigator.
 As a result I switched to writing HTML and CSS by hand.  The results were very
 good and I think they still hold up well even today:
 
   PHOTO: fremenzone now
 
-Fremen Zone went online in June 2000.  The proces of first creating and then
+Fremen Zone went online in June 2000.  The process of first creating and then
 maintaining it was a lot different from what we do today.  First and foremost, I
 didn't have Internet access at home.  This meant I had to update all the files
 in advance and then upload them when visiting my dad's work during the weekend.
@@ -70,21 +70,21 @@ which back then were considered abandonware[^1].
 Fremen Zone was last updated in 2004.  At some point there wasn't much more to
 write about and the page simply existed without any supervision.  It eventually
 withered away and disappeared when its free hosting was closed down.  I have no
-recolection of when that happened.  A copy of the website has been sitting on my
-hard drive all this time and as I was writing this post I thought to myself "why
-not bring Fremen Zone" back to life?  [And so I
+recollection of when that happened.  A copy of the website has been sitting on
+my hard drive all this time and as I was writing this post I thought to myself
+"why not bring Fremen Zone" back to life?  [And so I
 did](https://jstolarek.github.io/fremenzone/).  Using GitHub as a hosting
 service it took two afternoons to put it online.  In fact it could have been
 hosted as it was, but I wanted to move away from ISO-8859-2 and CP-1250
 encodings in favour of UTF-8.  I also wanted to replace self-extracting RAR
 archives with ZIP ones.
 
-In retrospective I am very happy about how Fremen Zone turned out.  The fact
+In retrospect I am very happy about how the Fremen Zone turned out.  The fact
 that after over two decades the page "just works" shows how future-proof pure
 that HTML and CSS are.  Perhaps the only complaint that could be made is that it
 doesn't look good on mobile devices, but honestly speaking I couldn't care less
-about that.  When it comes to Fremen Zone I can proudly say I made no mistakes.
-As you will see below this is not the case for my other websites.
+about that.  When it comes to the Fremen Zone I can proudly say I made no
+mistakes.  As you will see below this is not the case for my other websites.
 
 Lessons learned:
 
@@ -102,20 +102,20 @@ Charles Darwin, Richard Dawkins, and E. O. Wilson as being the biggest influence
 in forming my approach to research and science in general.  (For the record, I
 studied computer science, not biology.)  I decided to turn that fascination of
 biology into a blog.  It contained mostly reviews of popular science books about
-biology, myrmecology, cognitive science, and ocassionally modern physics and
+biology, myrmecology, cognitive science, and occasionally modern physics and
 cosmology.
 
 I decided to host my blog using one of many blogging services available in the
 noughties.  After some consideration I went with Google's Blogger, with first
 post being published in 2008.  Blogger is designed as a user-friendly CMS with
 some (limited) options to customise layout.  Post editing is done using an
-online WYSIWYG editor, with everything being saved immediatelly (at least in
+online WYSIWYG editor, with everything being saved immediately (at least in
 theory).  Over time I grew to dislike that editor.  It isn't a horribly bad
 experience but editing inside a text field embedded in a browser window is far
 from being the best possible experience.  There was always the option to switch
 it to pure HTML mode, but as you might guess two modes weren't perfectly
 compatible as code generated from the editor wasn't exactly what one would write
-by hand, and converesely, code written by hand sometimes wasn't parsed correctly
+by hand, and conversely, code written by hand sometimes wasn't parsed correctly
 in WYSIWYG mode.
 
 In the end I think the biggest problem with Blogger was taking ownership of
@@ -124,9 +124,9 @@ created content.  There is the ever-looming threat of service joining the
 export all posts to an XML file, it seems to be only able to export text, with
 all images being lost in the export process.
 
-Lessons leared:
+Lessons learned:
 
-  * Do not use a service that doesn't allow to export all created content.
+  * Do not use a service that doesn't allow you to export all created content.
     Always make sure to own everything that you created.  Ideally, don't depend
     on an external service at all.
   * Online WYSIWYG editors are somewhat inconvenient.
@@ -226,7 +226,7 @@ plugin for filtering spam (I used Akismet).  Lastly, there's the issue of
 backups.  Wordpress has plugins that allow you to backup all of your
 installation, but moving contents backed up this way to a different installation
 is not a straightforward task.  Or at least was not straightforward last time I
-tried it - parhaps things have improved?
+tried it - perhaps things have improved?
 
 Overall, using a self-hosted Wordpress installation was a major pain with lots
 of time spent on maintenance.  Even though I now owned all the content I
@@ -235,7 +235,7 @@ backup or migrate.
 
 Lessons learned:
 
-  * Self-hosting a large CMS is diffuclt and time consuming.
+  * Self-hosting a large CMS is difficult and time consuming.
   * Database is a major source of problems.
   * Comment system is a major source of pain.
   * Blogging is still fun.
@@ -260,7 +260,7 @@ The solution to this problem came in the form of
 engine that can run as a local service on my machine.  And this time "markdown
 based" really means what it means - no weird caching or indexing like in
 DokuWiki.  Gollum requires that the wiki is stored in a git repository and as
-such all history is recorded outside of the wiki engine intself.  In fact, most
+such all history is recorded outside of the wiki engine itself.  In fact, most
 of you have likely already seen gollum in action as it is the engine that was
 originally created to power GitHub wikis[^5].  Multiple markdown flavours are
 supported, but the DokuWiki one isn't, so I had to migrate all notes I already
@@ -282,14 +282,14 @@ further I created a `Makefile` with following contents:
 
 ```Makefile
 all:
-	git add .
-	git commit -m "Local changes (via Makefile)" || exit 0
+       git add .
+       git commit -m "Local changes (via Makefile)" || exit 0
 
 .PHONY: all
 ```
 
 which allows me to commit all changes to my wiki by pressing F8 in Emacs.
-Granted, the commit message is not descriptive, by in all honesty I don't think
+Granted, the commit message is not descriptive, but in all honesty I don't think
 I ever found myself referring to my wiki's history.
 
 Lessons learned:
@@ -370,22 +370,22 @@ What next?
 At the moment the only active web page that I maintain is this blog running on
 Hakyll.  Once set up it is easy to work with and allows me to do everything I
 need.  That being said, I am not happy about Hakyll's weight, in particular its
-dependence on plethora of Haskell libraries.  It was trivially simple to bring
-Fremen Zone back to life after two decades of no maintanence.  Will it be
+dependence on a plethora of Haskell libraries.  It was trivially simple to bring
+Fremen Zone back to life after two decades of no maintenance.  Will it be
 equally easy to restore this blog in two decades time?  I have serious doubts
 about that, but nevertheless have no intention of migrating to anything else.
 For now.
 
-Restoring Fremen Zone back to life sparked a new desire in me.  While I said I
-have no intention of updating it, I feel like re-doing the whole site from
+Restoring the Fremen Zone back to life sparked a new desire in me.  While I said
+I have no intention of updating it, I feel like re-doing the whole site from
 scratch.  All the reviews on the page were written from a perspective of a
 teenager.  Today, being middle-aged, I view most of things surprisingly
 similarly, but would definitely make a better choice of words in expressing
 myself.  And so I am slowly gathering material for a new Dune fanpage.  All the
-lessons above have tought me to avoid complexity and stay as close to the basics
+lessons above have taught me to avoid complexity and stay as close to the basics
 as possible.  And so my plan is to create a new website based on pure HTML and
 CSS.  This will take some learning effort.  I haven't used these technologies in
-a while and they have evloved in the past two decades, in particular when it
+a while and they have evolved in the past two decades, in particular when it
 comes to handling mobile devices.  My experience with creating Fremen Zone 20
 years ago taught me that creating content is a time consuming process, and
 therefore I am assuming this new website will take years, rather than months, to
@@ -403,7 +403,7 @@ complete.
       blog entries and found them extremely helpful and was grateful to myself
       that I took the time to write them.
 
-[^4]: The term "cyberbrain" comes from Ghost in the Shell and referes to
+[^4]: The term "cyberbrain" comes from Ghost in the Shell and refers to
       cybernetic brain replacements used in the manga and its anime adaptation.
 
 [^5]: I am not sure whether this is still the case. Based on bits and pieces of
