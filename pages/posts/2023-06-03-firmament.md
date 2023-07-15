@@ -7,8 +7,8 @@ Firmament
 =========
 
 I have quite a lengthy wishlist of computer games I am awaiting to be released.
-And when one of these games is finally published what typically happens is that
-I don't have the time to play it because, well, adult life.  But not this time.
+When one of these games is finally published what typically happens is that I
+don't have the time to play it because, well, adult life.  But not this time.
 Firmament, a new game by Cyan, was released two weeks ago and I jumped right
 into it.  Cyan is a studio that's been around since the late 80s, and when you
 think of it this in itself is a remarkable achievement[^1].  They are most
@@ -163,7 +163,7 @@ issues, but my playthrough was plagued by repeated crashes to desktop:
 
 If I was lucky crash to desktop would happen once an hour.  If I was less lucky
 I would experience seven crashes in 30 minutes.  I reported these bugs to Cyan
-support, but to this day these crashes have not been fixed.  They are the
+support, but to this day these crashes have not been fixed[^2].  They are the
 primary reason why it took me 2 weeks to finish a game that ultimately takes
 less than 8 hours to play.  I also have to mention the menus.  While the game
 visuals are stunning, the menus look like prototypes that made it into
@@ -192,5 +192,8 @@ recommend waiting for more bugfixes and a sale.
 
 [^1]: I just finished reading Jason Schreier's book _"Press Reset: Ruin and
       Recovery in the Video Game Industry"_ which is exactly on the topic of
-      game studios getting closed all the time and often for no good reason.
+      game studios getting closed all the time, and often for no good reason.
       Great book, highly recommended.
+
+[^2]: **15/07/2023 UPDATE:** 1.2 patch for Firmament has just been released and
+      it is supposed to fix these crashes, though I haven't tested this myself.
