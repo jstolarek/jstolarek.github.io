@@ -14,8 +14,7 @@ by the migration.
 Towards the end of 2022, I decided to reactivate the blog.  New posts will
 rarely be about functional programming.  Expect posts on whatever it is that
 interests me at the moment: retro gaming, console modding, board games, books,
-programming...
+programming.  Subscribe to [RSS feed](https://jstolarek.github.io/feed.xml) to
+stay up to date with my latest posts.
 
 $partial("templates/post-list.html")$
-
-[RSS feed](https://jstolarek.github.io/feed.xml)

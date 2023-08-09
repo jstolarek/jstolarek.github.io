@@ -193,3 +193,13 @@ figure {
 figcaption {
   margin-bottom: 12pt;
 }
+
+/* Scale and align RSS icon */
+img.rss-icon {
+  height: 1em;
+  width: auto;
+}
+
+a.rsslink {
+  margin-left: 0;
+}
