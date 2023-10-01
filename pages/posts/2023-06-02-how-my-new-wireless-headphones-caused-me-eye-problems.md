@@ -9,8 +9,9 @@ How my new wireless headphones caused me eye problems
 (I know the title of this post looks like a total click-bait, but please bear
 with me.)
 
-In early September I began experiencing eye problems.  My eyes would become
-bloodshot, dry, and start itching, sometimes with sharp pain behind the eyeballs.
+Nine months ago, in early September 2022, I began experiencing eye problems.  My
+eyes would become bloodshot, dry, and start itching, sometimes with sharp pain
+behind the eyeballs.
 [Here](/images/posts/2023-06-02-how-my-new-wireless-headphones-caused-me-eye-problems/right_eye.jpg)
 is just one photo showing the symptoms.
 

@@ -17,7 +17,7 @@ nav {
 }
 
 sup {
-  line-height: 1;
+  line-height: 0.7;
 }
 
 a {
@@ -51,6 +51,10 @@ nav a:visited {
 
 nav a:hover {
   text-decoration: none;
+}
+
+.footnotes :target {
+  background: #A8C9E2;
 }
 
 footer {

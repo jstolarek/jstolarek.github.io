@@ -443,8 +443,8 @@ therefore I am assuming this new website will take years, rather than months, to
 complete.
 
 
-[^1]: I think they still are abandonware?  I don't think there is any legal way
-      of obtaining them, except for second-hand market.
+[^1]: I think they are still abandonware and there is any legal way of obtaining
+      them, except for second-hand market.
 
 [^2]: Official English translations of "Politechnika Łódzka" changed over time.
       When I started my work it was Technical University of Lodz but sometime
