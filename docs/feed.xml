@@ -7,8 +7,209 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sun, 01 Oct 2023 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Oct 2023 00:00:00 UT</lastBuildDate>
         <item>
+    <title>LineageOS on Samsung S7&#58; An Experience Report</title>
+    <link>https://jstolarek.github.io/posts/2023-10-09-lineageos-on-samsung-s7-an-experience-report.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 09/10/2023
+    </section>
+    <section>
+        <h1 id="lineageos-on-samsung-s7-an-experience-report">LineageOS on Samsung S7: An Experience Report</h1>
+<p>I don’t have much love for smartphones. While I admit they can be useful at
+times, I absolutely detest their ecosystems ‒ both Android and Apple
+‒ that primarily exist not to fulfil the needs of the users but those of
+the big tech companies. This is a regrettable state of things and any efforts
+to change this have not seen widespread success. That being said, a year ago I
+decided to run an experiment. Android is after all a free, open-source
+software. I thought there should be a way of installing a vanilla version of
+Android that lacks Google spyware that manufacturers bundle with the phones.
+After exploring the topic I decided to install
+<a href="https://lineageos.org/">LineageOS</a>, an Android-based free and open source
+operating system for smartphones, on my Samsung S7.</p>
+<p>Several weeks ago the said Samsung phone died due to internal memory failure. I
+think this is a good moment to share an experience report from a year of using
+LineageOS.</p>
+<h2 id="android-ecosystem">Android ecosystem</h2>
+<p>Vanilla Android is an open source software. If so, then how come it is such a
+threat to user’s privacy? Well, that’s because of <a href="https://developers.google.com/android/guides/overview">Google Play
+Services</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, a set of
+libraries that phone manufacturers install on retail distributions of Android.
+Crucially, many applications require Google Play Services in order to run
+correctly. Hence comes the first choice one needs to make when deciding to use
+LineageOS. It is possible to use LineageOS without Google Play Services, but
+some applications will refuse to work or will experience issues. See
+<a href="https://plexus.techlore.tech/">Plexus</a> project for a community-maintained list
+of applications. Alternatively, it is possible to install Google Play Services
+on LineageOS and have all applications run without problems, but to me this
+defeats the purpose of using LineageOS.</p>
+<p>There is, however, a third option ‒ an open-source implementation of
+Google Play Services known as <a href="https://microg.org/">microG</a>. I did some
+superficial reading on microG and concluded that I don’t fully understand how it
+works. In particular, I couldn’t figure out how the presence of microG affects
+my privacy. As a result I decided to use LineageOS without microG, which is
+exactly how LineageOS is distributed by default.</p>
+<h2 id="obtaining-lineageos">Obtaining LineageOS</h2>
+<p>Let’s talk about getting LineageOS onto your phone. Developers maintain <a href="https://wiki.lineageos.org/devices/">a list
+of supported devices</a>, for which official
+builds are available. The list isn’t short, but don’t be surprised if your
+phone is not there. Mine used to be supported at some point in the past, but
+that support was dropped due to lack of active maintainer. This presented me
+with the first serious problem: how do I obtain an image of LineageOS if it
+is not available on the official website?</p>
+<p>Technically, there are two solutions. One is to use unofficial ROMs
+(i.e. pre-built images) available at the <a href="https://forum.xda-developers.com/">XDA
+Forums</a>. These images often come with extra
+software, most commonly the already mentioned microG or GSF. They are also
+often built on a version of Android that is higher than the one officially
+available for the phone. However, there is a big issue of trust here. It
+generally seems that the uploaded builds are considered trusted, in a sense that
+people just trust that the uploaded images are safe. Except there is no way of
+really verifying that the images do not contain any malware or spyware or
+whatnot. My instinct was not to use those builds.</p>
+<p>I was left with the second solution: building the ROM image myself. Since my
+phone used to be officially supported there were build instructions available
+for it, except they turned out to be highly inaccurate. Long story short, it
+took me 3 weeks to solve the problems I was running into while building, which
+is more than most users are willing to spend on installing a new system to their
+phone. Even worse, after installing my newly-built image it turned out that the
+Bluetooth doesn’t work. A case of missing firmware perhaps?</p>
+<p>In the end I managed to find an archive of old official LineageOS images located
+on a Russian FTP server that also hosted various leaked corporate data and a
+North Korean Linux distribution known as RedStar OS. Admittedly, this source
+was more dubious than the XDA Forums, but the archive of images looked
+legitimate and so I put my security concerns aside. This image turned out to
+work without any issues, including the previously broken Bluetooth.</p>
+<h2 id="flashing-os-image-onto-the-phone">Flashing OS image onto the phone</h2>
+<p>Once I obtained the installation image I had to flash it onto my phone. In the
+past this typically required some sort of jailbreak. Nowadays it seems that
+more and more manufacturers permit installation of custom images without a need
+for jailbreaking the phone<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This was indeed the case for my Samsung S7.</p>
+<p>Image installation is a two stage process. Firstly, I had to install a custom
+recovery image onto the phone. My understanding of a recovery image is that
+this is a low-level bootloader that allows installing a custom OS image as well
+as performing low-level management of the phone. In my case the recovery image
+contained <a href="https://twrp.me/faq/whatistwrp.html">TWRP</a>. Once the recovery image
+was installed I could then flash the LineageOS image. All of that was done by
+connecting the phone to a PC via a USB cable and required having two tools on my
+Linux - <code>adb</code> and <code>fastboot</code>.</p>
+<p>I have to say that booting LineageOS for the first time was stressful. I was
+afraid that I might brick my phone, but none of that happened. All worked as
+expected and the new system booted without problems.</p>
+<h2 id="getting-applications">Getting applications</h2>
+<p>Once the system was up and running I proceeded with installing applications on
+it. One method of doing it is installing applications distributed in .apk files
+via USB. This is not a convenient way of getting new software onto the phone,
+but it is required to at least install <a href="https://f-droid.org/">F-Droid</a>. F-Droid
+is an application store, except that it contains open source applications<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.
+Using F-Droid I installed <a href="https://github.com/whyorean/AuroraStore">Aurora
+Store</a>, an open-source Google Play
+Store client that allows you to install applications from the official store.
+At this point one can just install needed applications in the usual way.</p>
+<h2 id="the-user-experience">The user experience</h2>
+<p>Let’s talk about the most important thing - how was the user experience? In
+short, it was good but somewhat worse than the original OS provided by Samsung.
+Here is a list of problems I ran into.</p>
+<p>Firstly, the official Samsung OS was based on Android 8, whereas LineageOS 14 I
+installed onto the phone was based on Android 7. That in itself made for a
+noticeable downgrade. It took me quite a while to get used to the look and feel
+of applications shipped with LineageOS. In particular, I didn’t like how some
+of the applications, e.g. SMS app, did not even allow me to change the colour.
+Note also that we are talking about very old Android and LineageOS versions. I
+suspect that both the looks of applications as well as customization options are
+very different in the more recent versions.</p>
+<p>Another downgrade that was obvious from the very beginning was the keyboard. It
+not only, similarly to other system apps, lacked customization options but it
+also provided noticeably worse hints. I had to find a replacement. This was a
+difficult choice to make. Sure, hints in Google’s GBoard are great, but using
+it comes at the expense of privacy. Indeed, keyboard software is at the core of
+a system’s privacy and security since anything you type (emails, passwords)
+comes through that application. After extended research I decided to go with
+<a href="https://anysoftkeyboard.github.io/">AnySoftKeyboard</a>. I don’t know if this was
+the best choice, but it definitely was an acceptable choice. But again I have
+to stress: the quality of hints was noticeably worse than with GBoard. At least
+for the Polish language, which I primarily use.</p>
+<p>I mentioned the Aurora Store as a client to Google Play Store. One nice thing
+it can do is allow application downloads via an anonymous account. Obviously,
+anonymous login will not allow you to access paid apps assigned to your Google
+account, if you happen to have such. What was an issue is that the app would
+break every now and then. This is inherent in these kinds of open-source
+replacements for proprietary clients: every time the API changes the client app
+breaks. On certain occasions I also found that anonymous downloads did not
+work, but logging into my Google account would solve the problem<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. One very
+nice feature that Aurora Store has, but Google’s official software lacks, is the
+ability to filter apps based on in-app advertisements and reliance on GSF. This
+is a great feature and I miss it now that I’m back on a Google-based Android.</p>
+<p>As mentioned earlier, applications that require GSF can experience problems.
+This will range from certain functionalities being broken, e.g. Discord not
+showing notifications, to not running at all. I personally was not seriously
+affected by this, but I am not a heavy smartphone user. In particular I do not
+use social media and their associated applications, and from what I read these
+can exhibit problems. The only application that I had to give up was InPost
+Mobile, which is an app by a delivery company that operates a dense network of
+parcel lockers throughout Poland. This wasn’t a big problem though since I can
+still use these parcel lockers via SMS messages.</p>
+<p>I also experienced two serious usability issues. The first one was with the
+loudspeaker. Apparently, LineageOS couldn’t do echo cancellation so whenever I
+switched to a loudspeaker during a call, the caller would hear their own voice.
+This rendered the loudspeaker practically unusable. The second issue was photo
+quality, which had decreased dramatically with photos coming out blurry and with
+a lot of grain. I experimented with several photo taking applications,
+including ones that have really good reviews on the web, but none of them
+improved the situation, and many made even worse photos. <strong>As a result my phone
+became almost useless as a camera and I ended up borrowing my wife’s phone
+whenever I had to take photos. This is probably the single biggest downside I
+experienced from switching to LineageOS.</strong></p>
+<p>Another minor issue I experienced was when attempting to contact Discord support
+with a bug report. As soon as they heard I am on an Android without GSF they
+dismissed me by saying they <em>“only support Android devices that have the Google
+Play Store pre-installed”</em>. I recognize this is not a technical issue with
+LineageOS itself, but it might be worth being aware of this kind of attitude
+from the developers.</p>
+<h2 id="summary">Summary</h2>
+<p>The above list of encountered issues might look discouraging, but for me the
+pros of using LineageOS outweigh the cons. Most importantly, having a system
+with no Google services that constantly spy on me was a big win. Of course,
+proprietary apps still have their own telemetry and it doesn’t look like there’s
+anything that can be done about it in the Android ecosystem, other than a
+radical move of not using such apps. I also realize that for some people
+stepping away from using Google services might be a radical move in itself.</p>
+<p>At no time of using LineageOS had I thought of switching to something else.
+This is in stark contrast with my current smartphone. After my S7 died I had to
+get a new phone ASAP, and being temporarily low on budget I went with the Xiaomi
+Redmi Note 10 Pro. Oh my, was that a mistake. The phone comes with
+advertisements built into system applications, including aggressive
+advertisements that take over the whole screen. Theoretically these ads can be
+disabled, but sometimes that doesn’t work and ads display anyway. There’s also
+lots of annoying bugs and, despite good technical specs of the phone, the
+overall experience isn’t great. Luckily, LineageOS is officially supported on
+the phone so I see myself installing LineageOS again at some point in the
+relatively near future.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Google Play Services are also sometimes referred to as Google Software
+Framework ‒ shortened as GSF ‒ and I will use both terms
+interchangeably.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Keep in mind that this usually voids the warranty.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>In the retro-modding community you’d just call them homebrew. Not sure
+whether the term applies here.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This means logging into my account only in Aurora Store, not on the phone
+itself. Since LineageOS comes without GSF there is even no way to log
+into Google account on the phone.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>Mon, 09 Oct 2023 00:00:00 UT</pubDate>
+    <guid>https://jstolarek.github.io/posts/2023-10-09-lineageos-on-samsung-s7-an-experience-report.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>System Shock remake</title>
     <link>https://jstolarek.github.io/posts/2023-10-01-system-shock-remake.html</link>
     <description><![CDATA[<article>
@@ -1869,308 +2070,6 @@ by adding more leniency to the counter timings.<a href="#fnref2" class="footnote
 ]]></description>
     <pubDate>Tue, 14 Feb 2023 00:00:00 UT</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-02-14-metroid-ii-return-of-samus-and-its-remakes.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>GameBoy Color NES-themed modkit from FunnyPlaying</title>
-    <link>https://jstolarek.github.io/posts/2023-01-23-gameboy-color-nes-themed-modkit-from-funnyplaying.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 23/01/2023
-    </section>
-    <section>
-        <h1 id="gameboy-color-nes-themed-modkit-from-funnyplaying">GameBoy Color NES-themed modkit from FunnyPlaying</h1>
-<center>
-<strong>DISCLAIMER:</strong> This post is not intended to serve as installation tutorial.
-</center>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/owned_gameboys_thumbnail.jpg" alt="owned_gb" /></a>
-<figcaption>
-GameBoys from my collection.
-</figcaption>
-</figure>
-</div>
-<p>Above photo has three GameBoys from my collection, left to right:</p>
-<ol type="1">
-<li><p>Unmodded GameBoy Color (GBC) in teal shell. It has original shell as well
-as original screen. Note that the LCD screens back in the 90s and early
-2000s didn’t have a backlight. This means that the only reasonable way of
-playing is by having some light directed at the screen. Personally I found
-playing outdoors on a sunny summer day to be the best experience.</p></li>
-<li><p>Modded GameBoy Color in berry shell. This GameBoy had its screen replaced
-with a modern, backlighted IPS panel. It also has a replaced power board
-(more on the below) and the shell is also new.</p></li>
-<li><p>Modded GameBoy Pocket (GBP) in clear shell. Again, original
-black-and-white screen has been replaced with a backlighted IPS panel.
-Shell and buttons are also new.</p></li>
-</ol>
-<p>Note the screen sizes. GBC, while offering colours, has a smaller screen area
-compared to GBP and original DMG GameBoy. On the other hand, modern IPS screen
-for GBP/DMG isn’t black-and-white - it just pretends to be one, since it only
-receives monochromatic signal from the console. It was only a matter of time
-before someone came up with the idea of putting the IPS screen designed for GBP
-into GBC, thus giving us GameBoy Color with screen as large as in the GBP and
-DMG models.</p>
-<p>I didn’t have a GBC with larger screen in my collection yet, so I decided to
-make one. After buying a new GBC to act as donor console I went to order a
-screen. My go-to destination for GameBoy IPS panels is FunnyPlaying, a Chinese
-company that over the years has shown commitment to making good products and
-innovating their mods. Towards the end of last year they releases a <a href="https://funnyplaying.com/collections/product/products/gbc-nes-ves-retro-pixel-lcd-kit">NES-themed
-GameBoy Color
-modkit</a>
-that not only contains an IPS panel but also comes with NES-themed shell and
-all the other parts such as buttons and silicon pads. I searched for reviews
-and opinions on this kit but couldn’t find any, since the kit was newly
-released. I decided to give it a try and ordered it. While the package from
-China arrived quickly, I took me quite a while to find the time to assemble it.
-Without further ado, lets jump right in.</p>
-<h2 id="kit-overview">Kit overview</h2>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_thumbnail.jpg" alt="fp_kit" /></a>
-<figcaption>
-Kit parts.
-</figcaption>
-</figure>
-</div>
-<p>The kit contains:</p>
-<ul>
-<li>A NES-themed shell</li>
-<li>Laminated screen with a ribbon cable and wires, all stored in a stylish
-plastic case modelled on GB cartridge. Note that there are two versions of
-the kit: with standard glass lens and with 2.5D lens, which is rounded at
-the edges. My kit is the latter one.</li>
-<li>Buttons and silicon pads</li>
-<li>Screws</li>
-<li>Back sticker. This sticker is very high quality. It’s not printed on paper
-but on a thick and durable metal-like material.</li>
-</ul>
-<p>The photo also includes a replacement speaker, which I bought as an extra - it
-is not part of the kit! Here’s one more photo of the kit with the donor GBC and
-unpacked screen:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/kit_2_thumbnail.jpg" alt="fp_kit" /></a>
-<figcaption>
-Unpacked kit parts and donor GBC.
-</figcaption>
-</figure>
-</div>
-<p>One thing I quickly noticed is that the front and back of the shell don’t seem
-to fit together well:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/shell_fit_thumbnail.jpg" alt="shell_fit" /></a>
-<figcaption>
-Shell fit seemed poor at first glance.
-</figcaption>
-</figure>
-</div>
-<p>This was a big surprise since all FunnyPlaying shells I had before had very good
-fit and didn’t cause any issues. I was seriously worried at this point but I
-need to get ahead of myself and say that after assembling the kit everything
-fits nicely and my initial concerns were unwarranted.</p>
-<h2 id="putting-the-kit-together">Putting the kit together</h2>
-<p>My plan when making this mod was to also replace the original power board<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.
-The problem with original power boards is that they are not very efficient and
-can struggle with higher power draw from IPS panel. This was an issue in my
-berry GBC (middle one in the first photo), where the screen would randomly dim
-to lowest brightness setting. That problem was solved by replacing original
-power board with a modern one. I decided to do the same in this unit as well.</p>
-<p>I began by disassembling the shell, disconnecting the screen ribbon and removing
-the main board from the shell. Then I desoldered the power board and the
-speaker:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/before_desoldering_thumbnail.jpg" alt="shell_fit" /></a>
-<figcaption>
-Before desoldering.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/desoldering_done_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-After desoldering the speaker and power board.
-</figcaption>
-</figure>
-</div>
-<p>I don’t have a desoldering gun and overall don’t feel too confident with
-desoldering. This was something that has caused me the most trouble with past
-mods, sometimes even requiring me to destroy the part being desoldered. That
-being said, things went much smother this time and I managed to desolder both
-the speaker and the power board without damaging them in any way.</p>
-<p>Next I soldered in the speaker and the new power board:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_power_board_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-New power board and speaker soldered in place.
-</figcaption>
-</figure>
-</div>
-<p>FunnyPlaying instructs clients to test the IPS panel before soldering anything
-to the ribbon like so:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/screen_test_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-Testing the screen when building the berry GBC.
-</figcaption>
-</figure>
-</div>
-<p>This was my next step. I connected the screen via the ribbon cable, attached
-the back of the shell, which contains the battery compartment, powered on the
-console and… nothing. The console seemed dead. No sound, no image on the
-screen, and no light from the power LED. As the first debugging step I restored
-the original speaker. After powering on the console sound was working, but the
-screen still didn’t display anything. This has caused some serious head
-scratching for me. At first I thought that perhaps the power board replacement
-isn’t compatible with the IPS panel I was using, but then it dawned on me. The
-screen mod used in this kit requires soldering a wire between the ribbon cable
-and the power switch. After reading the description on the FunnyPlaying’s
-website it turns out that the ribbon cable has a built-in power supply and draws
-current directly from the power switch to bypass the original power board. So
-it seems that the modern power board that I installed might be completely
-redundant. It also looks that it’s not possible to carry out FunnyPlaying’s
-instructions of testing the board without soldering any wires. I decided to
-take a leap of faith and solder all the wires where they should be. But before
-proceeding with the wires I trimmed the pins on the cartridge slot:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cartridge_slot_pins_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-Trimmed cartridge slot pins.
-</figcaption>
-</figure>
-</div>
-<p>While the instructions on FP website don’t mention this as a required step, I
-think this is a reasonable safety measure to prevent the pins from pushing on
-the ribbon cable. Other screen mods I made required this and I didn’t want to
-take any risks. Next I installed the screen in the shell. This kit comes with
-a laminated screen, meaning that the glass is already fixed to the IPS panel.
-There’s no need to worry about screen alignment or any dust getting under the
-glass. Once screen was in place I connected the ribbon cable to the motherboard
-and soldered the wires for Select and Start buttons:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_1_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-Wires soldered and secured with Kapton tape.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/soldered_wires_2_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-Silicon pads in place. Note the security sticker is missing on the
-back of the screen.
-</figcaption>
-</figure>
-</div>
-<p>As you can see I used lots of Kapton tape to:</p>
-<ol type="1">
-<li><p>Attach the ribbon cable to the back of the screen, so that it doesn’t move
-around, and cover the exposed parts on top.</p></li>
-<li><p>Attach Start and Select wires in place since they are significantly longer
-than they need to be. In hindsight, I should have made those wires
-shorter.</p></li>
-<li><p>Secure cartridge slot pins.</p></li>
-</ol>
-<p>There’s one thing done incorrectly in these photos and I only realized that
-after assembling the shell. Kit comes with a protective sticker that’s supposed
-to be attached to the back of the screen to isolate the metal back from the
-ribbon cable. There’s also a smaller sticker that, I’m guessing, is intended to
-secure cartridge pins, but I already used Kapton tape for that. I didn’t want
-to take any risk, so I disassembled the shell and applied the sticker, at least
-to the degree it was possible.</p>
-<p>Finally, I soldered the power cable and touch sensor, assembled the shell, and
-applied the sticker to the back of the shell. Final result looks like this:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_3_thumbnail.jpg" alt="_" /></a>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_2_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-Front and back.
-</figcaption>
-</figure>
-</div>
-<p>Here’s my new GameBoy next to the ones I already owned:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/final_result_1_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-My current collection of GameBoy Colors.
-</figcaption>
-</figure>
-</div>
-<h2 id="summary">Summary</h2>
-<p>This kit was a very nice build. I really liked the laminated screen. It makes
-building a lot faster and I no longer need to worry about dust or getting my
-fingerprints where they shouldn’t be. The screen is also small in size so it
-doesn’t require cutting the the silicon pads, as was the case with earlier
-screens from FunnyPlaying:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/cutting_silicon_pads_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-Cutting silicon pad to accommodate larger IPS panel.
-</figcaption>
-</figure>
-</div>
-<p>Obviously, the shell is also designed specifically for this mod and doesn’t
-require trimming the plastic. This is nice progress compared to earlier mods.</p>
-<p>Of course if I were to build that kit again it would take me much less time. I
-wasted quite a lot of time on figuring out why the screen doesn’t power on. It
-also seems that the replacement power board isn’t necessary so I could have
-skipped that as well.</p>
-<p>I’m not sure why the replacement speaker didn’t work. I probably should have
-given it another try after figuring out the screen issue, but at this point the
-build was taken much longer than anticipated and I wanted to finish it ASAP.</p>
-<p>One thing I was concerned about when buying the kit was the logo under the
-screen. That logo is backlighted by the IPS panel itself. I was concerned that
-it will be distracting while playing, but it really isn’t. And in case it is,
-it can be disabled in the settings.</p>
-<p>Speaking of settings, the screen offers several brightness levels (adjusted
-using the touch sensor on top edge of the shell), several vertical scanline
-modes as well as RetroPixel mode. In this mode the screen displays a grid
-that imitates pixel grid seen on older displays:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels.jpg"><img src="/images/posts/2023-01-23-gameboy_color_nes-themed_modkit_from_funnyplaying/retro_pixels_thumbnail.jpg" alt="_" /></a>
-<figcaption>
-RetroPixels mode in action.
-</figcaption>
-</figure>
-</div>
-<p>This is possible because the IPS panel has higher pixel density, with each
-original pixel being represented by a 5 by 5 square of pixels. According to
-information on FunnyPlaying’s website and other places on the web it should also
-be possible to adjust vertical and horizontal position of the display area, but
-for some reason this does not work in my unit. Perhaps these settings are
-disabled when laminated screen is used?</p>
-<p>Overall, I am very happy with the final result. The shell looks great and the
-larger screen is really impressive. I am yet to test how long the batteries
-last.</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Note that the power board is made by a company that has <a href="https://old.reddit.com/r/Gameboy/comments/ktbgnf/retrosix_is_stealing_other_peoples_work_and/">very bad
-reputation in the retro
-community</a>
-and I have made a point not to buy from them again.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>Mon, 23 Jan 2023 00:00:00 UT</pubDate>
-    <guid>https://jstolarek.github.io/posts/2023-01-23-gameboy-color-nes-themed-modkit-from-funnyplaying.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
