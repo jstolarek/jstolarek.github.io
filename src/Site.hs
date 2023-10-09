@@ -75,4 +75,5 @@ feedConfig = FeedConfiguration
 postCtx :: Context String
 postCtx =
     dateField "date" "%d/%m/%Y" `mappend`
+    dateField "published" "%d/%m/%Y" `mappend`
     defaultContext
