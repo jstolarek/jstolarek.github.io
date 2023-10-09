@@ -27,7 +27,7 @@ Mountain trekking
 
 I enjoy mountain trekking, especially multi-day trips to remote areas devoid of
 people. I have been to various ranges of Carpathians in Poland, Slovakia,
-Ukraine and Romania. Nowadays I trek in the Scottish Highlands.
+Ukraine and Romania, as well as the Scottish Highlands.
 </td></tr></table>
 
 <table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
