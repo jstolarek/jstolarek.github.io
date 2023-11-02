@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="In the early 2010s Linux was on a good path towards being recognized as a first-class gaming platform.  Sadly, the appearance of Proton killed native game ports and reversed the trend of supporting Linux by game developers.">
+        <title>Jan Stolarek - Proton is detrimental to Linux as a gaming platform</title>
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" href="../css/syntax.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../feed.xml" class="rsslink"><img src="../images/rss_icon.png" class="rss-icon"></a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on 27/11/2023
+    </section>
+    <section>
+        <h1 id="proton-is-detrimental-to-linux-as-a-gaming-platform">Proton is detrimental to Linux as a gaming platform</h1>
+<h2 id="the-old-days">The old days</h2>
+<p>I have this vivid memory stuck in my head. It is late 2010, right at the start
+of a cold Polish winter. It is dark and windy outside. I am sitting at my
+then-girlfriend’s room with a laptop and playing <a href="https://www.puppygames.net/revenge-of-the-titans/">Revenge of the
+Titans</a>, a fast-paced tower
+defence indie game with a good sense of humour. Most importantly, I am playing
+on Linux and the game runs natively.</p>
+<p>I bought Revenge of the Titans as part of Humble Indie Bundle 2, a gaming
+initiative aiming at rising popularity of indie games, which back in 2010 were
+considered more of a curiosity rather than serious gaming experiences. Aside
+from the already mentioned Revenge of the Titans, Humble Indie Bundle 2
+consisted of five games - Machinarium, Osmos, Cortex Command, and, possibly the
+most famous of them all, Braid - that could be purchased by paying as much (or
+as little) as one wanted. Perhaps most surprising of all, the games were
+available for all desktop platforms (Windows, Linux, macOS) and were DRM-free.
+This was groundbreaking and for me, as a Linux user, being recongnized as a
+first-class customer was a big deal.</p>
+<p>What did gaming on Linux look like in 2010? Well, it wasn’t great. It was rare
+to see a major title ported to Linux, though it did happen. Id Software was at
+the forefront of providing quality Linux ports for their games. In fact, one of
+the reasons I switched from using Windows to Linux around 2004 was that on my
+dated PC Quake III performed better on Linux than it did on Windows. I really
+want to stress this: <strong>frame rates were higher on Linux!</strong> In 2010 indie games
+had not gained popularity yet, but a handful of titles that existed often had
+Linux ports. Finally, there was Wine, which allowed launching some of the
+Windows games.</p>
+<p>The fact that Humble Indie Bundle provided funding for the developers to port
+their games to Linux and macOS<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> felt like an important step towards adopting
+Linux as a first-class gaming platform. The future of Linux gaming seemed
+bright.</p>
+<h2 id="how-proton-eliminated-native-linux-builds">How Proton eliminated native Linux builds</h2>
+<p>Fast-forward 13 years to 2023. What does Linux gaming look like today? At
+first glance it might seem things got better. Last year Valve, owner of the
+world’s most popular gaming platform Steam, released Steam Deck, a Linux-based
+portable PC. For years <a href="https://old.reddit.com/r/linux_gaming/comments/ri2nb4/valve_seems_to_do_its_best_to_release_games_on/hov609f/">Valve has pushed for the ability to run Windows games
+on Linux</a>.
+To this end in 2018 Valve released
+<a href="https://github.com/ValveSoftware/Proton">Proton</a>, a fork of Wine with a custom
+set of patches and a bundle of extra libraries such as
+<a href="https://github.com/doitsujin/dxvk">dxvk</a>. Proton ships with Steam Client and
+can be used on Linux to run Windows-only games. There is a set of games that
+have been certified to run with Proton, but it is also possible to run games
+that received no such certification - you’re just not guaranteed they will
+actually run.</p>
+<p>This might sound good at first, but for me this push for Proton resulted in
+degradation of gaming experience on Linux. First and foremost, <strong>Proton is
+closely tied to Steam, and that is a platform I just refuse to use due to its
+inherent DRM</strong>. I like to own things I pay for, and that is not the case with
+games purchased on Steam. I would lie if I said I have never bought a game on
+Steam, but I certainly can’t remember when was the last time I did.</p>
+<p>Secondly, <strong>the existence of Proton became an excuse for the developers not to
+publish native Linux ports</strong>. See
+<a href="https://www.rockpapershotgun.com/steam-decks-proton-a-total-war-saga">here</a> and
+<a href="https://www.gamingonlinux.com/2022/02/feral-interactive-have-no-plans-to-update-their-linux-ports-for-steam-deck/">here</a>
+for examples, and <a href="https://nuclearmonster.com/2021/07/ethan-flibitijibibo-lee-may-retire-from-programming-due-to-valves-proton/">this interview with Ethan
+Lee</a>
+for some more insights from an experienced Linux porter. I can’t recall when
+was the last time I played a non-indie game natively. I think it was Alien:
+Isolation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Even indie games, which in the past used to fight for every
+customer they can, usually don’t have a Linux port these days or deliver that
+port a long time after the game’s original release. One good example is Into
+the Breach, a highly-acclaimed indie title which was released in February 2018
+and had a Linux port over two years later in April 2020.</p>
+<p>It seems to me that Valve has gained quite a big following in certain parts of
+the Linux community, and that many people consider the current state of affairs
+to be a good one. One of the most commonly seen arguments is: <strong><em>“If a game
+runs fine on Proton then there is no point in making a native port”</em>. The
+problem with this argument is that the <em>if</em> premise of this statement is
+false.</strong> A lot of games do not run well, or at all, with Proton. Moreover, even
+if a game runs fine on the release, there is absolutely no guarantee that it
+will stay this way. In the past there have been many situations when changes
+introduced in a game patch or Proton broke a game.</p>
+<p>Proton supposedly can be run without a Steam client, which to some extent would
+invalidate my earlier criticism of being tied to one particular storefront.
+However, despite multiple attempts, I have never succeeded in doing that. I
+tried running Proton standalone, just like I run Wine, as well as using various
+frontends such as <a href="https://lutris.net/">Lutris</a> and
+<a href="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher">Heroic</a>. Every
+single time the only result was me wasting several hours of my time. Note that
+I am somewhat knowledgeable and have experience with things such as compiling
+Wine with custom patches applied to run specific games. I am willing to put the
+effort into getting games to run on Linux, but so far I had no success with
+Proton and had only wasted my time.</p>
+<h2 id="whining-about-wine">Whining about Wine</h2>
+<p>Aside from Proton there is also Wine. As typical for an open source project, it
+is being distributed through distribution repositories, making it trivial to
+install and run. However, gaming experience with Wine is not all that great.</p>
+<p>Firstly, Wine suffers from the same problem as Proton, where an update can
+completely break a previously working game. My favourite example is Starcraft
+II, a major game that has been on the market since 2010 and not long after its
+release was marked as <a href="https://appdb.winehq.org/objectManager.php?bShowAll=true&amp;bIsQueue=false&amp;bIsRejected=false&amp;sClass=version&amp;sTitle=&amp;sReturnTo=&amp;iId=20882">Platinum in Wine AppDB compatibility
+list</a>.
+Since then it has been broken multiple times either by new game patches or
+changes to Wine. Just take a look at that compatibility list linked above -
+some people rate the game as running perfectly, while others mark it as garbage.
+I personally was hit by a patch that broke Starcraft II earlier this year and
+was only saved by a determined redditor who found an obscure workaround to the
+problem.</p>
+<p>Windows compatibility that Wine aims for is a moving target. As such there is
+little stability in Wine, and whether things work for you or not is often down
+to pure luck. My personal success rate in the last two years is maybe around
+30%. The most recent game I tried to run was <a href="2023-10-01-system-shock-remake.html">System Shock
+remake</a>. Surely enough, many people report
+it as running perfectly out of the box under vanilla Wine, but I had no such
+luck and gave up after numerous attempts that took me several hours (around a
+third of the time needed to actually finish the game). This is all despite a
+hardware configuration that had no problems running the game under Windows at
+60FPS on highest detail settings. The best I could get under Wine was running
+System Shock in slow motion at around 5 frames per second<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Anyway, while Wine is great for preserving old games, it isn’t really a good
+gaming platform for currently released games.</p>
+<h2 id="better-tomorrow-was-yesterday">Better tomorrow was yesterday</h2>
+<p>In this post I only scratched the surface of the problem, but I wanted to get my
+opinion out there: <strong>in the long term the existence of Proton hurts Linux as a
+gaming platform.</strong></p>
+<p>Of course one might ask whether the lack of native ports is really caused by
+Valve? Perhaps Linux is too small a market and porting games to it is not
+financially viable? When writing this post I read several interviews with indie
+developers who release their games on Linux and they all consistently claim that
+a Linux release, <em>when done right</em>, is profitable and not a problem to maintain
+(see <a href="https://www.forbes.com/sites/jasonevangelho/2019/08/07/porting-games-to-linux-is-a-waste-of-time-this-game-developer-says-youre-doing-it-wrong/?sh=7c313d602c16">here</a> and
+<a href="https://www.tumblr.com/system76/654884924769370112/developing-games-on-linux-an-interview-with">here</a>).</p>
+<p>One interesting point I came across while doing research for this post was that
+having poorly made Linux ports can be even worse than not having them at all
+(for example, <a href="https://old.reddit.com/r/linux_gaming/comments/t2t7ba/a_problem_with_linux_native_ports_and_how_it_may/">this reddit
+post</a>).
+This is certainly a valid point and I am not arguing for having just any kind of
+native ports. I want to see good ones, such as ports released by Id software in
+the early 2000s.</p>
+<p>All of this is particularly sad, given that creating a native Linux port was
+never as easy as it is today. Many game engines support Linux out-of-the-box
+and the primary thing a developer needs to do is not shoot themselves in the
+foot by using Windows-only middleware. I personally had great experiences with
+<a href="https://haxe.org/">Haxe</a> language and <a href="https://heaps.io/">heaps.io</a> engine
+<a href="https://github.com/jstolarek/ldjam-46">during a game jam</a>, when me and my
+friends managed to create builds not only for Windows, Linux, and Mac, but also
+a native ARM build for Raspberry Pi. Granted, heaps.io is not a mainstream game
+engine, but it has several great success stories, most famous of which is <a href="https://deadcells.com/">Dead
+Cells</a>. Most importantly, Unity does support Linux.</p>
+<p>I do not have much hope that the trend of not supporting gaming on Linux will
+reverse anytime soon. For now I am forced to play on Windows a lot more
+frequently than a decade ago, and it feels like a huge step back for Linux.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I need to mention Limbo, which was part of Humble Indie Bundle V. Limbo
+did not have a native port and ran via Wine, which was a source of
+disappointment for many Linux users.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Alien: Isolation is one of those rare cases where I bought a game on
+Steam. Sadly, the <a href="https://www.gog.com/en/game/alien_isolation">DRM-free release on
+GOG</a> only contains a Windows
+version and no Linux version.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>By the way, System Shock remake is another example where the developer
+doesn’t care about providing a native Linux port, despite it being funded
+as the first stretch goal in the 2016 Kickstarter campaign. But of course
+that campaign before Proton, and now Nightdive Studios doesn’t even bother
+to keep their promise.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+            </br>
+        </main>
+    </body>
+</html>
