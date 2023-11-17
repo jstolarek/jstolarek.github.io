@@ -1623,13 +1623,13 @@ without a tool for applying IPS patches. Sure, there are <a href="https://bbbrad
 patchers</a> but I hate resorting to online
 services for doing such simple tasks. Luckily <a href="https://zerosoft.zophar.net/ips.php">IPS file format is actually very
 simple</a> so I decided to write a patching
-tool. Behold <a href="https://bitbucket.org/jstolarek/free-ips-patcher">Free IPS
+tool. Behold the <a href="https://bitbucket.org/jstolarek/free-ips-patcher">Free IPS
 Patcher</a>. Use it from the
 command line like so:</p>
 <pre><code>ips ROM_FILE PATCH_FILE OUTPUT_FILE</code></pre>
 <p>It’s all coded in less than 200 lines of C, with majority of the code being
 error handling. I was tempted to write the program in Haskell but I wanted it
-to be easily accessible and lets face it, most people don’t have Haskell
+to be easily accessible and, let’s face it, most people don’t have Haskell
 toolchain on their machines.</p>
 
         <p><a href="../blog.html">Back</a></p>
