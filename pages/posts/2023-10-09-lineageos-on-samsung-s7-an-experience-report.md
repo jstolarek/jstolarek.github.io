@@ -1,9 +1,9 @@
 ---
-title: LineageOS on Samsung S7&#58; An Experience Report
+title: LineageOS on Samsung S7&#58; An experience report
 date: 2023-10-09
 ---
 
-LineageOS on Samsung S7: An Experience Report
+LineageOS on Samsung S7: An experience report
 =============================================
 
 I don't have much love for smartphones.  While I admit they can be useful at
