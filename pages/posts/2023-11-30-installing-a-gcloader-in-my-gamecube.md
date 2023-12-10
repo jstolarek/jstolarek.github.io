@@ -121,6 +121,15 @@ available update.  There is no way the console can download the update since it
 has no Internet connectivity[^1], but the fact that a sufficiently new version
 of Swiss recognizes an outdated firmware is really neat.
 
+**(UPDATE 10/12/2023):** I ran into one small problem with the GCLoader, namely
+slow loading times.  In Swiss, when the game is loaded it is patched on the fly.
+I'm not sure why, but that's how it works.  When I was launching the games using
+SD2SP2 this patching and loading took around 5-6 seconds.  With GCLoader it
+takes around 25 seconds, which is noticeably loader.  The solution to the
+problem was to upgrade firmware from 1.0.1 to latest 1.1.0.BETA release.  This
+reduces the loading times to around 3 seconds, making the GCLoader slightly
+faster than SD2SP2, as it should be.
+
 
 [^1]: As you have seen in the above photos, I actually have a GameCube network
       adapter.  I bought it recently during a trip to London.  However, it is

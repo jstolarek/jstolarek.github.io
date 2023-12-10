@@ -72,7 +72,7 @@ System Shock remake was finally released in May 2023[^3].  I am happy to say
 that despite troubled development it is a very good game.
 
 
-A Great Immersive Sim
+A great immersive sim
 ---------------------
 
 In System Shock you play as the Hacker.  After a short opening sequence &#8210;
