@@ -1,9 +1,9 @@
 ---
-title: Installing xStation
+title: Installing XStation
 date: 2023-03-25
 ---
 
-Installing xStation
+Installing XStation
 ===================
 
 <center>
@@ -40,9 +40,9 @@ When it comes to PlayStation ODEs there are following options:
     and needs to be registered with the manufacturer, which makes it a no-go for
     me.
 
-  * [xStation](https://github.com/x-station).  This ODE replaces the original CD
+  * [XStation](https://github.com/x-station).  This ODE replaces the original CD
     drive of the console.  Installation is difficult as it requires precise
-    soldering.  According to the internets xStation offers better compatibility
+    soldering.  According to the internets XStation offers better compatibility
     than PSIO.
 
   * [TerraOnion MODE](https://shop.terraonion.com/shop/system/playstation/view).
@@ -52,24 +52,24 @@ When it comes to PlayStation ODEs there are following options:
     games from a hard drive rather than a memory card.
 
   * Bonus: [PicoStation](https://github.com/paulocode/picostation).  An open
-    source alternative to xStation that is based on Raspberry Pi Pico.
+    source alternative to XStation that is based on Raspberry Pi Pico.
     Unfortunately it's still in development so not really an option at this
     moment.
 
-I went with the xStation.  As with lots of retro mods these days xStation was
+I went with the XStation.  As with lots of retro mods these days XStation was
 out of stock but luckily the pre-orders were up.  I ordered one unit and, after
 some delays, finally received it in mid February.
 
 <div class="thumbnail">
 <figure>
 [![](/images/posts/2023-03-35-installing-xstation/1_xstation_kit_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/1_xstation_kit.jpg)
-<figcaption>xStation kit comes in a nice box.  QSB (Quick Solder Board) is included with the board.</figcaption>
+<figcaption>XStation kit comes in a nice box.  QSB (Quick Solder Board) is included with the board.</figcaption>
 </figure>
 </div>
 
 I already learned it's a good idea to install console mods during the weekend.
 Installation usually takes longer than expected and it was no different this
-time.  Installation of xStation requires two main steps:
+time.  Installation of XStation requires two main steps:
 
   1. Soldering a QSB (Quick Solder Board) to the motherboard of PlayStation.
   2. Lifting pins on one of the integrated circuits, the IC701.
@@ -82,7 +82,7 @@ size of a penny coin:
 <div class="thumbnail">
 <figure>
 [![](/images/posts/2023-03-35-installing-xstation/2_ic_size_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/2_ic_size.jpg)
-<figcaption>IC701.  Several pins of this chip have to be lifted when installing xStation.</figcaption>
+<figcaption>IC701.  Several pins of this chip have to be lifted when installing XStation.</figcaption>
 </figure>
 </div>
 
@@ -134,7 +134,7 @@ As you can see in the last photo I have two PlayStation motherboards.  Given
 that this is a difficult mod I decided to get a spare one in advance.  Luckily
 it wasn't necessary, although you will see things didn't go smooth.
 
-As the final step I installed the xStation board, connecting it with a ribbon
+As the final step I installed the XStation board, connecting it with a ribbon
 cable, and re-assembled the console:
 
 <div class="thumbnail">
@@ -147,7 +147,7 @@ cable, and re-assembled the console:
 After assembling the PlayStation I connected it to the TV, turned it on,
 and... got a black screen.  Console seemed dead.  It was time for hardware
 debugging, which is something I don't have a lot of experience with.  Luckily,
-[there are detailed photos for the xStation showing test points on the
+[there are detailed photos for the XStation showing test points on the
 motherboard](https://github.com/x-station/xstation-issues#pu-18).  I took my
 multimeter and began testing connectivity.  Now, logic dictates that
 connectivity should be a transitive property, meaning that if there is current
@@ -168,12 +168,12 @@ showed as being correctly connected.  It was time to re-assemble the console and
 test again.  This time it did power on and boot into console BIOS.
 
 This was progress, but it was still wrong, since the console should have booted
-into xStation menu.  Time for another debugging session.  This time I went to
-Discord and was lucky to be assisted by the creator of xStation.  We went
+into XStation menu.  Time for another debugging session.  This time I went to
+Discord and was lucky to be assisted by the creator of XStation.  We went
 through *lots* of test, including measuring resistance between points on
-PlayStation motherboard and xStation SoC.  The diagnosis was that, while
-xStation seems to power on and work, data isn't being transmitted between the SD
-card and the console.  At this point I've been working on xStation for 7 hours,
+PlayStation motherboard and XStation SoC.  The diagnosis was that, while
+XStation seems to power on and work, data isn't being transmitted between the SD
+card and the console.  At this point I've been working on XStation for 7 hours,
 with most of time being spent on debugging.  I was exhausted and ready to call
 it a day, but decided to try one last thing.  What concerned me from the
 beginning was the pin lifting on the IC701.  I feared that this is where I went
@@ -181,16 +181,16 @@ wrong by accidentally breaking a solder point between the motherboard and one of
 the pins that should not have been lifted.  This, luckily, has an easy fix.  I
 took my soldering iron with K tip (large tip resembling a chisel or a scalpel)
 and reflowed the remaining pins on IC701.  And this did the job!  After yet
-another re-assembly of the console xStation booted correctly:
+another re-assembly of the console XStation booted correctly:
 
 <div class="thumbnail">
 <figure>
 [![](/images/posts/2023-03-35-installing-xstation/9_test_thumbnail.jpg)](/images/posts/2023-03-35-installing-xstation/9_test.jpg)
-<figcaption>After nearly 8 hours of work xStation finally works.</figcaption>
+<figcaption>After nearly 8 hours of work XStation finally works.</figcaption>
 </figure>
 </div>
 
-I copied a game image to an SD card, plugged it into xStation to make sure it
+I copied a game image to an SD card, plugged it into XStation to make sure it
 indeed works, and finally my work was done.  I started at noon and finished
 right before 8PM.  This was way longer than expected.  Note that the above
 account is an abridged one.  In fact, there was some trial and error when fixing
