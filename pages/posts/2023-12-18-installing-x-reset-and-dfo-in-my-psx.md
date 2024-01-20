@@ -14,7 +14,7 @@ Installing X-Reset and DFO mods in my PlayStation
 
 I recently wrote about [installing a GCLoader in a GameCube I
 own](2023-11-30-installing-a-gcloader-in-my-gamecube.html), but on the same day
-I installed two additional mods in my PlayStation: an [X-Reset
+I also installed two additional mods in my PlayStation: an [X-Reset
 mod](https://www.consolesunleashed.com/product/sony-playstation-x-reset-mod-kit/)
 and a [DFO
 mod](https://www.consolesunleashed.com/product/sony-playstation-dual-frequency-oscillator-mod-kit/),
@@ -32,8 +32,8 @@ X-Reset
 
 I already [installed XStation in my PSX](2023-03-35-installing-xstation.html),
 which is an optical drive emulator (ODE) that allows launching games from ISO
-images on an SD card.  While it's super convenient to have all games on a single
-memory card, there was a minor usability issue related to using XStation.
+images stored on an SD card.  While it's super convenient to have all games on a
+single memory card, there was a minor usability issue related to using XStation.
 Resetting the console to return to XStation's game selection menu required
 physically pushing button on the console.  Not a big deal, but somewhat annoying
 when you're sitting on a couch and want to quickly test a bunch of games.
@@ -77,8 +77,8 @@ Installing the mod is a bit tricky.  As you can see from the photos below the
 mod requires soldering four wires to the motherboard.  That's the simple part.
 The difficult part is desoldering a resistor in order to disconnect the GPU from
 the original frequency oscillator.  That resistor is located under the RF shield
-that covers top of the motherboard.  That RF shield needs to be desoldered and
-that was a difficult task.  I was unable to fully desolder it and resorted to
+that covers top of the motherboard.  The RF shield needs to be desoldered and
+this was a difficult task.  I was unable to fully desolder it and resorted to
 lifting it as much as possible to remove the resistor.  It worked, but I can't
 say I felt confident doing that.
 
