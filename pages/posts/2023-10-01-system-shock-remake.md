@@ -1,8 +1,6 @@
 ---
 title: System Shock remake
 date: 2023-10-01
-description: After years of troubled development System Shock remake is finally
-             here and it is one of the best immersive sims I have seen in years.
 ---
 
 System Shock remake

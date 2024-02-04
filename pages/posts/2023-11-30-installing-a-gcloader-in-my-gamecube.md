@@ -1,8 +1,6 @@
 ---
 title: Installing a GCLoader in my GameCube
 date: 2023-11-30
-description: I finally managed to buy a GCLoader ODE for my GameCube.  Here's a
-  quick report from the installation process.
 ---
 
 Installing a GCLoader in my GameCube

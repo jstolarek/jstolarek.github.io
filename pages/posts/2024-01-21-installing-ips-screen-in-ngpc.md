@@ -1,8 +1,6 @@
 ---
 title: Installing an IPS-screen in a NeoGeo Pocket Color
 date: 2024-01-20
-description: I have finally installed a modern IPS screen in my NeoGeo Pocket
-  Color and I'm having a blast with it.
 ---
 
 Installing an IPS-screen in a NeoGeo Pocket Color

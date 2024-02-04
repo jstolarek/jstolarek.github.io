@@ -1,10 +1,6 @@
 ---
 title: Proton is detrimental to Linux as a gaming platform
 date: 2023-11-27
-description: In the early 2010s Linux was on a good path towards being
-    recognized as a first-class gaming platform.  Sadly, the appearance of
-    Proton killed native game ports and reversed the trend of supporting Linux
-    by game developers.
 ---
 
 Proton is detrimental to Linux as a gaming platform

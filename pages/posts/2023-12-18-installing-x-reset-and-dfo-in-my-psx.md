@@ -1,8 +1,6 @@
 ---
 title: Installing X-Reset and DFO mods in my PlayStation
 date: 2023-12-18
-description: I installed two additional mods in my PlayStation&#58; X-Reset and
-  DFO.
 ---
 
 Installing X-Reset and DFO mods in my PlayStation

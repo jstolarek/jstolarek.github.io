@@ -11,7 +11,231 @@
         <item>
     <title>Installing an IPS-screen in a NeoGeo Pocket Color</title>
     <link>https://jstolarek.github.io/posts/2024-01-21-installing-ips-screen-in-ngpc.html</link>
-    <description><![CDATA[I have finally installed a modern IPS screen in my NeoGeo Pocket Color and I'm having a blast with it.]]></description>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 20/01/2024
+    </section>
+    <section>
+        <h1 id="installing-an-ips-screen-in-a-neogeo-pocket-color">Installing an IPS-screen in a NeoGeo Pocket Color</h1>
+<p>About a year ago I bought two rather obscure handheld consoles: a NeoGeo Pocket
+Color (NGPC) and a WonderSwan Color (WSC). Both were competitors to the GameBoy
+Color (GBC) and both lost. Due to their smaller popularity they are not as well
+known as the GameBoy and also command higher prices today, since there were
+fever of them produces. Also, neither the NGPC nor the WSC had a backlit
+screen, so in order to be used comfortably they need an IPS mod. Today I will
+write about installing a modern IPS panel in the NGPC.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/original_screen_1.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/original_screen_1_thumbnail.jpg" /></a>
+<figcaption>
+Original screen is usable only when under direct light.
+</figcaption>
+</figure>
+</div>
+<p>Before moving on there’s an important disclaimer. NeoGeo Pocket comes in three
+versions. There’s the original NeoGeo Pocket with a monochrome screen. It was
+on the market for about a year (1998-1999) and never officially left Japan.
+Then there is the NeoGeo Pocket Color that I will be talking about in this post.
+It was distributed worldwide, even if only for a couple of months, but mine is a
+Japanese unit. Finally, there’s a smaller version of NGPC, officially known as
+the New NeoGeo Pocket Color. These days people commonly refer to it as NGPC
+Slim. Due to smaller size NGPC Slim is more difficult to mod.</p>
+<h2 id="about-the-mod">About the mod</h2>
+<p>When modding the GameBoys I usually rely on parts from FunnyPlaying. However,
+they only offer mods for the GameBoys. Looking at the online retro communities
+it seems that when it comes to the NeoGeo Pocket people tend to order from the
+<a href="https://pl.aliexpress.com/store/5374188">Cloud Game Store</a> on AliExpress. And
+so I bought from them an IPS panel mod as well as a new replacement shell. The
+choice of shells isn’t great to be honest. I went with a transparent black
+shell and also ended up installing original black buttons from my console,
+instead of clear transparent ones that came with the kit. Moreover, both the
+IPS panel and the shell are noticeably more expensive than in case of the
+GameBoys.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kit_parts.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kit_parts_thumbnail.jpg" /></a>
+<figcaption>
+Kit parts.
+</figcaption>
+</figure>
+</div>
+<h2 id="installing-the-screen">Installing the screen</h2>
+<p>For the most part installation is straightforward. First step is disassembly:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_1.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_1_thumbnail.jpg" /></a>
+<figcaption>
+Original screen is solidly attached to the shell. Note the metal
+backplate.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_2.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_2_thumbnail.jpg" /></a>
+<figcaption>
+These foam spacers need to be disassembled to make the new screen fit.
+</figcaption>
+</figure>
+</div>
+<p>The first tricky bit is the metal cover separating the cartridge slot and the
+main board. The one that comes with the kit doesn’t fit the shell very well so
+I had to re-use the original one. However, reusing original screws was not a
+good idea, as the screw holes are significantly smaller on the replacement
+shell.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover_thumbnail.jpg" /></a>
+<figcaption>
+Metal slot cover I got with the shell didn’t fit very well.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover_screws.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover_screws_thumbnail.jpg" /></a>
+<figcaption>
+Original screws are too big for the new shell and it just cracks.
+</figcaption>
+</figure>
+</div>
+<p>Installing the screen itself turned out to be tricky. There is no spacing
+bracket so one has to rely on a small plastic spacer and a piece of foam
+provided with the kit. This is far from perfect. There is also a dust seal to
+be used to permanently attach the IPS panel to the shell. However, the IPS
+panel is quite narrow and so it only attaches to the top and bottom of the seal,
+making it possible for the dust to come in from the sides. Also, at first I
+couldn’t figure out the orientation of the panel, since it’s nearly square is
+shape.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_1.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_1_thumbnail.jpg" /></a>
+<figcaption>
+A plastic spacer on the right, a foam spacer on the left.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_2.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_2_thumbnail.jpg" /></a>
+<figcaption>
+IPS panel and the controller board secured in place.
+</figcaption>
+</figure>
+</div>
+<p>The board needs to be powered directly from the battery, which is done with an
+extra wire. Installation instructions say to just wrap the wire around the
+battery contact, but I decided to solder it contact point on the board instead.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/power_wire.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/power_wire_thumbnail.jpg" /></a>
+<figcaption>
+Power wire soldered to a battery contact on the board. Note also a
+touch sensor at the top.
+</figcaption>
+</figure>
+</div>
+<p>With the power wire in place the shell is ready for final assembly. At this
+point the touch sensor needs to carefully aligned so that it touches the top of
+the shell. It will allow adjusting the brightness as well as selecting one of
+several available scanline modes. There are horizontal and vertical ones, as
+well as a retro-pixel grid. Personally, I found scanlines to be way too dark so
+I have them turned off. It is also possible to switch the screen to a
+monochrome mode.</p>
+<p>Here’s the finished build:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kof.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kof_thumbnail.jpg" /></a>
+<figcaption>
+King of Fighters R-2.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ms2.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ms2_thumbnail.jpg" /></a>
+<figcaption>
+Metal Slug 2nd Mission.
+</figcaption>
+</figure>
+</div>
+<p>A few quick thoughts on this kit:</p>
+<ol type="1">
+<li>Shell quality is good, but the fit could be somewhat better. The top of
+the shell isn’t as tight as it should be, no matter how tightly I fix the
+screws.</li>
+</ol>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_left.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_left_thumbnail.jpg" /></a>
+<figcaption>
+Left edge of the shell. The fit is tight here.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_top.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_top_thumbnail.jpg" /></a>
+<figcaption>
+Top edge of the shell. Front and back don’t come together as tight
+as they should.
+</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li><p>In order to get the speaker to fit I had to remove its metal protective
+cover.</p></li>
+<li><p>I messed up when attaching the lens and left a fingerprint underneath it.
+What I learned is that once the lens is removed with a suction cup it can
+be attached again, so I was able to get that fingerprint removed without
+having to get a new lens.</p></li>
+<li><p>I am yet to determine the battery life of the modded system. I had the
+console power off without a warning a couple of times. The original system
+supposedly runs for as long as 40 hours on a pair of AA batteries, but an
+IPS panel and a flashcart certainly reduce that time. I hope this
+unexpected powering off isn’t a sign of a deeper problem.</p></li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>Over the course of time I was able to get a couple of original games for the
+system (sadly, cartridges only - no boxes) but I also got a <a href="https://www.retrotowers.co.uk/flash-carts/neopocket-gamedrive">NeoPocket
+GameDrive</a>
+flashcart. Without a flashcart it’s really difficult to enjoy the system since
+the game prices for NGPC are very high. Compared to the Everdrive cartridges
+from Krikzz, the GameDrive is moderately convenient to use. It has 15MB of
+flash memory and the games need to be loaded from an SD card into that memory
+before they can be played. Once a game is loaded it stays in flash until you
+delete it. 15 MB is enough to store several games, but the flashing process is
+very slow, so if you want to play multiple titles you might find yourself
+waiting quite a lot.</p>
+<p>As for the games themselves I was afraid that NGPC will be nothing more than an
+expensive curiosity, but it actually has quite a lot to offer. At least for a
+NeoGeo MVS fan like myself. I spent a lot of time playing arcade titles such as
+Metal Slug, King of Fighters, Samurai Shodown, and The Last Blade. All of these
+titles have their NGPC ports, though calling them “ports” is a bit of a stretch.
+Today we would call them demakes. Regardless of how we call them however, they
+are a blast to play. I was genuinely surprised that despite simple graphics -
+the character sprites consist of only three colours - The Last Blade plays just
+like in the arcade version. Same goes for King of Fighters and SNK vs. Capcom.
+These games are so enjoyable not only because of how responsive they are and how
+accurately they recreate the arcade feel of original titles, but also thanks to
+the joystick that the NGPC uses. Instead of the usual D-pad the console has a
+small, clicky joystick, and that joystick makes it possible to easily execute
+all the tricky inputs required in fighting games. This is in stark contrast
+with, say, GameBoy Advance, which offers arcade-perfect ports of King of Fighters
+games, but the D-pad makes it nearly impossible to reliably execute any special
+moves.</p>
+<p>Also I’d love to be able to play some fighting games in the Versus mode between
+two consoles. This doesn’t seem likely though, given that link cables to
+connect two consoles are practically unavailable on the second-hand market. And
+when they are they sell for well over a hundred dollars.</p>
+<p>That being said, I will certainly be looking to get one more NeoGeo Pocket, this
+time possibly a Slim variant. This console has certainly turned out to be much
+more than I expected.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
     <pubDate>20/01/2024</pubDate>
     <guid>https://jstolarek.github.io/posts/2024-01-21-installing-ips-screen-in-ngpc.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
@@ -19,7 +243,145 @@
 <item>
     <title>Installing X-Reset and DFO mods in my PlayStation</title>
     <link>https://jstolarek.github.io/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx.html</link>
-    <description><![CDATA[I installed two additional mods in my PlayStation&#58; X-Reset and DFO.]]></description>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 18/12/2023
+    </section>
+    <section>
+        <h1 id="installing-x-reset-and-dfo-mods-in-my-playstation">Installing X-Reset and DFO mods in my PlayStation</h1>
+<center>
+<strong>DISCLAIMER:</strong> This post is not intended to serve as installation tutorial.
+</center>
+<p>I recently wrote about <a href="2023-11-30-installing-a-gcloader-in-my-gamecube.html">installing a GCLoader in a GameCube I
+own</a>, but on the same day
+I also installed two additional mods in my PlayStation: an <a href="https://www.consolesunleashed.com/product/sony-playstation-x-reset-mod-kit/">X-Reset
+mod</a>
+and a <a href="https://www.consolesunleashed.com/product/sony-playstation-dual-frequency-oscillator-mod-kit/">DFO
+mod</a>,
+both purchased from <a href="https://www.consolesunleashed.com/">Consoles Unleashed</a>.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/x-reset-and-dfo.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/x-reset-and-dfo_thumbnail.jpg" /></a>
+<figcaption>
+X-Reset on the left and DFO on the right.
+</figcaption>
+</figure>
+</div>
+<h1 id="x-reset">X-Reset</h1>
+<p>I already <a href="2023-03-35-installing-xstation.html">installed XStation in my PSX</a>,
+which is an optical drive emulator (ODE) that allows launching games from ISO
+images stored on an SD card. While it’s super convenient to have all games on a
+single memory card, there was a minor usability issue related to using XStation.
+Resetting the console to return to XStation’s game selection menu required
+physically pushing button on the console. Not a big deal, but somewhat annoying
+when you’re sitting on a couch and want to quickly test a bunch of games.
+X-Reset fixes that by adding button combinations to the controller that allow to
+reset both the game (back to the title screen) and the console (back to
+XStation’s game selection menu). Installation of X-Reset requires soldering a
+small QSB (quick solder board) to the bottom of the motherboard.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/x-reset-preperation.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/x-reset-preperation_thumbnail.jpg" /></a>
+<figcaption>
+Fixing the QSB in place with Kapton tape before soldering.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/x-reset-installed.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/x-reset-installed_thumbnail.jpg" /></a>
+<figcaption>
+X-Reset soldered to the motherboard. Note a poor solder joint in
+the middle.
+</figcaption>
+</figure>
+</div>
+<h1 id="dfo">DFO</h1>
+<p>I have a PAL-region console, where the games were timed to run at 50Hz.
+Obviously, playing at 60Hz results in smoother experience and a PAL PlayStation
+with XStation installed can actually switch to displaying 60Hz signal when
+running NTSC games<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. However, when a PAL console runs an NTSC game the GPU
+timings are slightly incorrect, resulting in a refresh rate that’s off by around
+1 percent. This is rather unnoticeable, but certain games will not work because
+of that difference.</p>
+<p>This can be fixed with a DFO mod. DFO stands for Dual Frequency Oscillator. As
+the name suggests, it allows to automatically<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> supply different GPU timings
+depending on the game region, thus ensuring that games run at correct speed both
+in 50Hz and 60Hz.</p>
+<p>Installing the mod is a bit tricky. As you can see from the photos below the
+mod requires soldering four wires to the motherboard. That’s the simple part.
+The difficult part is desoldering a resistor in order to disconnect the GPU from
+the original frequency oscillator. That resistor is located under the RF shield
+that covers top of the motherboard. The RF shield needs to be desoldered and
+this was a difficult task. I was unable to fully desolder it and resorted to
+lifting it as much as possible to remove the resistor. It worked, but I can’t
+say I felt confident doing that.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/rf-shield.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/rf-shield_thumbnail.jpg" /></a>
+<figcaption>
+That metal plate is the RF shield. It is fixed to the board with
+large blobs of solder that are difficult to remove.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/removed-resistor.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/removed-resistor_thumbnail.jpg" /></a>
+<figcaption>
+I managed to lift the RF shield just enough to remove the resistor.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/dfo-installed.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/dfo-installed_thumbnail.jpg" /></a>
+<figcaption>
+Soldering the DFO board is the easy part.
+</figcaption>
+</figure>
+</div>
+<h1 id="summary">Summary</h1>
+<p>Both mods required fairly simple soldering. I’ve certainly done more
+complicated mods, but this time something went wrong and I really messed up the
+solder joints. They hold, but they don’t turned out the way they should.
+Either my soldering iron is giving out or I messed up when using rosin, which I
+hadn’t used previously.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/bad-soldering.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/bad-soldering_thumbnail.jpg" /></a>
+<figcaption>
+Poor quality solder joints. I fixed them after taking these photos
+but they are still not as good as they should be.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/all-mods.jpg"><img src="/images/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx/all-mods_thumbnail.jpg" /></a>
+<figcaption>
+Bottom of my PlayStation’s motherboard. The large QSB on the left
+is from previously installed XStation.
+</figcaption>
+</figure>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I am committing a crime here by equating PAL with 50Hz refresh rate and
+NTSC with 60Hz refresh rate. There is a common misconception that PAL and
+NTSC standards prescribe a particular refresh rate, but that is not the
+case. Both PAL and NTSC are colour coding standards and nothing else.
+They do not define refresh rates.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>I am very curious how that actually works. How does a simple mod
+connected with only four cables recognize the game region?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
     <pubDate>18/12/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-12-18-installing-x-reset-and-dfo-in-my-psx.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
@@ -27,7 +389,143 @@
 <item>
     <title>Installing a GCLoader in my GameCube</title>
     <link>https://jstolarek.github.io/posts/2023-11-30-installing-a-gcloader-in-my-gamecube.html</link>
-    <description><![CDATA[I finally managed to buy a GCLoader ODE for my GameCube.  Here's a quick report from the installation process.]]></description>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 30/11/2023
+    </section>
+    <section>
+        <h1 id="installing-a-gcloader-in-my-gamecube">Installing a GCLoader in my GameCube</h1>
+<p>I got a GameCube towards the end of my stay in the UK, in late 2021. Right from
+the start I wanted to mod it with a
+<a href="https://gc-loader.com/product/gc-loader-pnp-hw2/">GCLoader</a>, which is an ODE
+(Optical Drive Emulator) that replaces the original DVD drive, but it was
+permanently out of stock. This was due to chip shortage caused by the pandemic,
+followed by the FPGA chip used in the GCLoader going completely out of
+production. As a stop-gap solution I had to install a <a href="https://www.consolesunleashed.com/product/nintendo-gamecube-region-free-mod-kit/">Xeno
+modchip</a>
+on the main board of the DVD drive:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/modchip.jpg"><img src="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/modchip_thumbnail.jpg" /></a>
+<figcaption>
+Xeno modchip secured with Kapton tape.
+</figcaption>
+</figure>
+</div>
+<p>A quick note on the photo above. As you can see the modchip is soldered
+directly onto the DVD drive board, exactly as it was designed to be installed.
+This required some fine soldering, with some solder points being less than 0,3mm
+away from each other. I was advised to install the modchip not by soldering it
+onto the board, but by soldering wires onto the contact points on the board and
+then connecting these wires to the modchip. I ignored this advice, which I now
+regret a bit. Having the modchip on wires would make it trivial to remove it,
+and thus allow to easily restore the drive to its original state. De-soldering
+the modchip from the board itself is a lot more complicated and I am not going
+to risk it.</p>
+<p>Installing the modchip allowed me to launch <a href="https://github.com/emukidid/swiss-gc">Swiss
+homebrew</a> from a burned DVD, which then
+automatically booted into the latest version of Swiss installed on a microSD
+card inside an <a href="https://github.com/citrus3000psi/SD2SP2">SD2SP2 adapter</a>. From
+a functionality perspective this setup provided everything I needed.</p>
+<p>Recently the GCLoader was redesigned to use the currently available FPGA chip
+and the ODE once again became available for purchase. Production batches are
+small and they sell out very quickly. Luckily, they are announced in advance
+and I managed to grab one unit in early November.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/gcloader.jpg"><img src="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/gcloader_thumbnail.jpg" /></a>
+<figcaption>
+The GCLoader, revision 2.
+</figcaption>
+</figure>
+</div>
+<p>In the light of what I said above about the modchip and SD2SP2 setup it is right
+to ask whether switching to a GCLoader makes any sense. After all, it doesn’t
+provide any new functionality and it takes away the ability to run games from
+original discs. Not to mention the cost of the ODE itself. These are all fair
+points. However, GameCubes in recent years have seen frequent drive failures
+due to decaying capacitors and I wanted to preempt such a failure on my console.
+I should probably just recap the drive, but this is something I still don’t feel
+confident with and want to avoid recapping if possible.</p>
+<p>Installing the GCLoader is simple since it doesn’t require any soldering. All
+it takes are a couple of screwdrivers, with the only caveat being the need for a
+<a href="https://en.wikipedia.org/wiki/List_of_screw_drives#Line_Head_and_Line_Recess">Gamebit</a>
+screwdriver.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/console-disassembled.jpg"><img src="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/console-disassembled_thumbnail.jpg" /></a>
+<figcaption>
+Disassembly is very straightforward. That’s the motherboard with a heatsink.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/parts.jpg"><img src="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/parts_thumbnail.jpg" /></a>
+<figcaption>
+And these are all the other parts, including a GameBoy Player and a network adapter.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/installation-in-progress.jpg"><img src="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/installation-in-progress_thumbnail.jpg" /></a>
+<figcaption>
+GCLoader attached to the drive mounting plate.
+</figcaption>
+</figure>
+</div>
+<p>The only tricky bit is attaching the GCLoader to a metal plate on which the DVD
+drive normally sits (last photo). The screws need to be a bit loose to allow
+the GCLoader to move freely. This is because the holes in the plate are larger
+than the GCLoader screws and so it is possible to move it around by about 1mm in
+each direction. If it is fixed in a position that does not align with the port
+on the main board there is a risk that resulting forces will eventually break
+the solder points on either the GCLoader or the motherboard. By leaving the
+screws slightly loose the GCLoader can easily move to the right position.</p>
+<p>And here is the console right before final assembly:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/final-reassembly.jpg"><img src="/images/posts/2023-11-30-installing-a-gcloader-in-my-gamecube/final-reassembly_thumbnail.jpg" /></a>
+<figcaption>
+Final reassembly, just before installing top of the console case.
+</figcaption>
+</figure>
+</div>
+<p>As you can see I installed a 3D printed SD mount on top of the GCLoader. Being
+optimistic about the GCLoader availability, I got the SD mount shortly after I
+bought the console. The SD mount waited for over two years in my drawer and I
+am glad I can finally make use of it. I can’t remember where I bought the SD
+mount, but I remember it was quite expensive. However, the plastic is of such a
+high quality that I think this expense was fully justified.</p>
+<p>After assembling the console I downloaded the latest Swiss and placed it on an
+SD card as a <code>boot.iso</code> file. What really surprised me was that Swiss
+recognized the outdated firmware of the GCLoader and informed me about the
+available update. There is no way the console can download the update since it
+has no Internet connectivity<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but the fact that a sufficiently new version
+of Swiss recognizes an outdated firmware is really neat.</p>
+<p><strong>(UPDATE 10/12/2023):</strong> I ran into one small problem with the GCLoader, namely
+slow loading times. In Swiss, when the game is loaded it is patched on the fly.
+I’m not sure why, but that’s how it works. When I was launching the games using
+SD2SP2 this patching and loading took around 5-6 seconds. With GCLoader it
+takes around 25 seconds, which is noticeably longer. The solution to the
+problem was to upgrade firmware from 1.0.1 to latest 1.1.0.BETA release. This
+reduces the loading times to around 3 seconds, making the GCLoader slightly
+faster than SD2SP2, as it should be.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>As you have seen in the above photos, I actually have a GameCube network
+adapter. I bought it recently during a trip to London. However, it is
+more of a curiosity though, since there were only a couple of games that
+made use of online features.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
     <pubDate>30/11/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-11-30-installing-a-gcloader-in-my-gamecube.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
@@ -35,7 +533,176 @@
 <item>
     <title>Proton is detrimental to Linux as a gaming platform</title>
     <link>https://jstolarek.github.io/posts/2023-11-27-proton-is-detrimental-to-linux-as-a-gaming-platform.html</link>
-    <description><![CDATA[In the early 2010s Linux was on a good path towards being recognized as a first-class gaming platform.  Sadly, the appearance of Proton killed native game ports and reversed the trend of supporting Linux by game developers.]]></description>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 27/11/2023
+    </section>
+    <section>
+        <h1 id="proton-is-detrimental-to-linux-as-a-gaming-platform">Proton is detrimental to Linux as a gaming platform</h1>
+<h2 id="the-old-days">The old days</h2>
+<p>I have this vivid memory stuck in my head. It is late 2010, right at the start
+of a cold Polish winter. It is dark and windy outside. I am sitting at my
+then-girlfriend’s room with a laptop and playing <a href="https://www.puppygames.net/revenge-of-the-titans/">Revenge of the
+Titans</a>, a fast-paced tower
+defence indie game with a good sense of humour. Most importantly, I am playing
+on Linux and the game runs natively.</p>
+<p>I bought Revenge of the Titans as part of Humble Indie Bundle 2, a gaming
+initiative aiming at rising popularity of indie games, which back in 2010 were
+considered more of a curiosity rather than serious gaming experiences. Aside
+from the already mentioned Revenge of the Titans, Humble Indie Bundle 2
+consisted of five games - Machinarium, Osmos, Cortex Command, and, possibly the
+most famous of them all, Braid - that could be purchased by paying as much (or
+as little) as one wanted. Perhaps most surprising of all, the games were
+available for all desktop platforms (Windows, Linux, macOS) and were DRM-free.
+This was groundbreaking and for me, as a Linux user, being recongnized as a
+first-class customer was a big deal.</p>
+<p>What did gaming on Linux look like in 2010? Well, it wasn’t great. It was rare
+to see a major title ported to Linux, though it did happen. Id Software was at
+the forefront of providing quality Linux ports for their games. In fact, one of
+the reasons I switched from using Windows to Linux around 2004 was that on my
+dated PC Quake III performed better on Linux than it did on Windows. I really
+want to stress this: <strong>frame rates were higher on Linux!</strong> In 2010 indie games
+had not gained popularity yet, but a handful of titles that existed often had
+Linux ports. Finally, there was Wine, which allowed launching some of the
+Windows games.</p>
+<p>The fact that Humble Indie Bundle provided funding for the developers to port
+their games to Linux and macOS<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> felt like an important step towards adopting
+Linux as a first-class gaming platform. The future of Linux gaming seemed
+bright.</p>
+<h2 id="how-proton-eliminated-native-linux-builds">How Proton eliminated native Linux builds</h2>
+<p>Fast-forward 13 years to 2023. What does Linux gaming look like today? At
+first glance it might seem things got better. Last year Valve, owner of the
+world’s most popular gaming platform Steam, released Steam Deck, a Linux-based
+portable PC. For years <a href="https://old.reddit.com/r/linux_gaming/comments/ri2nb4/valve_seems_to_do_its_best_to_release_games_on/hov609f/">Valve has pushed for the ability to run Windows games
+on Linux</a>.
+To this end in 2018 Valve released
+<a href="https://github.com/ValveSoftware/Proton">Proton</a>, a fork of Wine with a custom
+set of patches and a bundle of extra libraries such as
+<a href="https://github.com/doitsujin/dxvk">dxvk</a>. Proton ships with Steam Client and
+can be used on Linux to run Windows-only games. There is a set of games that
+have been certified to run with Proton, but it is also possible to run games
+that received no such certification - you’re just not guaranteed they will
+actually run.</p>
+<p>This might sound good at first, but for me this push for Proton resulted in
+degradation of gaming experience on Linux. First and foremost, <strong>Proton is
+closely tied to Steam, and that is a platform I just refuse to use due to its
+inherent DRM</strong>. I like to own things I pay for, and that is not the case with
+games purchased on Steam. I would lie if I said I have never bought a game on
+Steam, but I certainly can’t remember when was the last time I did.</p>
+<p>Secondly, <strong>the existence of Proton became an excuse for the developers not to
+publish native Linux ports</strong>. See
+<a href="https://www.rockpapershotgun.com/steam-decks-proton-a-total-war-saga">here</a> and
+<a href="https://www.gamingonlinux.com/2022/02/feral-interactive-have-no-plans-to-update-their-linux-ports-for-steam-deck/">here</a>
+for examples, and <a href="https://nuclearmonster.com/2021/07/ethan-flibitijibibo-lee-may-retire-from-programming-due-to-valves-proton/">this interview with Ethan
+Lee</a>
+for some more insights from an experienced Linux porter. I can’t recall when
+was the last time I played a non-indie game natively. I think it was Alien:
+Isolation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Even indie games, which in the past used to fight for every
+customer they can, usually don’t have a Linux port these days or deliver that
+port a long time after the game’s original release. One good example is Into
+the Breach, a highly-acclaimed indie title which was released in February 2018
+and had a Linux port over two years later in April 2020.</p>
+<p>It seems to me that Valve has gained quite a big following in certain parts of
+the Linux community, and that many people consider the current state of affairs
+to be a good one. One of the most commonly seen arguments is: <strong><em>“If a game
+runs fine on Proton then there is no point in making a native port”</em>. The
+problem with this argument is that the <em>if</em> premise of this statement is
+false.</strong> A lot of games do not run well, or at all, with Proton. Moreover, even
+if a game runs fine on the release, there is absolutely no guarantee that it
+will stay this way. In the past there have been many situations when changes
+introduced in a game patch or Proton broke a game.</p>
+<p>Proton supposedly can be run without a Steam client, which to some extent would
+invalidate my earlier criticism of being tied to one particular storefront.
+However, despite multiple attempts, I have never succeeded in doing that. I
+tried running Proton standalone, just like I run Wine, as well as using various
+frontends such as <a href="https://lutris.net/">Lutris</a> and
+<a href="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher">Heroic</a>. Every
+single time the only result was me wasting several hours of my time. Note that
+I am somewhat knowledgeable and have experience with things such as compiling
+Wine with custom patches applied to run specific games. I am willing to put the
+effort into getting games to run on Linux, but so far I had no success with
+Proton and had only wasted my time.</p>
+<h2 id="whining-about-wine">Whining about Wine</h2>
+<p>Aside from Proton there is also Wine. As typical for an open source project, it
+is being distributed through distribution repositories, making it trivial to
+install and run. However, gaming experience with Wine is not all that great.</p>
+<p>Firstly, Wine suffers from the same problem as Proton, where an update can
+completely break a previously working game. My favourite example is Starcraft
+II, a major game that has been on the market since 2010 and not long after its
+release was marked as <a href="https://appdb.winehq.org/objectManager.php?bShowAll=true&amp;bIsQueue=false&amp;bIsRejected=false&amp;sClass=version&amp;sTitle=&amp;sReturnTo=&amp;iId=20882">Platinum in Wine AppDB compatibility
+list</a>.
+Since then it has been broken multiple times either by new game patches or
+changes to Wine. Just take a look at that compatibility list linked above -
+some people rate the game as running perfectly, while others mark it as garbage.
+I personally was hit by a patch that broke Starcraft II earlier this year and
+was only saved by a determined redditor who found an obscure workaround to the
+problem.</p>
+<p>Windows compatibility that Wine aims for is a moving target. As such there is
+little stability in Wine, and whether things work for you or not is often down
+to pure luck. My personal success rate in the last two years is maybe around
+30%. The most recent game I tried to run was <a href="2023-10-01-system-shock-remake.html">System Shock
+remake</a>. Surely enough, many people report
+it as running perfectly out of the box under vanilla Wine, but I had no such
+luck and gave up after numerous attempts that took me several hours (around a
+third of the time needed to actually finish the game). This is all despite a
+hardware configuration that had no problems running the game under Windows at
+60FPS on highest detail settings. The best I could get under Wine was running
+System Shock in slow motion at around 5 frames per second<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Anyway, while Wine is great for preserving old games, it isn’t really a good
+gaming platform for currently released games.</p>
+<h2 id="better-tomorrow-was-yesterday">Better tomorrow was yesterday</h2>
+<p>In this post I only scratched the surface of the problem, but I wanted to get my
+opinion out there: <strong>in the long term the existence of Proton hurts Linux as a
+gaming platform.</strong></p>
+<p>Of course one might ask whether the lack of native ports is really caused by
+Valve? Perhaps Linux is too small a market and porting games to it is not
+financially viable? When writing this post I read several interviews with indie
+developers who release their games on Linux and they all consistently claim that
+a Linux release, <em>when done right</em>, is profitable and not a problem to maintain
+(see <a href="https://www.forbes.com/sites/jasonevangelho/2019/08/07/porting-games-to-linux-is-a-waste-of-time-this-game-developer-says-youre-doing-it-wrong/?sh=7c313d602c16">here</a> and
+<a href="https://www.tumblr.com/system76/654884924769370112/developing-games-on-linux-an-interview-with">here</a>).</p>
+<p>One interesting point I came across while doing research for this post was that
+having poorly made Linux ports can be even worse than not having them at all
+(for example, <a href="https://old.reddit.com/r/linux_gaming/comments/t2t7ba/a_problem_with_linux_native_ports_and_how_it_may/">this reddit
+post</a>).
+This is certainly a valid point and I am not arguing for having just any kind of
+native ports. I want to see good ones, such as ports released by Id software in
+the early 2000s.</p>
+<p>All of this is particularly sad, given that creating a native Linux port was
+never as easy as it is today. Many game engines support Linux out-of-the-box
+and the primary thing a developer needs to do is not shoot themselves in the
+foot by using Windows-only middleware. I personally had great experiences with
+<a href="https://haxe.org/">Haxe</a> language and <a href="https://heaps.io/">heaps.io</a> engine
+<a href="https://github.com/jstolarek/ldjam-46">during a game jam</a>, when me and my
+friends managed to create builds not only for Windows, Linux, and Mac, but also
+a native ARM build for Raspberry Pi. Granted, heaps.io is not a mainstream game
+engine, but it has several great success stories, most famous of which is <a href="https://deadcells.com/">Dead
+Cells</a>. Most importantly, Unity does support Linux.</p>
+<p>I do not have much hope that the trend of not supporting gaming on Linux will
+reverse anytime soon. For now I am forced to play on Windows a lot more
+frequently than a decade ago, and it feels like a huge step back for Linux.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I need to mention Limbo, which was part of Humble Indie Bundle V. Limbo
+did not have a native port and ran via Wine, which was a source of
+disappointment for many Linux users.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Alien: Isolation is one of those rare cases where I bought a game on
+Steam. Sadly, the <a href="https://www.gog.com/en/game/alien_isolation">DRM-free release on
+GOG</a> only contains a Windows
+version and no Linux version.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>By the way, System Shock remake is another example where the developer
+doesn’t care about providing a native Linux port, despite it being funded
+as the first stretch goal in the 2016 Kickstarter campaign. But of course
+that campaign before Proton, and now Nightdive Studios doesn’t even bother
+to keep their promise.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
     <pubDate>27/11/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-11-27-proton-is-detrimental-to-linux-as-a-gaming-platform.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
@@ -440,7 +1107,390 @@ into Google account on the phone.<a href="#fnref4" class="footnote-back" role="d
 <item>
     <title>System Shock remake</title>
     <link>https://jstolarek.github.io/posts/2023-10-01-system-shock-remake.html</link>
-    <description><![CDATA[After years of troubled development System Shock remake is finally here and it is one of the best immersive sims I have seen in years.]]></description>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 01/10/2023
+    </section>
+    <section>
+        <h1 id="system-shock-remake">System Shock remake</h1>
+<p>System Shock is a franchise that has been very influential artistically and at
+the same time not a great commercial success. Since the latter is the more
+important factor in deciding which games get made it is no surprise that up
+until recently we’ve only seen two entries in the series: the original System
+Shock from 1994 and its sequel System Shock 2 from 1999. That has recently
+changed with the release of the long awaited System Shock remake, which I
+finished playing a few evenings ago.</p>
+<p>Before I talk about the remake let’s quickly revisit two previous games and why
+they were important. System Shock games belong to the immersive sim genre,
+which is typically characterized by non-linear gameplay combined with emphasis
+on exploration, permitting players to solve problems in different ways
+(e.g. direct confrontation vs. stealth), and RPG elements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In addition to
+that, System Shock is a cyberpunk survival horror where you face a rogue AI
+known as SHODAN, possibly one of the most known villains in video gaming. Other
+immersive sims you might have heard about are the first Deus Ex, BioShock (a
+spiritual successor to System Shock that has been both critically and
+financially successful), and Dishonored.</p>
+<p>To me personally System Shock is an important series, though I somewhat feel I
+am not entitled to saying this. That’s because I didn’t really play the first
+System Shock. As for System Shock 2 I never finished it despite several
+attempts at doing so, including a co-op one over the network some 20 years ago.
+SS2 was just too difficult for me, the main problem being enemies that kept
+respawning if one did not move forward quickly enough. I remember having my
+ammo supplies depleted and attempting to fight my way through with melee
+weapons, which at some point was just not possible since enemies were too tough.
+But despite these failures at completing the game I spent many hours with it,
+and its cyber-horror atmosphere was very influential on me. It got me to name
+my computers after rogue AIs from science-fiction works, a habit that I’ve been
+faithful to for the past two decades and including well-known characters like
+SHODAN or GLaDOS, as well as more obscure ones such as
+<a href="https://soma.fandom.com/wiki/WAU">WAU</a>.</p>
+<h2 id="short-history-of-long-development">Short history of long development</h2>
+<p>Let’s quickly talk about how the System Shock remake came to be. It was first
+announced to the public in 2016, when a <a href="https://www.kickstarter.com/projects/1598858095/system-shock/">Kickstarter
+campaign</a> was
+launched by Nightdive Studios to fund the development. Importantly, the
+campaign was accompanied by a playable demo of the game that demonstrated that
+the team has both a vision of what the game should be as well as skills needed
+to bring that vision to life. All it needed was time and money. System Shock
+is a beloved franchise for many and the campaign ended in a success, totalling
+1.35M dollars out of 0.9M dollars requested, exceeding the requested funds by a
+50% margin. Funding was secured, vertical slice already implemented and the
+release date set for late 2017 ‒ what could possibly go wrong?</p>
+<p>Apparently, a lot. I feel the development history of System Shock remake will
+be written about in books<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. A brief summary is that the team attempted to
+expand the scope of the project and ran out of money. Development was put on
+hold, with Nightdive Studios searching for partners that would help fund the
+game. System Shock missed seven release dates. Some of them in a very bad
+style with announced date passing without a single word from the developer about
+yet another delay. These delays as well as other things that happened during
+development have been detailed by user Shoot Man on GOG.com forums
+<a href="https://www.gog.com/forum/system_shock_series/what_a_surprise_the_release_date_was_a_lie/page3">here</a>.
+Despite the predictions of some that claimed the game will never see a release,
+System Shock remake was finally released in May 2023<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. I am happy to say
+that despite troubled development it is a very good game.</p>
+<h2 id="a-great-immersive-sim">A great immersive sim</h2>
+<p>In System Shock you play as the Hacker. After a short opening sequence ‒
+which, by the way, I found confusing, having trouble figuring out what I need to
+do in the first room ‒ you wake up on the Medical deck of Citadel, a space
+station orbiting Saturn. You need to make your way through the station decks
+all the way to the bridge to stop the rogue AI SHODAN. What is beautiful about
+System Shock is lack of any explicit mission objectives and mission markers that
+would guide you by hand. It is up to you to explore the environment and piece
+together transmissions from few survivors on the station as well as audio logs
+of those who did not survive. In the end you are left with knowledge of <em>what</em>
+to do and it is up to you to find the required items and places where to make
+use of them.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/audio_log.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/audio_log_thumbnail.jpg" /></a>
+<figcaption>
+Audio logs are your primary source of information.
+</figcaption>
+</figure>
+</div>
+<p>The beginning of the game is difficult. You are short on ammo so getting
+through the initial decks requires relying heavily on basic melee weapons, pipe
+and wrench.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/pipe.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/pipe_thumbnail.jpg" /></a>
+<figcaption>
+Pipe is the first weapon you find right at the start of the game.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/wrench.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/wrench_thumbnail.jpg" /></a>
+<figcaption>
+Wrench is just slightly more powerful.
+</figcaption>
+</figure>
+</div>
+<p>Later these get replaced by a powerful Laser Rapier, which is one of the best
+weapons in the game. Its only downside is the fact that it’s a melee weapon,
+forcing you to get in close quarters with the enemy. This weapon is identical
+in spirit to Dragon’s Tooth sword from the first Deus Ex game.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/rapier.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/rapier_thumbnail.jpg" /></a>
+<figcaption>
+Laser Rapier is still very useful even on the final deck.
+</figcaption>
+</figure>
+</div>
+<p>Early in the game there’s also a shortage of healing items. You will find
+yourself backtracking very often to a surgery machine found in Medical to get
+your health fully restored.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/surgery_machine.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/surgery_machine_thumbnail.jpg" /></a>
+<figcaption>
+Surgery machines fully restore your health. Not every deck has one.
+</figcaption>
+</figure>
+</div>
+<p>At this point it should be clear that System Shock is not a first-person
+shooter. Yes, it has a first-person perspective. Yes, there is shooting. But
+this is not a game where you keep moving forward, ploughing through dozens of
+enemies while shooting left and right. Ammo tends to be in short supply and
+that always made me think twice before firing. Do I really need to shoot, or is
+there a more resource-efficient way of disposing of an enemy?</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/power_station.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/power_station_thumbnail.jpg" /></a>
+<figcaption>
+Aside from ammo you will need energy to power cybernetic upgrades and some weapons.
+</figcaption>
+</figure>
+</div>
+<p>Unlike many immersive sims, System Shock doesn’t really have significant RPG
+elements. You will find cybernetic upgrades throughout the game, ones that
+allow you to move faster, jump higher, withstand radiation, etc. But that’s as
+far as character progression goes. The only choices that you get to make that
+influence your playing experience are weapons. There are several types of hand
+arms, rifles, and heavier weapons, as well as mines and grenades. Additionally,
+most weapons have two ammo types or firing modes, as well as upgrades. This
+allows for a variety of play styles and tactics that can be employed against
+enemies. However, inventory space is limited and each weapon takes up space in
+that inventory. There is no way to carry every single weapon that you come
+across, especially given that ammo also takes up space. Hard choices have to be
+made and some weapons will get left behind. My standard armament was the DG-04
+Laser Rapier, Magnum 2100 Pistol (I ended up running out of ammo for it towards
+the end of the game), KF-18 Scorpion SMG, and, last but not least, EM-83 Grenade
+Launcher for dealing with heavy stuff. The grenade launcher is especially
+powerful when combined with EMP grenades, which can disable every enemy
+(including bosses!) for several seconds.</p>
+<p>Backtracking is an essential element of System Shock experience. Levels will be
+traversed back and forth, and revisited many times. Since the game does not
+guide you by hand, you also have a certain degree of freedom about the order in
+which to explore the decks. The first deck is Medical, followed by Research.
+From Research you can go either to the Reactor ‒ that was my choice,
+though I think I might have made the game slightly more difficult for myself
+‒ or Maintenance. Maintenance deck is the closest you’ll get to a central
+hub in System Shock. From it you can go further to Storage, Flight Deck, or
+Executive. Executive level provides access to remaining decks of Engineering,
+Security and the Bridge, which are traversed in linear order, with Security
+being the point of no return. Certain enemies will respawn, so backtracking
+isn’t entirely stress-free. However, game balance is much better than in System
+Shock 2, so you don’t run the risk of completely running out of ammo<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Also,
+most decks will have a respawn station that you can unlock to have your body
+rebuild when you die, allowing for infinite attempts at beating through the
+enemies, even if it’s only with a wrench. In fact at an early point in the
+game, at the Reactor deck, I had to resort to this technique. This was one
+point of the game that I found quite tedious and regretted my choice of
+difficulty settings.</p>
+<p>System Shock allows you to adjust the difficulty of four aspects of the game:
+combat, mission, puzzles and cyberspace. (More on the latter two in a moment.)
+Unfortunately, these settings can only be selected when starting a new game and
+cannot be changed later. As usual I went with medium settings and at several
+points in the game I regretted not going with easier combat. Having played
+through the game though I have a feeling of satisfaction and think that combat
+wasn’t really that tough for most of the time, and a few difficulty spikes make
+it all the more memorable.</p>
+<p>Aside from combat you will encounter two other types of challenges. First one
+is cyberspace. Throughout Citadel station there are cyberspace terminals that
+transport you to a gravity-less 3D cyberspace, where you can move freely and
+have to fight waves of enemies. (Remember Descent?) The goal is to destroy
+large crystals hidden inside, which typically results in opening previously
+locked doors in the real world.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/cyberspace_terminal.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/cyberspace_terminal_thumbnail.jpg" /></a>
+<figcaption>
+A cyberspace terminal.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/cyberspace_combat.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/cyberspace_combat_thumbnail.jpg" /></a>
+<figcaption>
+Cyberspace combat.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/cyberspace_exit.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/cyberspace_exit_thumbnail.jpg" /></a>
+<figcaption>
+Cyberspace exit already visible in the distance.
+</figcaption>
+</figure>
+</div>
+<p>Second type of challenges you’ll encounter are hacking puzzles. These come in
+two types. One requires rewiring a power board to deliver the desired power
+output. There are switches to redirect or cut off a path of energy, sum gates
+that add powers of incoming signals and multiplexer gates that split one path
+into two while retaining the power. The other type of puzzle requires
+connecting two buttons by rotating pipes located on the board. It took me a
+moment to figure out how these puzzles work, but once I grasped the basic rules
+most were fairly simple.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/puzzle_1.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/puzzle_1_thumbnail.jpg" /></a>
+<figcaption>
+Rewiring puzzle. Took me a moment to figure out how these ones work.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/puzzle_2.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/puzzle_2_thumbnail.jpg" /></a>
+<figcaption>
+Power routing puzzle.
+</figcaption>
+</figure>
+</div>
+<p>As you might have already noticed, System Shock remake goes for a unique art
+style, combining low-resolution environment textures with modern dynamic
+lighting. This works extremely well and results in a visually stunning
+experience. If there is anything I could complain about when it comes to the
+graphics it would be the lack of diversity in dead crew models. It feels like
+every dead person looks exactly the same. That’s not a thing that hinders
+playing experience in any way, but could have been done better.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/frag_grenade.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/frag_grenade_thumbnail.jpg" /></a>
+<figcaption>
+Smart use of grenades can get you out of bad situations quickly.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/railgun.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/railgun_thumbnail.jpg" /></a>
+<figcaption>
+Railgun is not as powerful as one would hope.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/saturn_view.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/saturn_view_thumbnail.jpg" /></a>
+<figcaption>
+Can’t blame him for admiring the views.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/relay.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/relay_thumbnail.jpg" /></a>
+<figcaption>
+Fixing a broken relay.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/explosion.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/explosion_thumbnail.jpg" /></a>
+<figcaption>
+I really like the look of explosions in System Shock.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/retro.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/retro_thumbnail.jpg" /></a>
+<figcaption>
+The art style conveys a fantastic retro vibe.
+</figcaption>
+</figure>
+</div>
+<p>Sadly, I can’t give the audio side of the game as much praise. Firstly, the
+soundtrack is lacklustre. The music isn’t bad, but isn’t exceptional either.
+Having spent probably over 15 hours in the game the only piece of music that I
+can now remember is a jingle played in the lift when moving between levels. The
+way the game switches between exploration and combat music is poorly executed.
+Combat music kicks in 3-4 seconds after starting combat, but in many cases the
+enemy is already dead by that time. So the combat music starts playing after
+combat has taken place and keeps playing for 10-15 more seconds even though
+there is no threat nearby. This is very confusing leading to a complete discord
+between music and the in-game events. Other problems with the sound are related
+to noise made by enemies. The way sound is implemented makes it very difficult
+to determine enemy location from the noise they are making. In particular, in
+some places enemies can be heard through the walls in ways that should
+absolutely be impossible in the real world. All in all, both music and
+environment sounds should support what is being displayed on the screen, but in
+System Shock they really don’t, which is a shame.</p>
+<p>One last complaint I am going to make is about the ending, which is practically
+non-existent and very disappointing. I am going to spoil it in this paragraph,
+though there isn’t really much to spoil. So you make your way through the
+Bridge deck, killing SHODAN’s minions, and reaching the final cyberspace. That
+one cyberspace is a special one: you don’t float freely, but rather walk with a
+weapon. There is no usual health bar. You can die, but if that happens you are
+immediately respawned and allowed to continue. In other words you can’t fail.
+This in itself isn’t bad ‒ symbolic fight with the final boss can be a
+good way of telling a story. Once you destroy a large something in cyberspace (I
+have no clue what that is) you are taken out of cyberspace to witness SHODAN
+changing her colour from green to blue (presumably her moral restraints being
+re-instantiated?). Then the Hacker just sits next to SHODAN, tired and
+exhausted. And that’s really it. SHODAN, who has been a looming, threatening
+presence throughout the game, stays completely silent. Even as you make your
+way through the bridge she barely says anything. She no longer mocks or
+threatens you, and makes no attempts to convince you to stop. And then, once
+the whole ordeal is finished, nothing happens. This is very anticlimactic and
+disappointing. This ending left me with no sense of completion. Admittedly,
+the ending is faithful to the original one, but in that particular case I would
+appreciate a departure. Ending of the remake has been widely criticized and in
+fact Nightdive Studios promised it will be reworked. We are yet to see how this
+turns out.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/ending_1.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/ending_1_thumbnail.jpg" /></a>
+<figcaption>
+Facing SHODAN.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2023-10-01-system-shock-remake/ending_2.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/ending_2_thumbnail.jpg" /></a>
+<figcaption>
+The End.
+</figcaption>
+</figure>
+</div>
+<h2 id="more-system-shock-please">More System Shock, please!</h2>
+<p>Despite a couple of minor complaints System Shock remake is possibly the best
+game I played this year and I am not saying this lightly, since back in April I
+finished Final Fantasy X. I really liked the atmosphere of Citadel station, the
+omnipresence of SHODAN, and the retro-futuristic style of the game. I hope
+System Shock remake is successful financially and that we will see more games
+from the series in near future. So far things don’t look particularly well in
+that regard, though. System Shock 3 has been announced to be in development
+several years ago but it seems the development has been halted and the game is
+now in a limbo, with neither cancellation nor development being officially
+confirmed. There have also been talks about the possibility of having System
+Shock 2 remake, but this is again in the realm of wishful thinking. Nightdive
+Studios has the full rights to System Shock 2, so this certainly does not seem
+impossible. The only question is whether people would trust Nightdive on
+another Kickstarter campaign.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Note that there is no set in stone and commonly accepted definition of
+what an immersive sim really is, so take what I just said with a grain of
+salt.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Jason Schreier, I hope you’re reading this!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Though the game has been released, Nightdive Studios did not yet deliver
+everything they have promised. Aside from physical rewards (these are
+being produced) they have not released Linux and Mac ports, which were the
+first stretch goal.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>One game that had a very poor balance between supplying new ammo and
+respawning the enemies was Prey, an otherwise great game. Halfway through
+my playthrough of Prey I was close to running out of ammo and had to
+resort to speedrunning techniques of literally running past by the
+enemies. Searching on the internet reveals that I was not the only one
+with this problem. Many people had to start a new game because they used
+up their resources (ammo, healing items) and no new ones were available.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
     <pubDate>01/10/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-10-01-system-shock-remake.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
