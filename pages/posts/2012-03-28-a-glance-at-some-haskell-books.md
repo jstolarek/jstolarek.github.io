@@ -23,7 +23,11 @@ Euler](http://projecteuler.net/), which some people don't recommend claiming
 that one should concentrate on the language itself, not on the difficult
 algorithms. Anyway, let's look at the books.
 
-[![](/images/posts/img_10262-300x207.jpg "Haskell books")](/images/posts/img_10262.jpg)
+<div class="thumbnail">
+<figure>
+[![](/images/posts/img_10262-300x207.jpg)](/images/posts/img_10262.jpg)
+</figure>
+</div>
 
 _Programming in Haskell_ covers rather basic material. It seems that some stuff
 that is in LYAH is not here. It's hard for me to judge how many new material the

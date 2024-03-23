@@ -52,7 +52,11 @@ Haddock documentation - to name some of them.  You can of course benefit from
 standard features of Eclipse as well as other plugins, e.g. using SVN or GIT
 integration in your Haskell project. Here's a glimpse at EclipseFP in action:
 
-[![](/images/posts/eclipsefp1.png "EclipseFP")](/images/posts/eclipsefp1.png)
+<div class="thumbnail">
+<figure>
+[![](/images/posts/eclipsefp1.png)](/images/posts/eclipsefp1.png)
+</figure>
+</div>
 
 No much surprise here: editor with multiple tabs, overview of project structure
 on the left, GHCi at the bottom. The only thing you may find odd is lack of

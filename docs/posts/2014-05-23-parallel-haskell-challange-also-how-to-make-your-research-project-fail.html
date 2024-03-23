@@ -72,14 +72,22 @@ other words:</p>
 <p><span class="math display">$$ x' = x \cdot \cos \alpha + y \cdot \sin \alpha \\\\
    y' = x \cdot \sin \alpha - y \cdot \cos \alpha $$</span></p>
 <p>where <span class="math inline"><em>α</em></span> is a real parameter. Base operation is visualised like this:</p>
-<p><a href="../images/posts/base_op1.png"><img src="../images/posts/base_op1.png" alt="base_op1" /></a></p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/base_op1.png"><img src="../images/posts/base_op1.png" alt="base_op1" /></a>
+</figure>
+</div>
 <p>(The idea behind base operation is almost identical as in the <a href="http://en.wikipedia.org/wiki/Butterfly_diagram">butterfly
 diagram</a> used in Fast Fourier
 Transforms).</p>
 <p>The lattice structure accepts input of even length, sends it through a series of
 layers and outputs a transformed signal of the same length as input. Lattice
 structure is organised into layers of base operations connected like this:</p>
-<p><a href="../images/posts/ls.png"><img src="../images/posts/ls-190x300.png" alt="ls" /></a></p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/ls.png"><img src="../images/posts/ls-190x300.png" alt="ls" /></a>
+</figure>
+</div>
 <p>The number of layers may be arbitrary; the number of base operations depends on
 the length of input signal. Within each layer all base operations are identical,
 i.e. they share the same value of <span class="math inline">$latex \\alpha$</span>. Each layer is shifted by one
@@ -117,7 +125,11 @@ approach requires that each thread is given an input chunk that is slightly
 larger than the expected output. This results from the fact that here we will
 not perform cyclic wrap-around but instead we will narrow down the signal. This
 idea is shown in the image below:</p>
-<p><a href="../images/posts/ls2.png"><img src="../images/posts/ls2-170x300.png" alt="ls2" /></a></p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/ls2.png"><img src="../images/posts/ls2-170x300.png" alt="ls2" /></a>
+</figure>
+</div>
 <p>This example assumes dividing the signal between two threads. Each thread
 receives an input signal of length 8 and produces output of length 4. A couple
 of issues arise with this approach. As you can see there is some overlap of
@@ -268,7 +280,11 @@ implementation is benchmarked 100 times. Based on these 100 runs criterion
 computes average runtime, standard deviation, influence of outlying results on
 the average and a few more things like plotting the results. Below are the
 benchmarking results on Intel i7 M620 CPU using two cores (click to enlarge):</p>
-<p><a href="../images/posts/ls-results1.png"><img src="../images/posts/ls-results1-300x91.png" alt="ls-results1" /></a></p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/ls-results1.png"><img src="../images/posts/ls-results1-300x91.png" alt="ls-results1" /></a>
+</figure>
+</div>
 <p>“DWT” prefix of all the benchmarks denotes the forward DWT. There is also the
 IDWT (inverse DWT) but the results are similar so I elided them. “Seq” suffix
 denotes sequential implementation, “Par” suffix denotes parallel

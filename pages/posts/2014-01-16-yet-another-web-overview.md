@@ -10,9 +10,8 @@ I haven't done a single web overview in 2013. It's time to fix that since in the
 last few weeks I came across a couple of interesting online resources that I'd
 like to share:
 
-  - [Fun with type
-    functions](http://channel9.msdn.com/posts/MDCC-TechTalk-Fun-with-type-functions?format=flash)
-    (2011) - Simon PJ's presentation of the tutorial paper with the same
+  - [Fun with type functions](http://channel9.msdn.com/posts/MDCC-TechTalk-Fun-with-type-functions?format=flash) (2011) -
+    Simon PJ's presentation of the tutorial paper with the same
     title. Covers associated data types and type families (see "Associated Types
     With Class" for an in-depth presentation) + some stuff found in Data
     Parallel Haskell (read "Data Parallel Haskell: a status report" for more
@@ -27,8 +26,8 @@ like to share:
     polymorphism and using types to manage security of personal information. I
     found the type inference and historical parts very interesting.
 
-  - [The trouble with types](http://www.infoq.com/presentations/data-types-issues)
-    (2013) by Martin Odersky (creator of Scala). Talk covers the role of types
+  - [The trouble with types](http://www.infoq.com/presentations/data-types-issues) (2013)
+    by Martin Odersky (creator of Scala). Talk covers the role of types
     in programming, presents the spectrum of static type systems and then
     focuses on innovations in the type system of Scala.
 

@@ -6,7 +6,11 @@ date: 2013-01-13
 Coders at work.  A short review
 ===============================
 
+<div class="thumbnail">
+<figure>
 [![CodersAtWork](/images/posts/CodersAtWork-200x300.jpg)](/images/posts/CodersAtWork.jpg)
+</figure>
+</div>
 
 I was visiting my friend before Christmas and on his shelf I found ["Coders at
 Work"](http://www.codersatwork.com/) by Peter Seibel[^1].  It's a collection of

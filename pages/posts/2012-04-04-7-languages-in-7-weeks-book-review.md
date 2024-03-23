@@ -6,7 +6,11 @@ date: 2012-04-04
 7 Languages in 7 Weeks. Book review
 ===================================
 
-[![](/images/posts/7lin7w-250x300.jpg "Seven Languages in Seven Weeks")](/images/posts/7lin7w.jpg)
+<div class="thumbnail">
+<figure>
+[![](/images/posts/7lin7w-250x300.jpg)](/images/posts/7lin7w.jpg)
+</figure>
+</div>
 
 I already mentioned a couple of times that I'm new to functional programming. My
 fascination has a very precise starting point. It was thanks to a book ["Seven

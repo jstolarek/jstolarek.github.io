@@ -189,7 +189,11 @@ based on list, base on vector, based on vector using <code>foldM</code>+primops 
 used FFI to call C implementation from Haskell so that I can benchmark it with
 criterion as well. Here are the results for a list/vector containing one million
 elements:</p>
-<p><a href="../images/posts/sumsqrperf.png"><img src="../images/posts/sumsqrperf.png" alt="Performance of sumSqr" /></a></p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/sumsqrperf.png"><img src="../images/posts/sumsqrperf.png" alt="Performance of sumSqr" /></a>
+</figure>
+</div>
 <p>C version is still faster than the one based on primops by about 8%. I think
 this is a very good achievement given that the version based on Vector library
 is three times slower.</p>
@@ -252,7 +256,11 @@ I can come up with (not necessarily the fastest one):</p>
 }</code></pre>
 <p>The performance turns out to be the same as before (“Bits” represents Mikhail
 Glushenkov’s solution, “C” now represents the new C code):</p>
-<p><a href="../images/posts/sumsqrperf1.png"><img src="../images/posts/sumsqrperf1.png" alt="sumsqrperf" /></a></p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/sumsqrperf1.png"><img src="../images/posts/sumsqrperf1.png" alt="sumsqrperf" /></a>
+</figure>
+</div>
 <p>There was a suggestion to use the following C code:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> xn<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">+=</span> xs<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> xs<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> <span class="op">(</span>xs<span class="op">[</span>i<span class="op">]</span> <span class="op">&amp;</span> <span class="dv">1</span><span class="op">);</span></span>

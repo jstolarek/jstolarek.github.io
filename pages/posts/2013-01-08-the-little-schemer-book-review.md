@@ -23,7 +23,11 @@ P. Friedman and Matthias Felleisen, how great and different from other books it
 is and how it can change the way you think. I decided to give The Little Schemer
 a try.
 
+<div class="thumbnail">
+<figure>
 [![The_Little_Schemer](/images/posts/The_Little_Schemer-243x300.jpg)](/images/posts/The_Little_Schemer.jpg)
+</figure>
+</div>
 
 The first thing I noticed after opening the book is that it is indeed unlike
 anything I have read so far. Instead of explaining things directly, the book

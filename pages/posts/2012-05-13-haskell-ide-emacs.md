@@ -69,7 +69,11 @@ great in practice. There are a few more neat features of Haskell-mode, like
 support for automatic unit testing or Hoogle integration, but I haven't used
 them. Here's a screenshot of Haskell code in Emacs with Haskell-mode enabled:
 
-[![](/images/posts/emacs-1024x640.png "Editing Haskell in Emacs")](/images/posts/emacs.png)
+<div class="thumbnail">
+<figure>
+[![](/images/posts/emacs-1024x640.png)](/images/posts/emacs.png)
+</figure>
+</div>
 
 A nice thing in Emacs is that it doesn't have any toolbars (except for the menu
 at the top, but it can be switched off), so when you set your terminal emulator
@@ -88,8 +92,13 @@ when I realised that the offending code is highlighted with some horrible
 background and this highlighting doesn't disappear until the problem is
 fixed. Here's an example:
 
-[![](/images/posts/ghc-mod-crap-1024x640.png "ghc-mod")](/images/posts/ghc-mod-crap.png)Well,
-this was the end of my adventure with ghc-mod.
+<div class="thumbnail">
+<figure>
+[![](/images/posts/ghc-mod-crap-1024x640.png)](/images/posts/ghc-mod-crap.png)
+</figure>
+</div>
+
+Well, this was the end of my adventure with ghc-mod.
 
 To sum up, Emacs offers nice syntax highlighting, very good indentation
 management and support for basic operations. The biggest downside might be an

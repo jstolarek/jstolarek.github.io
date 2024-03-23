@@ -11,7 +11,11 @@ January will be even more busy, but I want to write some posts I didn't have
 time to finish for the last couple of months. I have some book reviews on my
 mind and today I will begin with Real World Haskell.
 
-[![rwh_cover](/images/posts/rwh_cover-228x300.jpg)](/images/posts/rwh_cover.jpg)
+<div class="thumbnail">
+<figure>
+[![](/images/posts/rwh_cover-228x300.jpg)](/images/posts/rwh_cover.jpg)
+</figure>
+</div>
 
 Real World Haskell - commonly referred to as RWH - was written by [Bryan
 O'Sullivan](http://www.serpentine.com/posts/), [John

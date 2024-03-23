@@ -58,7 +58,11 @@ $$ x' = x \cdot \cos \alpha + y \cdot \sin \alpha \\\\
 
 where $\alpha$ is a real parameter. Base operation is visualised like this:
 
+<div class="thumbnail">
+<figure>
 [![base_op1](/images/posts/base_op1.png)](/images/posts/base_op1.png)
+</figure>
+</div>
 
 (The idea behind base operation is almost identical as in the [butterfly
 diagram](http://en.wikipedia.org/wiki/Butterfly_diagram) used in Fast Fourier
@@ -68,7 +72,11 @@ The lattice structure accepts input of even length, sends it through a series of
 layers and outputs a transformed signal of the same length as input. Lattice
 structure is organised into layers of base operations connected like this:
 
+<div class="thumbnail">
+<figure>
 [![ls](/images/posts/ls-190x300.png)](/images/posts/ls.png)
+</figure>
+</div>
 
 The number of layers may be arbitrary; the number of base operations depends on
 the length of input signal. Within each layer all base operations are identical,
@@ -114,7 +122,11 @@ larger than the expected output. This results from the fact that here we will
 not perform cyclic wrap-around but instead we will narrow down the signal. This
 idea is shown in the image below:
 
+<div class="thumbnail">
+<figure>
 [![ls2](/images/posts/ls2-170x300.png)](/images/posts/ls2.png)
+</figure>
+</div>
 
 This example assumes dividing the signal between two threads. Each thread
 receives an input signal of length 8 and produces output of length 4. A couple
@@ -290,7 +302,11 @@ computes average runtime, standard deviation, influence of outlying results on
 the average and a few more things like plotting the results. Below are the
 benchmarking results on Intel i7 M620 CPU using two cores (click to enlarge):
 
+<div class="thumbnail">
+<figure>
 [![ls-results1](/images/posts/ls-results1-300x91.png)](/images/posts/ls-results1.png)
+</figure>
+</div>
 
 "DWT" prefix of all the benchmarks denotes the forward DWT. There is also the
 IDWT (inverse DWT) but the results are similar so I elided them. "Seq" suffix

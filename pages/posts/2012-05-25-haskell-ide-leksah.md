@@ -47,7 +47,11 @@ doesn't happen very often, but we'll get to that later. After drinking your cup
 of tea (possibly a few) or coming back from the walk - depending which option
 you chose - you're finally ready to work with Leksah. Here's what you get:
 
-[![](/images/posts/leksah1-1024x591.png "Editing Haskell in Leksah")](/images/posts/leksah1.png)
+<div class="thumbnail">
+<figure>
+[![](/images/posts/leksah1-1024x591.png)](/images/posts/leksah1.png)
+</figure>
+</div>
 
 List of major features includes:
 
