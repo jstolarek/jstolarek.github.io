@@ -9,7 +9,7 @@ Computer science is what I do for the most of my time, but it is not the only
 thing that occupies my time and thoughts. Below is a short list of my other
 activities, interests and hobbies.
 
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 Retro gaming
 ------------
 
@@ -18,10 +18,9 @@ Retro gaming
 I am interested in the history of gaming.  I enjoy playing retro games, both on
 original hardware and using emulators.  I own a humble collection of retro
 consoles and handhelds.
+</div>
 
- </td></tr></table>
-
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 Frank Herbert&rsquo;s &ldquo;Dune&rdquo;
 ----------------------------------------
 
@@ -31,10 +30,9 @@ I am a big fan of Frank Herbert&rsquo;s &ldquo;Dune&rdquo; novel.  I run [Fremen
 Zone](https://www.fremenzone.pl), a Polish fansite with an over 25-year history,
 dedicated to the works of Frank Herbert, as well as game and film adaptations of
 &ldquo;Dune&rdquo;.
+</div>
 
-</td></tr></table>
-
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 Mountain trekking
 -----------------
 
@@ -43,19 +41,18 @@ Mountain trekking
 I enjoy mountain trekking, especially multi-day trips to remote areas devoid of
 people. I have been to various ranges of Carpathians in Poland, Slovakia,
 Ukraine and Romania, as well as the Scottish Highlands.
+</div>
 
-</td></tr></table>
-
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 Biking
 ------
 
 <img src="/images/biking.jpg" class="img-left" />
 
-When not in the mountains, I enjoy biking in rural areas. </td></tr></table>
+When not in the mountains, I enjoy biking in rural areas.
+</div>
 
-
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 History and wargaming
 ---------------------
 
@@ -66,11 +63,9 @@ interested in the period of Second World War.  Antony Beevor is one of my
 favourite authors.  I also like to play wargames, i.e. strategy board games that
 aim at recreating historical conflicts to allow their better understanding and
 provide entertainment at the same time.
+</div>
 
-</td></tr></table>
-
-
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 Paper models and aviation
 -------------------------
 
@@ -79,11 +74,9 @@ Paper models and aviation
 I usually spend autumn and winter evenings making paper models, a hobby my
 father introduced me to when I was a kid.  I have a keen interest in aviation so
 most of my models are fighter airplanes from the World War II.
+</div>
 
-</td></tr></table>
-
-
-<table cellpadding="0" cellspacing="0" margin="0" width="100%"><tr><td>
+<div style="overflow: auto;">
 Evolutionary biology
 --------------------
 
@@ -96,5 +89,4 @@ particularly fond of is myrmecology, ie. research of ants.  I even used to have
 several ant colonies at home!  I am also interested in philosophical work that
 aims to explain phenomena of consciousness and morality through mechanisms of
 evolution.
-
-</td></tr></table>
+</div>
