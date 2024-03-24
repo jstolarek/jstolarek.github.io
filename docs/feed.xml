@@ -7,8 +7,364 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Fri, 31 May 2024 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Wed, 21 Aug 2024 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Fremen Zone&#58; Creating a Website Using Only HTML and CSS</title>
+    <link>https://jstolarek.github.io/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 21/08/2024
+    </section>
+    <section>
+        <h1 id="fremen-zone-creating-a-website-using-only-html-and-css">Fremen Zone: Creating a Website Using Only HTML and CSS</h1>
+<p>A year ago in July I wrote <a href="2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html">a post about all the websites that I have run in my
+life</a>. An
+important part of that list was Fremen Zone, a fansite dedicated to Frank
+Herbert’s “Dune”. It was my first website ever, which I created back in high
+school and have <a href="https://www.fremenzone.pl/legacy/index.htm">restored last year from backups on my hard
+drive</a>. I ended the post with an
+idea of creating a new version of Fremen Zone:</p>
+<blockquote>
+<p>Restoring the Fremen Zone back to life sparked a new desire in me. While I
+said I have no intention of updating it, I feel like re-doing the whole site
+from scratch. (…) And so I am slowly gathering material for a new Dune
+fanpage. All the lessons above have taught me to avoid complexity and stay as
+close to the basics as possible. And so my plan is to create a new website
+based on pure HTML and CSS.</p>
+</blockquote>
+<p>Since late June 2023 I have been hard at work to create a new version of Fremen
+Zone. The website went live on February 1st 2024 and is available at
+<a href="https://www.fremenzone.pl" class="uri">https://www.fremenzone.pl</a>. In this post I want to talk about the technical
+aspects of the new Fremen Zone page, in particular putting emphasis on
+simplicity and developing a dedicated static page generator.</p>
+<p>Now, one tiny detail before we move on. If you clicked on the link below, you
+already noticed that Fremen Zone is in Polish, not English. Google Translate
+does a decent job at translating it to English, but make sure to fold the
+translation bar. Otherwise it covers the top navigation bar.</p>
+<h2 id="keeping-things-simple">Keeping things simple</h2>
+<p>The primary principle driving the technical design of the new page was to keep
+technical solutions as simple as possible. I didn’t want to rely on any
+existing frameworks, content management systems, or anything of that sort.
+Instead, I wanted to create a website that uses only HTML5 and CSS, with no
+JavaScript. The goal was to make a page that is static, small (=quick to load),
+fast and responsive, without bloat, and also easy to deploy or move to a
+different hosting.</p>
+<p>The first step was layout design. The old Fremen Zone used frames, which nobody
+really relies on today. For the new version, I decided to go with a navigation
+menu placed at the top of the page. This layout looks clean and minimalistic,
+which is one of the things I wanted to achieve with the new website.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/navbar.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/navbar_thumbnail.png" /></a>
+<figcaption>
+The navigation bar highlights the current section. Below the navbar is a section logo.
+</figcaption>
+</figure>
+</div>
+<p>I haven’t done any front-end programming since my original work on Fremen Zone
+nearly quarter a century ago, so not only have I forgotten everything I learned
+about HTML and CSS back then, but also both standards have evolved over time.
+And so I was learning HTML5 and CSS from scratch as I worked on the new page
+design. An important change made to HTML since its early days is the
+introduction of tags that carry important semantic meaning. And so the
+navigation bar is enclosed in <code>&lt;nav&gt;&lt;/nav&gt;</code> tags, sub-page headers use
+<code>&lt;header&gt;&lt;/header&gt;</code> tag, and so on – whenever semantic tags were available I
+made sure to use them, though I didn’t get everything right on first attempt.
+More on that in a moment.</p>
+<h2 id="browser-compatibility">Browser compatibility</h2>
+<p>One of my top technical priorities was browser compatibility. I wanted to make
+sure that the website will work as intended, no matter the browser. This is
+something I have put a lot of attention to when designing the original Fremen
+Zone two decades ago. The difference is that back then I tested the page with
+Internet Explorer and Netscape Navigator, while now the tested browsers included
+Firefox (that’s my default browser), Chromium (I avoid Chrome like a plague, but
+acknowledge the fact that most people use it), <a href="https://www.palemoon.org/">Pale
+Moon</a>
+(pre-<a href="https://blog.mozilla.org/en/mozilla/introducing-firefox-quantum/">Quantum</a>
+fork of Firefox), <a href="http://links.twibright.com/">links</a> and
+<a href="https://lynx.invisible-island.net/">lynx</a> (terminal-based text-only web
+browsers), <a href="https://dillo-browser.github.io/">Dillo</a> (an extremely minimalistic
+web browser), and <a href="https://www.torproject.org/">Tor</a> (privacy-focused web
+browser based on Firefox). Despite the multitude of modern browsers, the task
+was generally easier than 25 years ago.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/firefox.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/firefox_thumbnail.png" /></a>
+<figcaption>
+Intended page rendering in Firefox.
+</figcaption>
+</figure>
+</div>
+<p>The new version of Fremen Zone renders as intended in Firefox, Chromium and Pale
+Moon. However, the more obscure browsers don’t always render the page as
+intended. For example, Dillo does not correctly handle CSS margins and width
+attributes, resulting, among others, in misaligned section logo images and
+incorrect text width:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/dillo.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/dillo_thumbnail.png" /></a>
+<figcaption>
+Dillo does not handle text flow as intended. As a bonus, the
+background of the main page logo has the wrong colour.
+</figcaption>
+</figure>
+</div>
+<p>Tor on the other hand, as part of its security measures, blocks web fonts. This
+results in incorrect rendering of the RSS icon on the right of the navigation
+bar (see <a href="#polishing-the-details">Polishing the details</a> section below for more
+details on web fonts).</p>
+<p>It was a fun exercise to get the page to look readable in text-based web
+browsers. These browsers are obviously quite limited at what they can do, but
+one thing they forced me to get right was correct semantic usage of HTML tags.
+For example, I first started out with using stylized <code>&lt;div&gt;</code> tags for the
+headers and sub-headers on the page. This looked as intended in graphical
+browsers, but in text-based ones the headers rendered as a one-line paragraphs
+of text and were indistinguishable from normal paragraphs. The solution was to
+switch to dedicated header tags, <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code>. In graphical browsers this
+makes no difference since the styling is handled with CSS. However, text-based
+browsers now interpret headers correctly and make them stand out from the rest
+of the text.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/lynx.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/lynx_thumbnail.png" /></a>
+<figcaption>
+Fremen Zone rendering in Lynx. Note the repeated navbar.
+</figcaption>
+</figure>
+</div>
+<p>I also wanted Fremen Zone to display correctly on mobile devices. In principle,
+I don’t really care much about smartphones - I consider them a horrible way of
+interacting with the Internet and rarely use mine to browse the web. But at the
+same time, I thought of this as in interesting technical challenge and a
+learning opportunity.</p>
+<p>The biggest problem to overcome with rendering Fremen Zone on mobile was the
+navigation bar. Firstly, the navbar is structured differently on desktop and on
+mobile, forcing two copies of it to be defined in the source code. At any given
+time, only one of those copies is visible, which is controlled by the <code>@media</code>
+at-rules in CSS. Text-based browsers don’t handle <code>@media</code> at-rules as intended
+and display both copies of the menu at the same time. Hence, the repeated
+navbar in the screenshot above.</p>
+<p>The mobile version of the navigation bar, instead of a list of available page
+sections, contains only a “hamburger menu” icon. The proper menu becomes
+visible once the icon is clicked. Sadly, getting this behaviour to work
+requires a short JavaScript snippet attached via the <code>&lt;a&gt;</code> tag’s <code>onclick</code>
+property. It isn’t a long script, just a few lines of code to add or remove a
+CSS class that switches menu visibility, but it means that my goal of creating a
+website that does not use JavaScript at all was not possible to achieve. Not
+without giving up on mobile responsiveness, at least. I spent hours
+experimenting with different approaches, hoping I can get things to work with
+just CSS, but to no avail. I accepted that I need these few lines of JavaScript
+and moved on.</p>
+<p>Finally, there was the question of compatibility with various mobile browsers.
+Luckily, things went much smoother than on desktop. Essentially all browsers I
+tested - Firefox, DuckDuckGo, Vivaldi, Opera Mini, Edge - rendered the page as
+intended.</p>
+<h2 id="writing-a-custom-website-generator">Writing a custom website generator</h2>
+<p>I spent approximately two weeks prototyping the layout. Once the initial design
+was in place I began preliminary work on the contents. After creating several
+subpages it quickly became apparent that pages contain lots of repetition, in
+particular in the <code>&lt;head&gt;</code> and <code>&lt;navbar&gt;</code> tags. Surely, there were minor
+differences - each page had a different <code>&lt;title&gt;</code> and each subpage’s navbar
+highlighted a different current section - but the overall structure of each page
+was identical. It was clear at this point that this repetition must be
+eliminated. And so the next step was to write a custom static website
+generator.</p>
+<p>I decided to put each logical fragment of the page into a separate template
+file. For example, template for the page’s HTML header contains:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;author&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;Jan Stolarek&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;font&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;font/woff2&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/fonts/fa-solid-900.woff2&quot;</span><span class="ot"> crossorigin</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;style&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/styl.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;image&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/png&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/img/SECTION.png&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/styl.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;icon&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/x-icon&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/favicon.png&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;license&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/LICENCJA.md&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>PAGETITLE<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Putting all those repeating fragments into their own template files allowed me
+to reduce each page to just its proper contents enclosed inside a <code>&lt;div&gt;&lt;/div&gt;</code>
+block. Everything else - <code>&lt;head&gt;</code>, <code>&lt;navbar&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, etc. -
+is stored in template files. This way all the repetition in HTML sources is
+gone and changing, say, page’s <code>&lt;head&gt;</code> section requires modifying only the
+respective template file.</p>
+<p>I then wrote a bash script to assemble full HTML pages from templates and the
+proper source files. At the heart of the script are the following lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;!DOCTYPE html&gt;&quot;</span>        <span class="op">&gt;</span>  <span class="va">$HTMLFILE</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;html lang=</span><span class="dt">\&quot;</span><span class="st">pl</span><span class="dt">\&quot;</span><span class="st">&gt;&quot;</span>     <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/head.html    <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;body&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/scripts.html <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/navbar.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/header.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;main&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span>         <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/main&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/footer.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/body&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/html&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span></code></pre></div>
+<p>There are some bash variables in here, but their names should be
+self-descriptive.</p>
+<p>You might be wondering about the <code>RELPATH</code>, <code>SECTION</code>, and <code>PAGETITLE</code> words
+used in the example template file above. These are reserved words that are
+replaced with page-specific values using <code>sed</code>. This allows not only to have
+page-specific titles and section logos, but also calculate relative paths:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert relative paths</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$FILEDIR</span><span class="st">&quot;</span> <span class="ot">=</span> <span class="st">&quot;.&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;.&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">SLASHES</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${FILEDIR</span><span class="op">//</span><span class="ss">[^</span><span class="dt">\/</span><span class="ss">]</span><span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">DIRDEPTH</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${</span><span class="op">#</span><span class="va">SLASHES}</span><span class="st">&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;..&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 1 <span class="va">$DIRDEPTH)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">RELPATH</span><span class="op">=</span><span class="va">$RELPATH</span><span class="st">&quot;/..&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,RELPATH,</span><span class="va">$RELPATH</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
+<p>or insert last modification date from <code>git</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add last modification date</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">LASTMODIFIED</span><span class="op">=</span><span class="kw">`</span><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--pretty</span><span class="op">=</span><span class="st">&quot;format:%cs&quot;</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span><span class="kw">`</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,LASTMODIFIED,</span><span class="va">$LASTMODIFIED</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
+<p>I like to keep all my projects organized, and so files that comprise the website
+are placed into dedicated directories. For example, all images are placed in
+<code>img</code> directory, while all kinds of resources (e.g. web fonts, a unique
+non-generated 404 page, favicon) are in the <code>res</code> folder:</p>
+<pre><code>fremenzone
+├── css
+├── docs
+├── img
+├── res
+├── src
+└── templates</code></pre>
+<p>In order for all these files to form a coherent page that can be displayed in a
+browser, they must be assembled into one directory - <code>docs</code>. This was initially
+done by the same bash script that generated the pages from templates. The
+script would first copy all images, resources and CSS files to <code>docs</code>, and then
+it would proceed to generate <em>all</em> HTML pages, regardless of whether they were
+changed or not.</p>
+<p>This approach was very easy to program and worked well at first. However, as I
+added more subpages, the approach of rebuilding every HTML page became a bit too
+slow. Obviously, it wasn’t very slow, but slow enough that I had to
+deliberately pause before pressing F5 in the browser after making changes to the
+sources. It was time to write a proper <code>Makefile</code> for the page.</p>
+<p>With a <code>Makefile</code> in place, only the modified files are regenerated. No more
+rebuilding of all the HTML sources or copying of the whole image directory.
+Switching the build process to <code>make</code> made rebuilding the modified sources two
+orders of magnitude faster. The caveat is that rebuilding the whole website,
+for example after calling <code>make clean</code>, is actually several times slower than
+with the bash script. However, that is a corner case that happens very rarely.
+What matters is that the most common use case has been optimized.</p>
+<h2 id="polishing-the-details">Polishing the details</h2>
+<p>At various moments during Fremen Zone development, I’ve spent quite significant
+amounts of time on getting the various details right.</p>
+<h3 id="html-validation">HTML validation</h3>
+<p>First and foremost, I wanted to ensure that I write correct HTML. To this end,
+I wrote a bash script that checks all the generated pages using
+<a href="https://www.html-tidy.org/">html-tidy</a>, and created a dedicated <code>make</code> target
+to be able to call it easily. The next step was to set up a GitHub action that
+calls the script on every commit, just in case I miss something during local
+development. Additionally, just to be extra sure, I’ve set up a <a href="https://github.com/Cyb3r-Jak3/html5validator-action">GitHub
+action</a> that checks
+generated pages using
+<a href="https://github.com/svenkreiss/html5validator">html5validator</a>.</p>
+<h3 id="rss-feed">RSS feed</h3>
+<p>One of the things I absolutely wanted to have on my page was an RSS feed.
+Again, I didn’t want to rely on any generators - this might not have even been
+possible, given that Fremen Zone does not take a format of a blog - which forced
+me to dive into <a href="https://cyber.harvard.edu/rss/rss.html">RSS specification</a>.
+Luckily, it’s not that complex, but it took some effort to make things work as
+intended. Not everything was clear from the specification, forcing me to peek
+into various generated feeds, such as the one generated by Hakyll for this blog.
+I also mixed in elements of
+<a href="https://validator.w3.org/feed/docs/atom.html">Atom</a>, so the feed isn’t purely
+in the RSS format.</p>
+<h3 id="web-fonts">Web fonts</h3>
+<p>Once an RSS feed was ready, I wanted to have an RSS icon in the navigation bar.
+This was surprisingly tricky to get right. After quite a substantial amount of
+research and experimentation, I figured out that the only reliable method that
+works on multiple different browsers is to use a dedicated glyph from an
+embedded web font. I went with an older version (5.15.4) of
+<a href="https://github.com/FortAwesome/Font-Awesome/">FontAwesome</a> web fonts in two
+different formats, <a href="https://caniuse.com/woff">woff</a> and
+<a href="https://caniuse.com/woff2">woff2</a>, the former one for those poor souls that use
+unbelievably outdated web browsers. Using a web font also solved the problem of
+displaying an icon for “hamburger menu” on mobile devices.</p>
+<h3 id="optimizing-loading-times">Optimizing loading times</h3>
+<p>At some point, I spent quite a significant amount of time on figuring out how to
+optimize Fremen Zone for faster loading. I admit that I am a beginner when it
+comes to the topic and I had to rely on pieces of advice found online - often
+conflicting, forcing me to dive deeper into HTML5 specification and browser
+documentation. One simple thing was to use a CSS minifier, a program that
+strips whitespaces and comments from a CSS file, making it more than 50%
+smaller. I also experimented with HTML minifiers, but couldn’t find one that
+would actually work without breaking the page and violating the HTML5 standard.</p>
+<p>The next step in optimizing the loading times was related to embedded web fonts.
+Firstly, it is possible to strip the redundant glyphs from a font file. I only
+needed two glyphs from each of the two font files (woff, woff2), which allowed
+me to reduce file sizes from 40-50kB, to less than a kilobyte. Secondly, it is
+possible to preload the web fonts, i.e. instruct the browser in the HTML header
+to start loading the font files before the rest of the page is parsed and the
+glyphs from the font are actually requested. It is also possible to preload the
+CSS and other resources, which I did. I’m not exactly sure whether this has any
+benefits - the measurements I made using the browser’s developer tools were
+inconclusive. However, there seems to be no costs of attempting a preload, so I
+decided to keep it. For a brief moment I also experimented with <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">lazy image
+loading</a>,
+but realized that’s one of the features I absolutely hate on the web and dropped
+the whole idea.</p>
+<h3 id="improving-accessibility-with-alt-attributes">Improving accessibility with <code>alt</code> attributes</h3>
+<p>When I set up the HTML validators, I got a bunch of warnings about missing <code>alt</code>
+attributes for the <code>&lt;img&gt;</code> tags. This turned out to be another rabbit hole, as
+I spent several hours trying to understand what <code>alt</code> attribute should contain.
+And then I spent even more time writing the contents of those attributes. Long
+story short, <code>alt</code> attribute should describe the contents of an image. Just
+imagine someone asking you “what’s in this picture?” and you go to describe what
+the image depicts. In the future, I’d like to learn more about making a web page
+accessible for people using screen readers. Providing meaningful <code>alt</code> tags is
+a small first step towards that goal.</p>
+<h2 id="hosting-the-site">Hosting the site</h2>
+<p>I don’t expect Fremen Zone to generate large traffic, and so for the time being
+I decided GitHub Pages should suffice as a hosting provider. There was a small
+catch, though. GitHub Pages can only host websites available in a public
+repository, at least on the free plan. However, I didn’t want to expose any of
+the in-progress work, notes, etc. The solution was handed to my by a colleague
+from work and is in fact trivial: use two repositories, a private one for
+development and a public one for hosting. For this reason, if you go to <a href="https://github.com/jstolarek/fremenzone">Fremen
+Zone repository</a> you will only find the
+generated HTML files, LICENSE and README files as well as definitions of GitHub
+workflows. All the scripts discussed in this post are in the private repo.</p>
+<p>To make updating of the public repository easier I created another dedicated
+script that performs a bunch of safety checks (no untracked files, no
+uncommitted changes, no unaddressed TODOs, etc.), and, if those pass, builds the
+page from sources and copies the resulting files to the public repository. I
+then need to manually commit and push the changes, which is another safety
+measure against publishing something unintended.</p>
+<h2 id="summary">Summary</h2>
+<p>Front-end development is definitely not my cup of tee, but creating a website
+from scratch using only HTML and CSS was actually quite a lot of fun. By
+relying on the most basic technologies, I expect the site to be future-proof and
+easy to move to different hosting, once such a need arises.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>21/08/2024</pubDate>
+    <guid>https://jstolarek.github.io/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>The Invincible. A game review</title>
     <link>https://jstolarek.github.io/posts/2024-05-31-the-invincible-a-game-review.html</link>
     <description><![CDATA[<article>
@@ -1956,429 +2312,6 @@ up their resources (ammo, healing items) and no new ones were available.<a href=
 ]]></description>
     <pubDate>01/10/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-10-01-system-shock-remake.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>All the things I've ever done wrong with my websites</title>
-    <link>https://jstolarek.github.io/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 12/07/2023
-    </section>
-    <section>
-        <h1 id="all-the-things-ive-ever-done-wrong-with-my-websites">All the things I’ve ever done wrong with my websites</h1>
-<p>This post has been long in the making. I started writing it in March, and now,
-four months later, it is finally finished. I was inspired by Fabien Sanglard’s
-<a href="https://fabiensanglard.net/html/index.html">post about technical aspects of his
-blog</a> and it made me reflect on all
-my past and present web sites and things I did wrong when creating and hosting
-them. I’ve been maintaining some form of online presence, whether a homepage, a
-blog, or a fansite, for the past 23 years so there was a lot to reflect on.
-Here’s a chronological list.</p>
-<h2 id="fremen-zone">Fremen Zone</h2>
-<p>This will be a trip down memory lane. Fremen Zone was my fansite dedicated to
-Frank Herbert’s “Dune” novel and related works such as games and movies. I
-started it when I was in high school back in 1999. By that time I already knew
-how to program, but creating web sites was a new thing for me. I wanted both to
-share my fascination with the Dune universe as well as learn how to create web
-pages. This was also the time when lots of online portals offered free hosting.
-In the west this was typically GeoCities, but here in Poland I used Onet. When
-signing up one would not only get an email address but also a few megabytes of
-disk space to host a website. I know that by today’s standards 2 or 5
-megabytes is laughably low, but back then it was more than enough. Later in its
-lifetime Fremen Zone changed hosting and included some multimedia downloads,
-growing the page size to a total of around 75 megabytes.</p>
-<p>Fremen Zone was initially intended to be dedicated to the Dune II strategy game.
-A very rough first prototype looked like this (this is the highest resolution
-screenshot I have):</p>
-<div class="thumbnail">
-<figure>
-<img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_proto_1.png" />
-<figcaption>
-First prototype.
-</figcaption>
-</figure>
-</div>
-<p>It was quickly discarded and replaced with another prototype, this time with
-scope extended to contain the books. As you can see the working name of the
-website was also different:</p>
-<div class="thumbnail">
-<figure>
-<img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_proto_2.png" />
-<figcaption>
-Second prototype.
-</figcaption>
-</figure>
-</div>
-<p>Both prototypes were created using Microsoft FrontPage, a WYSIWYG HTML editor.
-However, I quickly realized that, firstly, I am not learning much by using this
-kind of tool and, secondly, that the generated HTML is bloated and unlikely to
-work on web browsers other than Internet Explorer, such as Netscape Navigator.
-As a result I switched to writing HTML and CSS by hand. The results were very
-good and I think they still hold up well even today:</p>
-<div class="thumbnail">
-<figure>
-<img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_old.jpg" />
-<figcaption>
-Fremen Zone displayed in Internet Explorer sometime in the early noughties.
-</figcaption>
-</figure>
-</div>
-<p>Fremen Zone went online in June 2000. The process of first creating and then
-maintaining it was a lot different from what we do today. First and foremost, I
-didn’t have Internet access at home. This meant I had to update all the files
-in advance and then upload them when visiting my dad’s work during the weekend.
-These weekend visits were also the only time when I could browse the Internet to
-find any information for the website, although this wasn’t a big problem since
-practically all of the content was created by me based on reading the books,
-playing the games, and watching the movies. The only significant exception were
-reviews of the last three books in the original Dune cycle, which I have not yet
-read when I started creating Fremen Zone. Luckily, Dune was quite a popular
-books amongst my peers and a friend of mine who read all the books agreed to
-provide missing reviews. With no Internet access at home this was a
-logistically complicated process, since said friend lived in a different part of
-city. We spent a long time on the phone discussing the books, the page, and
-writing reviews, which resulted in phone bills going up significantly. Again,
-not a trivial problem in late 90s Poland. I also mentioned that Fremen Zone
-contained some downloads. These included, among others, Dune and Dune II games,
-which back then were considered abandonware<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>Fremen Zone was last updated in 2004. At some point there wasn’t much more to
-write about and the page simply existed without any supervision. It eventually
-withered away and disappeared when its free hosting was closed down. I have no
-recollection of when that happened. A copy of the website has been sitting on
-my hard drive all this time and as I was writing this post I thought to myself
-“why not bring Fremen Zone” back to life? <a href="https://jstolarek.github.io/fremenzone/">And so I
-did</a>. Using GitHub as a hosting
-service it took two afternoons to put it online. In fact it could have been
-hosted as it was, but I wanted to move away from ISO-8859-2 and CP-1250
-encodings in favour of UTF-8. I also wanted to replace self-extracting RAR
-archives with ZIP ones.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_today.png"><img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/fz_today_thumbnail.jpg" /></a>
-<figcaption>
-Revived Fremen Zone hosted on GitHub Pages.
-</figcaption>
-</figure>
-</div>
-<p>In retrospect I am very happy about how the Fremen Zone turned out. The fact
-that after over two decades the page “just works” shows how future-proof pure
-that HTML and CSS are. Perhaps the only complaint that could be made is that it
-doesn’t look good on mobile devices, but honestly speaking I couldn’t care less
-about that. When it comes to the Fremen Zone I can proudly say I made no
-mistakes. As you will see below this is not the case for my other websites.</p>
-<p>Lessons learned:</p>
-<ul>
-<li>Filling the website with content is lots of fun.</li>
-<li>Hand-written HTML and CSS are great, though full-scale redesigns are
-tedious.</li>
-</ul>
-<h2 id="evolutionary-biology-blog-at-blogger.com">Evolutionary biology blog at blogger.com</h2>
-<p>Towards the end of my university studies I picked interest in evolutionary
-biology. I read lots of books on the subject and I have to credit works of
-Charles Darwin, Richard Dawkins, and E. O. Wilson as being the biggest influence
-in forming my approach to research and science in general. (For the record, I
-studied computer science, not biology.) I decided to turn that fascination of
-biology into a blog. It contained mostly reviews of popular science books about
-biology, myrmecology, cognitive science, and occasionally modern physics and
-cosmology.</p>
-<p>I decided to host my blog using one of many blogging services available in the
-noughties. After some consideration I went with Google’s Blogger, with first
-post being published in 2008. Blogger is designed as a user-friendly CMS with
-some (limited) options to customise layout. Post editing is done using an
-online WYSIWYG editor, with everything being saved immediately (at least in
-theory). Over time I grew to dislike that editor. It isn’t a horribly bad
-experience but editing inside a text field embedded in a browser window is far
-from being the best possible experience. There was always the option to switch
-it to pure HTML mode, but as you might guess two modes weren’t perfectly
-compatible as code generated from the editor wasn’t exactly what one would write
-by hand, and conversely, code written by hand sometimes wasn’t parsed correctly
-in WYSIWYG mode.</p>
-<p>In the end I think the biggest problem with Blogger was taking ownership of
-created content. There is the ever-looming threat of service joining the
-<a href="https://killedbygoogle.com/">Google Graveyard</a>. Although Blogger allows to
-export all posts to an XML file, it seems to be only able to export text, with
-all images being lost in the export process.</p>
-<p>Lessons learned:</p>
-<ul>
-<li>Do not use a service that doesn’t allow you to export all created content.
-Always make sure to own everything that you created. Ideally, don’t depend
-on an external service at all.</li>
-<li>Online WYSIWYG editors are somewhat inconvenient.</li>
-<li>Blogging is fun.</li>
-</ul>
-<h2 id="professional-homepage-version-1-plain-html">Professional homepage, version 1: plain HTML</h2>
-<p>In late 2008 I started my work at Politechnika Łódzka<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> (PŁ for short). Back
-then PŁ didn’t have a unified online learning platform and so each employee used
-their personal web page to provide learning materials for the students. I had
-to create such a page for myself and since I needed it ASAP I chose the easiest
-solution: hand-written HTML with practically no CSS, other than white
-background. The page wasn’t fancy but it did the job of delivering basic
-information.</p>
-<p>Lessons learned:</p>
-<ul>
-<li>Again, hand-written HTML and CSS are great.</li>
-</ul>
-<h2 id="professional-homepage-version-2-dokuwiki">Professional homepage, version 2: DokuWiki</h2>
-<p>That first version of my professional homepage was intended to be a temporary
-solution but in the end it lasted for about 3 years until 2011. What made me
-move on was reading <a href="https://pragprog.com/titles/ahptl/pragmatic-thinking-and-learning/">“Pragmatic Thinking and
-Learning”</a>,
-which convinced me that it is a good idea to have a personal wiki to organize my
-research. One of my colleagues pointed me to DokuWiki, which he described as a
-lightweight wiki being solely based on markdown-formatted text files and thus
-requiring no database. This convinced me. No database requirement made it easy
-to set up, and versatility of configuration made it possible to tweak everything
-to my liking. From now on DokuWiki acted both as my official homepage,
-containing information for students and my research portfolio, as well as my
-personal wiki, which was hidden behind a login. I could now organize all my
-research notes into pages and the ease of doing that meant I was now making a
-lot more notes than I used to. I also really liked plugin support. One of the
-plugins allowed to me have both Polish and English version of each publicly
-visible subpage. Another provided LaTeX support, allowing to render formulas
-related to wavelet transforms.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/dokuwiki_homepage.png"><img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/dokuwiki_homepage_thumbnail.png" /></a>
-<figcaption>
-My old homepage running on DokuWiki.
-</figcaption>
-</figure>
-</div>
-<p>While at first I was quite impressed with DokuWiki, over time I realized that it
-doesn’t quite live up to the promise of its storage being entirely text based.
-While the current content of all the pages is indeed stored in text files, under
-the hood DokuWiki maintains history of all the edits (after all, it is designed
-to host a wiki) as well as an elaborate system of all sorts of caches and
-indices. This means that editing the text files directly instead of using the
-HTML editor can potentially get you into trouble with internal data consistency.
-And while above I stated how DokuWiki made it easy to make notes, over time my
-workflow evolved towards being terminal-based and at this point using a separate
-browser-embedded editor to take notes became a problem. Moreover, all the
-caches and historical records are binary files and therefore storing sources of
-the website in a version control system was also a bit of a problem.</p>
-<p>Lessons learned:</p>
-<ul>
-<li>Having a personal wiki is a fantastic idea. However, it must be possible to
-easily integrate the process of taking notes with the rest of my workflow.
-Therefore, HTML editors suck.</li>
-</ul>
-<h2 id="yet-another-lambda-blog">Yet Another Lambda Blog</h2>
-<p>When I got into functional programming back in 2012 I thought it would be a
-great idea to also run a blog on the topic. Aside from the fact that I enjoy
-sharing my knowledge with others, a blog would also serve a similar purpose as
-the personal wiki. It would be a place where I can record my knowledge for
-future purposes<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. I have already learned that relying on an external blog
-hosting service is not a good idea - I already knew I want full ownership of the
-content I create - so I decided to go with self-hosting and set up a blog CMS
-along with my homepage on my university’s server. Today I can safely say that
-while the assumptions were good, the execution was not: I went with Wordpress.</p>
-<p>Wordpress seemed like a good choice due to amount of offered features, both
-built-in and available via additional plugins. A variety of themes meant I had
-no problem adjusting the looks of the blog to my liking. Similarly to Blogger,
-Wordpress offered an online WYSIWYG, which at this point I was still willing to
-tolerate. What proved to be the biggest downside was the maintenance burden.
-Firstly, since the instance was self-hosted, I was responsible for keeping my
-installation up-to-date. Most updates went fine, but some did not and I found
-myself spending hours trying to recover from a failed update. An unexpected
-obstacle came from my hosting, which turned out to be using an extremely old
-release of <a href="https://www.pld-linux.org/">PLD Linux</a> with a woefully out-of-date
-PHP version that has not received any security updates for about a decade. At
-some point this became a problem since Wordpress bumped their minimal required
-PHP version and I was no longer able to update my installation. This is a big
-deal. Due to its popularity, Wordpress installations, especially those outdated
-ones without security fixes, are a common target for hacker attacks. Moreover,
-spambots are a major issue, with spam making up over 99,99% of all comments. In
-order to manage this spam you either turn off comments completely or use a
-plugin for filtering spam (I used Akismet). Lastly, there’s the issue of
-backups. Wordpress has plugins that allow you to backup all of your
-installation, but moving contents backed up this way to a different installation
-is not a straightforward task. Or at least was not straightforward last time I
-tried it - perhaps things have improved?</p>
-<p>Overall, using a self-hosted Wordpress installation was a major pain with lots
-of time spent on maintenance. Even though I now owned all the content I
-created, the fact that it was all stored in a database made it difficult to
-backup or migrate.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/yalb.png"><img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/yalb_thumbnail.png" /></a>
-<figcaption>
-Yet Another Lambda Blog running on Wordpress.
-</figcaption>
-</figure>
-</div>
-<p>Lessons learned:</p>
-<ul>
-<li>Self-hosting a large CMS is difficult and time consuming.</li>
-<li>Database is a major source of problems.</li>
-<li>Comment system is a major source of pain.</li>
-<li>Blogging is still fun.</li>
-</ul>
-<h2 id="cyberbrain4-gollum-based-personal-wiki">Cyberbrain<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>: gollum-based personal wiki</h2>
-<p>At some point I have found myself no longer using my personal wiki. It’s not
-that I stopped using it suddenly. It just happened gradually over time. This
-really surprised me, since a personal wiki is a Good Thing and many times have I
-been grateful for taking the time to write down various things that I’ve
-learned. After thinking about it for a while I realized the cause: I really
-hated the online interface. It was slow and completely disconnected from my
-workflow: I spent 90% of my work time in the terminal, using Emacs in text mode
-as my editor. Making notes in the wiki meant switching to the browser and using
-a completely different way of editing text than the one I use normally. This
-was too heavyweight and requires too large a context switch.</p>
-<p>The solution to this problem came in the form of
-<a href="https://github.com/gollum/gollum/">gollum</a>. Gollum is a markdown based wiki
-engine that can run as a local service on my machine. And this time “markdown
-based” really means what it means - no weird caching or indexing like in
-DokuWiki. Gollum requires that the wiki is stored in a git repository and as
-such all history is recorded outside of the wiki engine itself. In fact, most
-of you have likely already seen gollum in action as it is the engine that was
-originally created to power GitHub wikis<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Multiple markdown flavours are
-supported, but the DokuWiki one isn’t, so I had to migrate all notes I already
-had on my personal wiki.</p>
-<p>Once migration was done I had a perfect wiki. All my notes are now stored in
-Markdown files (GitHub Markdown with minor tweaks and enhancements) organized in
-directories. Since it’s Markdown it is easy to edit in Emacs, which allows me
-to seamlessly integrate taking notes with programming. In fact, for most of the
-time I view my notes in Emacs. I switch to a web browser view of the wiki only
-when I need to retrieve information which location in the wiki I am unsure of
-and I need to click through several pages in order to find it. This doesn’t
-happen too often since I try to keep my wiki organized. At the moment all my
-notes total at 1.5MB - and that’s just text-based Markdown files, excluding any
-multimedia or git history - so it is crucial that they are all well structured.
-Moreover, storing everything in a git repository is now not only a natural thing
-to do, but in fact mandatory. To simplify my workflow with the wiki even
-further I created a <code>Makefile</code> with following contents:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">all:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">       </span>git add .</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>       git commit -m <span class="st">&quot;Local changes (via Makefile)&quot;</span> || exit 0</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> all</span></span></code></pre></div>
-<p>which allows me to commit all changes to my wiki by pressing F8 in Emacs.
-Granted, the commit message is not descriptive, but in all honesty I don’t think
-I ever found myself referring to my wiki’s history.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/gollum.png"><img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/gollum_thumbnail.png" /></a>
-<figcaption>
-My new personal wiki running on local instance of gollum.
-</figcaption>
-</figure>
-</div>
-<p>Lessons learned:</p>
-<ul>
-<li>Personal wiki is essential for a programmer.</li>
-<li>For a personal wiki it suffices to have it hosted locally.</li>
-<li>Markdown is a good and lightweight way of taking notes.</li>
-<li>It is important to minimize context switch between doing productive work and
-taking notes.</li>
-</ul>
-<h2 id="professional-homepage-with-a-blog-version-3-hakyll-github-pages">Professional homepage with a blog, version 3: Hakyll + GitHub pages</h2>
-<p>After switching to gollum I was still using DokuWiki to run my professional
-homepage. That page, as well as Wordpress-based Yet Another Lambda Blog, came
-to an end in 2021. After spending 13 years at my University I decided to change
-jobs, which meant losing access to my hosting. I had to migrate everything
-somewhere else.</p>
-<p>All my experiences so far lead me to one conclusion: the simpler the better. I
-didn’t want anything that uses a database. I didn’t want a comment system. I
-wanted to store everything in a simple text-based format that is easy to migrate
-and store in a git repository. This left me with two choices: either plain
-HTML+CSS or a Markdown-based solution. I wasn’t yet ready to return to using
-HTML. After considering my options I decided to go with
-<a href="https://jaspervdj.be/hakyll/">Hakyll</a>, a static HTML generator inspired by
-Jekyll, but written in Haskell.</p>
-<p>I wanted to combine my professional homepage with a blog. This meant migrating
-already existing DokuWiki pages, which was simple since I already knew how to
-handle this from earlier migration to gollum, but it also meant migrating from
-Wordpress to Markdown. This was a bigger problem, but luckily I found a tool
-that did 90% of the job of converting existing blog posts to Markdown. There
-were still cleanups and tweaks here and there, in particular when it came to
-images and footnotes. The process was tedious but overall not that long.</p>
-<p>There was a bunch of other stuff that had to be set up in Hakyll, from RSS feed
-to creating templates and metadata for blog pages, and various rules defining
-how and where to put various files (in particular images). Luckily, Hakyll
-documentation and online examples were helpful, and after about a week of work
-the migration was complete. You are most likely viewing the result right now,
-but in case another migration happens in the future here’s a screenshot:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll.png"><img src="/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll_thumbnail.png" /></a>
-<figcaption>
-Current homepage and blog built with Hakyll.
-</figcaption>
-</figure>
-</div>
-<p>Overall, once setup Hakyll is easy to use and does the job. It still has its
-downsides though. Firstly, it is a rather heavyweight technology in a sense
-that it requires full Haskell toolchain to be installed in the system, plus a
-bunch of library dependencies. I am a Haskell programmer so I tend to have
-Haskell compiler at hand, but this is no small requirement. And being
-Markdown-based leads to limitations that you’re going to hit sooner or later.
-For me this happened when I decided I want to have captioned images that can be
-enlarged with a click. To achieve the desired effect I had to mix HTML with
-Markdown and write some extra CSS to ensure images display correctly on mobile
-devices. So whenever I want to insert an image I have to write something like
-this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;thumbnail&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">figure</span><span class="dt">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>[![](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll_thumbnail.png)](/images/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites/hakyll.png)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">figcaption</span><span class="dt">&gt;</span>Current homepage and blog built with Hakyll.<span class="dt">&lt;/</span><span class="kw">figcaption</span><span class="dt">&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">figure</span><span class="dt">&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>Lessons learned:</p>
-<ul>
-<li>Static site generation is great.</li>
-<li>Markdown is good enough for basic formatting, but sooner or later you hit
-its limitations.</li>
-</ul>
-<h2 id="what-next">What next?</h2>
-<p>At the moment the only active web page that I maintain is this blog running on
-Hakyll. Once set up it is easy to work with and allows me to do everything I
-need. That being said, I am not happy about Hakyll’s weight, in particular its
-dependence on a plethora of Haskell libraries. It was trivially simple to bring
-Fremen Zone back to life after two decades of no maintenance. Will it be
-equally easy to restore this blog in two decades time? I have serious doubts
-about that, but nevertheless have no intention of migrating to anything else.
-For now.</p>
-<p>Restoring the Fremen Zone back to life sparked a new desire in me. While I said
-I have no intention of updating it, I feel like re-doing the whole site from
-scratch. All the reviews on the page were written from a perspective of a
-teenager. Today, being middle-aged, I view most of things surprisingly
-similarly, but would definitely make a better choice of words in expressing
-myself. And so I am slowly gathering material for a new Dune fanpage. All the
-lessons above have taught me to avoid complexity and stay as close to the basics
-as possible. And so my plan is to create a new website based on pure HTML and
-CSS. This will take some learning effort. I haven’t used these technologies in
-a while and they have evolved in the past two decades, in particular when it
-comes to handling mobile devices. My experience with creating Fremen Zone 20
-years ago taught me that creating content is a time consuming process, and
-therefore I am assuming this new website will take years, rather than months, to
-complete.</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>I think they are still abandonware and there is any legal way of obtaining
-them, except for second-hand market.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Official English translations of “Politechnika Łódzka” changed over time.
-When I started my work it was Technical University of Lodz but sometime
-around 2013, I think, it changed to Lodz University of Technology.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>I can’t overstate how good a thing this is. I have revisited some of my
-blog entries and found them extremely helpful and was grateful to myself
-that I took the time to write them.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>The term “cyberbrain” comes from Ghost in the Shell and refers to
-cybernetic brain replacements used in the manga and its anime adaptation.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>I am not sure whether this is still the case. Based on bits and pieces of
-information I was able to find on the Internet I think gollum and the
-engine that currently powers GitHub wikis are technically separate
-codebases, but gollum strives to remain fully compatible with GitHub.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>12/07/2023</pubDate>
-    <guid>https://jstolarek.github.io/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 

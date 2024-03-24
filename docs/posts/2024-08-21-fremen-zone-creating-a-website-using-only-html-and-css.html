@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Fremen Zone: Creating a Website Using Only HTML and CSS</title>
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" href="../css/syntax.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../feed.xml" class="rsslink"><img src="../images/rss_icon.png" class="rss-icon"></a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on 21/08/2024
+    </section>
+    <section>
+        <h1 id="fremen-zone-creating-a-website-using-only-html-and-css">Fremen Zone: Creating a Website Using Only HTML and CSS</h1>
+<p>A year ago in July I wrote <a href="2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html">a post about all the websites that I have run in my
+life</a>. An
+important part of that list was Fremen Zone, a fansite dedicated to Frank
+Herbert’s “Dune”. It was my first website ever, which I created back in high
+school and have <a href="https://www.fremenzone.pl/legacy/index.htm">restored last year from backups on my hard
+drive</a>. I ended the post with an
+idea of creating a new version of Fremen Zone:</p>
+<blockquote>
+<p>Restoring the Fremen Zone back to life sparked a new desire in me. While I
+said I have no intention of updating it, I feel like re-doing the whole site
+from scratch. (…) And so I am slowly gathering material for a new Dune
+fanpage. All the lessons above have taught me to avoid complexity and stay as
+close to the basics as possible. And so my plan is to create a new website
+based on pure HTML and CSS.</p>
+</blockquote>
+<p>Since late June 2023 I have been hard at work to create a new version of Fremen
+Zone. The website went live on February 1st 2024 and is available at
+<a href="https://www.fremenzone.pl" class="uri">https://www.fremenzone.pl</a>. In this post I want to talk about the technical
+aspects of the new Fremen Zone page, in particular putting emphasis on
+simplicity and developing a dedicated static page generator.</p>
+<p>Now, one tiny detail before we move on. If you clicked on the link below, you
+already noticed that Fremen Zone is in Polish, not English. Google Translate
+does a decent job at translating it to English, but make sure to fold the
+translation bar. Otherwise it covers the top navigation bar.</p>
+<h2 id="keeping-things-simple">Keeping things simple</h2>
+<p>The primary principle driving the technical design of the new page was to keep
+technical solutions as simple as possible. I didn’t want to rely on any
+existing frameworks, content management systems, or anything of that sort.
+Instead, I wanted to create a website that uses only HTML5 and CSS, with no
+JavaScript. The goal was to make a page that is static, small (=quick to load),
+fast and responsive, without bloat, and also easy to deploy or move to a
+different hosting.</p>
+<p>The first step was layout design. The old Fremen Zone used frames, which nobody
+really relies on today. For the new version, I decided to go with a navigation
+menu placed at the top of the page. This layout looks clean and minimalistic,
+which is one of the things I wanted to achieve with the new website.</p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/navbar.png"><img src="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/navbar_thumbnail.png" /></a>
+<figcaption>
+The navigation bar highlights the current section. Below the navbar is a section logo.
+</figcaption>
+</figure>
+</div>
+<p>I haven’t done any front-end programming since my original work on Fremen Zone
+nearly quarter a century ago, so not only have I forgotten everything I learned
+about HTML and CSS back then, but also both standards have evolved over time.
+And so I was learning HTML5 and CSS from scratch as I worked on the new page
+design. An important change made to HTML since its early days is the
+introduction of tags that carry important semantic meaning. And so the
+navigation bar is enclosed in <code>&lt;nav&gt;&lt;/nav&gt;</code> tags, sub-page headers use
+<code>&lt;header&gt;&lt;/header&gt;</code> tag, and so on – whenever semantic tags were available I
+made sure to use them, though I didn’t get everything right on first attempt.
+More on that in a moment.</p>
+<h2 id="browser-compatibility">Browser compatibility</h2>
+<p>One of my top technical priorities was browser compatibility. I wanted to make
+sure that the website will work as intended, no matter the browser. This is
+something I have put a lot of attention to when designing the original Fremen
+Zone two decades ago. The difference is that back then I tested the page with
+Internet Explorer and Netscape Navigator, while now the tested browsers included
+Firefox (that’s my default browser), Chromium (I avoid Chrome like a plague, but
+acknowledge the fact that most people use it), <a href="https://www.palemoon.org/">Pale
+Moon</a>
+(pre-<a href="https://blog.mozilla.org/en/mozilla/introducing-firefox-quantum/">Quantum</a>
+fork of Firefox), <a href="http://links.twibright.com/">links</a> and
+<a href="https://lynx.invisible-island.net/">lynx</a> (terminal-based text-only web
+browsers), <a href="https://dillo-browser.github.io/">Dillo</a> (an extremely minimalistic
+web browser), and <a href="https://www.torproject.org/">Tor</a> (privacy-focused web
+browser based on Firefox). Despite the multitude of modern browsers, the task
+was generally easier than 25 years ago.</p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/firefox.png"><img src="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/firefox_thumbnail.png" /></a>
+<figcaption>
+Intended page rendering in Firefox.
+</figcaption>
+</figure>
+</div>
+<p>The new version of Fremen Zone renders as intended in Firefox, Chromium and Pale
+Moon. However, the more obscure browsers don’t always render the page as
+intended. For example, Dillo does not correctly handle CSS margins and width
+attributes, resulting, among others, in misaligned section logo images and
+incorrect text width:</p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/dillo.png"><img src="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/dillo_thumbnail.png" /></a>
+<figcaption>
+Dillo does not handle text flow as intended. As a bonus, the
+background of the main page logo has the wrong colour.
+</figcaption>
+</figure>
+</div>
+<p>Tor on the other hand, as part of its security measures, blocks web fonts. This
+results in incorrect rendering of the RSS icon on the right of the navigation
+bar (see <a href="#polishing-the-details">Polishing the details</a> section below for more
+details on web fonts).</p>
+<p>It was a fun exercise to get the page to look readable in text-based web
+browsers. These browsers are obviously quite limited at what they can do, but
+one thing they forced me to get right was correct semantic usage of HTML tags.
+For example, I first started out with using stylized <code>&lt;div&gt;</code> tags for the
+headers and sub-headers on the page. This looked as intended in graphical
+browsers, but in text-based ones the headers rendered as a one-line paragraphs
+of text and were indistinguishable from normal paragraphs. The solution was to
+switch to dedicated header tags, <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code>. In graphical browsers this
+makes no difference since the styling is handled with CSS. However, text-based
+browsers now interpret headers correctly and make them stand out from the rest
+of the text.</p>
+<div class="thumbnail">
+<figure>
+<a href="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/lynx.png"><img src="../images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/lynx_thumbnail.png" /></a>
+<figcaption>
+Fremen Zone rendering in Lynx. Note the repeated navbar.
+</figcaption>
+</figure>
+</div>
+<p>I also wanted Fremen Zone to display correctly on mobile devices. In principle,
+I don’t really care much about smartphones - I consider them a horrible way of
+interacting with the Internet and rarely use mine to browse the web. But at the
+same time, I thought of this as in interesting technical challenge and a
+learning opportunity.</p>
+<p>The biggest problem to overcome with rendering Fremen Zone on mobile was the
+navigation bar. Firstly, the navbar is structured differently on desktop and on
+mobile, forcing two copies of it to be defined in the source code. At any given
+time, only one of those copies is visible, which is controlled by the <code>@media</code>
+at-rules in CSS. Text-based browsers don’t handle <code>@media</code> at-rules as intended
+and display both copies of the menu at the same time. Hence, the repeated
+navbar in the screenshot above.</p>
+<p>The mobile version of the navigation bar, instead of a list of available page
+sections, contains only a “hamburger menu” icon. The proper menu becomes
+visible once the icon is clicked. Sadly, getting this behaviour to work
+requires a short JavaScript snippet attached via the <code>&lt;a&gt;</code> tag’s <code>onclick</code>
+property. It isn’t a long script, just a few lines of code to add or remove a
+CSS class that switches menu visibility, but it means that my goal of creating a
+website that does not use JavaScript at all was not possible to achieve. Not
+without giving up on mobile responsiveness, at least. I spent hours
+experimenting with different approaches, hoping I can get things to work with
+just CSS, but to no avail. I accepted that I need these few lines of JavaScript
+and moved on.</p>
+<p>Finally, there was the question of compatibility with various mobile browsers.
+Luckily, things went much smoother than on desktop. Essentially all browsers I
+tested - Firefox, DuckDuckGo, Vivaldi, Opera Mini, Edge - rendered the page as
+intended.</p>
+<h2 id="writing-a-custom-website-generator">Writing a custom website generator</h2>
+<p>I spent approximately two weeks prototyping the layout. Once the initial design
+was in place I began preliminary work on the contents. After creating several
+subpages it quickly became apparent that pages contain lots of repetition, in
+particular in the <code>&lt;head&gt;</code> and <code>&lt;navbar&gt;</code> tags. Surely, there were minor
+differences - each page had a different <code>&lt;title&gt;</code> and each subpage’s navbar
+highlighted a different current section - but the overall structure of each page
+was identical. It was clear at this point that this repetition must be
+eliminated. And so the next step was to write a custom static website
+generator.</p>
+<p>I decided to put each logical fragment of the page into a separate template
+file. For example, template for the page’s HTML header contains:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;author&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;Jan Stolarek&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;font&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;font/woff2&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/fonts/fa-solid-900.woff2&quot;</span><span class="ot"> crossorigin</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;style&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/styl.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;image&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/png&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/img/SECTION.png&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/styl.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;icon&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/x-icon&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/favicon.png&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;license&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/LICENCJA.md&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>PAGETITLE<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Putting all those repeating fragments into their own template files allowed me
+to reduce each page to just its proper contents enclosed inside a <code>&lt;div&gt;&lt;/div&gt;</code>
+block. Everything else - <code>&lt;head&gt;</code>, <code>&lt;navbar&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, etc. -
+is stored in template files. This way all the repetition in HTML sources is
+gone and changing, say, page’s <code>&lt;head&gt;</code> section requires modifying only the
+respective template file.</p>
+<p>I then wrote a bash script to assemble full HTML pages from templates and the
+proper source files. At the heart of the script are the following lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;!DOCTYPE html&gt;&quot;</span>        <span class="op">&gt;</span>  <span class="va">$HTMLFILE</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;html lang=</span><span class="dt">\&quot;</span><span class="st">pl</span><span class="dt">\&quot;</span><span class="st">&gt;&quot;</span>     <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/head.html    <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;body&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/scripts.html <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/navbar.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/header.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;main&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span>         <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/main&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/footer.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/body&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/html&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span></code></pre></div>
+<p>There are some bash variables in here, but their names should be
+self-descriptive.</p>
+<p>You might be wondering about the <code>RELPATH</code>, <code>SECTION</code>, and <code>PAGETITLE</code> words
+used in the example template file above. These are reserved words that are
+replaced with page-specific values using <code>sed</code>. This allows not only to have
+page-specific titles and section logos, but also calculate relative paths:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert relative paths</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$FILEDIR</span><span class="st">&quot;</span> <span class="ot">=</span> <span class="st">&quot;.&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;.&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">SLASHES</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${FILEDIR</span><span class="op">//</span><span class="ss">[^</span><span class="dt">\/</span><span class="ss">]</span><span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">DIRDEPTH</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${</span><span class="op">#</span><span class="va">SLASHES}</span><span class="st">&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;..&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 1 <span class="va">$DIRDEPTH)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">RELPATH</span><span class="op">=</span><span class="va">$RELPATH</span><span class="st">&quot;/..&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,RELPATH,</span><span class="va">$RELPATH</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
+<p>or insert last modification date from <code>git</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add last modification date</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">LASTMODIFIED</span><span class="op">=</span><span class="kw">`</span><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--pretty</span><span class="op">=</span><span class="st">&quot;format:%cs&quot;</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span><span class="kw">`</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,LASTMODIFIED,</span><span class="va">$LASTMODIFIED</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
+<p>I like to keep all my projects organized, and so files that comprise the website
+are placed into dedicated directories. For example, all images are placed in
+<code>img</code> directory, while all kinds of resources (e.g. web fonts, a unique
+non-generated 404 page, favicon) are in the <code>res</code> folder:</p>
+<pre><code>fremenzone
+├── css
+├── docs
+├── img
+├── res
+├── src
+└── templates</code></pre>
+<p>In order for all these files to form a coherent page that can be displayed in a
+browser, they must be assembled into one directory - <code>docs</code>. This was initially
+done by the same bash script that generated the pages from templates. The
+script would first copy all images, resources and CSS files to <code>docs</code>, and then
+it would proceed to generate <em>all</em> HTML pages, regardless of whether they were
+changed or not.</p>
+<p>This approach was very easy to program and worked well at first. However, as I
+added more subpages, the approach of rebuilding every HTML page became a bit too
+slow. Obviously, it wasn’t very slow, but slow enough that I had to
+deliberately pause before pressing F5 in the browser after making changes to the
+sources. It was time to write a proper <code>Makefile</code> for the page.</p>
+<p>With a <code>Makefile</code> in place, only the modified files are regenerated. No more
+rebuilding of all the HTML sources or copying of the whole image directory.
+Switching the build process to <code>make</code> made rebuilding the modified sources two
+orders of magnitude faster. The caveat is that rebuilding the whole website,
+for example after calling <code>make clean</code>, is actually several times slower than
+with the bash script. However, that is a corner case that happens very rarely.
+What matters is that the most common use case has been optimized.</p>
+<h2 id="polishing-the-details">Polishing the details</h2>
+<p>At various moments during Fremen Zone development, I’ve spent quite significant
+amounts of time on getting the various details right.</p>
+<h3 id="html-validation">HTML validation</h3>
+<p>First and foremost, I wanted to ensure that I write correct HTML. To this end,
+I wrote a bash script that checks all the generated pages using
+<a href="https://www.html-tidy.org/">html-tidy</a>, and created a dedicated <code>make</code> target
+to be able to call it easily. The next step was to set up a GitHub action that
+calls the script on every commit, just in case I miss something during local
+development. Additionally, just to be extra sure, I’ve set up a <a href="https://github.com/Cyb3r-Jak3/html5validator-action">GitHub
+action</a> that checks
+generated pages using
+<a href="https://github.com/svenkreiss/html5validator">html5validator</a>.</p>
+<h3 id="rss-feed">RSS feed</h3>
+<p>One of the things I absolutely wanted to have on my page was an RSS feed.
+Again, I didn’t want to rely on any generators - this might not have even been
+possible, given that Fremen Zone does not take a format of a blog - which forced
+me to dive into <a href="https://cyber.harvard.edu/rss/rss.html">RSS specification</a>.
+Luckily, it’s not that complex, but it took some effort to make things work as
+intended. Not everything was clear from the specification, forcing me to peek
+into various generated feeds, such as the one generated by Hakyll for this blog.
+I also mixed in elements of
+<a href="https://validator.w3.org/feed/docs/atom.html">Atom</a>, so the feed isn’t purely
+in the RSS format.</p>
+<h3 id="web-fonts">Web fonts</h3>
+<p>Once an RSS feed was ready, I wanted to have an RSS icon in the navigation bar.
+This was surprisingly tricky to get right. After quite a substantial amount of
+research and experimentation, I figured out that the only reliable method that
+works on multiple different browsers is to use a dedicated glyph from an
+embedded web font. I went with an older version (5.15.4) of
+<a href="https://github.com/FortAwesome/Font-Awesome/">FontAwesome</a> web fonts in two
+different formats, <a href="https://caniuse.com/woff">woff</a> and
+<a href="https://caniuse.com/woff2">woff2</a>, the former one for those poor souls that use
+unbelievably outdated web browsers. Using a web font also solved the problem of
+displaying an icon for “hamburger menu” on mobile devices.</p>
+<h3 id="optimizing-loading-times">Optimizing loading times</h3>
+<p>At some point, I spent quite a significant amount of time on figuring out how to
+optimize Fremen Zone for faster loading. I admit that I am a beginner when it
+comes to the topic and I had to rely on pieces of advice found online - often
+conflicting, forcing me to dive deeper into HTML5 specification and browser
+documentation. One simple thing was to use a CSS minifier, a program that
+strips whitespaces and comments from a CSS file, making it more than 50%
+smaller. I also experimented with HTML minifiers, but couldn’t find one that
+would actually work without breaking the page and violating the HTML5 standard.</p>
+<p>The next step in optimizing the loading times was related to embedded web fonts.
+Firstly, it is possible to strip the redundant glyphs from a font file. I only
+needed two glyphs from each of the two font files (woff, woff2), which allowed
+me to reduce file sizes from 40-50kB, to less than a kilobyte. Secondly, it is
+possible to preload the web fonts, i.e. instruct the browser in the HTML header
+to start loading the font files before the rest of the page is parsed and the
+glyphs from the font are actually requested. It is also possible to preload the
+CSS and other resources, which I did. I’m not exactly sure whether this has any
+benefits - the measurements I made using the browser’s developer tools were
+inconclusive. However, there seems to be no costs of attempting a preload, so I
+decided to keep it. For a brief moment I also experimented with <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">lazy image
+loading</a>,
+but realized that’s one of the features I absolutely hate on the web and dropped
+the whole idea.</p>
+<h3 id="improving-accessibility-with-alt-attributes">Improving accessibility with <code>alt</code> attributes</h3>
+<p>When I set up the HTML validators, I got a bunch of warnings about missing <code>alt</code>
+attributes for the <code>&lt;img&gt;</code> tags. This turned out to be another rabbit hole, as
+I spent several hours trying to understand what <code>alt</code> attribute should contain.
+And then I spent even more time writing the contents of those attributes. Long
+story short, <code>alt</code> attribute should describe the contents of an image. Just
+imagine someone asking you “what’s in this picture?” and you go to describe what
+the image depicts. In the future, I’d like to learn more about making a web page
+accessible for people using screen readers. Providing meaningful <code>alt</code> tags is
+a small first step towards that goal.</p>
+<h2 id="hosting-the-site">Hosting the site</h2>
+<p>I don’t expect Fremen Zone to generate large traffic, and so for the time being
+I decided GitHub Pages should suffice as a hosting provider. There was a small
+catch, though. GitHub Pages can only host websites available in a public
+repository, at least on the free plan. However, I didn’t want to expose any of
+the in-progress work, notes, etc. The solution was handed to my by a colleague
+from work and is in fact trivial: use two repositories, a private one for
+development and a public one for hosting. For this reason, if you go to <a href="https://github.com/jstolarek/fremenzone">Fremen
+Zone repository</a> you will only find the
+generated HTML files, LICENSE and README files as well as definitions of GitHub
+workflows. All the scripts discussed in this post are in the private repo.</p>
+<p>To make updating of the public repository easier I created another dedicated
+script that performs a bunch of safety checks (no untracked files, no
+uncommitted changes, no unaddressed TODOs, etc.), and, if those pass, builds the
+page from sources and copies the resulting files to the public repository. I
+then need to manually commit and push the changes, which is another safety
+measure against publishing something unintended.</p>
+<h2 id="summary">Summary</h2>
+<p>Front-end development is definitely not my cup of tee, but creating a website
+from scratch using only HTML and CSS was actually quite a lot of fun. By
+relying on the most basic technologies, I expect the site to be future-proof and
+easy to move to different hosting, once such a need arises.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+            </br>
+        </main>
+    </body>
+</html>
