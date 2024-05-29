@@ -26,7 +26,7 @@ both purchased from [Consoles Unleashed](https://www.consolesunleashed.com/).
 </div>
 
 X-Reset
-=======
+-------
 
 I already [installed XStation in my PSX](2023-03-35-installing-xstation.html),
 which is an optical drive emulator (ODE) that allows launching games from ISO
@@ -56,7 +56,7 @@ the middle.</figcaption>
 </div>
 
 DFO
-===
+---
 
 I have a PAL-region console, where the games were timed to run at 50Hz.
 Obviously, playing at 60Hz results in smoother experience and a PAL PlayStation
@@ -103,7 +103,7 @@ large blobs of solder that are difficult to remove.</figcaption>
 </div>
 
 Summary
-=======
+-------
 
 Both mods required fairly simple soldering.  I've certainly done more
 complicated mods, but this time something went wrong and I really messed up the
