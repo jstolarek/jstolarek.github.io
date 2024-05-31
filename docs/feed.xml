@@ -7,8 +7,270 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 29 May 2024 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Fri, 31 May 2024 00:00:00 UT</lastBuildDate>
         <item>
+    <title>The Invincible. A game review</title>
+    <link>https://jstolarek.github.io/posts/2024-05-31-the-invincible-a-game-review.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 31/05/2024
+    </section>
+    <section>
+        <h1 id="the-invincible.-a-game-review">The Invincible. A game review</h1>
+<p>One of the games I awaited impatiently in 2023 was <a href="https://www.gog.com/game/the_invincible">The
+Invincible</a>, a debut game by Polish
+developer Starward Industries and an adaptation of a hard sci-fi novel by
+Stanisław Lem, written in 1964. Stanisław Lem is one of my favourite authors,
+and <em>The Invincible</em> stands amongst his best works. I had an opportunity to
+play a demo version of the game back in May 2023 during <a href="https://pixelheavenfest.com">Pixel
+Heaven</a> and, despite some minor hiccups that could
+be excused in a development build, the game looked very promising. The game
+finally released in early November, and I just had to play it ASAP. Sadly, this
+blog post itself is long overdue. While I wrote a huge part of it right after
+finishing the game back in November, well over six months ago, I only managed to
+wrap it up now.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/title.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/title_thumbnail.jpg" /></a>
+<figcaption>
+Title screen.
+</figcaption>
+</figure>
+</div>
+<h2 id="need-a-hint">Need a hint?</h2>
+<p>The game takes place on planet Regis III. You play as Dr Yasna, a crew member
+of the Dragonfly, that wakes up with amnesia. You are alone and disoriented.
+After reading a bunch of notes-to-self, you set out towards your expedition’s
+camp, which you conjecture has to be nearby.</p>
+<p>Amnesiac protagonist is one of the most abused tropes in games and is typically
+an attempt to make up for poor writing. That was a big red flag right at the
+start of the game. By the time I reached the said camp, I had a whole forest of
+red flags.</p>
+<p>The Invincible is a walking simulator, Firewatch style. You walk, and you
+interact with objects: flip through the notes, open the doors, turn the dials,
+etc. With no HUD and all cutscenes being first-person, the game tries to be as
+immersive as possible. This is a great idea, but the execution is lacking. The
+player surroundings are cluttered with interaction hints, making you wonder what
+was the point of not having a HUD.</p>
+<p>In particular, the game environment cannot be traversed freely. Dr Yasna can’t
+jump, and terrain obstacles can only be climbed in places chosen by the
+designers. However, traversable terrain is not distinguished visually in any
+way, and so all ledges that can be climbed need to be highlighted with
+interaction hints, significantly impacting the immersion achieved via
+first-person narration.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/ledge.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/ledge_thumbnail.jpg" /></a>
+<figcaption>
+Traversable ledges are marked with interaction hints. This one here is obvious. Most are not.
+</figcaption>
+</figure>
+</div>
+<p>In theory, interaction hints can be disabled in the game’s settings. In
+practice, this results in having to randomly click on all surrounding objects,
+trying to figure out where is the object that the game expects you to interact
+with. I made a brief experiment of playing with hints at the beginning of the
+game, but without them the game is barely playable.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/map_hints.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/map_hints_thumbnail.jpg" /></a>
+<figcaption>
+Turn these hints off, and you’ll be forced to click randomly on the map.
+</figcaption>
+</figure>
+</div>
+<p>On top of the interaction hints, there are also mission hints that tell you what
+to do next. And what do these hints tell you? “Continue marching towards the
+camp”. “Keep following the road to Condor”. “Finish the conversation”. I’m
+sorry to say this, but if a walking simulator, or any game for that matter,
+needs to tell you to keep doing what you’re already doing, then something is
+off. In truth, these hints are completely redundant, since the game really does
+a good job of communicating what needs to be done. These mission hints take
+away what little is left of player agency, and sadly they can’t be turned off.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/just_go.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/just_go_thumbnail.jpg" /></a>
+<figcaption>
+Do I really need to be reminded to continue walking on a straight road?
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/gorsky.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/gorsky_thumbnail.jpg" /></a>
+<figcaption>
+Many of the hints are useless.
+</figcaption>
+</figure>
+</div>
+<p>One final gameplay complaint is that the game severely limits your ability to
+run. You can sprint for a couple of seconds, and then Yasna is out of breath
+and needs to walk. Well, I suppose the creators really wanted this to be a
+walking simulator, not a running simulator.</p>
+<h2 id="blessed-those-who-not-having-anything-to-say-do-not-try-to-put-it-into-words">Blessed those, who not having anything to say, do not try to put it into words</h2>
+<p>The plot of The Invincible is delivered in monologues of the main protagonist,
+and once she regains communication with the Dragonfly in dialogues with an
+astrogator. I found most of the monologues extremely tiring. Dr Yasna babbles
+endlessly, commenting on dozens of unimportant things. And when she runs out of
+things to comment, she begins to hum and sing. She just doesn’t shut up. This
+turned the first 30 minutes of the game into an ordeal. Luckily, the dialogues
+were more meaningful, and thus interesting. However, longer dialogues (of which
+there are quite a few) often disable the ability to interact with the
+environment, forcing the player to listen through the dialogue before allowing
+interactions with objects, and thus progress. In a similar spirit, in certain
+scenes the player will be either immobilized or otherwise blocked from leaving
+the place. This is exactly what I meant earlier when I said the player has
+little agency. Conversely, in a couple of places where I was actually allowed
+to walk during a dialogue, I reached a place that triggered a new dialogue,
+ending prematurely the previous one.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/yasna.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/yasna_thumbnail.jpg" /></a>
+<figcaption>
+Can you please be quiet for just one second?
+</figcaption>
+</figure>
+</div>
+<h2 id="the-plot">The plot?</h2>
+<p>But perhaps I shouldn’t be so harsh on the gameplay? After all, this is a
+walking simulator and these are not played for their elaborate game mechanics.
+Rather, the quality of a walking simulator lies in how well it tells a story.
+This is where <em>The Invincible</em> does a somewhat better job.</p>
+<p>As already mentioned in the introduction, <em>The Invincible</em> is based on a novel
+by Stanisław Lem. The plot revolves around solving the mysteries encountered on
+Regis III. Firstly, why do you have an amnesia? (And luckily there is a good
+reason for it, so it’s not just a tool to make up for bad storytelling.) As you
+make it to the camp, you discover, that some of your colleagues have gone lost,
+while others are in a stupor. Hence, the second question: what happened to your
+colleagues? You will also quickly discover, that there are other humans on the
+planet. Unfortunately for you, they are from a hostile fraction. Luckily (?),
+their expedition has been decimated, just as yours. And so the last mystery:
+what else is on this planet?</p>
+<p>If you read the book, then you will immediately know the answer to the last
+question. Thus, the unravelling of the mystery of Regis III won’t be as
+impactful as it will be for players unfamiliar with Lem’s novel. However, <em>The
+Invincible</em> takes some liberties in adapting the original work, and thus there
+are surprises waiting for the fans of Lem. I am not going to spoil them here.</p>
+<p>Unfortunately, plot delivery isn’t perfect. I already mentioned some problems
+in the previous section: meaningless monologues, listening to dialogues that
+play out with no player agency or explicitly telling the player what to do in
+form of intrusive hints. In addition to that, there are several deus
+ex machina moments, where the protagonist is miraculously saved from what should
+have been a certain death.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/bot.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/bot_thumbnail.jpg" /></a>
+<figcaption>
+The protagonist is exceptionally good at escaping certain death.
+</figcaption>
+</figure>
+</div>
+<h2 id="a-long-hike-on-regis-iii">A long hike on Regis III</h2>
+<p>There is one thing that <em>The Invincible</em> does flawlessly: the world vision. The
+surface of Regis III is meticulously designed and visually stunning. I mean,
+just look:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_1.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_1_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_2.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_2_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_3.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_3_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_4.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_4_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_5.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_5_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_6.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_6_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_7.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_7_thumbnail.jpg" /></a>
+</figure>
+</div>
+<p>In addition to that, all machines and vehicles are designed in a
+retro-futuristic style, evoking the look of science-fiction movies from half a
+century ago. This gives the game a unique, fresh feel. Overall, the graphics
+and art direction are the game’s biggest strengths.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_1.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_1_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_2.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_2_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_3.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_3_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_4.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_4_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_5.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_5_thumbnail.jpg" /></a>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_6.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_6_thumbnail.jpg" /></a>
+</figure>
+</div>
+<p>The soundtrack also deserves praise. Though it’s not the kind of music that you
+are going to remember after finishing the game, it does a good job of building
+the mood.</p>
+<h2 id="summary">Summary</h2>
+<p>I bought <em>The Invincible</em> on the day of its release, something that I don’t do
+very often. I don’t regret paying the full price, and I don’t regret the time
+spent with the game (around 7 hours or so), but the game wasn’t as good as I
+hoped for. Restrictive gameplay (excessive hints, no player agency) and
+annoying protagonist make for a frustrating gaming experience. If I were to
+rate <em>The Invincible</em>, I’d say it’s a 6.5 out of 10 game. I would recommend
+giving it a try, but perhaps wait to grab it on sale. What I can recommend
+without the slightest hesitation though is reading the Lem’s original novel. If
+you like hard sci-fi, you will enjoy it.</p>
+<p>Also, having waited so long to publish this post, I now know that the game did
+not sell as well as the Starward Industries had hoped for. Sadly, this resulted
+in <a href="https://www.cdaction.pl/newsy/polskie-starward-industries-pozegnalo-sie-z-15-pracownikami">laying off 15 out of 34
+employees</a>.
+The developer isn’t giving up, however, and <a href="https://www.cdaction.pl/newsy/the-invincible-tworcy-gradaptacji-lema-nie-poddaja-sie-bedzie-masa-zawartosci">plans several big updates for the
+game</a>,
+hoping for the long tail. I am curious what the end result is going to be,
+though I doubt this will fix the game biggest flaws. And let’s face it, having
+completed this game once, there is really no reason to play it for the second
+time.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>31/05/2024</pubDate>
+    <guid>https://jstolarek.github.io/posts/2024-05-31-the-invincible-a-game-review.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>My favourite bands are coming back to life and I love it</title>
     <link>https://jstolarek.github.io/posts/2024-05-29-my-favourite-bands-are-coming-back-to-life-and-i-love-it.html</link>
     <description><![CDATA[<article>
@@ -2117,298 +2379,6 @@ codebases, but gollum strives to remain fully compatible with GitHub.<a href="#f
 ]]></description>
     <pubDate>12/07/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>More GameBoy modding</title>
-    <link>https://jstolarek.github.io/posts/2023-06-05-more-gameboy-modding.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 05/06/2023
-    </section>
-    <section>
-        <h1 id="more-gameboy-modding">More GameBoy modding</h1>
-<p>Since my <a href="2023-01-23-gameboy-color-nes-themed-modkit-from-funnyplaying.html">previous post about modding a GameBoy
-Color</a>, back
-in January, I have modded three more GameBoys: a GameBoy Pocket, an original
-GameBoy DMG, and a GameBoy Advance. I want to talk about the first two today,
-leaving the third one for later.</p>
-<h2 id="gameboy-pocket">GameBoy Pocket</h2>
-<p>I already have one modded GameBoy Pocket, but I wanted to make another one for
-my wife. I got a donor GBP with a damaged screen that had a wide black stripe
-running from top to bottom of the screen.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_donor.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_donor_thumbnail.jpg" /></a>
-<figcaption>
-Donor GameBoy Pocket next to a new shell.
-</figcaption>
-</figure>
-</div>
-<p>Modding GBP is very similar to GBC, so it went pretty smooth. Similarly to GBC,
-I trimmed the cartridge slot pins and secured them with Kapton tape.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_trimmed_pins.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_trimmed_pins_thumbnail.jpg" /></a>
-<figcaption>
-Cartridge slot pins trimmed and secured.
-</figcaption>
-</figure>
-</div>
-<p>When I was making the NES-themed GBC I reported how replacing the speaker with a
-new one resulted in no sound. I don’t know why that was the case but back then
-I just restored the old speaker. I decided to try using remaining replacement
-speaker in this build and it worked without any problems. I have no clue what I
-did wrong with the GBC.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_new_speaker.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_new_speaker_thumbnail.jpg" /></a>
-<figcaption>
-New speaker installed.
-</figcaption>
-</figure>
-</div>
-<p>When installing the screen I always have a dilemma whether to use the provided
-3M dust seal. A supposed advantage of using it is that it should provide
-protection against dust getting between the screen and the lens<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. A clear
-disadvantage is that once the screen is glued to the seal it cannot be removed
-without being destroyed. It also cannot be even adjusted in any way. After some
-deliberation I decided to install the dust seal, which required cutting small
-fragments on the side so that it fits in the shell.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_dust_seal_1.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_dust_seal_1_thumbnail.jpg" /></a>
-<figcaption>
-Dust seal required some cutting to fit the shell.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_dust_seal_2.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_dust_seal_2_thumbnail.jpg" /></a>
-<figcaption>
-Dust seal in place.
-</figcaption>
-</figure>
-</div>
-<p>And here’s the lens and the screen already installed:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_screen_installed.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_screen_installed_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_lens_installed.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_lens_installed_thumbnail.jpg" /></a>
-</figure>
-</div>
-<p>Finally, there’s some more soldering required. One contact on the ribbon cable
-must be soldered to the power switch in order to provide enough power for the
-screen, while another is used to solder a touch sensor. With these finished I
-was ready to assemble the console. Here are a couple of photos of the finished
-build.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_front.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_front_thumbnail.jpg" /></a>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_back.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_back_thumbnail.jpg" /></a>
-<figcaption>
-Front and back
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_colour_1.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_colour_1_thumbnail.jpg" /></a>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/gbp_colour_2.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/gbp_colour_2_thumbnail.jpg" /></a>
-<figcaption>
-IPS panel offers multiple colour schemes.
-</figcaption>
-</figure>
-</div>
-<p>One thing that didn’t go quite right is the centring of the screen. The photos
-don’t show this well, but the screen is slightly shifted to the left so that the
-left edge of the displayed image is covered. And since the screen is now glued
-to the dust seal it’s not possible to adjust it. I might decide to fix this one
-day at the expense of sacrificing a screen, which are not that expensive.</p>
-<h2 id="gameboy-dmg">GameBoy DMG</h2>
-<p>I also have one modded GameBoy DMG in my collection. Shortly before returning
-from the UK to Poland I bought it from eBay with all mods already installed. I
-knew GameBoys will be harder to find in Poland - well, not really harder to
-find, just more expensive - so I decided to get one that’s already modded since
-I didn’t have the time to mod it myself. However, I wasn’t entirely happy with
-how that GameBoy looks. I could have just replaced the shell with a new one,
-but I figured it would be more fun to get a new GameBoy DMG and mod it myself.
-As expected, GameBoys in Poland are expensive so I got one from Sweden since it
-was cheaper (sic!). The unit was sold as faulty/not working, but I don’t really
-believe in such a thing as a broken GameBoy. There is a GameBoy that literally
-<a href="https://www.reddit.com/r/mildlyinteresting/comments/8ifqbp/gameboy_at_nintendo_nyc_store_damaged_in_bombing/">survived a bombing during the Gulf War and it still
-works</a>.
-I assume there is simply no way that a DMG can’t be fixed.</p>
-<p>When the unit arrived it had a missing lens, damage on the screen, and signs of
-spilled acid in the battery compartment.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_before.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_before_thumbnail.jpg" /></a>
-<figcaption>
-Looks like this DMG went through a lot.
-</figcaption>
-</figure>
-</div>
-<p>I put in the batteries and - surprise, surprise - it didn’t power on. Well, the
-seller wasn’t lying. I thought this must have something to do either with
-corrosion from spilled batteries or the power switch. My first debugging step
-was to check continuity between the battery contacts.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_multimeter.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_multimeter_thumbnail.jpg" /></a>
-<figcaption>
-Testing battery contacts with a multimeter.
-</figcaption>
-</figure>
-</div>
-<p>In the photo above my multimeter shows no continuity between the spring and a
-metal plate that spring is attached to. Looks like the acid must have gotten
-between the plate and the spring causing corrosion. The easiest way to test
-whether this is indeed the problem was transferring the main board to a new
-shell.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_testing_main_board.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_testing_main_board_thumbnail.jpg" /></a>
-<figcaption>
-Main board placed in a new shell.
-</figcaption>
-</figure>
-</div>
-<p>I inserted the batteries, turned the console on, and it Just Worked. So the
-problem was with the damaged contacts from spilled batteries. I was glad this
-went so easily. If the problem was with the power switch this repair would have
-gotten much more difficult.</p>
-<p>The DMG actually consists of two boards. One is the main board with a CPU -
-that’s the one in photo above - while the other connects to the screen and also
-contains button contacts. Installing a new IPS panel requires replacing the
-other board with a new one. It also requires soldering a speaker and this is
-the only soldering required by this mod.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_speaker.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_speaker_thumbnail.jpg" /></a>
-<figcaption>
-Preparing to solder the speaker.
-</figcaption>
-</figure>
-</div>
-<p>With the speaker in place I tested everything to make sure that both the speaker
-and the screen work as expected.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_testing.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_testing_thumbnail.jpg" /></a>
-<figcaption>
-Testing screen and speaker before assembly.
-</figcaption>
-</figure>
-</div>
-<p>I was now ready to install the screen and the lens, and assemble everything
-together. This kit comes with a very nice mounting bracket for the screen. It
-fits very tightly, ensuring that the screen is correctly centred. It also
-covers components on the ribbon cable so there is no need to secure them with
-Kapton tape as I did in my other GameBoys.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_parts.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_parts_thumbnail.jpg" /></a>
-<figcaption>
-Preparing to install the screen.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_dust_seal.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_dust_seal_thumbnail.jpg" /></a>
-<figcaption>
-Dust seal in place.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_mounting_bracket.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_mounting_bracket_thumbnail.jpg" /></a>
-<figcaption>
-Mounting bracket in place.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_boards_connected.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_boards_connected_thumbnail.jpg" /></a>
-<figcaption>
-Main board and screen board connected with a ribbon cable.
-</figcaption>
-</figure>
-</div>
-<p>One minor issue that appeared during the final assembly was insufficient number
-of screws to attach the screen and button board to the shell. Eight are
-required but the kit came with only six. My solution was to use the screws
-from original GameBoy, though these turned out to be slightly too long.</p>
-<p>This build was surprisingly quick, taking me less than two hours. I am very
-happy with the end result, though as usual top and bottom of the IPS panel stand
-out from under the lens and this is clearly visible in a transparent shell. One
-other complain I could possibly have with the shell is that it doesn’t have any
-Nintendo or GameBoy branding.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_after.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_after_thumbnail.jpg" /></a>
-<figcaption>
-My new smoke-black DMG next to already owned white one.
-</figcaption>
-</figure>
-</div>
-<p>While doing the final tests I discovered one small issue. With this kit the
-contrast wheel is repurposed to adjust screen settings: brightness, colour, and
-retro pixel mode. I realized that the wheel doesn’t have enough clearance and
-is being pressed against the shell and gets stuck in one position.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-06-05-more-gameboy-modding/dmg_contrast_wheel.jpg"><img src="/images/posts/2023-06-05-more-gameboy-modding/dmg_contrast_wheel_thumbnail.jpg" /></a>
-<figcaption>
-Contrast wheel did not have enough clearance and was getting stuck.
-</figcaption>
-</figure>
-</div>
-<p>My conjecture is that the problem is caused by the two missing screws mentioned
-above. I used the six screws provided with the kit around the button contacts.
-From my experience getting the board to fight tightly around the contacts is
-crucial for the buttons to work correctly. Two missing screws that I replaced
-using ones from the original unit were placed below the screen. As already
-mentioned, these screws were a bit too long and didn’t hold the board as tightly
-as screws provided with the kit. My guess is that if the board had a tighter
-fight there it wouldn’t press the contrast wheel against the shell and all would
-work as expected. My ad-hoc solution was to slightly loosen two of the screws
-that hold the shell together. Now the contrast wheel can move freely, while the
-shell still remains nicely fitted.</p>
-<h2 id="whats-next">What’s next?</h2>
-<p>As mentioned at the beginning of this post, I have also modded a GameBoy Advance
-using a TFT panel that I have not used before. I want to spend more time
-testing it before writing a post about it. I also have a GameBoy Advance SP
-waiting to be modded, but for now I can’t find a shell that I would be happy
-with, and I can’t decide what kind of screen to use - a TFT panel mentioned
-above or a regular IPS panel? Once I do more testing with the TFT panel I
-should be able to decide what components I want to use with the SP. Last but
-not least, I have a NeoGeo Pocket Color. Recently I managed to buy a flashcart
-for it and now the only thing it needs to be really usable is a new screen.
-However, modding GBA SP and NGPC might have to wait for a few months due to
-financial reasons.</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>My primary GameBoy Advance does not have a dust seal and it is yet to get
-any dust under the lens.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>05/06/2023</pubDate>
-    <guid>https://jstolarek.github.io/posts/2023-06-05-more-gameboy-modding.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
