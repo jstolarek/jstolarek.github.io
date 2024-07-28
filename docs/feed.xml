@@ -7,8 +7,140 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Fri, 31 May 2024 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sun, 02 Jun 2024 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Fremen Zone&#58; Creating a Website Using Only HTML and CSS</title>
+    <link>https://jstolarek.github.io/posts/2024-03-23-fremen-zone-creating-a-website-using-only-html-and-css.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 02/06/2024
+    </section>
+    <section>
+        <h1 id="fremen-zone-creating-a-website-using-only-html-and-css">Fremen Zone: Creating a Website Using Only HTML and CSS</h1>
+<p>Last July I wrote <a href="2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html">a post about all the websites that I have run in my
+life</a>. An
+important part of that list was Fremen Zone, a fansite dedicated to Frank
+Herbert’s “Dune”. It was my first website ever, which I created back in high
+school and have restored last year from backups on my hard drive. I ended the
+post with an idea of creating a new version of Fremen Zone:</p>
+<blockquote>
+<p>Restoring the Fremen Zone back to life sparked a new desire in me. While I
+said I have no intention of updating it, I feel like re-doing the whole site
+from scratch. (…) And so I am slowly gathering material for a new Dune
+fanpage. All the lessons above have taught me to avoid complexity and stay as
+close to the basics as possible. And so my plan is to create a new website
+based on pure HTML and CSS.</p>
+</blockquote>
+<p>Since late June 2023 I have been hard at work to create a new version of Fremen
+Zone. The website went live on Febuary 1st 2024 and is available at
+<a href="https://www.fremenzone.pl" class="uri">https://www.fremenzone.pl</a>. In this post I want to talk about the technical
+aspects of the new Fremen Zone page, in particular putting emphasis on
+simplicity and writing a dedicated static page generator.</p>
+<h2 id="keeping-things-simple">Keeping things simple</h2>
+<p>The primary principle driving the technical design of the new page was to keep
+technical solutions as simple as possible. I didn’t want to rely on any
+existing frameworks, content management systems, or anything of that sort.
+Instead, I wanted to create a website that uses only HTML5 and CSS, with no
+JavaScript. The goal was to make a page that is static, small (=quick to load),
+fast with no bloat, and also easy to deploy or move to a different hosting.</p>
+<p>The first step was to plan new website layout. The old Fremen Zone used frames,
+which nobody really relies on today. For the new version I decided to go with a
+navigation menu placed at the top of the page. This layout felt clean,
+minimalistic, and seemed easy to adapt to mobile devices.</p>
+<p>Note that I haven’t done any frontend programming since my original work on
+Fremen Zone nearly quarter a century ago, so not only have I forgotten
+everything I learned about HTML and CSS back then, but also both standards have
+changed over time. And so I was learning HTML5 and CSS from scratch as I worked
+on the new page design.</p>
+<p>An important change made to HTML since its early days is the introduction of
+tags that carry important semantic meaning. And so the navigation bar is
+enclosed in <code>&lt;nav&gt;&lt;/nav&gt;</code> tags, sub-page headers use <code>&lt;header&gt;&lt;/header&gt;</code> tag,
+and so on.</p>
+<h2 id="writing-a-custom-website-generator">Writing a custom website generator</h2>
+<p>I spent approximately two weeks prototyping the page. Once the initial design
+was in place I began preliminary work on the contents. After creating several
+subpages it quickly became apparent that pages contain lots of repetition, in
+particular the <code>&lt;head&gt;</code> and <code>&lt;navbar&gt;</code> sections. Surely, the were minor
+differences - each page had a different <code>&lt;title&gt;</code> and each subpage’s navbar
+highlighted a different active section - but the overall structure of each page
+was identical. It was clear at this point that this repetition must be
+eliminated. And so the next thing to do was writing a custom static website
+generator.</p>
+<p>I decided to put each logical section of the page into a separate template file.
+For example, template for a page header contains:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">header</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;RELPATH/img/SECTION.png&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;logo&quot;</span><span class="ot"> alt</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">header</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>This allowed me to reduce each page to just its proper contents enclosed inside
+a <code>&lt;div&gt;&lt;/div&gt;</code> block. Everything else - <code>&lt;head&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>,
+etc. - is stored in template files. This way all the repetition is gone, and
+changing, say, page’s <code>&lt;head&gt;</code> section requires modifying only the respective
+template file.</p>
+<p>I then wrote a bash script to assemble full HTML pages from templates and the
+proper source files. At the heart if the script are the following lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;!DOCTYPE html&gt;&quot;</span>        <span class="op">&gt;</span>  <span class="va">$HTMLFILE</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;html lang=</span><span class="dt">\&quot;</span><span class="st">pl</span><span class="dt">\&quot;</span><span class="st">&gt;&quot;</span>     <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/head.html    <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;body&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/scripts.html <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/navbar.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/header.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;main&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span>         <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/main&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/footer.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/body&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/html&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span></code></pre></div>
+<p>There are some bash variables in here, but their names should be
+self-descriptive.</p>
+<p>You might be wondering about the <code>RELPATH</code> and <code>SECTION</code> words used in the
+template file above. These are reserved words that are replaced with
+page-specific values using <code>sed</code>. This allows not only to have page-specific
+titles and section logos, but also calculate relative paths:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert relative paths</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$FILEDIR</span><span class="st">&quot;</span> <span class="ot">=</span> <span class="st">&quot;.&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;.&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">SLASHES</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${FILEDIR</span><span class="op">//</span><span class="ss">[^</span><span class="dt">\/</span><span class="ss">]</span><span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">DIRDEPTH</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${</span><span class="op">#</span><span class="va">SLASHES}</span><span class="st">&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;..&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 1 <span class="va">$DIRDEPTH)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">RELPATH</span><span class="op">=</span><span class="va">$RELPATH</span><span class="st">&quot;/..&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,RELPATH,</span><span class="va">$RELPATH</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
+<p>or insert last modification date from <code>git</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add last modification date</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">LASTMODIFIED</span><span class="op">=</span><span class="kw">`</span><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--pretty</span><span class="op">=</span><span class="st">&quot;format:%cs&quot;</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span><span class="kw">`</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,LASTMODIFIED,</span><span class="va">$LASTMODIFIED</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
+<hr />
+<ul>
+<li>zamiana skryptu na makefile</li>
+<li>responsywność na mobile - do sekcji pierwszej</li>
+<li>preload czcionek</li>
+<li>hostowanie w dwóch repo</li>
+<li>nie udało się uniknąć skryptów</li>
+</ul>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>02/06/2024</pubDate>
+    <guid>https://jstolarek.github.io/posts/2024-03-23-fremen-zone-creating-a-website-using-only-html-and-css.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>The Invincible. A game review</title>
     <link>https://jstolarek.github.io/posts/2024-05-31-the-invincible-a-game-review.html</link>
     <description><![CDATA[<article>
@@ -469,43 +601,6 @@ collection and all that mess becomes irrelevant.<a href="#fnref2" class="footnot
 ]]></description>
     <pubDate>29/05/2024</pubDate>
     <guid>https://jstolarek.github.io/posts/2024-05-29-my-favourite-bands-are-coming-back-to-life-and-i-love-it.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>Fremen Zone&#58; Creating a Website Using Only HTML and CSS</title>
-    <link>https://jstolarek.github.io/posts/2024-03-23-fremen-zone-creating-a-website-using-only-html-and-css.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 24/03/2024
-    </section>
-    <section>
-        <h1 id="fremen-zone-creating-a-website-using-only-html-and-css">Fremen Zone: Creating a Website Using Only HTML and CSS</h1>
-<p>Last July I wrote <a href="2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html">a post about all the websites that I have run in my
-life</a>. An
-important part of that list was Fremen Zone, a fansite dedicated to Frank
-Herbert’s “Dune” that I created back in high school and have recently restored
-from backups on my hard drive. I ended the post with an idea of re-doing Fremen
-Zone from scratch:</p>
-<blockquote>
-<p>Restoring the Fremen Zone back to life sparked a new desire in me. While I
-said I have no intention of updating it, I feel like re-doing the whole site
-from scratch. (…) And so I am slowly gathering material for a new Dune
-fanpage. All the lessons above have taught me to avoid complexity and stay as
-close to the basics as possible. And so my plan is to create a new website
-based on pure HTML and CSS.</p>
-</blockquote>
-<p>Thus for the past couple of months I have been hard at work to create a new
-version of Fremen Zone. It finally went live on Febuary 1st 2024 and is
-available at <a href="https://www.fremenzone.pl" class="uri">https://www.fremenzone.pl</a>. In this post I want to focus solely
-on technical aspects of the page, in particular writing a simple static page
-generator.</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>24/03/2024</pubDate>
-    <guid>https://jstolarek.github.io/posts/2024-03-23-fremen-zone-creating-a-website-using-only-html-and-css.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 <item>
