@@ -7,6 +7,12 @@ Projects
 
 Below is a list of projects and libraries I have been involved with.
 
+  * **Cardano Partner Chains**
+    ([github](https://github.com/input-output-hk/partner-chains-smart-contracts))\
+    I have been involved in the IOG's [Cardano Partner
+    Chains](https://github.com/input-output-hk/partner-chains) project as a
+    designer and developer of Plutus smart contracts.
+
   * **Skye: A programming language bridging theory and practice for scientific
     data curation**
     ([project homepage](http://homepages.inf.ed.ac.uk/jcheney/group/skye.html))
