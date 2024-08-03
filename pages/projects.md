@@ -53,7 +53,7 @@ Below is a list of projects and libraries I have been involved with.
     I have been involved in development of GHC between 2013 and 2016.
 
     - Together with [Simon Peyton
-      Jones](http://research.microsoft.com/en-us/people/simonpj/) and [Richard
+      Jones](https://simon.peytonjones.org/) and [Richard
       Eisenberg](https://richarde.dev/) we extended GHC with injective type
       families.  Details are described in the paper [Injective Type Families for
       Haskell](/files/stolarek_peyton-jones_eisenberg_injectivity.pdf).
