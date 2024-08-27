@@ -7,8 +7,397 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 21 Aug 2024 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Aug 2024 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Four years of using a custom-built small form factor desktop PC</title>
+    <link>https://jstolarek.github.io/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 27/08/2024
+    </section>
+    <section>
+        <h1 id="four-years-of-using-a-custom-built-small-form-factor-desktop-pc">Four years of using a custom-built small form factor desktop PC</h1>
+<p>For the past four years, I have been using a desktop PC I have custom-built to
+my own needs. One of its key features is that it combines high-end computing
+power with a small form factor (SFF). My motivation to write this post came
+from a recent online discussion I participated in, where someone not familiar
+with SFF PCs tried to convince me (and others) that SFF PCs are bound to
+overheat. As a long-time user of an SFF PC, I can safely say this is not true
+and it such <a href="https://en.wikipedia.org/wiki/Fear,_uncertainty,_and_doubt">FUD</a>
+needs to be dismissed. I also want to share my experiences of building a small
+form factor desktop PC, so that those of you interested in doing an SFF build
+know where the challenges lie.</p>
+<h2 id="a-bit-of-personal-history">A bit of personal history</h2>
+<p>The last time I built a desktop PC was back in 2006. It was an Athlon 64-based
+platform. A distinguishing feature of my build was the case. I went for a
+Chieftec Dragon mid-tower, made of thick aluminium and weighing 8kg. I thought
+of it as a once-in-a-lifetime investment, just like a Parker pen. I was not
+entirely wrong. The case still serves for my mum’s PC, though the internals
+have long been replaced.</p>
+<p>In 2011, I rented a small studio flat and started living on my own. I no longer
+had the space for a large desktop PC and have switched to using a laptop.
+Compared to a desktop, usability was quite bad, but I appreciated the mobility.</p>
+<p>In the second half of 2019 I was thinking of getting a new computer. The
+release of Cyberpunk 2077 was approaching fast, and I was planning to get a
+proper gaming PC just in time for the premiere. (It would also be the first
+time in my life to even have a gaming PC.) I was also quite tired of having to
+work on laptops - the ergonomics were proving to be very bad for my health. As
+a quick stop-gap solution, towards the end of 2019, I bought an external
+keyboard and a 23" LCD and used both with my laptop. Having worked with
+them for a couple of days, it was settled: I am going back to having a proper
+desktop PC. No more struggling with laptop ergonomics.</p>
+<p>That was late 2019. In early 2020, COVID happened. Cyberpunk 2077 was delayed
+a couple of months, initially to September. However, seeing how the pandemic
+wreaks havoc in the electronic supply chains, in March I decided to proceed with
+the plan of building a desktop PC. As you’ll see in a moment, it was already a
+bit too late.</p>
+<h2 id="deciding-on-a-small-form-factor-build">Deciding on a small form factor build</h2>
+<p>When the <em>“small form factor”</em> term comes around, some of you might think of one
+of the mini computers, such as the Intel NUC or HP Elite. That wouldn’t be
+entirely wrong - these count as SFF desktops - but what I mean by SFF are small
+desktop cases produced for PC enthusiasts. I was sold on the idea of a small
+form factor PC by a friend of mine, who built his desktop in a <a href="https://www.dan-cases.com/dana4.php">Dan
+A4-SFX</a>. It is one of the best SFF cases
+on the market with dimensions of 20cm x 12cm x 32cm and just 7.2L of volume.
+With such a small size, my friend just treats his computer as a portable PC for
+game jams.</p>
+<p>Don’t be fooled by the small dimensions. As you’ll see, these PCs can fit the
+most powerful CPUs and GPUs. In fact, the best SFF cases are produced in small
+numbers for enthusiasts who want to get the best possible performance, while
+keeping their PC small.</p>
+<p>From the beginning, <strong>I liked the idea of having a PC that’s actually small
+enough to fit on my desk</strong>. I still had the memory of that huge Chieftec Dragon
+case and how I struggled to fit it under the table. I’ve seen my friend’s PC in
+action and envied how small it was. And so I decided to go with an SFF build.</p>
+<p>I was planning on building a PC that is suitable for both gaming and work. For
+gaming, I wanted an RTX card - these came to the market just a few months prior.
+For work, I wanted a CPU with as many cores as possible. My major use case is
+program compilation, and that’s when many cores definitely pay off.</p>
+<h2 id="selecting-the-components">Selecting the components</h2>
+<p>Having figured out my use cases and requirements, I was in for a lot of
+research. One thing I quickly learned is that building a small form factor PC
+is a bit like solving a puzzle. It is certainly an art of compromises, as one
+cannot just put any components into the case.</p>
+<p>The first choice to make was crucial: AMD or Intel? In the past, I had
+experiences with both. While I still fondly remember my Xeon-based laptop, I
+try not to take any sympathies with any of the companies and just pick the best
+product. In 2020, it was certainly AMD, which made a spectacular comeback after
+years of falling behind Intel. I decided to go for a Ryzen 9 3900X, a
+12-core/24-thread CPU whose multiple cores would allow me to speed up my most
+common use case - code compilation. Intel had practically nothing comparable to
+offer, and getting an AMD was an obvious choice.</p>
+<p>Once the platform was decided, it was time for the motherboard. The majority of
+small form factor cases will only fit mini-ITX motherboards, which are 17cm by
+17cm. These will have just one PCIe expansion slot and one pair of RAM
+slots. Luckily, these are the only compromises one needs to make. Other than
+that, mini-ITX boards can be as performant and feature-rich as their full-sized
+ATX counterparts. I was planning to get a motherboard based on either B450 or
+X470 chipset, but I was out of luck as all such motherboards have sold out by
+April 2020, and it didn’t seem like they are coming back in stock anytime soon.
+As an act of desperation, I had to get a <a href="https://rog.asus.com/motherboards/rog-crosshair/rog-crosshair-viii-impact-model">ROG Crosshair VIII
+Impact</a>.
+It is a high-end motherboard based on the X570 chipset, designed with
+overlocking in mind. Unfortunately, for this reason it is quite expensive,
+about a double of what I had originally intended to pay for a motherboard. As a
+bonus problem, Crosshair VIII Impact has a mini-DTX format instead of mini-ITX.
+This means an additional 3 centimetres in length, making it 20x17cm instead of
+17x17cm, and impossible to fit in most SFF cases.</p>
+<p>Luckily for me, by that time I have already decided on the <a href="https://ncased.com/products/m1-classic">NCase
+M1</a>. With dimensions of 33cm x 16cm x
+24cm and a total volume o 12.7 litres, it is larger than many SFF cases. It
+also can fit a mini-DTX board. I remember my wife having serious doubts about
+the M1 due to its price - it had to be imported from Taiwan, adding even further
+to the costs - but once she saw how well the M1 is made and how modular it is,
+she agreed it was absolutely worth the money.</p>
+<p>Next, the power supply unit (PSU). SFF PCs typically use PSUs in the SFX
+format, a smaller variant of the typical ATX format. Choosing a power supply
+was a no-brainer - Corsair offers the best SFX power supplies on the market.
+One really nice feature they have is modularity: cables that are not needed can
+be disconnected from the power supply, instead of dangling inside the case.
+Unfortunately, pandemic once again proved to be a pain. I was planning to get a
+750W PSU, but the only one I could source was a 600W one. Luckily, 600 Watt was
+enough for my build.</p>
+<p>Finally, the graphics card. When it comes to building an SFF computer, <strong>GPU
+compatibility is something that needs to be taken into account</strong>. Graphics
+cards have got quite large these days, often taking as much as three expansion
+slots and having three fans on the radiator. Many of the largest cards will not
+fit into an SFF computer<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. I had to take those limitations into account and
+ultimately decided on the EVGA GeForce RTX 2070 Super Black Gaming<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, a 2-fan
+2-slot card that fits perfectly in the M1. Interestingly, I was able to get the
+GPU just fine - major shortages didn’t happen until the second half of 2020.</p>
+<p>Aside from that, I decided on 16GB of RAM memory (Corsair Vengence LPX) and
+Seagate FireCuda 510 2TB NVMe drive.</p>
+<h2 id="cooling">Cooling</h2>
+<p>Figuring out the cooling is a whole separate subject. <strong>This is one thing that
+needs to be done right with an SFF build.</strong></p>
+<p>SFF cases tend to have quite strict limitations on CPU cooler height, though the
+M1 is generous in that regard. After considering my options I decided on the
+<a href="https://noctua.at/en/nh-u9s">Noctua NH-U9S</a> radiator with two 92mm
+<a href="https://noctua.at/en/nf-a9-pwm">NF-A9</a> fans working as the exhaust. I also
+mounted a 120mm intake fan on the side bracket. The plan was to have the side
+fan pull air into the case, and the CPU fans exhaust it at the back. This was
+the starting point, but it needs a few words of comment.</p>
+<p>Firstly, having two fans on the cooler proved to be inconvenient when removing
+the cooler from the CPU. I didn’t think this would be a problem since I wasn’t
+planning to take off the cooler once the PC was assembled. However, I ended up
+assembing and disassembling the computer several times. In the end I decided to
+remove the rear fan from the CPU cooler and attach it to a dedicated place at
+the back of the case. Cooling works essentially the same, but disassembling the
+CPU cooler is now a lot easier.</p>
+<p>Secondly, I’ve run into unexpected problems with the GPU. The graphics card I
+picked had a semi-passive cooling, meaning the fans only turn on once the
+temperature reaches 55C. This looks like a great idea on paper, but its
+execution is flawed. It turns out that during regular desktop work card’s
+temperature oscilates around the 55C mark, resulting in fans constantly turning
+on and off. I probably wouldn’t have noticed if it wasn’t for a loud, audiable
+click every time the fans start or stop, i.e. every 10 seconds. Sadly, the card
+BIOS isn’t smart enough to spot such situations and just keep the fans on. A
+solution was to mount extra fans underneath the card. M1 allows to mount two
+fans at the bottom of the case, which I did. Of course, any extra fans under
+the GPU defeat the purpose of passive cooling on the card.</p>
+<p>Now, let’s talk about the fans. Last time I assembled a PC back in 2006 the
+go-to brand when one wanted the best fans was Akasa. Indeed, they were great.
+Quiet and extremely durable - the ones I got in 2006 still work without any
+audiable buzz. Apparently, things have changed since then and in 2020 the brand
+everyone recommends is Noctua. Because of that universal apprisal I decided to
+go with Noctua fans. Unfortunatelly, despite good opinions, Noctua fans turned
+out to be a major disappointment. I expect three qualities from a fan: it needs
+to be effective, quiet, and durable. Noctua manages with the first and third
+requirement, but not with the second one. I would expect that the only noise
+comming from a fan is the hum of the air going through it. However, most of the
+Noctua fans I bought emit a buzz and sometimes also vibrations (despite rubber
+anti-vibration pads).</p>
+<p>I initially started with five fans installed inside the case - two on the CPU,
+two under the GPU, one on the side. Most of them would be faulty and buzz. I
+went through several returns, RMAs, and experiments with different models
+(Chromax, Redux). I had around a total of 10-12 Noctua fans go through my hands
+before I finally found ones that weren’t buzzing. I also gave up on the idea of
+two fans under the GPU. I couldn’t find the fifth fan that didn’t buzz and it
+turned out that a single fan is enought to keep the GPU at 40C during standard
+desktop work.</p>
+<p>I admit that the four fans I settled on have been working fine for the past four
+years without any problems, but the fact that majority of the fans I bought were
+deffective is simply unacceptable. With such experience I can safely say that
+<strong>Noctua fans are utter garbage and I don’t recommend them to anyone</strong>. I won’t
+even mention the questionable colour choice Noctua has made with their fans -
+luckily, there’s the Noctua Chromax line, which offers black fans.</p>
+<p>Lastly, some people might want to consider liquid cooling. The NCase M1 is
+designed for that, as are most SFF cases. The side bracket in the M1 allows to
+mount a radiator with two 120mm fans, while at the back are two holes for those
+wanting a custom liquid cooling loop connected to an external reservoir. The
+reason why I didn’t go for water cooling was the uncertainty surrounding the
+Linux support of water coolers. Back in 2020 there was no official Linux
+software to control the water pumps. (Have things changed in 2024? Somehow, I
+doubt it.) I didn’t want to end up with cooling that doesn’t work as intended
+and decided to stick to the traditional air cooling.</p>
+<h2 id="the-build">The build</h2>
+<p>Here are some photos from the build process:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/component_test.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/component_test_thumbnail.jpg" /></a>
+<figcaption>
+Testing the components before installing them inside the case.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/components_in_case.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/components_in_case_thumbnail.jpg" /></a>
+<figcaption>
+Putting components inside the case.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/first_build_assembled.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/first_build_assembled_thumbnail.jpg" /></a>
+<figcaption>
+Side bracket with the intake cooling fan installed. Dust filters
+and panels still missing. Note the power cable mess lying on the GPU and two
+fans below the card.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/top_view.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/top_view_thumbnail.jpg" /></a>
+<figcaption>
+Top view. Note the two fans attached to the CPU cooler.
+</figcaption>
+</figure>
+</div>
+<h2 id="temperatures">Temperatures</h2>
+<p>The first thing I did after finishing the build was running the benchmarks, to
+stress-test both the CPU (using <a href="https://www.mersenne.org/">Prime95</a>) and the
+GPU (using <a href="https://geeks3d.com/furmark/">Furmark</a>). With CPU, I was able to
+heat it up to about 90C, while benchmarking GPU yielded a 76C temperature.
+However, these results differ from temperatures obtained during daily usage.</p>
+<p>The CPU’s idle temperature was originally around 44-45C, though over the years
+it would slightly rise to around 48-49C. I presume this is due to thermal paste
+deterioration. During daily usage, I found it extremely difficult to heat the
+CPU past the 70C mark, even if compiling on all cores for a longer period of
+time. Note that I have disabled Core Performance Boost in the BIOS. Core
+Performance Boost is like a factory CPU overlock. Disabling it results in
+lowering the CPU voltage from 1.4V to 1.0V and thus lowering the idle
+temperatures noticeably. This comes at a marginal loss of computing power,
+which is something I am willing to accept for a noticeable reduction in power
+consumption, thermals, and fan noise.</p>
+<p>The GPU’s idle temperature with one fan underneath it typically sits at around
+40C, with a power draw of about 20 Watts. These numbers are for Linux.
+Interestingly, on Windows the GPU idle temperatures are closer to the 55C mark,
+resulting in fans repeatedly going on and off. When playing games, the highest
+temperature I got was 80C in Metro: Exodus. This is higher than in the
+benchmarks, suggesting that Furmark might not be able to fully saturate the
+card.</p>
+<h2 id="upgrades">Upgrades</h2>
+<p>One thing I always had at the back of my head when building a PC are the upgrade
+options. From experience, I know it is quite difficult to predict the future
+upgradability of the assembled configuration. That being said, for this
+particular build things have gone well since I already upgraded the RAM, the CPU
+and the GPU.</p>
+<p>In early 2022, I upgraded the original 16GB of RAM to 32GB. This was motivated
+by requirements of <a href="https://nixos.org/">Nix</a> and is something I intend to write
+about on the blog. The tricky bit with this upgrade is that the DDR4 memory
+these days comes in pairs of modules. However, small motherboards used in SFF
+computers have only two RAM slots. As a result, it is not possible to simply
+add more memory. Therefore, when upgrading RAM, I had to remove and replace
+existing memory, which left me with a pair of unneeded memory modules that I had
+to sell.</p>
+<p>Earlier this year, I decided to upgrade both the CPU and the GPU. I swapped the
+3900X with a Ryzen 9 5950X, which is a 16-core/32-thread CPU. The 5950X has the
+same TDP (thermal design power = amount of emitted heat) as the old 3900X, which
+means no modification to the existing cooling was needed. After the upgrade, I
+noticed a decrease in CPU temperatures, but I don’t know whether this is due to
+better thermal performance of the new CPU or just because of new thermal paste.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/cpu_replacement.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/cpu_replacement_thumbnail.jpg" /></a>
+<figcaption>
+Replacing the CPU.
+</figcaption>
+</figure>
+</div>
+<p>As for the GPU, I went for <a href="https://www.inno3d.com/product/inno3d-geforce-rtx-4070-super-twin-x2">Inno3D GeForce RTX 4070 Super Twin
+X2</a>. I
+built my PC in the first half of 2020, and in September of that year, nVidia
+released the RTX 30xx series. The 30xx cards were noticeably larger and would
+no longer fit the M1. I was concerned that I won’t be able to upgrade the GPU
+without replacing the case, but luckily with the RTX 40xx series, nVidia has
+done a great job at minimizing the cards. The new RTX 4070 Super is smaller and
+draws roughly the same amount of power, while being several times more powerful
+than the 2070 Super - <strong>I am truly impressed with what nVidia have achieved
+here</strong>. At the same time, the 4070 Supers are quite affordable, certainly a lot
+cheaper than what I paid for the 2070 Super in 2020. The only real downside is
+the new GPU power connector, the infamous 12VHPWR, which is a major pain. It
+lacks flexibility and getting the side panel to close after installing the new
+card was a challenge.</p>
+<p>I have also run into an unexpected compatibility issue between the new card and
+the motherboard. The 4070 Super has a backplate and the card would not fit into
+the PCIe slot due to collision with the cooling block at the back of the
+motherboard. The solution was to remove one of the screws holding the backplate
+- this resulted in an extra 0.5mm of space, which was enough to fit the new card.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/gpu_size_comparison.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/gpu_size_comparison_thumbnail.jpg" /></a>
+<figcaption>
+Size comparison between RTX 4070 Super (top) and RTX 2070 Super
+(bottom). Notice the small PCB on the 4070 (top right).
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/side_view.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/side_view_thumbnail.jpg" /></a>
+<figcaption>
+After 4 years of usage. Note there is just one fan under the GPU
+and the power cables have been properly organized. The side bracket is covered
+with a dust filter.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/side_view_no_bracket.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/side_view_no_bracket_thumbnail.jpg" /></a>
+<figcaption>
+Side bracket removed. The rear fan has been moved from the CPU
+cooler to the back of the case.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/gpu_replaced.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/gpu_replaced_thumbnail.jpg" /></a>
+<figcaption>
+4070 Super installed. The new 12VHPWR power connector is a major
+pain: side panel barely fits, and cable management is again a bit of a mess.
+</figcaption>
+</figure>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/tight_gpu_fit.jpg"><img src="/images/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc/tight_gpu_fit_thumbnail.jpg" /></a>
+<figcaption>
+There’s literally no space between the backplate of the 4070 Super
+and the motherboard’s cooling block. Removing a screw was necessary to make the
+card fit.
+</figcaption>
+</figure>
+</div>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>After 4 years of using an SFF PC, I couldn’t be more happy with it. With a
+16C/32T CPU and 32GB of RAM, it has all the computing power I need for work,
+while a powerful GPU makes it also a high-end gaming PC. <strong>I never had any
+problems with the temperatures, which are at a level comparable with a standard
+PC. The single most important part of this success is the NCase M1.</strong> It is
+small enough not to be a problem when standing on the desk. At the same time,
+it has all the space needed to fit the components and provide them with proper
+cooling. I am also very happy about the upgradability of the whole build.</p>
+<p>This was my first SFF build, and it took a lot of research. I started thinking
+about the new PC sometime in March 2020, and the build was ultimately finished
+in July. Most of that time was spent waiting for a 750W power supply that never
+arrived. Another 3 weeks went wasted because of the motherboard failure. The
+one I originally got, died after a week. I had to disassemble the whole
+computer, RMA the motherboard, wait for a replacement, and assemble everything
+again.</p>
+<p>Building a PC during the pandemic was also quite a challenge. I ended up
+getting parts that I didn’t exactly want, but in the end I am not complaining.
+The Crosshair VIII Impact motherboard proved to be a decent platform for future
+upgrades, while the 600W power supply is, quite surprisingly, enough to power
+both the new CPU and the new GPU.</p>
+<p>The whole process of building my own SFF PC was greatly aided by the
+<a href="https://www.youtube.com/@OptimumTech">OptimumTech channel on YouTube</a>. This is
+a treasure trove of knowledge and I highly recommend you check it out if you
+decide to make your own SFF build. Note that here I have only focused on my own
+experiences and haven’t talked about SFF builds in general. In particular, I
+haven’t even mentioned sandwich layouts, i.e. mounting the GPU parallel to the
+motherboard using a riser cable, instead of inserting the GPU into a PCIe slot.
+So, if you want to learn about that, OptimumTech’s channel is the place to go.</p>
+<p>This post has got a lot longer than I initially intended. I plan to follow it
+up with two more posts. One will be about the AMD’s AM4 platform and its
+stability issues, while the other about being an early RTX adopter.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>SFF cases have progressed noticeably since 2020 and are much better at
+space management. For example, the successor of my M1 case, <a href="https://ncased.com/collections/m-series/products/m2-round">NCase
+M2</a>, fits the
+majority of GPUs on the market. Still, there are some large cards that it
+will not fit.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Sadly, in September 2022 <a href="https://www.tomshardware.com/news/evga-abandons-the-gpu-market-reportedly-citing-conflicts-with-nvidia">EVGA decided to withdraw from the GPU
+market</a>,
+the supposed reason being difficult partnership with nVidia.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>27/08/2024</pubDate>
+    <guid>https://jstolarek.github.io/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>Fremen Zone&#58; Creating a Website Using Only HTML and CSS</title>
     <link>https://jstolarek.github.io/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html</link>
     <description><![CDATA[<article>
@@ -1921,397 +2310,6 @@ into Google account on the phone.<a href="#fnref4" class="footnote-back" role="d
 ]]></description>
     <pubDate>09/10/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-10-09-lineageos-on-samsung-s7-an-experience-report.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>System Shock remake</title>
-    <link>https://jstolarek.github.io/posts/2023-10-01-system-shock-remake.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 01/10/2023
-    </section>
-    <section>
-        <h1 id="system-shock-remake">System Shock remake</h1>
-<p>System Shock is a franchise that has been very influential artistically and at
-the same time not a great commercial success. Since the latter is the more
-important factor in deciding which games get made it is no surprise that up
-until recently we’ve only seen two entries in the series: the original System
-Shock from 1994 and its sequel System Shock 2 from 1999. That has recently
-changed with the release of the long awaited System Shock remake, which I
-finished playing a few evenings ago.</p>
-<p>Before I talk about the remake let’s quickly revisit two previous games and why
-they were important. System Shock games belong to the immersive sim genre,
-which is typically characterized by non-linear gameplay combined with emphasis
-on exploration, permitting players to solve problems in different ways
-(e.g. direct confrontation vs. stealth), and RPG elements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In addition to
-that, System Shock is a cyberpunk survival horror where you face a rogue AI
-known as SHODAN, possibly one of the most known villains in video gaming. Other
-immersive sims you might have heard about are the first Deus Ex, BioShock (a
-spiritual successor to System Shock that has been both critically and
-financially successful), and Dishonored.</p>
-<p>To me personally System Shock is an important series, though I somewhat feel I
-am not entitled to saying this. That’s because I didn’t really play the first
-System Shock. As for System Shock 2 I never finished it despite several
-attempts at doing so, including a co-op one over the network some 20 years ago.
-SS2 was just too difficult for me, the main problem being enemies that kept
-respawning if one did not move forward quickly enough. I remember having my
-ammo supplies depleted and attempting to fight my way through with melee
-weapons, which at some point was just not possible since enemies were too tough.
-But despite these failures at completing the game I spent many hours with it,
-and its cyber-horror atmosphere was very influential on me. It got me to name
-my computers after rogue AIs from science-fiction works, a habit that I’ve been
-faithful to for the past two decades and including well-known characters like
-SHODAN or GLaDOS, as well as more obscure ones such as
-<a href="https://soma.fandom.com/wiki/WAU">WAU</a>.</p>
-<h2 id="short-history-of-long-development">Short history of long development</h2>
-<p>Let’s quickly talk about how the System Shock remake came to be. It was first
-announced to the public in 2016, when a <a href="https://www.kickstarter.com/projects/1598858095/system-shock/">Kickstarter
-campaign</a> was
-launched by Nightdive Studios to fund the development. Importantly, the
-campaign was accompanied by a playable demo of the game that demonstrated that
-the team has both a vision of what the game should be as well as skills needed
-to bring that vision to life. All it needed was time and money. System Shock
-is a beloved franchise for many and the campaign ended in a success, totalling
-1.35M dollars out of 0.9M dollars requested, exceeding the requested funds by a
-50% margin. Funding was secured, vertical slice already implemented and the
-release date set for late 2017 ‒ what could possibly go wrong?</p>
-<p>Apparently, a lot. I feel the development history of System Shock remake will
-be written about in books<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. A brief summary is that the team attempted to
-expand the scope of the project and ran out of money. Development was put on
-hold, with Nightdive Studios searching for partners that would help fund the
-game. System Shock missed seven release dates. Some of them in a very bad
-style with announced date passing without a single word from the developer about
-yet another delay. These delays as well as other things that happened during
-development have been detailed by user Shoot Man on GOG.com forums
-<a href="https://www.gog.com/forum/system_shock_series/what_a_surprise_the_release_date_was_a_lie/page3">here</a>.
-Despite the predictions of some that claimed the game will never see a release,
-System Shock remake was finally released in May 2023<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. I am happy to say
-that despite troubled development it is a very good game.</p>
-<h2 id="a-great-immersive-sim">A great immersive sim</h2>
-<p>In System Shock you play as the Hacker. After a short opening sequence ‒
-which, by the way, I found confusing, having trouble figuring out what I need to
-do in the first room ‒ you wake up on the Medical deck of Citadel, a space
-station orbiting Saturn. You need to make your way through the station decks
-all the way to the bridge to stop the rogue AI SHODAN. What is beautiful about
-System Shock is lack of any explicit mission objectives and mission markers that
-would guide you by hand. It is up to you to explore the environment and piece
-together transmissions from few survivors on the station as well as audio logs
-of those who did not survive. In the end you are left with knowledge of <em>what</em>
-to do and it is up to you to find the required items and places where to make
-use of them.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/audio_log.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/audio_log_thumbnail.jpg" /></a>
-<figcaption>
-Audio logs are your primary source of information.
-</figcaption>
-</figure>
-</div>
-<p>The beginning of the game is difficult. You are short on ammo so getting
-through the initial decks requires relying heavily on basic melee weapons, pipe
-and wrench.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/pipe.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/pipe_thumbnail.jpg" /></a>
-<figcaption>
-Pipe is the first weapon you find right at the start of the game.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/wrench.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/wrench_thumbnail.jpg" /></a>
-<figcaption>
-Wrench is just slightly more powerful.
-</figcaption>
-</figure>
-</div>
-<p>Later these get replaced by a powerful Laser Rapier, which is one of the best
-weapons in the game. Its only downside is the fact that it’s a melee weapon,
-forcing you to get in close quarters with the enemy. This weapon is identical
-in spirit to Dragon’s Tooth sword from the first Deus Ex game.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/rapier.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/rapier_thumbnail.jpg" /></a>
-<figcaption>
-Laser Rapier is still very useful even on the final deck.
-</figcaption>
-</figure>
-</div>
-<p>Early in the game there’s also a shortage of healing items. You will find
-yourself backtracking very often to a surgery machine found in Medical to get
-your health fully restored.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/surgery_machine.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/surgery_machine_thumbnail.jpg" /></a>
-<figcaption>
-Surgery machines fully restore your health. Not every deck has one.
-</figcaption>
-</figure>
-</div>
-<p>At this point it should be clear that System Shock is not a first-person
-shooter. Yes, it has a first-person perspective. Yes, there is shooting. But
-this is not a game where you keep moving forward, ploughing through dozens of
-enemies while shooting left and right. Ammo tends to be in short supply and
-that always made me think twice before firing. Do I really need to shoot, or is
-there a more resource-efficient way of disposing of an enemy?</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/power_station.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/power_station_thumbnail.jpg" /></a>
-<figcaption>
-Aside from ammo you will need energy to power cybernetic upgrades and some weapons.
-</figcaption>
-</figure>
-</div>
-<p>Unlike many immersive sims, System Shock doesn’t really have significant RPG
-elements. You will find cybernetic upgrades throughout the game, ones that
-allow you to move faster, jump higher, withstand radiation, etc. But that’s as
-far as character progression goes. The only choices that you get to make that
-influence your playing experience are weapons. There are several types of hand
-arms, rifles, and heavier weapons, as well as mines and grenades. Additionally,
-most weapons have two ammo types or firing modes, as well as upgrades. This
-allows for a variety of play styles and tactics that can be employed against
-enemies. However, inventory space is limited and each weapon takes up space in
-that inventory. There is no way to carry every single weapon that you come
-across, especially given that ammo also takes up space. Hard choices have to be
-made and some weapons will get left behind. My standard armament was the DG-04
-Laser Rapier, Magnum 2100 Pistol (I ended up running out of ammo for it towards
-the end of the game), KF-18 Scorpion SMG, and, last but not least, EM-83 Grenade
-Launcher for dealing with heavy stuff. The grenade launcher is especially
-powerful when combined with EMP grenades, which can disable every enemy
-(including bosses!) for several seconds.</p>
-<p>Backtracking is an essential element of System Shock experience. Levels will be
-traversed back and forth, and revisited many times. Since the game does not
-guide you by hand, you also have a certain degree of freedom about the order in
-which to explore the decks. The first deck is Medical, followed by Research.
-From Research you can go either to the Reactor ‒ that was my choice,
-though I think I might have made the game slightly more difficult for myself
-‒ or Maintenance. Maintenance deck is the closest you’ll get to a central
-hub in System Shock. From it you can go further to Storage, Flight Deck, or
-Executive. Executive level provides access to remaining decks of Engineering,
-Security and the Bridge, which are traversed in linear order, with Security
-being the point of no return. Certain enemies will respawn, so backtracking
-isn’t entirely stress-free. However, game balance is much better than in System
-Shock 2, so you don’t run the risk of completely running out of ammo<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Also,
-most decks will have a respawn station that you can unlock to have your body
-rebuild when you die, allowing for infinite attempts at beating through the
-enemies, even if it’s only with a wrench. In fact at an early point in the
-game, at the Reactor deck, I had to resort to this technique. This was one
-point of the game that I found quite tedious and regretted my choice of
-difficulty settings.</p>
-<p>System Shock allows you to adjust the difficulty of four aspects of the game:
-combat, mission, puzzles and cyberspace. (More on the latter two in a moment.)
-Unfortunately, these settings can only be selected when starting a new game and
-cannot be changed later. As usual I went with medium settings and at several
-points in the game I regretted not going with easier combat. Having played
-through the game though I have a feeling of satisfaction and think that combat
-wasn’t really that tough for most of the time, and a few difficulty spikes make
-it all the more memorable.</p>
-<p>Aside from combat you will encounter two other types of challenges. First one
-is cyberspace. Throughout Citadel station there are cyberspace terminals that
-transport you to a gravity-less 3D cyberspace, where you can move freely and
-have to fight waves of enemies. (Remember Descent?) The goal is to destroy
-large crystals hidden inside, which typically results in opening previously
-locked doors in the real world.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/cyberspace_terminal.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/cyberspace_terminal_thumbnail.jpg" /></a>
-<figcaption>
-A cyberspace terminal.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/cyberspace_combat.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/cyberspace_combat_thumbnail.jpg" /></a>
-<figcaption>
-Cyberspace combat.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/cyberspace_exit.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/cyberspace_exit_thumbnail.jpg" /></a>
-<figcaption>
-Cyberspace exit already visible in the distance.
-</figcaption>
-</figure>
-</div>
-<p>Second type of challenges you’ll encounter are hacking puzzles. These come in
-two types. One requires rewiring a power board to deliver the desired power
-output. There are switches to redirect or cut off a path of energy, sum gates
-that add powers of incoming signals and multiplexer gates that split one path
-into two while retaining the power. The other type of puzzle requires
-connecting two buttons by rotating pipes located on the board. It took me a
-moment to figure out how these puzzles work, but once I grasped the basic rules
-most were fairly simple.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/puzzle_1.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/puzzle_1_thumbnail.jpg" /></a>
-<figcaption>
-Rewiring puzzle. Took me a moment to figure out how these ones work.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/puzzle_2.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/puzzle_2_thumbnail.jpg" /></a>
-<figcaption>
-Power routing puzzle.
-</figcaption>
-</figure>
-</div>
-<p>As you might have already noticed, System Shock remake goes for a unique art
-style, combining low-resolution environment textures with modern dynamic
-lighting. This works extremely well and results in a visually stunning
-experience. If there is anything I could complain about when it comes to the
-graphics it would be the lack of diversity in dead crew models. It feels like
-every dead person looks exactly the same. That’s not a thing that hinders
-playing experience in any way, but could have been done better.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/frag_grenade.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/frag_grenade_thumbnail.jpg" /></a>
-<figcaption>
-Smart use of grenades can get you out of bad situations quickly.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/railgun.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/railgun_thumbnail.jpg" /></a>
-<figcaption>
-Railgun is not as powerful as one would hope.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/saturn_view.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/saturn_view_thumbnail.jpg" /></a>
-<figcaption>
-Can’t blame him for admiring the views.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/relay.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/relay_thumbnail.jpg" /></a>
-<figcaption>
-Fixing a broken relay.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/explosion.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/explosion_thumbnail.jpg" /></a>
-<figcaption>
-I really like the look of explosions in System Shock.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/retro.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/retro_thumbnail.jpg" /></a>
-<figcaption>
-The art style conveys a fantastic retro vibe.
-</figcaption>
-</figure>
-</div>
-<p>Sadly, I can’t give the audio side of the game as much praise. Firstly, the
-soundtrack is lacklustre. The music isn’t bad, but isn’t exceptional either.
-Having spent probably over 15 hours in the game the only piece of music that I
-can now remember is a jingle played in the lift when moving between levels. The
-way the game switches between exploration and combat music is poorly executed.
-Combat music kicks in 3-4 seconds after starting combat, but in many cases the
-enemy is already dead by that time. So the combat music starts playing after
-combat has taken place and keeps playing for 10-15 more seconds even though
-there is no threat nearby. This is very confusing leading to a complete discord
-between music and the in-game events. Other problems with the sound are related
-to noise made by enemies. The way sound is implemented makes it very difficult
-to determine enemy location from the noise they are making. In particular, in
-some places enemies can be heard through the walls in ways that should
-absolutely be impossible in the real world. All in all, both music and
-environment sounds should support what is being displayed on the screen, but in
-System Shock they really don’t, which is a shame.</p>
-<p>One last complaint I am going to make is about the ending, which is practically
-non-existent and very disappointing. I am going to spoil it in this paragraph,
-though there isn’t really much to spoil. So you make your way through the
-Bridge deck, killing SHODAN’s minions, and reaching the final cyberspace. That
-one cyberspace is a special one: you don’t float freely, but rather walk with a
-weapon. There is no usual health bar. You can die, but if that happens you are
-immediately respawned and allowed to continue. In other words you can’t fail.
-This in itself isn’t bad ‒ symbolic fight with the final boss can be a
-good way of telling a story. Once you destroy a large something in cyberspace (I
-have no clue what that is) you are taken out of cyberspace to witness SHODAN
-changing her colour from green to blue (presumably her moral restraints being
-re-instantiated?). Then the Hacker just sits next to SHODAN, tired and
-exhausted. And that’s really it. SHODAN, who has been a looming, threatening
-presence throughout the game, stays completely silent. Even as you make your
-way through the bridge she barely says anything. She no longer mocks or
-threatens you, and makes no attempts to convince you to stop. And then, once
-the whole ordeal is finished, nothing happens. This is very anticlimactic and
-disappointing. This ending left me with no sense of completion. Admittedly,
-the ending is faithful to the original one, but in that particular case I would
-appreciate a departure. Ending of the remake has been widely criticized and in
-fact Nightdive Studios promised it will be reworked. We are yet to see how this
-turns out.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/ending_1.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/ending_1_thumbnail.jpg" /></a>
-<figcaption>
-Facing SHODAN.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2023-10-01-system-shock-remake/ending_2.jpg"><img src="/images/posts/2023-10-01-system-shock-remake/ending_2_thumbnail.jpg" /></a>
-<figcaption>
-The End.
-</figcaption>
-</figure>
-</div>
-<h2 id="more-system-shock-please">More System Shock, please!</h2>
-<p>Despite a couple of minor complaints System Shock remake is possibly the best
-game I played this year and I am not saying this lightly, since back in April I
-finished Final Fantasy X. I really liked the atmosphere of Citadel station, the
-omnipresence of SHODAN, and the retro-futuristic style of the game. I hope
-System Shock remake is successful financially and that we will see more games
-from the series in near future. So far things don’t look particularly well in
-that regard, though. System Shock 3 has been announced to be in development
-several years ago but it seems the development has been halted and the game is
-now in a limbo, with neither cancellation nor development being officially
-confirmed. There have also been talks about the possibility of having System
-Shock 2 remake, but this is again in the realm of wishful thinking. Nightdive
-Studios has the full rights to System Shock 2, so this certainly does not seem
-impossible. The only question is whether people would trust Nightdive on
-another Kickstarter campaign.</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Note that there is no set in stone and commonly accepted definition of
-what an immersive sim really is, so take what I just said with a grain of
-salt.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Jason Schreier, I hope you’re reading this!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Though the game has been released, Nightdive Studios did not yet deliver
-everything they have promised. Aside from physical rewards (these are
-being produced) they have not released Linux and Mac ports, which were the
-first stretch goal.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>One game that had a very poor balance between supplying new ammo and
-respawning the enemies was Prey, an otherwise great game. Halfway through
-my playthrough of Prey I was close to running out of ammo and had to
-resort to speedrunning techniques of literally running past by the
-enemies. Searching on the internet reveals that I was not the only one
-with this problem. Many people had to start a new game because they used
-up their resources (ammo, healing items) and no new ones were available.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>01/10/2023</pubDate>
-    <guid>https://jstolarek.github.io/posts/2023-10-01-system-shock-remake.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
