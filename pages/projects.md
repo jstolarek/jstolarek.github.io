@@ -51,8 +51,11 @@ Below is a list of projects and libraries I have been involved with.
       paper. Implementation is available on
       [bitbucket](https://bitbucket.org/jstolarek/gc_imp_slicing).
 
-    - I contributed numerous patches to [Links programming
-      language](https://links-lang.org/).
+  * **Links programming language**
+    ([project homepage](https://links-lang.org/))\
+    I have been involved with the development of Links programming language
+    between 2016 and 2020, primarily as a compiler engineer.  I contributed
+    various typechecker fixes and many code quality improvements.
 
   * **Glasgow Haskell Compiler**
     ([project homepage](https://gitlab.haskell.org/ghc/ghc))\
