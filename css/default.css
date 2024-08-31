@@ -235,3 +235,12 @@ blockquote > p {
   padding: 0 1em;
   color: #555;
 }
+
+/* Contact mail, cheaply masked from robots */
+.contact-mail::before {
+  content: "jan.stolarek";
+}
+
+.contact-mail::after {
+  content: "mailbox.org";
+}
