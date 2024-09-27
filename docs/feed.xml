@@ -7,8 +7,246 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Tue, 27 Aug 2024 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Fri, 27 Sep 2024 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Goodbye Google&#58; Switching from Google Search to Kagi</title>
+    <link>https://jstolarek.github.io/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 27/09/2024
+    </section>
+    <section>
+        <h1 id="goodbye-google-switching-from-google-search-to-kagi">Goodbye Google: Switching from Google Search to Kagi</h1>
+<p>Last year, I wrote about <a href="2023-10-09-lineageos-on-samsung-s7-an-experience-report.html">my experience of installing LineageOS on my
+smartphone</a>. The
+goal was to have an Android phone that is free of Google spyware. Since then, I
+have been gradually moving away from using services provided by Google,
+primarily the search engine and email services. In this post, I want to write
+about <a href="https://kagi.com/">Kagi</a>, a search engine that I’ve been using since last
+October.</p>
+<p>Whatever product is being offered on the market, it is crucial that its
+customers are satisfied and willing to pay for it. The problem with Google
+Search is that its users, i.e. people using Google to find information on the
+Internet, are not its customers. It is the advertisers that pay Google for
+their service of positioning the ads. And so, search results provided by Google
+must first and foremost benefit the advertisers, with the user experience being
+a secondary matter. This is nothing new. The problem has been anticipated by
+Google creators Sergey Brin and Lawrence Page in their 1998 paper<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<blockquote>
+<p>The goals of the advertising business model do not always correspond to
+providing quality search to users. (…) we expect that advertising funded
+search engines will be inherently biased towards the advertisers and away from
+the needs of the consumers.</p>
+</blockquote>
+<p>In the past years, this has been the subject of a wide discussion sparked by the
+gradual degradation of Google’s search results quality.</p>
+<p>For a couple of years now, I have not been using Google as my primary search
+engine. I switched to DuckDuckGo instead. For the most time, DuckDuckGo worked
+well for me, but every now and then it couldn’t find what I was looking for, and
+I had to use Google as a fallback.</p>
+<h2 id="better-search-results">Better search results</h2>
+<p>About a year ago, I heard about Kagi, a new search engine that people have been
+raving about. Long story short, I decided to give it a try. Since then, Kagi
+has improved my web searching experience by offering better results than its
+competitors. No more falling back to Google or DuckDuckGo.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/kagi_main.png"><img src="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/kagi_main.png" /></a>
+</figure>
+</div>
+<p>The first couple of weeks of using Kagi felt… strange. The search results were
+sometimes so accurate that they felt scary. Here’s an example. In a <a href="2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html">recent
+post about my fan website Fremen
+Zone</a>, I
+mentioned setting up GitHub actions to validate HTML. I used
+<a href="https://github.com/Cyb3r-Jak3/html5validator-action">html5validator-action</a> for
+this. I initially ran into a setup problem, where every run of the action
+resulted in “There is no git repository detected” error. And so I used Kagi to
+search for “Github actions Error: There is no git respository detected” (yes,
+there’s a typo in the search phrase). Here is the search result I got from
+Kagi:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/kagi_win.png"><img src="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/kagi_win.png" /></a>
+</figure>
+</div>
+<p>The first result is literally a bug report for the project I was using with the
+exact same problem I was facing. It doesn’t get any more accurate than that.
+By contrast, here are results for the same search phrase from Google:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/google_fail.png"><img src="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/google_fail.png" /></a>
+</figure>
+</div>
+<p>And from DuckDuckGo:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/ddg_fail.png"><img src="/images/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi/ddg_fail.png" /></a>
+</figure>
+</div>
+<p>Neither of these results was helpful in any way<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This is just one example,
+but this happened over and over again.</p>
+<h2 id="is-paying-for-a-search-engine-worth-it">Is paying for a search engine worth it?</h2>
+<p>Let’s get this one out of the way: Kagi is a paid service. It gives up entirely
+on the ad-based business model, requiring the users to pay with real money and
+not their private data. The question is, whether it is worth to pay for a
+service that everyone else offers for free?</p>
+<p>After using Kagi - and paying for it - for a year, to me the answer is a “yes”.
+Making Kagi a paid search engine finally aligns the needs of the users with the
+needs of the customers, because now these are the same people. I no longer see
+search results because the advertisers want me to see them. The end result is a
+service that is worth paying for. There are some caveats, which I will get to
+in a moment.</p>
+<p>Kagi offers several subscription plans. I am not going to comment on the
+affordability, since that is going to be different for everyone depending on
+income. I will warn about the free trial though. Kagi allows you to try a
+hundred searches for free. This is how I started at first, but quickly noticed
+that, since the number of searches was limited, I would tend to use DuckDuckGo
+by default, and only use Kagi if DDG failed. That doesn’t really give the true
+taste of Kagi’s usability. It wasn’t until I decided to try the paid plan for a
+single month that I really saw the benefits of Kagi. I also have some
+scepticism about Kagi’s Starter plan that, at the moment of this writing, offers
+300 searches a month. Kagi quotes statistics from Google and DuckDuckGo, which
+claim an average of 100 and 30 (sic!) monthly searches per user, respectively.
+I find these numbers unbelievably low. Kagi offers search statistics, and I can
+see there was not a single month when I would use less than 300 searches. I
+typically perform 340 searches a month, though there have been months when that
+number went up to nearly 600. And that is only when using Kagi on the desktop.
+My wife, who uses Kagi on desktop and mobile, has an average of 200 searches
+more per month<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<h2 id="features">Features</h2>
+<p>Searching is obviously the most important thing in a search engine, but Kagi has
+a few more features. Let’s have a brief look at some of them.</p>
+<p>Firstly, Kagi offers lenses, which can be though of as a predefined set of
+filters. For example, there’s an academic lens that will search for results on
+web pages related to science and academia. There are a bunch of others, for
+example usenet archives, fediverse forums, programming or recipes.</p>
+<p>One kind of lens that deserves a special mention is the <a href="https://blog.kagi.com/small-web">Small
+Web</a>. This is Kagi’s initiative to promote
+personal websites and blogs, as they can be a great source of original opinions
+and knowledge.</p>
+<p>Kagi also works on adding LLM capabilities to the search experience. This is
+one feature I am very sceptical about - I don’t share the hype around AI - and
+the Kagi team definitely is well aware of the concerns surrounding AI and
+ensures that user privacy is maintained, and no data generated by Kagi users is
+used for training. As part of the standard payment plans, Kagi offers the Fast
+Answer, which can be triggered by appending a question mark at the end of the
+query. This will send the question to a LLM and provide an AI-generated answer,
+together with references to sources from which the information was taken. This
+feature works just like all the other large language models of today:
+unreliably. Sometimes it gives good answers, and sometimes it fails, often in
+subtle and non-obvious ways. For this reason, I approach this feature with
+caution. Kagi also offers an AI
+<a href="https://blog.kagi.com/announcing-assistant">Assistant</a> as part of the most
+expensive Ultimate plan, but I have not tested it<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p>There is also the Summarizer, embedded into the Kagi browser plugin (more on the
+plugin in the next section), which can summarize the currently viewed web page.
+I have only ever used the Summarizer to see if it works, and it seems to do the
+job.</p>
+<p>Kagi offers a lot of customization options. It is possible to customize the
+layout of the search result page, either by choosing from predefined settings or
+by providing a custom CSS for the results page. This, I have to say, is pretty
+cool. Beyond that, one can create custom lenses and select which pre-defined
+ones should be available. It is also possible to customize which widgets should
+be available on the search results page.</p>
+<p>Importantly, Kagi does not have search history, which I consider to be a good
+privacy feature. To <a href="https://news.ycombinator.com/item?id=37561264">quote the founder of
+Kagi</a>:</p>
+<blockquote>
+<p>Just to make it clear, Kagi does not link searches to an account already, to
+begin with. Refer to our privacy policy. We simply do not need that data for
+anything and it would be just a liability for us.</p>
+</blockquote>
+<p>That being said, Kagi does offer the option to customize search results by
+selecting which pages to consider more important and which ones to ignore.
+There’s even a <a href="https://kagi.com/stats?stat=leaderboard">ranking of search stats and website
+popularity</a>.</p>
+<p>And finally, if any of the above features does not work as expected, there’s
+<a href="https://kagifeedback.org/">Kagi Feedback</a> that allows to report bugs and
+suggest features. What I find impressive is that the founder of Kagi himself
+often responds to bug reports.</p>
+<h2 id="cons-to-be-aware-of">Cons to be aware of</h2>
+<p>As already stated, I am very pleased with Kagi and I think it offers better
+search results than other search engines I have tried so far. However, not all
+search result from Kagi are good. For example, Kagi will sometimes point to
+those weird generic pages that have paragraphs of text seemingly on the subject,
+but not really having any real information. (Not all of those pages are
+AI-generated, so perhaps that’s why they are difficult to filter out?)
+Sometimes Kagi will include scam sites in the results, and sometimes it will
+just not show you the obviously correct results. A great example of this is
+searching for “youtube downloader”. <code>yt-dlp</code> is the result that you most likely
+want, but instead you get a bunch of SEO spam. But even with that happening
+occasionally, I still think the quality of Kagi search results is above its
+competitors. I have not yet been in a situation where DDG or Google would find
+a search result that Kagi couldn’t find.</p>
+<p>One big problem with Kagi is using it as the default search engine. This is
+tricky for two reasons. Firstly, Kagi is a paid service that requires one to be
+logged in, which presents an obvious problem when browsing in private mode.
+Secondly, certain browsers and OSes either only allow a certain set of
+predefined search engines or require a lot of effort to add a new search engine.
+Kagi’s <a href="https://news.ycombinator.com/item?id=41164462">team struggles to get around those
+limitations</a>, but from the
+perspective of a user, the whole experience can be frustrating. I use Firefox
+on desktop and in order to have Kagi work in private mode I had to install an
+extension. However, on mobile, I was unable to use Kagi at all. In mobile
+Firefox it should be possible to add a new search engine with a custom search
+URL, and Kagi provides a session link with a login token to make this work. For
+some reason, this does not work on my phone, although the same exact method
+works without problems on my wife’s phone. And then many mobile browsers, for
+example Vivaldi, won’t even allow you to add a custom search engine. As a
+result, I still have to use DuckDuckGo on my Android.</p>
+<p>Another minor issue with Kagi is that it is clearly tailored for Americans. For
+example, a comma is not recognized as a decimal separator in certain contexts.
+If I search Kagi for “2.5USD in PLN” it activates a widget that gives me an
+immediate response, but if I replace the dot with a comma and search for “2,5USD
+in PLN” the widget does not work. This is minor and things are improving - it
+used to be the case that a comma was not recognized at all as a decimal
+separator, so asking Kagi for things like “2,5 * 2” would return a range “{2,5}”
+instead of “5”.</p>
+<p>Any map related searches are also far from being perfect, to say the least.
+Kagi at least recognizes that and provides easy links to Google Maps and Apple
+Maps from their map search. Long story short, every time I need to find local
+information on the map, I revert to Google.</p>
+<p>Lastly, image search returns essentially the same results as all the other
+search engines, so there is really no difference here.</p>
+<h2 id="summary">Summary</h2>
+<p>For me, Kagi is one of the biggest discoveries of the past few years, and <strong>I
+cannot afford not to use Kagi.</strong> It might not be perfect, but it has certainly
+improved my web searching experience. Importantly, it has also given me hope
+for a better web, one where the user’s needs are at the centre. I am curious to
+see where the project goes, and in particular <a href="https://blog.kagi.com/dawn-new-era-search">how it aims to challenge Google’s
+search monopoly</a>.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Quote comes from “The Anatomy of a Large-Scale Hypertextual Web Search
+Engine” paper, from Appendix A titled “Advertising and Mixed Motives”.
+Text of the paper available
+<a href="http://infolab.stanford.edu/~backrub/google.html">here</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>While writing this post, I also decided to test Bing. Not only the
+results are garbage, but the results page is absolutely cluttered with
+widgets and whatnot.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>My wife and I did some investigation of this, since the number of extra
+searches felt surprisingly high. Turns out that the number is
+artificially bumped, because switching to a tab that wasn’t active for a
+while in a mobile browser will cause the page in that tab to be reloaded.
+If you switch to a tab that contains Kagi search result, this reload will
+trigger a new search of the previously searched term.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Speaking of Kagi Assistant, I also think Kagi might have created <a href="https://www.youtube.com/watch?v=Lznc7p43nos">one of
+the worst commercials ever</a>,
+which is a real shame.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>27/09/2024</pubDate>
+    <guid>https://jstolarek.github.io/posts/2024-09-27-goodbye-google-switching-from-google-search-to-kagi.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>Four years of using a custom-built small form factor desktop PC</title>
     <link>https://jstolarek.github.io/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc.html</link>
     <description><![CDATA[<article>
@@ -2109,207 +2347,6 @@ I personally find these absolutely irrelevant.</p>
 ]]></description>
     <pubDate>25/10/2023</pubDate>
     <guid>https://jstolarek.github.io/posts/2023-10-25-salerno-43.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>LineageOS on Samsung S7&#58; An experience report</title>
-    <link>https://jstolarek.github.io/posts/2023-10-09-lineageos-on-samsung-s7-an-experience-report.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 09/10/2023
-    </section>
-    <section>
-        <h1 id="lineageos-on-samsung-s7-an-experience-report">LineageOS on Samsung S7: An experience report</h1>
-<p>I don’t have much love for smartphones. While I admit they can be useful at
-times, I absolutely detest their ecosystems ‒ both Android and Apple
-‒ that primarily exist not to fulfil the needs of the users but those of
-the big tech companies. This is a regrettable state of things and any efforts
-to change this have not seen widespread success. That being said, a year ago I
-decided to run an experiment. Android is after all a free, open-source
-software. I thought there should be a way of installing a vanilla version of
-Android that lacks Google spyware that manufacturers bundle with the phones.
-After exploring the topic I decided to install
-<a href="https://lineageos.org/">LineageOS</a>, an Android-based free and open source
-operating system for smartphones, on my Samsung S7.</p>
-<p>Several weeks ago the said Samsung phone died due to internal memory failure. I
-think this is a good moment to share an experience report from a year of using
-LineageOS.</p>
-<h2 id="android-ecosystem">Android ecosystem</h2>
-<p>Vanilla Android is an open source software. If so, then how come it is such a
-threat to user’s privacy? Well, that’s because of <a href="https://developers.google.com/android/guides/overview">Google Play
-Services</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, a set of
-libraries that phone manufacturers install on retail distributions of Android.
-Crucially, many applications require Google Play Services in order to run
-correctly. Hence comes the first choice one needs to make when deciding to use
-LineageOS. It is possible to use LineageOS without Google Play Services, but
-some applications will refuse to work or will experience issues. See
-<a href="https://plexus.techlore.tech/">Plexus</a> project for a community-maintained list
-of applications. Alternatively, it is possible to install Google Play Services
-on LineageOS and have all applications run without problems, but to me this
-defeats the purpose of using LineageOS.</p>
-<p>There is, however, a third option ‒ an open-source implementation of
-Google Play Services known as <a href="https://microg.org/">microG</a>. I did some
-superficial reading on microG and concluded that I don’t fully understand how it
-works. In particular, I couldn’t figure out how the presence of microG affects
-my privacy. As a result I decided to use LineageOS without microG, which is
-exactly how LineageOS is distributed by default.</p>
-<h2 id="obtaining-lineageos">Obtaining LineageOS</h2>
-<p>Let’s talk about getting LineageOS onto your phone. Developers maintain <a href="https://wiki.lineageos.org/devices/">a list
-of supported devices</a>, for which official
-builds are available. The list isn’t short, but don’t be surprised if your
-phone is not there. Mine used to be supported at some point in the past, but
-that support was dropped due to lack of active maintainer. This presented me
-with the first serious problem: how do I obtain an image of LineageOS if it
-is not available on the official website?</p>
-<p>Technically, there are two solutions. One is to use unofficial ROMs
-(i.e. pre-built images) available at the <a href="https://forum.xda-developers.com/">XDA
-Forums</a>. These images often come with extra
-software, most commonly the already mentioned microG or GSF. They are also
-often built on a version of Android that is higher than the one officially
-available for the phone. However, there is a big issue of trust here. It
-generally seems that the uploaded builds are considered trusted, in a sense that
-people just trust that the uploaded images are safe. Except there is no way of
-really verifying that the images do not contain any malware or spyware or
-whatnot. My instinct was not to use those builds.</p>
-<p>I was left with the second solution: building the ROM image myself. Since my
-phone used to be officially supported there were build instructions available
-for it, except they turned out to be highly inaccurate. Long story short, it
-took me 3 weeks to solve the problems I was running into while building, which
-is more than most users are willing to spend on installing a new system to their
-phone. Even worse, after installing my newly-built image it turned out that the
-Bluetooth doesn’t work. A case of missing firmware perhaps?</p>
-<p>In the end I managed to find an archive of old official LineageOS images located
-on a Russian FTP server that also hosted various leaked corporate data and a
-North Korean Linux distribution known as RedStar OS. Admittedly, this source
-was more dubious than the XDA Forums, but the archive of images looked
-legitimate and so I put my security concerns aside. This image turned out to
-work without any issues, including the previously broken Bluetooth.</p>
-<h2 id="flashing-os-image-onto-the-phone">Flashing OS image onto the phone</h2>
-<p>Once I obtained the installation image I had to flash it onto my phone. In the
-past this typically required some sort of jailbreak. Nowadays it seems that
-more and more manufacturers permit installation of custom images without a need
-for jailbreaking the phone<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This was indeed the case for my Samsung S7.</p>
-<p>Image installation is a two stage process. Firstly, I had to install a custom
-recovery image onto the phone. My understanding of a recovery image is that
-this is a low-level bootloader that allows installing a custom OS image as well
-as performing low-level management of the phone. In my case the recovery image
-contained <a href="https://twrp.me/faq/whatistwrp.html">TWRP</a>. Once the recovery image
-was installed I could then flash the LineageOS image. All of that was done by
-connecting the phone to a PC via a USB cable and required having two tools on my
-Linux - <code>adb</code> and <code>fastboot</code>.</p>
-<p>I have to say that booting LineageOS for the first time was stressful. I was
-afraid that I might brick my phone, but none of that happened. All worked as
-expected and the new system booted without problems.</p>
-<h2 id="getting-applications">Getting applications</h2>
-<p>Once the system was up and running I proceeded with installing applications on
-it. One method of doing it is installing applications distributed in .apk files
-via USB. This is not a convenient way of getting new software onto the phone,
-but it is required to at least install <a href="https://f-droid.org/">F-Droid</a>. F-Droid
-is an application store, except that it contains open source applications<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.
-Using F-Droid I installed <a href="https://github.com/whyorean/AuroraStore">Aurora
-Store</a>, an open-source Google Play
-Store client that allows you to install applications from the official store.
-At this point one can just install needed applications in the usual way.</p>
-<h2 id="the-user-experience">The user experience</h2>
-<p>Let’s talk about the most important thing - how was the user experience? In
-short, it was good but somewhat worse than the original OS provided by Samsung.
-Here is a list of problems I ran into.</p>
-<p>Firstly, the official Samsung OS was based on Android 8, whereas LineageOS 14 I
-installed onto the phone was based on Android 7. That in itself made for a
-noticeable downgrade. It took me quite a while to get used to the look and feel
-of applications shipped with LineageOS. In particular, I didn’t like how some
-of the applications, e.g. SMS app, did not even allow me to change the colour.
-Note also that we are talking about very old Android and LineageOS versions. I
-suspect that both the looks of applications as well as customization options are
-very different in the more recent versions.</p>
-<p>Another downgrade that was obvious from the very beginning was the keyboard. It
-not only, similarly to other system apps, lacked customization options but it
-also provided noticeably worse hints. I had to find a replacement. This was a
-difficult choice to make. Sure, hints in Google’s GBoard are great, but using
-it comes at the expense of privacy. Indeed, keyboard software is at the core of
-a system’s privacy and security since anything you type (emails, passwords)
-comes through that application. After extended research I decided to go with
-<a href="https://anysoftkeyboard.github.io/">AnySoftKeyboard</a>. I don’t know if this was
-the best choice, but it definitely was an acceptable choice. But again I have
-to stress: the quality of hints was noticeably worse than with GBoard. At least
-for the Polish language, which I primarily use.</p>
-<p>I mentioned the Aurora Store as a client to Google Play Store. One nice thing
-it can do is allow application downloads via an anonymous account. Obviously,
-anonymous login will not allow you to access paid apps assigned to your Google
-account, if you happen to have such. What was an issue is that the app would
-break every now and then. This is inherent in these kinds of open-source
-replacements for proprietary clients: every time the API changes the client app
-breaks. On certain occasions I also found that anonymous downloads did not
-work, but logging into my Google account would solve the problem<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. One very
-nice feature that Aurora Store has, but Google’s official software lacks, is the
-ability to filter apps based on in-app advertisements and reliance on GSF. This
-is a great feature and I miss it now that I’m back on a Google-based Android.</p>
-<p>As mentioned earlier, applications that require GSF can experience problems.
-This will range from certain functionalities being broken, e.g. Discord not
-showing notifications, to not running at all. I personally was not seriously
-affected by this, but I am not a heavy smartphone user. In particular I do not
-use social media and their associated applications, and from what I read these
-can exhibit problems. The only application that I had to give up was InPost
-Mobile, which is an app by a delivery company that operates a dense network of
-parcel lockers throughout Poland. This wasn’t a big problem though since I can
-still use these parcel lockers via SMS messages.</p>
-<p>I also experienced two serious usability issues. The first one was with the
-loudspeaker. Apparently, LineageOS couldn’t do echo cancellation so whenever I
-switched to a loudspeaker during a call, the caller would hear their own voice.
-This rendered the loudspeaker practically unusable. The second issue was photo
-quality, which had decreased dramatically with photos coming out blurry and with
-a lot of grain. I experimented with several photo taking applications,
-including ones that have really good reviews on the web, but none of them
-improved the situation, and many made even worse photos. <strong>As a result my phone
-became almost useless as a camera and I ended up borrowing my wife’s phone
-whenever I had to take photos. This is probably the single biggest downside I
-experienced from switching to LineageOS.</strong></p>
-<p>Another minor issue I experienced was when attempting to contact Discord support
-with a bug report. As soon as they heard I am on an Android without GSF they
-dismissed me by saying they <em>“only support Android devices that have the Google
-Play Store pre-installed”</em>. I recognize this is not a technical issue with
-LineageOS itself, but it might be worth being aware of this kind of attitude
-from the developers.</p>
-<h2 id="summary">Summary</h2>
-<p>The above list of encountered issues might look discouraging, but for me the
-pros of using LineageOS outweigh the cons. Most importantly, having a system
-with no Google services that constantly spy on me was a big win. Of course,
-proprietary apps still have their own telemetry and it doesn’t look like there’s
-anything that can be done about it in the Android ecosystem, other than a
-radical move of not using such apps. I also realize that for some people
-stepping away from using Google services might be a radical move in itself.</p>
-<p>At no time of using LineageOS had I thought of switching to something else.
-This is in stark contrast with my current smartphone. After my S7 died I had to
-get a new phone ASAP, and being temporarily low on budget I went with the Xiaomi
-Redmi Note 10 Pro. Oh my, was that a mistake. The phone comes with
-advertisements built into system applications, including aggressive
-advertisements that take over the whole screen. Theoretically these ads can be
-disabled, but sometimes that doesn’t work and ads display anyway. There’s also
-lots of annoying bugs and, despite good technical specs of the phone, the
-overall experience isn’t great. Luckily, LineageOS is officially supported on
-the phone so I see myself installing LineageOS again at some point in the
-relatively near future.</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Google Play Services are also sometimes referred to as Google Software
-Framework ‒ shortened as GSF ‒ and I will use both terms
-interchangeably.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Keep in mind that this usually voids the warranty.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>In the retro-modding community you’d just call them homebrew. Not sure
-whether the term applies here.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>This means logging into my account only in Aurora Store, not on the phone
-itself. Since LineageOS comes without GSF there is even no way to log
-into Google account on the phone.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>09/10/2023</pubDate>
-    <guid>https://jstolarek.github.io/posts/2023-10-09-lineageos-on-samsung-s7-an-experience-report.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
