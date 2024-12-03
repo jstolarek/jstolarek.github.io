@@ -1,10 +1,10 @@
 ---
-title: Goodbye Google&#58; Switching from Google Search to Kagi
+title: Goodbye, Google&#58; Switching from Google Search to Kagi
 date: 2024-09-27
 ---
 
-Goodbye Google: Switching from Google Search to Kagi
-====================================================
+Goodbye, Google: Switching from Google Search to Kagi
+=====================================================
 
 Last year, I wrote about [my experience of installing LineageOS on my
 smartphone](2023-10-09-lineageos-on-samsung-s7-an-experience-report.html).  The
