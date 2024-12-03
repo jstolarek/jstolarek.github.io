@@ -1,10 +1,10 @@
 ---
-title: The Invincible. A game review
+title: The Invincible. Game review
 date: 2024-05-31
 ---
 
-The Invincible. A game review
-=============================
+The Invincible. Game review
+===========================
 
 One of the games I awaited impatiently in 2023 was [The
 Invincible](https://www.gog.com/game/the_invincible), a debut game by Polish
