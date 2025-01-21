@@ -242,5 +242,5 @@ blockquote > p {
 }
 
 .contact-mail::after {
-  content: "mailbox.org";
+  content: "binarapps.com";
 }
