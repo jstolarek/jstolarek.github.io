@@ -32,3 +32,5 @@ Contact
 =======
 
 <code><span class="contact-mail">@</span></code>
+
+GPG: <code>AFD4D1F163AE3EF70295F9BBD8B8886922727C26</code>

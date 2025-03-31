@@ -18,7 +18,7 @@ on Linux and the game runs natively.
 
 I bought Revenge of the Titans as part of Humble Indie Bundle 2, a gaming
 initiative aiming at rising popularity of indie games, which back in 2010 were
-considered more of a curiosity rather than serious gaming experiences.  Aside
+considered more of a curiosity rather than a serious gaming experiences.  Aside
 from the already mentioned Revenge of the Titans, Humble Indie Bundle 2
 consisted of five games - Machinarium, Osmos, Cortex Command, and, possibly the
 most famous of them all, Braid - that could be purchased by paying as much (or
@@ -46,7 +46,7 @@ How Proton eliminated native Linux builds
 -----------------------------------------
 
 Fast-forward 13 years to 2023.  What does Linux gaming look like today?  At
-first glance it might seem things got better.  Last year Valve, owner of the
+first glance it might seem things got better.  Last year, Valve, owner of the
 world's most popular gaming platform Steam, released Steam Deck, a Linux-based
 portable PC.  For years [Valve has pushed for the ability to run Windows games
 on Linux](https://old.reddit.com/r/linux_gaming/comments/ri2nb4/valve_seems_to_do_its_best_to_release_games_on/hov609f/).
@@ -62,7 +62,7 @@ actually run.
 This might sound good at first, but for me this push for Proton resulted in
 degradation of gaming experience on Linux.  First and foremost, **Proton is
 closely tied to Steam, and that is a platform I just refuse to use due to its
-inherent DRM**.  I like to own things I pay for, and that is not the case with
+inherent DRM**.  I like to own things I pay for and that is not the case with
 games purchased on Steam.  I would lie if I said I have never bought a game on
 Steam, but I certainly can't remember when was the last time I did.
 
