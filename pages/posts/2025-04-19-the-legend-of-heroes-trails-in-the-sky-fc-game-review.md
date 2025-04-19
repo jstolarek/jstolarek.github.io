@@ -40,7 +40,7 @@ learn Japanese, so that I can experience the game without any translation.
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/title_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/title.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/title_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/title.jpg)
 </figure>
 </div>
 
@@ -55,21 +55,21 @@ branches.
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/estelle_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/estelle.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/estelle_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/estelle.jpg)
 </figure>
 <figcaption>Estelle is an impulsive bubblehead at first, but grows greatly as the game progresses.</figcaption>
 </div>
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua.jpg)
 </figure>
 <figcaption>Joshua is cool, composed, and very mature for his age.</figcaption>
 </div>
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua_crossdressing_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua_crossdressing.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua_crossdressing_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/joshua_crossdressing.jpg)
 </figure>
 <figcaption>Joshua getting dressed as a girl is a running joke in the game.</figcaption>
 </div>
@@ -96,7 +96,7 @@ can be permanently missed if overlooked.
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dean_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dean.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dean_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dean.jpg)
 </figure>
 <figcaption>All those seemingly unrelated local incidents converge towards the end of the game.</figcaption>
 </div>
@@ -119,21 +119,21 @@ some optional monsters and two or three boss fights.
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/combat_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/combat.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/combat_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/combat.jpg)
 </figure>
 <figcaption>Fight with the final boss.</figcaption>
 </div>
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/quartz_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/quartz.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/quartz_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/quartz.jpg)
 </figure>
 <figcaption>Quartz might seem similar to materia, but the way it provides spells is actually quite different.</figcaption>
 </div>
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/monster_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/monster.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/monster_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/monster.jpg)
 </figure>
 <figcaption>An optional boss fight.  I appreciate how the game does not allow fighting it accidentally.</figcaption>
 </div>
@@ -169,13 +169,13 @@ lot of authenticity to the story.
 
 <div class="thumbnail">
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/jill_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/jill.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/jill_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/jill.jpg)
 </figure>
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dorothy_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dorothy.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dorothy_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/dorothy.jpg)
 </figure>
 <figure>
-[![](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/kloe_thumbnail.jpg)](/images/posts/2025-04-14-the-legend-of-heroes-trails-in-the-sky-fc-game-review/kloe.jpg)
+[![](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/kloe_thumbnail.jpg)](/images/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review/kloe.jpg)
 </figure>
 <figcaption>You encounter a lot of characters along the way.</figcaption>
 </div>
