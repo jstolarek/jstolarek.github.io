@@ -4,15 +4,13 @@ build-type:         Simple
 cabal-version:      >= 1.10
 
 synopsis:           Jan Stolarek's personal website
-license:            GPL-3
-license-file:       LICENSE
 author:             Jan Stolarek
 maintainer:         Jan Stolarek <jan.stolarek@binarapps.com>
-bug-reports:        https://github.com/jstolarek/jstolarek
+bug-reports:        https://github.com/jstolarek/jstolarek.github.io
 
 source-repository this
   type:     git
-  location: https://github.com/jstolarek/jstolarek.git
+  location: https://github.com/jstolarek/jstolarek.github.io.git
 
 executable site
   hs-source-dirs:   src
