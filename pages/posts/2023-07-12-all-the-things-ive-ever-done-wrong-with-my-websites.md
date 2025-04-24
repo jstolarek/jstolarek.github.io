@@ -443,12 +443,13 @@ therefore I am assuming this new website will take years, rather than months, to
 complete.
 
 
-[^1]: I think they are still abandonware and there is any legal way of obtaining
+[^1]: I think they are still abandonware and there is no legal way of obtaining
       them, except for second-hand market.
 
 [^2]: Official English translations of "Politechnika Łódzka" changed over time.
-      When I started my work it was Technical University of Lodz but sometime
-      around 2013, I think, it changed to Lodz University of Technology.
+      When I started my work there, it was Technical University of Lodz but
+      sometime around 2013, I think, it changed to Lodz University of
+      Technology.
 
 [^3]: I can't overstate how good a thing this is.  I have revisited some of my
       blog entries and found them extremely helpful and was grateful to myself
