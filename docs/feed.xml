@@ -7,8 +7,190 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sat, 26 Apr 2025 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Wed, 21 May 2025 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Adding a new hard drive to my PC and installing Windows 11 alongside Linux</title>
+    <link>https://jstolarek.github.io/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 21/05/2025
+    </section>
+    <section>
+        <h1 id="adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux">Adding a new hard drive to my PC and installing Windows 11 alongside Linux</h1>
+<p>I recently ran into a problem that every PC owner eventually faces: running out
+of disk space. The amount of free space I had on my partitions was low enough
+to be causing trouble every now and then, especially when downloading huge files
+from the Internet. I decided to solve the problem by adding a second NVMe drive
+to my PC, but I wasn’t sure how this is going to play out when dual booting
+Linux and Windows 11. In the end, everything worked the way it should. I want
+to document the whole process here, in hope of dismissing misleading information
+and FUD found on the Internet.</p>
+<h2 id="existing-setup">Existing setup</h2>
+<p>My initial partition setup looked like this:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/initial_setup.png"><img src="/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/initial_setup.png" /></a>
+</figure>
+</div>
+<p>All partitions are on a single 2TB NVMe drive, containing a dual-boot setup of
+Linux and Windows 11. There is a single EFI partition for the bootloaders. For
+Linux, I have separate <code>/boot</code> (unencrypted, stores kernel images), <code>/</code>
+(encrypted)`, and a dedicated data partition. For Windows, I have two primary
+partitions: C:\ drive for the system and D:\ drive for game installations.
+Aside from that, there are two special hidden partitions created by Windows and
+some leftover unallocated space.</p>
+<h2 id="the-plan">The plan</h2>
+<p>I decided to get a second 2TB drive — luckily, my motherboard allows
+installing two — and use it as a dedicated drive for a new Windows
+installation. Then remove all Windows partitions from my first drive and use
+reclaimed space to increase the size of Linux data partition. While the plan
+was fairly straightforward, there were a couple of unknowns regarding Windows 11
+installer’s behaviour in the presence of another drive with existing Linux and
+Windows installation. In particular:</p>
+<ol type="1">
+<li><p>Will the installer use the existing EFI partition, or will it create a new
+one on the second drive? In theory, there should only ever be one EFI
+partition, so it should re-use the existing one. But if it does, what
+happens to the existing Windows bootloader? I wanted to be able to boot
+the previous Windows installation until the new one has not been fully
+configured.</p></li>
+<li><p>What about the hidden Windows partitions? Will the new installation create
+its own hidden partitions, or will it reuse existing ones? The latter
+might mean that I would not be able to delete these partitions from the
+first drive.</p></li>
+<li><p>Will the Windows 11 leave existing Linux partitions intact?</p></li>
+</ol>
+<p>Obviously, the third point was the most important for me. Sure, I have backups,
+but losing an existing installation would mean hours of work to restore the
+system. That is something I definitely wanted to avoid. I began searching
+online and found several discussion threads, where people had similar concerns.
+Usually, the advice given was to be on the safe side and remove the Linux drive
+for the duration of installation. Once Windows 11 is installed on the new
+drive, re-install the Linux drive. Such a procedure would leave me with two EFI
+partitions — one on each drive — but it would certainly prevent any
+data loss in the installation process. I decided to follow this approach, since
+it felt like a safe choice. In hindsight, online advice to remove Linux drive
+was FUD — fear, uncertainty, doubt — not backed by facts. But let
+me not get ahead of myself.</p>
+<h2 id="drive-installation">Drive installation</h2>
+<p>The first step was then to temporarily remove the existing drive and install the
+new one. Here, I ran into a problem. See these things marked with red arrows
+in the photo below?</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/thermal_pads.jpg"><img src="/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/thermal_pads_thumbnail.jpg" /></a>
+</figure>
+</div>
+<p>The arrow on the right shows a large thermal pad that attaches to the top of the
+drive and conducts heat to a radiator. And on the left is a place for
+installing a small thermal pad that helps to cool the chipsets at the bottom of
+the drive. Both these pads are glued to the drive. When trying to uninstall
+the drive, I was able to remove the radiator and to unglue the large thermal pad
+at the top. However, small pad at the bottom remained firmly fixed, preventing
+removal of the drive from the M.2 slot. Despite applying some considerable
+force, the pad would not let go. After a couple attempts I gave up on the idea
+of removing it. Damaging the drive physically would equal to losing all data,
+whereas Windows 11 installation going wrong was only a potential risk. I
+installed the second drive alongside the first one and proceeded to install the
+new OS.</p>
+<h2 id="windows-11-installation">Windows 11 installation</h2>
+<p>Windows installer correctly detected both drives and existing partitions. Of
+course, it did not recognize file systems on Linux partitions, but it noticed
+that the partitions are there. I picked unallocated space on the new drive as
+the target of installation. Before proceeding further, I had to tick a checkbox
+that says <em>“I agree everything will be deleted including files, apps, and
+settings”</em>. This definitely sounded scary and raised the question: is it only
+going to remove data from the target partition, or will it wipe clean the other
+partitions as well? I had no other choice but to take a leap of faith here. I
+ticked the checkbox and finished the installation.</p>
+<p>After rebooting the PC, it turned out that everything worked as expected.
+Windows 11 installed on the new drive and created all the required hidden
+partitions that it needs. This means I could remove hidden Windows partitions
+from the other drive and have that drive entirely used for Linux. Secondly,
+Windows 11 correctly detected the existing EFI partition, together with the fact
+that there is another Windows installation. GRUB remained untouched, and upon
+selecting Windows Boot Loader from the GRUB menu, I was greeted with Windows
+bootloader prompting me to select which of the two Windows installation to boot.
+This was great news, because it allowed me to use the previous Windows
+installation, before I finished setting up the new one. The experience of
+choosing which Windows to boot wasn’t entirely smooth though: upon selecting a
+Windows installation, my PC would reboot, and only upon selecting Windows Boot
+Loader from GRUB again, it would boot into Windows — this time without any
+prompting.</p>
+<p>Last, but not least, existing Linux partitions remained untouched.</p>
+<h2 id="partition-resizing">Partition resizing</h2>
+<p>Once I finished setting up the new Windows installation, it was time to remove
+old Windows partitions and enlarge my Linux data partition. The task required
+changing size of LUKS container, partition inside it, and the file system inside
+the partition. I had a lot of questions here and wasn’t entirely sure how to
+approach the problem. The only consistent pieces of information I could find on
+the Web where that the LUKS container needs to be unlocked in order to be
+resized, and that an ext4 file system can be resized online (i.e. while
+mounted). After ensuring I have backed up all the data, I decided on “recon by
+fire”. I launched <code>gparted</code>, deleted all Windows partitions on the first drive,
+and then resized my Linux data partitions using a slider. And it just worked!
+The whole process took less than a minute. This is the end result:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/final_partitions.png"><img src="/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/final_partitions.png" /></a>
+</figure>
+</div>
+<p>One final finishing touch was required under Windows: update the bootloader so
+that it does not show the system from a partition that was just removed. This
+was easily achieved using the <code>msconfig</code> Windows tool.</p>
+<h2 id="aftermath">Aftermath</h2>
+<p>At this point, my goals were achieved. I had Windows 11 installed on a dedicated
+2TB drive and my primary data partition on Linux enlarged to 1.76GB. However, I
+was in for a couple of surprises. A few days after installing the new drive, I
+realized my Samba share on Linux doesn’t work. After a debugging session, I
+managed to narrow down the problem to this configuration line in
+<code>/etc/samba/smb.conf</code>:</p>
+<pre><code>interfaces = lo enp5s0</code></pre>
+<p>It specifies the interfaces on which Samba operates: local loopback (<code>lo</code>) and
+the Ethernet card (<code>enp5s0</code>). Until a few years back, network interfaces in
+Linux had simple names, such as <code>eth0</code> for Ethernet or <code>wlan0</code> for Wi-Fi. But
+then systemd introduced something that is called <a href="https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/">Predictable Network Interface
+Names</a>
+— hence the non-intuitive <code>enp5s0</code> name. Under the above link you will
+find rationale for the change as well as a list of good things that this change
+does, such as:</p>
+<blockquote>
+<p>Stable interface names even when hardware is added or removed</p>
+</blockquote>
+<p>Well, that’s bullshit, because my Ethernet card is now named <code>enp6s0</code>.
+The interface name changed with the addition of a new drive, presumably because
+drives and Ethernet card reside on the same PCIe bus and the network card now
+enumerates differently. As a result, everything that relied on that “stable”
+interface name, needs to be updated to the new name. Thank you, systemd.</p>
+<p>A second surprise came about two weeks later. For some reason, my Linux could
+no longer mount the Windows partition during boot, stalling the boot process
+until the default 90 second timeout was reached. It was time for another
+debugging session, which revealed that the UUID of the Windows partition
+changed. Not only that, the partition reported as being encrypted with
+BitLocker. Perhaps unsurprisingly, Windows 11 does things without user’s
+knowledge and approval, trying to force them into using BitLocker. It silently
+starts encryption of Windows partition some time after system installation,
+making the partition unaccessible from outside Windows. Under Windows, system
+partition reports as partially encrypted, even though BitLocker is shown as
+being disabled. The only solution is to enable BitLocker, let it finish
+encrypting the partition, then disable BitLocker and give it time to decrypt the
+partition. This allows to access Windows partition from under Linux and have it
+mounted during boot without issues.</p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>Overall, the whole process of installing a new drive went smooth. I am
+pleasantly surprised that the Windows installer played nicely with existing
+Windows and Linux installations. I am also happy with how easy it was to resize
+my Linux data partition, without even having to unmount it.</p>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>21/05/2025</pubDate>
+    <guid>https://jstolarek.github.io/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>France &#39;40, 2nd Edition. A boardgame review</title>
     <link>https://jstolarek.github.io/posts/2025-04-24-france-40-2nd-edition-a-boardgame-review.html</link>
     <description><![CDATA[<article>
@@ -1723,7 +1905,7 @@ Invincible</em> takes some liberties in adapting the original work, and thus the
 are surprises waiting for the fans of Lem. I am not going to spoil them here.</p>
 <p>Unfortunately, plot delivery isn’t perfect. I already mentioned some problems
 in the previous section: meaningless monologues, listening to dialogues that
-play out with no player agency or explicitly telling the player what to do in
+play out with no player agency or explicitly telling the player what to do in a
 form of intrusive hints. In addition to that, there are several deus
 ex machina moments, where the protagonist is miraculously saved from what should
 have been a certain death.</p>
@@ -2039,238 +2221,6 @@ collection and all that mess becomes irrelevant.<a href="#fnref2" class="footnot
 ]]></description>
     <pubDate>29/05/2024</pubDate>
     <guid>https://jstolarek.github.io/posts/2024-05-29-my-favourite-bands-are-coming-back-to-life-and-i-love-it.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>Installing an IPS-screen in a NeoGeo Pocket Color</title>
-    <link>https://jstolarek.github.io/posts/2024-01-21-installing-ips-screen-in-ngpc.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 20/01/2024
-    </section>
-    <section>
-        <h1 id="installing-an-ips-screen-in-a-neogeo-pocket-color">Installing an IPS-screen in a NeoGeo Pocket Color</h1>
-<p>About a year ago I bought two rather obscure handheld consoles: a NeoGeo Pocket
-Color (NGPC) and a WonderSwan Color (WSC). Both were competitors to the GameBoy
-Color (GBC) and both lost. Due to their smaller popularity they are not as well
-known as the GameBoy and also command higher prices today, since there were
-fever of them produces. Also, neither the NGPC nor the WSC had a backlit
-screen, so in order to be used comfortably they need an IPS mod. Today I will
-write about installing a modern IPS panel in the NGPC.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/original_screen_1.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/original_screen_1_thumbnail.jpg" /></a>
-<figcaption>
-Original screen is usable only when under direct light.
-</figcaption>
-</figure>
-</div>
-<p>Before moving on there’s an important disclaimer. NeoGeo Pocket comes in three
-versions. There’s the original NeoGeo Pocket with a monochrome screen. It was
-on the market for about a year (1998-1999) and never officially left Japan.
-Then there is the NeoGeo Pocket Color that I will be talking about in this post.
-It was distributed worldwide, even if only for a couple of months, but mine is a
-Japanese unit. Finally, there’s a smaller version of NGPC, officially known as
-the New NeoGeo Pocket Color. These days people commonly refer to it as NGPC
-Slim. Due to smaller size NGPC Slim is more difficult to mod.</p>
-<h2 id="about-the-mod">About the mod</h2>
-<p>When modding the GameBoys I usually rely on parts from FunnyPlaying. However,
-they only offer mods for the GameBoys. Looking at the online retro communities
-it seems that when it comes to the NeoGeo Pocket people tend to order from the
-<a href="https://pl.aliexpress.com/store/5374188">Cloud Game Store</a> on AliExpress. And
-so I bought from them an IPS panel mod as well as a new replacement shell. The
-choice of shells isn’t great to be honest. I went with a transparent black
-shell and also ended up installing original black buttons from my console,
-instead of clear transparent ones that came with the kit. Moreover, both the
-IPS panel and the shell are noticeably more expensive than in case of the
-GameBoys.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kit_parts.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kit_parts_thumbnail.jpg" /></a>
-<figcaption>
-Kit parts.
-</figcaption>
-</figure>
-</div>
-<h2 id="installing-the-screen">Installing the screen</h2>
-<p>For the most part installation is straightforward. First step is disassembly:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_1.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_1_thumbnail.jpg" /></a>
-<figcaption>
-Original screen is solidly attached to the shell. Note the metal
-backplate.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_2.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ngpc_disassembly_2_thumbnail.jpg" /></a>
-<figcaption>
-These foam spacers need to be disassembled to make the new screen fit.
-</figcaption>
-</figure>
-</div>
-<p>The first tricky bit is the metal cover separating the cartridge slot and the
-main board. The one that comes with the kit doesn’t fit the shell very well so
-I had to re-use the original one. However, reusing original screws was not a
-good idea, as the screw holes are significantly smaller on the replacement
-shell.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover_thumbnail.jpg" /></a>
-<figcaption>
-Metal slot cover I got with the shell didn’t fit very well.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover_screws.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/slot_cover_screws_thumbnail.jpg" /></a>
-<figcaption>
-Original screws are too big for the new shell and it just cracks.
-</figcaption>
-</figure>
-</div>
-<p>Installing the screen itself turned out to be tricky. There is no spacing
-bracket so one has to rely on a small plastic spacer and a piece of foam
-provided with the kit. This is far from perfect. There is also a dust seal to
-be used to permanently attach the IPS panel to the shell. However, the IPS
-panel is quite narrow and so it only attaches to the top and bottom of the seal,
-making it possible for the dust to come in from the sides. Also, at first I
-couldn’t figure out the orientation of the panel, since it’s nearly square is
-shape.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_1.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_1_thumbnail.jpg" /></a>
-<figcaption>
-A plastic spacer on the right, a foam spacer on the left.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_2.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/screen_install_2_thumbnail.jpg" /></a>
-<figcaption>
-IPS panel and the controller board secured in place.
-</figcaption>
-</figure>
-</div>
-<p>The board needs to be powered directly from the battery, which is done with an
-extra wire. Installation instructions say to just wrap the wire around the
-battery contact, but I decided to solder it contact point on the board instead.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/power_wire.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/power_wire_thumbnail.jpg" /></a>
-<figcaption>
-Power wire soldered to a battery contact on the board. Note also a
-touch sensor at the top.
-</figcaption>
-</figure>
-</div>
-<p>With the power wire in place the shell is ready for final assembly. At this
-point the touch sensor needs to carefully aligned so that it touches the top of
-the shell. It will allow adjusting the brightness as well as selecting one of
-several available scanline modes. There are horizontal and vertical ones, as
-well as a retro-pixel grid. Personally, I found scanlines to be way too dark so
-I have them turned off. It is also possible to switch the screen to a
-monochrome mode.</p>
-<p>Here’s the finished build:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kof.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/kof_thumbnail.jpg" /></a>
-<figcaption>
-King of Fighters R-2.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ms2.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/ms2_thumbnail.jpg" /></a>
-<figcaption>
-Metal Slug 2nd Mission.
-</figcaption>
-</figure>
-</div>
-<p>A few quick thoughts on this kit:</p>
-<ol type="1">
-<li>Shell quality is good, but the fit could be somewhat better. The top of
-the shell isn’t as tight as it should be, no matter how tightly I fix the
-screws.</li>
-</ol>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_left.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_left_thumbnail.jpg" /></a>
-<figcaption>
-Left edge of the shell. The fit is tight here.
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_top.jpg"><img src="/images/posts/2024-01-21-installing-ips-screen-in-ngpc/shell_top_thumbnail.jpg" /></a>
-<figcaption>
-Top edge of the shell. Front and back don’t come together as tight
-as they should.
-</figcaption>
-</figure>
-</div>
-<ol start="2" type="1">
-<li><p>In order to get the speaker to fit I had to remove its metal protective
-cover.</p></li>
-<li><p>I messed up when attaching the lens and left a fingerprint underneath it.
-What I learned is that once the lens is removed with a suction cup it can
-be attached again, so I was able to get that fingerprint removed without
-having to get a new lens.</p></li>
-<li><p>I am yet to determine the battery life of the modded system. I had the
-console power off without a warning a couple of times. The original system
-supposedly runs for as long as 40 hours on a pair of AA batteries, but an
-IPS panel and a flashcart certainly reduce that time. I hope this
-unexpected powering off isn’t a sign of a deeper problem.</p></li>
-</ol>
-<h2 id="summary">Summary</h2>
-<p>Over the course of time I was able to get a couple of original games for the
-system (sadly, cartridges only - no boxes) but I also got a <a href="https://www.retrotowers.co.uk/flash-carts/neopocket-gamedrive">NeoPocket
-GameDrive</a>
-flashcart. Without a flashcart it’s really difficult to enjoy the system since
-the game prices for NGPC are very high. Compared to the Everdrive cartridges
-from Krikzz, the GameDrive is moderately convenient to use. It has 15MB of
-flash memory and the games need to be loaded from an SD card into that memory
-before they can be played. Once a game is loaded it stays in flash until you
-delete it. 15 MB is enough to store several games, but the flashing process is
-very slow, so if you want to play multiple titles you might find yourself
-waiting quite a lot.</p>
-<p>As for the games themselves I was afraid that NGPC will be nothing more than an
-expensive curiosity, but it actually has quite a lot to offer. At least for a
-NeoGeo MVS fan like myself. I spent a lot of time playing arcade titles such as
-Metal Slug, King of Fighters, Samurai Shodown, and The Last Blade. All of these
-titles have their NGPC ports, though calling them “ports” is a bit of a stretch.
-Today we would call them demakes. Regardless of how we call them however, they
-are a blast to play. I was genuinely surprised that despite simple graphics -
-the character sprites consist of only three colours - The Last Blade plays just
-like in the arcade version. Same goes for King of Fighters and SNK vs. Capcom.
-These games are so enjoyable not only because of how responsive they are and how
-accurately they recreate the arcade feel of original titles, but also thanks to
-the joystick that the NGPC uses. Instead of the usual D-pad the console has a
-small, clicky joystick, and that joystick makes it possible to easily execute
-all the tricky inputs required in fighting games. This is in stark contrast
-with, say, GameBoy Advance, which offers arcade-perfect ports of King of Fighters
-games, but the D-pad makes it nearly impossible to reliably execute any special
-moves.</p>
-<p>Also I’d love to be able to play some fighting games in the Versus mode between
-two consoles. This doesn’t seem likely though, given that link cables to
-connect two consoles are practically unavailable on the second-hand market. And
-when they are they sell for well over a hundred dollars.</p>
-<p>That being said, I will certainly be looking to get one more NeoGeo Pocket, this
-time possibly a Slim variant. This console has certainly turned out to be much
-more than I expected.</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>20/01/2024</pubDate>
-    <guid>https://jstolarek.github.io/posts/2024-01-21-installing-ips-screen-in-ngpc.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 

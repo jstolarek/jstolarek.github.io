@@ -1,0 +1,208 @@
+---
+title: Adding a new hard drive to my PC and installing Windows 11 alongside Linux
+date: 21-05-2025
+---
+
+Adding a new hard drive to my PC and installing Windows 11 alongside Linux
+==========================================================================
+
+I recently ran into a problem that every PC owner eventually faces: running out
+of disk space.  The amount of free space I had on my partitions was low enough
+to be causing trouble every now and then, especially when downloading huge files
+from the Internet.  I decided to solve the problem by adding a second NVMe drive
+to my PC, but I wasn't sure how this is going to play out when dual booting
+Linux and Windows 11.  In the end, everything worked the way it should.  I want
+to document the whole process here, in hope of dismissing misleading information
+and FUD found on the Internet.
+
+Existing setup
+--------------
+
+My initial partition setup looked like this:
+
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/initial_setup.png)](/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/initial_setup.png)
+</figure>
+</div>
+
+All partitions are on a single 2TB NVMe drive, containing a dual-boot setup of
+Linux and Windows 11.  There is a single EFI partition for the bootloaders.  For
+Linux, I have separate `/boot` (unencrypted, stores kernel images), `/`
+(encrypted)`, and a dedicated data partition.  For Windows, I have two primary
+partitions: C:\\ drive for the system and D:\\ drive for game installations.
+Aside from that, there are two special hidden partitions created by Windows and
+some leftover unallocated space.
+
+The plan
+--------
+
+I decided to get a second 2TB drive &mdash; luckily, my motherboard allows
+installing two &mdash; and use it as a dedicated drive for a new Windows
+installation.  Then remove all Windows partitions from my first drive and use
+reclaimed space to increase the size of Linux data partition.  While the plan
+was fairly straightforward, there were a couple of unknowns regarding Windows 11
+installer's behaviour in the presence of another drive with existing Linux and
+Windows installation.  In particular:
+
+  1. Will the installer use the existing EFI partition, or will it create a new
+     one on the second drive?  In theory, there should only ever be one EFI
+     partition, so it should re-use the existing one.  But if it does, what
+     happens to the existing Windows bootloader?  I wanted to be able to boot
+     the previous Windows installation until the new one has not been fully
+     configured.
+
+  2. What about the hidden Windows partitions?  Will the new installation create
+     its own hidden partitions, or will it reuse existing ones?  The latter
+     might mean that I would not be able to delete these partitions from the
+     first drive.
+
+  3. Will the Windows 11 leave existing Linux partitions intact?
+
+Obviously, the third point was the most important for me.  Sure, I have backups,
+but losing an existing installation would mean hours of work to restore the
+system.  That is something I definitely wanted to avoid.  I began searching
+online and found several discussion threads, where people had similar concerns.
+Usually, the advice given was to be on the safe side and remove the Linux drive
+for the duration of installation.  Once Windows 11 is installed on the new
+drive, re-install the Linux drive.  Such a procedure would leave me with two EFI
+partitions &mdash; one on each drive &mdash; but it would certainly prevent any
+data loss in the installation process.  I decided to follow this approach, since
+it felt like a safe choice.  In hindsight, online advice to remove Linux drive
+was FUD &mdash; fear, uncertainty, doubt &mdash; not backed by facts.  But let
+me not get ahead of myself.
+
+Drive installation
+------------------
+
+The first step was then to temporarily remove the existing drive and install the
+new one.  Here, I ran into a problem.  See these things marked with red arrows
+in the photo below?
+
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/thermal_pads_thumbnail.jpg)](/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/thermal_pads.jpg)
+</figure>
+</div>
+
+The arrow on the right shows a large thermal pad that attaches to the top of the
+drive and conducts heat to a radiator.  And on the left is a place for
+installing a small thermal pad that helps to cool the chipsets at the bottom of
+the drive.  Both these pads are glued to the drive.  When trying to uninstall
+the drive, I was able to remove the radiator and to unglue the large thermal pad
+at the top.  However, small pad at the bottom remained firmly fixed, preventing
+removal of the drive from the M.2 slot.  Despite applying some considerable
+force, the pad would not let go.  After a couple attempts I gave up on the idea
+of removing it.  Damaging the drive physically would equal to losing all data,
+whereas Windows 11 installation going wrong was only a potential risk.  I
+installed the second drive alongside the first one and proceeded to install the
+new OS.
+
+Windows 11 installation
+-----------------------
+
+Windows installer correctly detected both drives and existing partitions.  Of
+course, it did not recognize file systems on Linux partitions, but it noticed
+that the partitions are there.  I picked unallocated space on the new drive as
+the target of installation.  Before proceeding further, I had to tick a checkbox
+that says _"I agree everything will be deleted including files, apps, and
+settings"_.  This definitely sounded scary and raised the question: is it only
+going to remove data from the target partition, or will it wipe clean the other
+partitions as well?  I had no other choice but to take a leap of faith here.  I
+ticked the checkbox and finished the installation.
+
+After rebooting the PC, it turned out that everything worked as expected.
+Windows 11 installed on the new drive and created all the required hidden
+partitions that it needs.  This means I could remove hidden Windows partitions
+from the other drive and have that drive entirely used for Linux.  Secondly,
+Windows 11 correctly detected the existing EFI partition, together with the fact
+that there is another Windows installation.  GRUB remained untouched, and upon
+selecting Windows Boot Loader from the GRUB menu, I was greeted with Windows
+bootloader prompting me to select which of the two Windows installation to boot.
+This was great news, because it allowed me to use the previous Windows
+installation, before I finished setting up the new one.  The experience of
+choosing which Windows to boot wasn't entirely smooth though: upon selecting a
+Windows installation, my PC would reboot, and only upon selecting Windows Boot
+Loader from GRUB again, it would boot into Windows &mdash; this time without any
+prompting.
+
+Last, but not least, existing Linux partitions remained untouched.
+
+Partition resizing
+------------------
+
+Once I finished setting up the new Windows installation, it was time to remove
+old Windows partitions and enlarge my Linux data partition.  The task required
+changing size of LUKS container, partition inside it, and the file system inside
+the partition.  I had a lot of questions here and wasn't entirely sure how to
+approach the problem.  The only consistent pieces of information I could find on
+the Web where that the LUKS container needs to be unlocked in order to be
+resized, and that an ext4 file system can be resized online (i.e. while
+mounted).  After ensuring I have backed up all the data, I decided on "recon by
+fire".  I launched `gparted`, deleted all Windows partitions on the first drive,
+and then resized my Linux data partitions using a slider.  And it just worked!
+The whole process took less than a minute.  This is the end result:
+
+<div class="thumbnail">
+<figure>
+[![](/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/final_partitions.png)](/images/posts/2025-05-21-adding-a-new-hard-drive-to-my-pc-and-installing-windows-11-alongside-linux/final_partitions.png)
+</figure>
+</div>
+
+One final finishing touch was required under Windows: update the bootloader so
+that it does not show the system from a partition that was just removed.  This
+was easily achieved using the `msconfig` Windows tool.
+
+Aftermath
+---------
+
+At this point, my goals were achieved.  I had Windows 11 installed on a dedicated
+2TB drive and my primary data partition on Linux enlarged to 1.76GB.  However, I
+was in for a couple of surprises.  A few days after installing the new drive, I
+realized my Samba share on Linux doesn't work.  After a debugging session, I
+managed to narrow down the problem to this configuration line in
+`/etc/samba/smb.conf`:
+
+```
+interfaces = lo enp5s0
+```
+
+It specifies the interfaces on which Samba operates: local loopback (`lo`) and
+the Ethernet card (`enp5s0`).  Until a few years back, network interfaces in
+Linux had simple names, such as `eth0` for Ethernet or `wlan0` for Wi-Fi.  But
+then systemd introduced something that is called [Predictable Network Interface
+Names](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/)
+&mdash; hence the non-intuitive `enp5s0` name.  Under the above link you will
+find rationale for the change as well as a list of good things that this change
+does, such as:
+
+> Stable interface names even when hardware is added or removed
+
+Well, that's bullshit, because my Ethernet card is now named `enp6s0`.
+The interface name changed with the addition of a new drive, presumably because
+drives and Ethernet card reside on the same PCIe bus and the network card now
+enumerates differently.  As a result, everything that relied on that "stable"
+interface name, needs to be updated to the new name.  Thank you, systemd.
+
+A second surprise came about two weeks later.  For some reason, my Linux could
+no longer mount the Windows partition during boot, stalling the boot process
+until the default 90 second timeout was reached.  It was time for another
+debugging session, which revealed that the UUID of the Windows partition
+changed.  Not only that, the partition reported as being encrypted with
+BitLocker.  Perhaps unsurprisingly, Windows 11 does things without user's
+knowledge and approval, trying to force them into using BitLocker.  It silently
+starts encryption of Windows partition some time after system installation,
+making the partition unaccessible from outside Windows.  Under Windows, system
+partition reports as partially encrypted, even though BitLocker is shown as
+being disabled.  The only solution is to enable BitLocker, let it finish
+encrypting the partition, then disable BitLocker and give it time to decrypt the
+partition.  This allows to access Windows partition from under Linux and have it
+mounted during boot without issues.
+
+Final thoughts
+--------------
+
+Overall, the whole process of installing a new drive went smooth.  I am
+pleasantly surprised that the Windows installer played nicely with existing
+Windows and Linux installations.  I am also happy with how easy it was to resize
+my Linux data partition, without even having to unmount it.

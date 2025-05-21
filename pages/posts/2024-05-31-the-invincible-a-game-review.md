@@ -154,7 +154,7 @@ are surprises waiting for the fans of Lem.  I am not going to spoil them here.
 
 Unfortunately, plot delivery isn't perfect.  I already mentioned some problems
 in the previous section: meaningless monologues, listening to dialogues that
-play out with no player agency or explicitly telling the player what to do in
+play out with no player agency or explicitly telling the player what to do in a
 form of intrusive hints.  In addition to that, there are several deus
 ex machina moments, where the protagonist is miraculously saved from what should
 have been a certain death.
