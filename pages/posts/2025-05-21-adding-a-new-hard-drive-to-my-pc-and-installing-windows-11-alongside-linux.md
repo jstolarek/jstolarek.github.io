@@ -117,13 +117,13 @@ partitions that it needs.  This means I could remove hidden Windows partitions
 from the other drive and have that drive entirely used for Linux.  Secondly,
 Windows 11 correctly detected the existing EFI partition, together with the fact
 that there is another Windows installation.  GRUB remained untouched, and upon
-selecting Windows Boot Loader from the GRUB menu, I was greeted with Windows
+selecting Windows Boot Manager from the GRUB menu, I was greeted with Windows
 bootloader prompting me to select which of the two Windows installation to boot.
 This was great news, because it allowed me to use the previous Windows
 installation, before I finished setting up the new one.  The experience of
 choosing which Windows to boot wasn't entirely smooth though: upon selecting a
 Windows installation, my PC would reboot, and only upon selecting Windows Boot
-Loader from GRUB again, it would boot into Windows &mdash; this time without any
+Manager from GRUB again, it would boot into Windows &mdash; this time without any
 prompting.
 
 Last, but not least, existing Linux partitions remained untouched.
