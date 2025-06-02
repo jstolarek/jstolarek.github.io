@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jan Stolarek - Nix is terrible and I've wasted my life</title>
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" href="../css/syntax.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../index.html">Jan Stolarek</a>
+            </div>
+            <nav>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../personal.html">Personal</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../feed.xml" class="rsslink"><img src="../images/rss_icon.png" class="rss-icon"></a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <article>
+    <section class="header">
+        Posted on 02/06/2025
+    </section>
+    <section>
+        <h1 id="nix-is-terrible-and-ive-wasted-my-life1">Nix is terrible and I’ve wasted my life<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h1>
+<p><a href="https://github.com/NixOS/nix">Nix</a> is a package manager that derives its basic
+principles from functional programming, and has thus gained some traction in the
+Haskell community. My first exposure to Nix was 3 years ago, when I was
+assigned to work on Haskell projects that used Nix to manage their build
+environment and dependencies. Since then, I have met people who are very
+enthusiastic about Nix. Unfortunately, <strong>my personal experiences are largely
+negative and I find enthusiasm towards Nix unjustified</strong>. In this post, I want
+to talk about Nix problems that are swept under the rug by many Nix enthusiasts
+and that make Nix a major liability for a programmer.</p>
+<h2 id="promising-theory">Promising theory</h2>
+<p>Nix can be used either as a package manager, as is done by
+<a href="https://nixos.org/">NixOS</a> Linux distribution, or as a build environment and
+dependency manager in a programming project. My experience is with the latter,
+so I will focus on that<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Let’s start by going over the main goals and
+(claimed) features of Nix. Let me quote from the project page (bold text not
+mine):</p>
+<blockquote>
+<p><em>Reproducible</em>: Nix builds packages in isolation from each other. This ensures
+that they are reproducible and don’t have undeclared dependencies, so <strong>if a
+package works on one machine, it will also work on another</strong>.<br />
+<em>Declarative</em>: Nix makes it <strong>trivial to share development and build
+environments</strong> for your projects, regardless of what programming languages and
+tools you’re using.<br />
+<em>Reliable</em>: Nix ensures that installing or upgrading one package <strong>cannot
+break other packages</strong>. It allows you to <strong>roll back to previous versions</strong>,
+and ensures that no package is in an inconsistent state during an upgrade.</p>
+</blockquote>
+<p>When used as a dependency manager in a project, the main problem Nix attempts to
+address is build reproducibility: given a project with Nix configuration, that
+project should always build on every machine without requiring any extra
+configuration<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Nix configuration for a project — referred to as
+<em>“derivation”</em> — is written in a declarative language that specifies what
+the dependencies are and where to find them, say a GitHub repository under a
+specific commit hash. Once a configuration is written, it is possible to launch
+Nix shell from inside the project directory. This shell loads all specified
+dependencies, both libraries and executables. The project can then be built
+inside the Nix shell, and it should always build on every machine, regardless of
+the operating system or any other factors.</p>
+<p>If you have ever worked on a programming project, the above promises sound like
+a dream come true. I mean, no more problems with your code not compiling on
+other people’s machines because they have different library versions or because
+they are missing the required tools. Who wouldn’t that? Unfortunately, <strong>Nix
+demands an exorbitant price for delivering its promises</strong>. I claim that Nix is
+a case of the cure being much worse than the disease itself.</p>
+<h2 id="sad-reality">Sad reality</h2>
+<p>Unfortunately, Nix comes with a whole bundle of issues, that seriously hinder
+development.</p>
+<p>The first problem with Nix is that it requires a lot of machine resources.
+Firstly, disk space. As mentioned in the previous section, Nix installs all the
+required project dependencies into a so-called <em>store</em>. As you use Nix, the
+store grows in size, since many packages are installed multiple times as part of
+different derivations. Nix store on my PC had at one point grown to a whooping
+200GB. That’s <em>two hundred gigabytes</em> of libraries. For comparison, my Linux
+installation uses 25GB of disk space and includes a full desktop environment, a
+suite of various desktop programs (office suite; graphics, sound, and video
+editing; dozens of minor tools), and several development toolchains. Nix store
+can be purged (<code>nix-collect-garbage</code>) and compacted (<code>nix-store --optimise</code>),
+which helps for a while, but it ultimately grows again. Another machine
+resource that Nix happily wastes is RAM memory. Every Nix shell I launched in a
+project I worked on demanded gigabytes of RAM memory. I need at least two
+shells for development, ideally three. On a machine with 16GB of RAM, launching
+three Nix shells would result in running out of RAM about 2–3 times a
+week. As soon as I started using Nix over three years ago, I had to upgrade to
+32GB of RAM. This mostly suffices, but on several occasions even that wasn’t
+enough. Such disk and RAM requirements are not justified, since the same
+libraries installed via the package manager do not take up some much space and
+do not require so much RAM.</p>
+<p>The above problems are annoying, but they can be mitigated with money: you can
+always buy more disk space and more RAM memory. However, Nix has a much more
+fundamental problem. <strong>It wastes the most precious resource, that cannot be
+bought for any money: time.</strong> Launching a Nix shell for the first time in a
+given project, requires downloading and building dependencies. For projects I
+worked on, this typically took several hours. Essentially, a whole day wasted
+just to build gigabytes of libraries. Many times I have heard Nix proponents
+say, that this problem can be addressed by setting up binary caches. These
+apparently should allow skipping local compilation by downloading pre-built
+libraries. Despite hearing such claims multiple times, I have never seen such
+binary caches set up in a way that mitigates the problem — and below I
+will get to the problem of setting anything up with Nix. Unfortunately,
+compilation of dependencies is not a one-time thing. Every now and then you
+will be rebuilding project dependencies, either because they have changed or
+because you garbage-collected your store and the already compiled dependencies
+have been removed. <strong>I estimate that waiting for Nix to compile the
+dependencies wasted about 7-8 working days every quarter.</strong> To me, this one
+thing in itself entirely disqualifies Nix.</p>
+<p>Note that with Nix, you will not only waste your time when launching a Nix
+shell, but also when switching between git branches that have different Nix
+configurations. Each switch to a branch with different configuration means
+dependency reload. Such reloads are usually faster than launching the Nix shell
+from scratch, but even then calling <code>git status</code> after branch switch can require
+a 2–3 minute wait.</p>
+<p>Another fundamental problem with Nix is its complexity and the resulting
+difficulty of managing a project configuration. When I was first assigned to
+work on a project that used Nix, I was determined to learn Nix. I mean, I
+should learn how to use the tools required in a project, right? Unfortunately,
+despite my best efforts, I never got to a point where I was able to competently
+manage the project’s dependencies. Honestly, when I realized, that despite
+trying to learn Nix, I am still unable to do basic things with it —
+changing a dependency is a basic thing — I felt like I’m just stupid. I
+started to ask others for help, and it turned out that this isn’t just me: most
+programmers I worked with could not figure out how to manage dependencies with
+Nix. Thus, on every single Nix-based project I have been involved with, we had
+one or two people who were the “Nix specialists” and whose job was to work on
+the Nix configuration whenever it needed to be changed. To me, as a programmer,
+this is unacceptable. <strong>We can’t have tools that are so complex, that they
+prevent programmers from changing a project’s most basic configuration.</strong></p>
+<p>One final complaint is that Nix does not always deliver on its promises. Though
+it should guarantee that a project always builds on every machine, I have seen
+situations where that was not the case. For example, building Nix dependencies
+would fail for someone using a Mac. I am not going to complain about that,
+though. For most of the time, Nix builds are reproducible. Even if “for the
+most time” is not the same as “always”, problems with Nix fundamentally lie
+elsewhere.</p>
+<h2 id="cure-worse-than-the-disease">Cure worse than the disease</h2>
+<p>I was recently creating a new Haskell project. Some of the dependencies rely on
+specialized cryptographic C libraries not widely available on current Linux
+distributions. Programmers who want to build my project have to install those
+libraries from outside their package manager, and also update some path
+variables, such as <code>LD_LIBRARY_PATH</code>. Describing the exact process in a README
+took me about 15 minutes. Carrying out those project-specific installation
+instructions also shouldn’t take longer than 15 minutes. It might be a slight
+annoyance, but it needs to be done <em>once</em>. Project’s dependencies are then
+managed via project’s Cabal file in the usual way, so a programmer needs not to
+take any extra steps.</p>
+<p>Setting up a project in this way is a lot more time efficient than with Nix.
+The price of installing dependencies is paid <em>once</em> at the beginning, and it is
+a small price. Or who knows, maybe this initial effort will not be small. The
+point is: without Nix, you pay the price once. With Nix, you regularly pay a
+price that is much higher. The result is that <strong>no other tool in my entire
+programming career has wasted so much of my time</strong>. I just cannot afford myself
+to use Nix if I want to get things done. And I cannot have project dependencies
+managed with a tool that is so complex, it requires dedicated specialists.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>For the lack of ideas, I borrowed the title from <a href="https://www.youtube.com/watch?v=FpNAKDx4CwY">Super Eyepatch
+Wolf</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>If you are looking for a more comprehensive coverage of Nix, I highly
+recommend <a href="https://www.dgt.is/blog/2025-01-10-nix-death-by-a-thousand-cuts/">Nix - Death by a thousand
+cuts</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Note that Nix <a href="https://linderud.dev/blog/nixos-is-not-reproducible/">does not provide Reproducible
+Builds</a>, i.e. it
+does not guarantee that a build is always binary-identical.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+
+            </br>
+        </main>
+    </body>
+</html>
