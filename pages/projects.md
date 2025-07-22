@@ -5,13 +5,19 @@ title: Projects
 Projects
 ========
 
-Below is a list of projects and libraries I have been involved with.
+Below is a list of projects and libraries I have been involved with
+professionally.
+
+  * **Midnight**\
+    I worked as a technical architect on the [Midnight](https://midnight.network/)
+    blockchain, designing and implementing solutions that leverage Cardano as a
+    trusted security layer.
 
   * **Cardano Partner Chains**
     ([github](https://github.com/input-output-hk/partner-chains-smart-contracts))\
     I have been involved in the IOG's [Cardano Partner
     Chains](https://github.com/input-output-hk/partner-chains) project as a
-    designer and developer of Plutus smart contracts.
+    system designer and developer of Plutus smart contracts.
 
   * **Skye: A programming language bridging theory and practice for scientific
     data curation**
@@ -82,6 +88,8 @@ Below is a list of projects and libraries I have been involved with.
     Together with [Richard Eisenberg](https://richarde.dev/) I developed a
     method of converting Haskell term-level functions to the type level.  Our
     approach is implemented in the `singletons` library.
+
+I have also done some toy projects.
 
   * **Dreamcast GDMenu maker script for Linux**
     ([github](https://github.com/jstolarek/dc-card-maker-script))\
