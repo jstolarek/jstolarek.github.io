@@ -76,7 +76,7 @@ parameter unchanged. Now we remove the <code>v</code> parameter:</p>
 recursive case. It can be rewritten as</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) v <span class="ot">=</span> (\w <span class="ot">-&gt;</span> foldl2 f xs (f w x)) v</span></code></pre></div>
 <p>We created an anonymous function with one of the parameters of <code>f</code> factored out.
-This expression can also be ?-reduced:</p>
+This expression can also be η-reduced:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) <span class="ot">=</span> \w <span class="ot">-&gt;</span> foldl2 f xs (f w x)</span></code></pre></div>
 <p>Let’s factor out second parameter of function <code>f</code> in the same manner:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>foldl2 f (x<span class="op">:</span>xs) <span class="ot">=</span> (\y w <span class="ot">-&gt;</span> foldl2 f xs (f w y)) x</span></code></pre></div>
@@ -94,7 +94,7 @@ base case we determined the value of <code>v</code> in the last equality to be e
 <code>k</code> we get:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>foldl2 f <span class="ot">=</span> <span class="fu">foldr</span> (\y h w <span class="ot">-&gt;</span> h (f w y)) <span class="fu">id</span></span></code></pre></div>
 <p>Original definition of <code>foldl2</code> had two more parameters, but they were removed
-by ?-reductions. Let’s restore these two parameters by adding them to both lhs
+by η-reductions. Let’s restore these two parameters by adding them to both lhs
 and rhs:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>foldl2 f xs v <span class="ot">=</span> <span class="fu">foldr</span> (\y h w <span class="ot">-&gt;</span> h (f w y)) <span class="fu">id</span> xs v</span></code></pre></div>
 <p>Recall that <code>foldl2</code> was only a convenience function we used for the

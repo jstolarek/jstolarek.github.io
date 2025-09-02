@@ -57,12 +57,11 @@ equalP f k = \w x y z -> f w x y z == k
 
 This function takes a predicate and a value and compares them for equality,
 e.g. `equalP sizeP 1024`. This can be generalized to any comparison operator by
-introducing additional parameter (( My code slightly differs from what you'll
-find in RWH)) :
+introducing additional parameter[^1]:
 
 ```haskell
 liftP :: (a -> b -> c) -> InfoP a -> b -> InfoP c
-liftP q f k = \w x y z -> f w x y z \`q\` k
+liftP q f k = \w x y z -> f w x y z `q` k
 
 equalP :: (Eq a) => InfoP a -> a -> InfoP Bool
 equalP = liftP (==)
@@ -76,9 +75,9 @@ predicates like `lesserP` and `greaterP` only by passing different comparison
 operator to `liftP`. The `liftP` function can be further generalized to allow
 logical operators:
 
-```
+```haskell
 liftP2 :: (a -> b -> c) -> InfoP a -> InfoP b -> InfoP c
-liftP2 q f g = \w x y z -> f w x y z \`q\` g w x y z
+liftP2 q f g = \w x y z -> f w x y z `q` g w x y z
 
 andP = liftP2 (&&)
 orP  = liftP2 (||)
@@ -87,7 +86,7 @@ orP  = liftP2 (||)
 As you can see `liftP` and `liftP2` are very similar and in fact the former one
 can be written in the terms of the latter:
 
-```
+```haskell
 constP :: a -> InfoP a
 constP k _ _ _ _ = k
 
@@ -98,7 +97,7 @@ liftP q f k = liftP2 q f (constP k)
 This part was very confusing to me at first, but it becomes clear when you
 replace the InfoP type synonym in constP type declaration with actual type:
 
-```
+```haskell
 constP :: a -> FilePath -> Permissions -> Maybe Integer -> ClockTime -> a
 constP k _ _ _ _ = k
 ```
@@ -111,20 +110,21 @@ written without type signature. That's perfectly fine. However, omitting type
 signature for `equalP` function causes an error:
 
 ```
-Ambiguous type variable \`b0' in the constraint:
-  (Eq b0) arising from a use of \`=='
+Ambiguous type variable `b0' in the constraint:
+  (Eq b0) arising from a use of `=='
 Possible cause: the monomorphism restriction applied to the following:
   equalP :: InfoP b0 -> b0 -> InfoP Bool (bound at rwh9.hs:20:1)
 Probable fix: give these definition(s) an explicit type signature
               or use -XNoMonomorphismRestriction
-In the first argument of \`liftP', namely \`(==)'
+In the first argument of `liftP', namely `(==)'
 In the expression: liftP (==)
-In an equation for \`equalP': equalP = liftP (==)
+In an equation for `equalP': equalP = liftP (==)
 ```
 
 I'm not sure why this happens when we try to lift `(==)`, but doesn't happen
 when `(&&)` is lifted in same manner. It seems that this happens because `(==)`
 operator introduces additional type class constraints (`Eq` type class), but I
 don't see why these constraints would cause monomorphsim restriction to kick
-in. These mystery is yet to be solved.
+in. This mystery is yet to be solved.
 
+[^1]: My code slightly differs from what you'll find in RWH

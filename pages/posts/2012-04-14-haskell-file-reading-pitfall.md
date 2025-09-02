@@ -119,7 +119,7 @@ This basically forces the evaluation of condition in case-of expression, which
 effectively leads to reading the file contents[^1].  During the discussion I was
 also suggested to read and parse the file using this function:
 
-```
+```haskell
 loadTextFileDataBase = fmap read . readFile
 ```
 
@@ -142,13 +142,9 @@ monads and so on.  They allow to make the program a whole lot shorter. Five,
 learn the API.  I was lucky to stumble upon the `readIO` function, but I could
 as well spend two more hours on debugging.
 
-That was tiring.  I think we all deserved [a good
-song](http://www.youtube.com/watch?v=Y23bB13lnNU).
-
 [^1]: **Added 19/04/2012:** I think this sentence needs more explanation.
 Case-of expression is lazy. The reason why it gets evaluated is the fact that we
 are matching the condition against three different patterns: `[x]`,`[]` and
 wildcard `_`. The program needs to know which pattern should be matched and
 therefore evaluates the value of the condition, thus forcing the reading of the
 file.
-

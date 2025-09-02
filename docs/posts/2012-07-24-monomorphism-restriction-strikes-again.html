@@ -69,10 +69,9 @@ predicates using logical AND and OR. Here’s an example:</p>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>equalP f k <span class="ot">=</span> \w x y z <span class="ot">-&gt;</span> f w x y z <span class="op">==</span> k</span></code></pre></div>
 <p>This function takes a predicate and a value and compares them for equality,
 e.g. <code>equalP sizeP 1024</code>. This can be generalized to any comparison operator by
-introducing additional parameter (( My code slightly differs from what you’ll
-find in RWH)) :</p>
+introducing additional parameter<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">liftP ::</span> (a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> <span class="dt">InfoP</span> a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> <span class="dt">InfoP</span> c</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>liftP q f k <span class="ot">=</span> \w x y z <span class="ot">-&gt;</span> f w x y z \<span class="ot">`q\`</span> k</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>liftP q f k <span class="ot">=</span> \w x y z <span class="ot">-&gt;</span> f w x y z <span class="ot">`q`</span> k</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ot">equalP ::</span> (<span class="dt">Eq</span> a) <span class="ot">=&gt;</span> <span class="dt">InfoP</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">InfoP</span> <span class="dt">Bool</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>equalP <span class="ot">=</span> liftP (<span class="op">==</span>)</span></code></pre></div>
@@ -83,41 +82,47 @@ more parameters to yield a result. So far so good. We can easily define other
 predicates like <code>lesserP</code> and <code>greaterP</code> only by passing different comparison
 operator to <code>liftP</code>. The <code>liftP</code> function can be further generalized to allow
 logical operators:</p>
-<pre><code>liftP2 :: (a -&gt; b -&gt; c) -&gt; InfoP a -&gt; InfoP b -&gt; InfoP c
-liftP2 q f g = \w x y z -&gt; f w x y z \`q\` g w x y z
-
-andP = liftP2 (&amp;&amp;)
-orP  = liftP2 (||)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">liftP2 ::</span> (a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> <span class="dt">InfoP</span> a <span class="ot">-&gt;</span> <span class="dt">InfoP</span> b <span class="ot">-&gt;</span> <span class="dt">InfoP</span> c</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>liftP2 q f g <span class="ot">=</span> \w x y z <span class="ot">-&gt;</span> f w x y z <span class="ot">`q`</span> g w x y z</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>andP <span class="ot">=</span> liftP2 (<span class="op">&amp;&amp;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>orP  <span class="ot">=</span> liftP2 (<span class="op">||</span>)</span></code></pre></div>
 <p>As you can see <code>liftP</code> and <code>liftP2</code> are very similar and in fact the former one
 can be written in the terms of the latter:</p>
-<pre><code>constP :: a -&gt; InfoP a
-constP k _ _ _ _ = k
-
-liftP :: (a -&gt; b -&gt; c) -&gt; InfoP a -&gt; b -&gt; InfoP c
-liftP q f k = liftP2 q f (constP k)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ot">constP ::</span> a <span class="ot">-&gt;</span> <span class="dt">InfoP</span> a</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>constP k _ _ _ _ <span class="ot">=</span> k</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ot">liftP ::</span> (a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> <span class="dt">InfoP</span> a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> <span class="dt">InfoP</span> c</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>liftP q f k <span class="ot">=</span> liftP2 q f (constP k)</span></code></pre></div>
 <p>This part was very confusing to me at first, but it becomes clear when you
 replace the InfoP type synonym in constP type declaration with actual type:</p>
-<pre><code>constP :: a -&gt; FilePath -&gt; Permissions -&gt; Maybe Integer -&gt; ClockTime -&gt; a
-constP k _ _ _ _ = k</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">constP ::</span> a <span class="ot">-&gt;</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">Permissions</span> <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">ClockTime</span> <span class="ot">-&gt;</span> a</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>constP k _ _ _ _ <span class="ot">=</span> k</span></code></pre></div>
 <p>Now it becomes clear that <code>constP</code> takes a constant and four other parameters
 for the predicate, discards these parameters four and returns the constant.</p>
 <p>Now comes the key part. Notice that logical predicates <code>andP</code> and <code>orP</code> were
 written without type signature. That’s perfectly fine. However, omitting type
 signature for <code>equalP</code> function causes an error:</p>
-<pre><code>Ambiguous type variable \`b0' in the constraint:
-  (Eq b0) arising from a use of \`=='
+<pre><code>Ambiguous type variable `b0' in the constraint:
+  (Eq b0) arising from a use of `=='
 Possible cause: the monomorphism restriction applied to the following:
   equalP :: InfoP b0 -&gt; b0 -&gt; InfoP Bool (bound at rwh9.hs:20:1)
 Probable fix: give these definition(s) an explicit type signature
               or use -XNoMonomorphismRestriction
-In the first argument of \`liftP', namely \`(==)'
+In the first argument of `liftP', namely `(==)'
 In the expression: liftP (==)
-In an equation for \`equalP': equalP = liftP (==)</code></pre>
+In an equation for `equalP': equalP = liftP (==)</code></pre>
 <p>I’m not sure why this happens when we try to lift <code>(==)</code>, but doesn’t happen
 when <code>(&amp;&amp;)</code> is lifted in same manner. It seems that this happens because <code>(==)</code>
 operator introduces additional type class constraints (<code>Eq</code> type class), but I
 don’t see why these constraints would cause monomorphsim restriction to kick
-in. These mystery is yet to be solved.</p>
+in. This mystery is yet to be solved.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>My code slightly differs from what you’ll find in RWH<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
         <p><a href="../blog.html">Back</a></p>
     </section>

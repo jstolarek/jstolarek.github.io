@@ -114,7 +114,7 @@ definition of <code>readIO</code> looks like this:</p>
 <p>This basically forces the evaluation of condition in case-of expression, which
 effectively leads to reading the file contents<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. During the discussion I was
 also suggested to read and parse the file using this function:</p>
-<pre><code>loadTextFileDataBase = fmap read . readFile</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>loadTextFileDataBase <span class="ot">=</span> <span class="fu">fmap</span> <span class="fu">read</span> <span class="op">.</span> <span class="fu">readFile</span></span></code></pre></div>
 <p>This uses <a href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses#the-functor-typeclass">the Functor
 typeclass</a>
 and I don’t fully understand yet why this works the way it works. Besides, I
@@ -130,8 +130,6 @@ debugger. Fourth, learn the more advanced features of Haskell, like functors,
 monads and so on. They allow to make the program a whole lot shorter. Five,
 learn the API. I was lucky to stumble upon the <code>readIO</code> function, but I could
 as well spend two more hours on debugging.</p>
-<p>That was tiring. I think we all deserved <a href="http://www.youtube.com/watch?v=Y23bB13lnNU">a good
-song</a>.</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>

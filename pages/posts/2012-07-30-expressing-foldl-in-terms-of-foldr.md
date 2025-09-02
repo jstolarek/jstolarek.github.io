@@ -87,7 +87,7 @@ foldl2 f (x:xs) v = (\w -> foldl2 f xs (f w x)) v
 ```
 
 We created an anonymous function with one of the parameters of `f` factored out.
-This expression can also be ?-reduced:
+This expression can also be η-reduced:
 
 ```haskell
 foldl2 f (x:xs) = \w -> foldl2 f xs (f w x)
@@ -124,7 +124,7 @@ foldl2 f = foldr (\y h w -> h (f w y)) id
 ```
 
 Original definition of `foldl2` had two more parameters, but they were removed
-by ?-reductions. Let's restore these two parameters by adding them to both lhs
+by η-reductions. Let's restore these two parameters by adding them to both lhs
 and rhs:
 
 ```haskell
