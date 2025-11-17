@@ -20,6 +20,13 @@ publications](publications.html), and [my blog](blog.html).
 
 </td></tr></table>
 
+Name
+====
+
+In Polish, the letter "J" is pronounced like English "Y".  "Jan" is therefore
+pronounced "Yan" (IPA: [jan]).  However, I usually go by the diminutive "Janek",
+which is pronounced "Yanek".
+
 Find me here
 ============
 
