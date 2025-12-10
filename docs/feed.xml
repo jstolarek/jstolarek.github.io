@@ -7,8 +7,400 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Mon, 02 Jun 2025 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sat, 17 Jan 2026 00:00:00 UT</lastBuildDate>
         <item>
+    <title>My Top 5 games of 2025</title>
+    <link>https://jstolarek.github.io/posts/2026-01-17-my-top-5-games-of-2025.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 17/01/2026
+    </section>
+    <section>
+        <h1 id="my-top-5-games-of-2025">My Top 5 games of 2025</h1>
+<p>In 2025, I managed to spend quite a substantial amount of time on gaming. I had
+an ambitious plan of writing longer reviews of games that I finish. That didn’t
+work out as intended and the only game I reviewed in 2025 was <a href="2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review.html"><em>The Legend of
+Heroes: Trails in the Sky
+FC</em></a>.
+This post is an attempt to make up for it. Here’s a list of my top 5 games
+finished this year, with a brief overview of each one. Games are listed in the
+order of playing.</p>
+<h2 id="breath-of-fire-iv">Breath of Fire IV</h2>
+<p><em>Breath of Fire is</em> a series of JRPGs that was somewhat popular in the 90s
+(first instalment released on SNES in 1993) and early 2000s (fifth instalment on
+PS2 in 2003)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <em>Breath of Fire IV</em> was released for the first PlayStation in
+2000<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This was late in the console’s life cycle. As a result the game is
+well polished when it comes to technical aspects and stands out in terms of
+graphics. It features large, well animated and detailed 2D sprites, seamlessly
+combined with 3D environments. And while these environments can be rotated,
+they still look like they were 2D pixel art.</p>
+<p>To me, the most important aspect of <em>Breath of Fire IV</em> is its cinematic
+storytelling, with a unique approach of presenting the plot both from the
+perspective of the main protagonist (Ryu) as well as the antagonist (Fou-Lu) -
+the game regularly switches between the two, until their paths finally converge
+towards the end of the game. Perhaps it isn’t as impressive by today’s
+standards, but it certainly was a standout 25 years ago.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/bof4_crt.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/bof4_crt_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+I experimented with CRT photography while playing Breath of Fire IV.
+Most attempts were unsuccessful. This is one of the better photos, but you can still
+see shift towards green colour in certain areas.
+</figcaption>
+</div>
+<p>If I were to point out any downsides, it would be the fights. These occur
+randomly, though not very frequently. I mean, not very frequently by 90s JRPG
+standards. Fights are turn-based. First, you select attacks for three of your
+characters; you can swap between characters in the front and back row, somewhat
+similar to what <em>Final Fantasy X</em> would offer a year later. Once you commit to
+actions for the given turn, attacks play out according to initiative. At this
+point you basically just watch a series of attack animations. Despite nice
+visuals, this gets boring.</p>
+<p>Another thing I didn’t exactly like is the fact that Ryu is a <em>silent
+protagonist</em>, i.e. he does not speak a single world throughout the game. The
+rationale behind the silent protagonist trope is that the protagonist is an
+avatar of the player; rather than having game creators insert words into the
+player’s mouth, the player can insert their own thoughts instead. This is not
+an uncommon plot device in JRPGs - other titles such as the <em>Persona</em> series,
+<em>Chrono Trigger</em> or <em>Fire Emblem Awakening</em> immediately come to mind - but I
+have never found this rationale to be convincing. Rather than increasing
+immersion - which, I believe, is the ultimate goal here - it creates a main
+character that is an empty, unmemorable, and uninspired vessel. This does not
+mean that the game with a silent protagonist has to be bad, though. I mean,
+<em>Chrono Trigger</em> and <em>Persona</em> are consider among the best JRPGs ever made,
+despite having a silent protagonist, and <em>Breath of Fire IV</em> is also very good.
+It’s just that nobody is going to remember the game for its protagonist.</p>
+<h2 id="persona-5-royal">Persona 5 Royal</h2>
+<p>I was planning to write a long, separate post on <em>Persona 5 Royal</em> (P5R), but
+that is less and less likely to happen. This short recap will have to suffice,
+at least for now.</p>
+<p>I first started playing <em>Persona 5 Royal</em> in late 2023. After playing for about
+17 hours or so, I lost momentum and put down the game for a couple of weeks. I
+resumed playing around March 2024 and my playthrough was going smoothly until I
+ran into problems with Proton, which just <a href="https://github.com/ValveSoftware/Proton/issues/7894">stopped working on my Linux
+machine</a>. Despite being
+fairly knowledgeable with Linux and Wine, after weeks of debugging I had to
+admit defeat. This is the exact kind of problem I highlighted in <a href="posts/2023-11-27-proton-is-detrimental-to-linux-as-a-gaming-platform.html">my critique
+of Proton from late
+2023</a>:</p>
+<blockquote>
+<p>A lot of games do not run well, or at all, with Proton. Moreover, even if a
+game runs fine on the release, there is absolutely no guarantee that it will
+stay this way. In the past, there have been many situations when changes
+introduced in a game patch or Proton broke a game.</p>
+</blockquote>
+<p>I have then put down the game for nearly a year, and only resumed playing in
+early 2025, when I decided to bite the bullet and boot into Windows to play.</p>
+<p><em>Persona 4 Golden</em> (P4G) is one of the best JRPGs I have ever played and it set
+the bar high for <em>Persona 5 Royal</em>. In some aspects, P5R is an improvement; in
+some, it is not. The gameplay definitely feels better, thanks to the addition
+of a whole bunch of new combat mechanics that make dungeon crawling a lot more
+fun. Also, unlike in P4G, the dungeons are no longer randomly generated. Where
+P5R falls short in my opinion, is its plot. The initial third of the game,
+roughly 40 hours or so, just feels kinda <em>meh</em>. (And yes, you read that right -
+the game takes around 120h to complete.) The plot seems a bit forced, without a
+clear goal, and even characters themselves admit they don’t know what to do.
+Only later in the game, things start to converge and make more sense, and the
+resolution of the plot feels satisfying.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/p5r_lessons.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/p5r_lessons_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+I know I shouldn’t be the one pointing at others for poor English
+usage, this but lesson here many seem to have skipped in real life.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/p5r_fight.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/p5r_fight_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+P5R combines elements of a life sim with dungeon crawling.
+</figcaption>
+</div>
+<p>I have one major complaint about the <em>Persona 5 Royal</em>. The game spans over the
+course of three schools semesters. The first two semesters you experience
+day-by-day, spending mornings in school and afternoons on free activities. In
+the original <em>Persona 5</em> released in 2016, the third semester has a handful of
+scripted events and most of the days are skipped. The <em>Royal</em> version released
+in 2019, expands on the third semester, adding a whole plot arc, a new dungeon,
+and new characters, whose plot arcs are fully resolved during that third
+semester. However, to access this new version of the third semester you must
+spend your time with Maruki, the school counsellor, and max out your social link
+with him. The game doesn’t say this explicitly though. Since Maruki was not
+among my favourite characters, I didn’t really spend time with him and only
+learned that <strong>I’ve been locked out of the third semester after playing the game
+for over 90 hours</strong>. I don’t think any game has ever made me feel that angry
+and disappointed. I always thought that <em>Persona</em> games are great examples of
+being beginner-friendly, not allowing the players to play themselves into a
+corner or do something really stupid. But the Maruki thing is one huge
+exception to that. I ended up downloading save files from the Internet. This
+allowed me to experience the plot first-hand, rather than watching a playthrough
+on YouTube, but not being able to play with characters that I have built was
+nevertheless a huge disappointment. Online search quickly reveals that I am not
+the only person who experienced the same problem. But despite the third
+semester issue and the initial plot not being well-motivated, I still consider
+<em>Persona 5 Royal</em> as one of the best JRPGs I have ever played.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/p5r_velvet_room.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/p5r_velvet_room_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Velvet Room is a recurring location in Persona series, though it
+looks slightly different each time.
+</figcaption>
+</div>
+<h2 id="final-fantasy-vii-rebirth">Final Fantasy VII Rebirth</h2>
+<p>For many Western players, myself included, <em>Final Fantasy VII</em> was the first
+JRPG they have ever played. A recent remake of this cult classic has been
+controversial since it makes departures from the original, possibly the biggest
+of which is splitting the original story into three consecutive games.
+<em>Rebirth</em> is the second, and latest, instalment in the trilogy.</p>
+<p>Having read the reviews first, I approached <em>Final Fantasy VII Rebirth</em> with a
+certain caution. A consistent complaint about <em>Rebirth</em> was the amount of
+mini-games the player has to participate in. Gameplay bloat was already a
+problem for me in the <em>Final Fantasy VII Remake</em>, i.e. the first entry in the
+new trilogy. I mean, <em>Remake</em> takes around 30h to complete if you just focus on
+the main plot, and it corresponds to a 5-hour segment in the original game.
+Obviously, a lot had to be added to make the game longer. This was my main
+gripe with the <em>Remake</em>.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_map.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_map_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Most of the activities on the world map are boring and repetitive.
+</figcaption>
+</div>
+<p>With <em>Rebirth</em>, I wanted to focus on the story, just like I did in the <em>Remake</em>,
+so I ignored most of the activities and side quest in the open world, as these
+tend to be very generic and uninspired. That being said, the world is beautiful
+and wandering without a purpose on a chocobo is fun, albeit not very rewarding.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_cinematic.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_cinematic_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+This is the most realistic cinematic I have seen to date.
+</figcaption>
+</div>
+<p>One thing I need to point out about <em>Remake</em> and <em>Rebirth</em> is that I really
+don’t like the new real time combat system. I really appreciate turn-based RPGs
+and how they force the player to think and plan strategically. In a real-time
+system this planning is gone and replaced by hectic button-mashing. In
+particular, the remakes have the player control in real-time three (!)
+characters. The end result is total chaos; I found the combat system
+overwhelming and simply not fun. The nail in the coffin is how camera works, or
+rather: how it doesn’t work. Combats often look like this:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_fight.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_fight_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Good luck making sense out of this mess.
+</figcaption>
+</div>
+<p>My solution was to set the game difficulty to easy in order to minimize the
+amount of time spent in combat. That made the game a lot more enjoyable.</p>
+<p>Last, but not least - the plot. As already mentioned, <em>Rebirth</em> makes
+departures from the original. I am totally fine with that. Telling the exact
+same story twice wouldn’t be much fun for me. I appreciate changes and
+additions, except maybe for this weird Roche guy. Both remakes are certainly
+slightly weirder than the original, as if it was trying to be a <em>Yakuza</em> game,
+but overall I am happy with the plot and the characters.</p>
+<p>In the end, after making a conscious effort to avoid the game’s shortcomings,
+<em>Final Fantasy VII Rebirth</em> turned out to be a lot of fun.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_sephiroth.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_sephiroth_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Sephiroth feels as menacing as he was in the original.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_girls.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/ff7r_girls_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Relationship dynamic between Tifa and Aerith feels very much
+different and slightly off: they are best friends but at the same time seriously
+compete to win Cloud’s heart.
+</figcaption>
+</div>
+<h2 id="unicorn-overlord">Unicorn Overlord</h2>
+<p><em>Unicorn Overlord</em> is one of a few recent games where, upon hearing the title
+for the first time, you hope it is only a working title that will be changed for
+the release. As you can tell, it wasn’t just a working title. But anyway, in
+this strategic JRPG you control prince Alain, the rightful heir to the throne
+who returns from exile to take back his kingdom from an evil usurper. If the
+plot synopsis makes you think that the plot might not be the strongest part of
+the game, you will be absolutely right. Luckily, <em>Unicorn Overlord</em> makes up
+for it with exceptionally fun gameplay.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_virginia.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_virginia_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+I really appreciate <em>Unicorn Overlord</em> for its 2D art style.
+Also, I really got to like Virginia.
+</figcaption>
+</div>
+<p>The game consists of two core elements. Firstly, fighting battles to liberate
+new regions. Battles happen in real-time, but there is an active pause. In
+<em>Unicorn Overlord</em>, units consist of up to five characters fighting in a single
+formation. You don’t get to control individual characters during the battle;
+instead battles play out automatically, with characters acting according to
+preassigned tactics. Tactics are ordered, conditional lists of attacks, such as
+“if there are flying units in front row, attack them with skill X”. With over
+60 characters and over 20 basic character classes (and further possibilities of
+promoting to advanced classes), the task of figuring out which characters and
+tactics result in good synergies is far from trivial. Experimenting with
+different builds, unit compositions, and tactics is fun, but also slightly
+tiring at times. While the game hints at which character classes are effective
+when paired together, the number of available combinations quickly becomes
+overwhelming.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_units.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_units_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Units consist of multiple characters in formation.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_tactics.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_tactics_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Each character has their individual set of tactics.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_battle.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_battle_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Fights between units can be skipped, but watching them play out
+really helps in understanding and fine-tuning the tactics.
+</figcaption>
+</div>
+<p>The second core element of gameplay is rebuilding reclaimed areas through
+various world map activities, such as gathering resources and using them to
+rebuild cities, or carrying out various smaller quests.</p>
+<p><em>Unicorn Overlord</em> was much talked about on release due to its English
+translation, which takes a lot of liberties w.r.t. the original. Sadly, this
+criticism feels justified. Even worse, same concerns can be raised about the
+majority of modern English translations from Japanese, <em>Final Fantasy VII
+Rebirth</em> being another “great” example.</p>
+<p>Overall, I had lots of fun with this game. While the plot isn’t the most
+memorable one, <em>Unicorn Overlord</em>’s gameplay feels like a massive improvement
+over the <em>Fire Emblem</em> series.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_translation.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/uo_translation_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Translators went overboard with their effort to make English sound non-casual.
+</figcaption>
+</div>
+<h2 id="pentiment">Pentiment</h2>
+<p>Yet another game that I started playing 3 years ago, right after its release in
+late 2022, and only finished in 2025. I decided to discard several hours of
+past playthrough and start over since I couldn’t recall the plot details.</p>
+<p><em>Pentiment</em> takes place in the early XVI century, shortly after the end of
+Middle Ages and at the dawn of Renaissance. Big societal changes of that period
+paint a backdrop for the main plot, which focuses on the lives of ordinary
+people in a fictional Bavarian town of Tassing. Graphically, the game looks
+like a 2D adventure of the 90s, but stylized to resemble Middle Ages paintings.
+Under the hood though, this is really an RPG. There is no combat or equipment
+though. It is the dialogues and choices that drive the game, with various
+personal backgrounds and sets of skills available to the main protagonist,
+Andreas, affecting what options are available to the player. Perhaps the game
+that comes closest in terms of gameplay would be <em>Disco Elysium</em>, though
+<em>Pentiment</em> does not have RPG-style checks. Rather, whether you succeed on a
+check or not depends solely on the choices you have made so far.</p>
+<p>What I loved the most about <em>Pentiment</em> is how it aims to accurately recreate
+the daily lives of people in the early XVI century. It shouldn’t come as a
+surprise that the director of the game, Josh Sawyer, is a historian by
+education; he also happens to be the designer of major RPG hits, such as
+<em>Icewind Dale</em>, <em>Neverwinter Nights 2</em>, <em>Fallout: New Vegas</em> and <em>Pillars of
+Eternity</em>.</p>
+<p><em>Pentiment</em> is an extremely rare case, when I decided to play in Polish, which
+brings me to one nitpick that I have about the game. It is pretty evident that
+the Polish localization was done solely from the script, since there are many
+mistranslations resulting from the lack of dialogue context.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/pentiment_andreas.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/pentiment_andreas_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Andreas, the main protagonist, has been partially inspired by Albrecht Dürer.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-01-17-my-top-5-games-of-2025/pentiment_dream.jpg"><img src="/images/posts/2026-01-17-my-top-5-games-of-2025/pentiment_dream_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Protagonist’s dreams play an important part in the narrative.
+</figcaption>
+</div>
+<h2 id="notable-mentions">Notable mentions</h2>
+<p>I also have a few notable mentions; games that didn’t qualify for my top 5, but
+are still worth mentioning.</p>
+<h3 id="nier-automata">Nier: Automata</h3>
+<p>Another game that I managed to complete this year after having started it a few
+years ago. I loved the artistic vision - character and world design, music, the
+ever-present feeling of longing and solitude - but I found the gameplay lacking.</p>
+<h3 id="silksong">Silksong</h3>
+<p>I had lots of fun playing Hollow Knight. I am not having so much fun with the
+sequel, Silksong, due to its difficulty and how unfair it is at times. I spent
+about 20 hours in the game and don’t think I have enough skill to progress past
+Act I of the game. At this point, I have pretty much just given up on it.</p>
+<h3 id="dispatch">Dispatch</h3>
+<p>I am allergic to anything superhero-related. As such, Dispatch comes as a
+pleasant surprise, where the story about superheroes is essentially an office
+comedy. The game is very light on gameplay and focuses on narrative choices.</p>
+<h3 id="doki-doki-literature-club">Doki Doki Literature Club</h3>
+<p>I don’t want to spoil this one, so let’s just say this is a kawaii visual novel
+with the exact kind of dark twist that I like. Available for free <a href="https://teamsalvato.itch.io/ddlc">on
+itch.io</a>, though I played the Switch version.</p>
+<h3 id="needy-girl-overdose">Needy Girl Overdose</h3>
+<p>Another visual novel with dark twists. This time you assume the role of a
+manager for an online streamer, KAngel. It’s up to you whether she’s gonna
+spend her time gaming and streaming about nerd stuff, or taking drugs and
+indulging in conspiracy theories.</p>
+<h2 id="summary">Summary</h2>
+<p>Having written this post, two things stand out. Firstly, 2025 was a year of
+JRPGs for me. I finished several titles I started a few years back, but also
+played a whole bunch of new ones. Secondly, I played a lot - each of my top 5
+titles requires dozens of hours - thanks mostly to handheld gaming. Getting the
+Nintendo Switch and the Steam Deck is what made the difference for me, but that
+is a topic for another post.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Sixth part of the game was released in 2016 as a free-to-play and was
+operational for about a year. Let’s pretend it didn’t happen.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>As I was playing Breath of Fire IV on the original PlayStation, the PC
+port from 2003 <a href="https://www.gog.com/en/game/breath_of_fire_iv">was released on
+GOG</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>17/01/2026</pubDate>
+    <guid>https://jstolarek.github.io/posts/2026-01-17-my-top-5-games-of-2025.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>Nix is terrible and I've wasted my life</title>
     <link>https://jstolarek.github.io/posts/2025-06-02-nix-is-terrible-and-ive-wasted-my-life.html</link>
     <description><![CDATA[<article>
@@ -494,7 +886,7 @@ maintain financial fluidity in the coming weeks.</p>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 <item>
-    <title>Legend of Heroes&#58; Trails in the Sky FC. Game review</title>
+    <title>The Legend of Heroes&#58; Trails in the Sky FC. Game review</title>
     <link>https://jstolarek.github.io/posts/2025-04-19-the-legend-of-heroes-trails-in-the-sky-fc-game-review.html</link>
     <description><![CDATA[<article>
     <section class="header">
@@ -1921,268 +2313,6 @@ easy to move to different hosting, once such a need arises.</p>
 ]]></description>
     <pubDate>21/08/2024</pubDate>
     <guid>https://jstolarek.github.io/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>The Invincible. Game review</title>
-    <link>https://jstolarek.github.io/posts/2024-05-31-the-invincible-a-game-review.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 31/05/2024
-    </section>
-    <section>
-        <h1 id="the-invincible.-game-review">The Invincible. Game review</h1>
-<p>One of the games I awaited impatiently in 2023 was <a href="https://www.gog.com/game/the_invincible">The
-Invincible</a>, a debut game by Polish
-developer Starward Industries and an adaptation of a hard sci-fi novel by
-Stanisław Lem, written in 1964. Stanisław Lem is one of my favourite authors,
-and <em>The Invincible</em> stands amongst his best works. I had an opportunity to
-play a demo version of the game back in May 2023 during <a href="https://pixelheavenfest.com">Pixel
-Heaven</a> and, despite some minor hiccups that could
-be excused in a development build, the game looked very promising. The game
-finally released in early November, and I just had to play it ASAP. Sadly, this
-blog post itself is long overdue. While I wrote a huge part of it right after
-finishing the game back in November, well over six months ago, I only managed to
-wrap it up now.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/title.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/title_thumbnail.jpg" /></a>
-<figcaption>
-Title screen.
-</figcaption>
-</figure>
-</div>
-<h2 id="need-a-hint">Need a hint?</h2>
-<p>The game takes place on planet Regis III. You play as Dr Yasna, a crew member
-of the Dragonfly, that wakes up with amnesia. You are alone and disoriented.
-After reading a bunch of notes-to-self, you set out towards your expedition’s
-camp, which you conjecture has to be nearby.</p>
-<p>Amnesiac protagonist is one of the most abused tropes in games and is typically
-an attempt to make up for poor writing. That was a big red flag right at the
-start of the game. By the time I reached the said camp, I had a whole forest of
-red flags.</p>
-<p>The Invincible is a walking simulator, Firewatch style. You walk, and you
-interact with objects: flip through the notes, open the doors, turn the dials,
-etc. With no HUD and all cutscenes being first-person, the game tries to be as
-immersive as possible. This is a great idea, but the execution is lacking. The
-player surroundings are cluttered with interaction hints, making you wonder what
-was the point of not having a HUD.</p>
-<p>In particular, the game environment cannot be traversed freely. Dr Yasna can’t
-jump, and terrain obstacles can only be climbed in places chosen by the
-designers. However, traversable terrain is not distinguished visually in any
-way, and so all ledges that can be climbed need to be highlighted with
-interaction hints, significantly impacting the immersion achieved via
-first-person narration.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/ledge.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/ledge_thumbnail.jpg" /></a>
-<figcaption>
-Traversable ledges are marked with interaction hints. This one here is obvious. Most are not.
-</figcaption>
-</figure>
-</div>
-<p>In theory, interaction hints can be disabled in the game’s settings. In
-practice, this results in having to randomly click on all surrounding objects,
-trying to figure out where is the object that the game expects you to interact
-with. I made a brief experiment of playing with hints at the beginning of the
-game, but without them the game is barely playable.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/map_hints.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/map_hints_thumbnail.jpg" /></a>
-<figcaption>
-Turn these hints off, and you’ll be forced to click randomly on the map.
-</figcaption>
-</figure>
-</div>
-<p>On top of the interaction hints, there are also mission hints that tell you what
-to do next. And what do these hints tell you? “Continue marching towards the
-camp”. “Keep following the road to Condor”. “Finish the conversation”. I’m
-sorry to say this, but if a walking simulator, or any game for that matter,
-needs to tell you to keep doing what you’re already doing, then something is
-off. In truth, these hints are completely redundant, since the game really does
-a good job of communicating what needs to be done. These mission hints take
-away what little is left of player agency, and sadly they can’t be turned off.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/just_go.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/just_go_thumbnail.jpg" /></a>
-<figcaption>
-Do I really need to be reminded to continue walking on a straight road?
-</figcaption>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/gorsky.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/gorsky_thumbnail.jpg" /></a>
-<figcaption>
-Many of the hints are useless.
-</figcaption>
-</figure>
-</div>
-<p>One final gameplay complaint is that the game severely limits your ability to
-run. You can sprint for a couple of seconds, and then Yasna is out of breath
-and needs to walk. Well, I suppose the creators really wanted this to be a
-walking simulator, not a running simulator.</p>
-<h2 id="blessed-those-who-not-having-anything-to-say-do-not-try-to-put-it-into-words">Blessed those, who not having anything to say, do not try to put it into words</h2>
-<p>The plot of The Invincible is delivered in monologues of the main protagonist,
-and once she regains communication with the Dragonfly in dialogues with an
-astrogator. I found most of the monologues extremely tiring. Dr Yasna babbles
-endlessly, commenting on dozens of unimportant things. And when she runs out of
-things to comment, she begins to hum and sing. She just doesn’t shut up. This
-turned the first 30 minutes of the game into an ordeal. Luckily, the dialogues
-were more meaningful, and thus interesting. However, longer dialogues (of which
-there are quite a few) often disable the ability to interact with the
-environment, forcing the player to listen through the dialogue before allowing
-interactions with objects, and thus progress. In a similar spirit, in certain
-scenes the player will be either immobilized or otherwise blocked from leaving
-the place. This is exactly what I meant earlier when I said the player has
-little agency. Conversely, in a couple of places where I was actually allowed
-to walk during a dialogue, I reached a place that triggered a new dialogue,
-ending prematurely the previous one.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/yasna.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/yasna_thumbnail.jpg" /></a>
-<figcaption>
-Can you please be quiet for just one second?
-</figcaption>
-</figure>
-</div>
-<h2 id="the-plot">The plot?</h2>
-<p>But perhaps I shouldn’t be so harsh on the gameplay? After all, this is a
-walking simulator and these are not played for their elaborate game mechanics.
-Rather, the quality of a walking simulator lies in how well it tells a story.
-This is where <em>The Invincible</em> does a somewhat better job.</p>
-<p>As already mentioned in the introduction, <em>The Invincible</em> is based on a novel
-by Stanisław Lem. The plot revolves around solving the mysteries encountered on
-Regis III. Firstly, why do you have an amnesia? (And luckily there is a good
-reason for it, so it’s not just a tool to make up for bad storytelling.) As you
-make it to the camp, you discover, that some of your colleagues have gone lost,
-while others are in a stupor. Hence, the second question: what happened to your
-colleagues? You will also quickly discover, that there are other humans on the
-planet. Unfortunately for you, they are from a hostile fraction. Luckily (?),
-their expedition has been decimated, just as yours. And so the last mystery:
-what else is on this planet?</p>
-<p>If you read the book, then you will immediately know the answer to the last
-question. Thus, the unravelling of the mystery of Regis III won’t be as
-impactful as it will be for players unfamiliar with Lem’s novel. However, <em>The
-Invincible</em> takes some liberties in adapting the original work, and thus there
-are surprises waiting for the fans of Lem. I am not going to spoil them here.</p>
-<p>Unfortunately, plot delivery isn’t perfect. I already mentioned some problems
-in the previous section: meaningless monologues, listening to dialogues that
-play out with no player agency or explicitly telling the player what to do in a
-form of intrusive hints. In addition to that, there are several deus
-ex machina moments, where the protagonist is miraculously saved from what should
-have been a certain death.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/bot.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/bot_thumbnail.jpg" /></a>
-<figcaption>
-The protagonist is exceptionally good at escaping certain death.
-</figcaption>
-</figure>
-</div>
-<h2 id="a-long-hike-on-regis-iii">A long hike on Regis III</h2>
-<p>There is one thing that <em>The Invincible</em> does flawlessly: the world vision. The
-surface of Regis III is meticulously designed and visually stunning. I mean,
-just look:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_1.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_1_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_2.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_2_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_3.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_3_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_4.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_4_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_5.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_5_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_6.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_6_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/regis_7.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/regis_7_thumbnail.jpg" /></a>
-</figure>
-</div>
-<p>In addition to that, all machines and vehicles are designed in a
-retro-futuristic style, evoking the look of science-fiction movies from half a
-century ago. This gives the game a unique, fresh feel. Overall, the graphics
-and art direction are the game’s biggest strengths.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_1.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_1_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_2.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_2_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_3.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_3_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_4.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_4_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_5.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_5_thumbnail.jpg" /></a>
-</figure>
-</div>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-05-31-the-invincible-a-game-review/retro_6.jpg"><img src="/images/posts/2024-05-31-the-invincible-a-game-review/retro_6_thumbnail.jpg" /></a>
-</figure>
-</div>
-<p>The soundtrack also deserves praise. Though it’s not the kind of music that you
-are going to remember after finishing the game, it does a good job of building
-the mood.</p>
-<h2 id="summary">Summary</h2>
-<p>I bought <em>The Invincible</em> on the day of its release, something that I don’t do
-very often. I don’t regret paying the full price, and I don’t regret the time
-spent with the game (around 7 hours or so), but the game wasn’t as good as I
-hoped for. Restrictive gameplay (excessive hints, no player agency) and
-annoying protagonist make for a frustrating gaming experience. If I were to
-rate <em>The Invincible</em>, I’d say it’s a 6.5 out of 10 game. I would recommend
-giving it a try, but perhaps wait to grab it on sale. What I can recommend
-without the slightest hesitation though is reading the Lem’s original novel. If
-you like hard sci-fi, you will enjoy it.</p>
-<p>Also, having waited so long to publish this post, I now know that the game did
-not sell as well as the Starward Industries had hoped for. Sadly, this resulted
-in <a href="https://www.cdaction.pl/newsy/polskie-starward-industries-pozegnalo-sie-z-15-pracownikami">laying off 15 out of 34
-employees</a>.
-The developer isn’t giving up, however, and <a href="https://www.cdaction.pl/newsy/the-invincible-tworcy-gradaptacji-lema-nie-poddaja-sie-bedzie-masa-zawartosci">plans several big updates for the
-game</a>,
-hoping for the long tail. I am curious what the end result is going to be,
-though I doubt this will fix the game biggest flaws. And let’s face it, having
-completed this game once, there is really no reason to play it for the second
-time.</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>31/05/2024</pubDate>
-    <guid>https://jstolarek.github.io/posts/2024-05-31-the-invincible-a-game-review.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 

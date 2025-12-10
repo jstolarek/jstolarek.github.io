@@ -1,5 +1,5 @@
 ---
-title: Legend of Heroes&#58; Trails in the Sky FC. Game review
+title: The Legend of Heroes&#58; Trails in the Sky FC. Game review
 date: 2025-04-19
 ---
 
