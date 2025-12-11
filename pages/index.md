@@ -13,10 +13,11 @@ specializing in [Haskell](https://www.haskell.org/).  I used to work as a
 researcher at [Laboratory for Foundations of Computer
 Science](https://wcms.inf.ed.ac.uk/lfcs/), University of Edinburgh, UK and
 [Institute of Information Technology](https://it.p.lodz.pl/), [Łódź University
-of Technology](https://p.lodz.pl/), Poland.  I also worked as a programmer on
-industrial projects.  For more information please visit [list of projects I
-worked on](projects.html), [list of my research
-publications](publications.html), and [my blog](blog.html).
+of Technology](https://p.lodz.pl/), Poland.  I also worked as an architect,
+designer, and programmer on several blockchain projects.  For more information
+please visit [list of projects I worked on](projects.html), [list of my research
+publications](publications.html), and [my blog](blog.html).  My CV is
+[here](files/jstolarek-cv.pdf).
 
 </td></tr></table>
 
