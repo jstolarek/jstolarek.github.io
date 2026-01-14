@@ -34,6 +34,7 @@ Pronunciation is left as an exercise for the reader.
 Find me here
 ============
 
+  * [CodeBerg](https://codeberg.org/jstolarek)
   * [BitBucket](https://bitbucket.org/jstolarek/workspace/repositories)
   * [Github](https://github.com/jstolarek)
   * [Google Scholar](https://scholar.google.com/citations?user=AsOeB-YAAAAJ&hl=en)
