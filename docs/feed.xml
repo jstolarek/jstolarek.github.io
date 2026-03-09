@@ -7,8 +7,383 @@
         <description><![CDATA[A language that doesn't affect the way you think about programming, is not worth knowing]]></description>
         <atom:link href="https://jstolarek.github.io/feed.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sat, 17 Jan 2026 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Tue, 14 Apr 2026 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Four months with the Steam Deck.  Experience report</title>
+    <link>https://jstolarek.github.io/posts/2026-04-14-four-months-with-the-steam-deck-experience-report.html</link>
+    <description><![CDATA[<article>
+    <section class="header">
+        Posted on 14/04/2026
+    </section>
+    <section>
+        <h1 id="four-months-with-the-steam-deck.-experience-report">Four months with the Steam Deck. Experience report</h1>
+<p>In late 2023 I wrote <a href="2023-11-27-proton-is-detrimental-to-linux-as-a-gaming-platform.html">a critique of
+Proton</a>,
+claiming that in the long-term Proton is detrimental to gaming on Linux. My
+main argument was that Valve’s push for Proton has discouraged devs from
+preparing native Linux builds for their games; some fifteen years ago this used
+to be a rising trend, but it is now on the decline. At the same time, Proton is
+not a viable development target and there are many games that work with Proton
+initially, only to be later broken by updates. This was the gist of my original
+post.</p>
+<p>Two years later, in late November 2025, I bought the Steam Deck — a
+handheld gaming PC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> released by Valve, that runs on Linux and relies entirely
+on Proton to run Windows games. After three months of using the Steam Deck, I
+am in love with it. I would like to share my experiences with the hardware
+after spending over 200 hours playing on the Deck, completing games such as
+<em>Persona 3 Reload</em>, <em>Nier: Automata</em>, <em>Pentiment</em>, <em>Dispatch</em>, and a few others.</p>
+<h2 id="why">Why?</h2>
+<p>Before diving into the details, I feel like I should explain how I went from
+criticizing Proton to buying a Steam Deck. Especially, that I also claimed to
+avoid using Steam because it is DRM by design and “purchasing” games on Steam
+does not really mean obtaining any kind of ownership.</p>
+<p>The answer is quite simple: the fact that SteamOS is essentially Linux allows me
+to do anything with the device. Steam Deck is not in any way locked to Steam,
+which means I can install and play DRM-free games purchased from GOG. Aside
+from that, Steam Deck can do anything a normal Linux desktop can do: from
+booting into KDE5 Plasma desktop, to more advanced things like setting up SSH
+access or Samba shares. And if I am not happy with the SteamOS, I can even
+install a different Linux distribution, such as <a href="https://bazzite.gg/">Bazzite</a>.
+This freedom was the key factor in my decision.</p>
+<p>There were other factors too. Firstly, while <a href="2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc.html">I have a desktop PC that can be
+used for gaming</a>,
+I hardly ever use it actually play games: after a whole day at work I don’t feel
+like spending more time in front of it. This is where handheld gaming comes in.
+And while I already have a bunch of handheld consoles, being able to play titles
+from the PC allows me to play several games I could not really experience
+otherwise. Which brings me to the final component of my decision, and that is
+accepting the fact that there are several PC games I really want to play and I
+can only purchase them on Steam. Yes <em>Persona</em> games, I am looking at you.</p>
+<h2 id="ergonomics">Ergonomics</h2>
+<p>Initially, I had a lot of concerns about the ergonomics of the device. There is
+no denying that the Steam Deck is quite large. Here is how it compares to my
+keyboard and other handhelds:</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/deck_vs_keyboard.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/deck_vs_keyboard_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Size comparison with <a href="https://krux.tech/product/atax-pro-rgb-gateron/">Krux Atax Pro</a> keyboard.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/deck_vs_switch.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/deck_vs_switch_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Size comparison with Nintendo Switch and Playstation Vita.
+</figcaption>
+</div>
+<p>I was concerned that prolonged gaming sessions will result in pains and cramps,
+as it has happened to me frequently when playing on a controller. To my
+surprise, that barely happened. Despite having multiple long gaming sessions,
+always with breaks every 45 minutes or so, I experienced little muscle fatigue.
+The Deck turned out to be more comfortable than the Switch, which I think might
+be due to profiled grips of the Deck, as opposed to flat joycons in the Switch.
+Even more interestingly, Deck turned out to cause less muscle strain for me than
+a regular controller (I usually play on Dual Shock 4) and I have no idea why
+that is, since grip profiling is similar and a controller is noticeably lighter.</p>
+<p>I also had concerns about the button/analogue stick layout. On every controller
+that I have, index fingers lie naturally on LB/RB buttons and I have to reach
+downwards to press the LT/RT triggers. This downward move feels natural. With
+the Deck, it seems the other way around. In a neutral position my index fingers
+are more on the LT/RT triggers and pressing LB/RB buttons requires the fingers
+to gently move upwards. That upward move does not feel natural too me, and I
+was concerned it will lead to strain and fatigue. Another concern was the
+layout of analogue sticks and D-Pad/ABXY buttons. On the DualSense and
+DualShock 4 controllers, the sticks and the buttons/D-Pad are the same distance
+from the thumb basis. But with the Steam Deck, the analogue sticks are a bit
+farther, so I need to slightly reach out with my thumbs to use the sticks.
+Thankfully, none of these turned out to be a problem in practice. As already
+mentioned, I experienced barely any pain after longing gaming sessions, which is
+a huge improvement compared to gaming on a normal controller.</p>
+<p>One minor complaint when it comes to design is lack of any kind of stand that
+would allow standing the Deck on a table, for example when watching cutscenes or
+videos. I tried leaning the Deck against books, but due to weight and smooth,
+round edges, it immediately slides down. In this regard, Nintendo Switch is way
+better.</p>
+<h2 id="game-compatibility">Game compatibility</h2>
+<p>Since SteamOS is Linux, games that do not have a native Linux client —
+which is, like, almost every game — run using Proton compatibility
+layer<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Long story short: most games Just Work. With the games I tested, I
+did not run into any major issues. I had one game freeze twice, but I can’t say
+for sure that this was a compatibility layer issue — the problem might as
+well be with the game itself. The biggest surprise was that games with Denuvo
+DRM, such as <em>Persona</em>, run without any problems.</p>
+<p>Minor issues were typically centred around controls. The games I found to be the
+most problematic are visual novels. These are typically designed to be played
+with a mouse, so controller experience is not perfect. It is possible to use
+the built-in touchpad, analogue stick, or touchscreen. Overall, visual novels
+are playable, but not the best possible experience. The good news is, it is
+possible to entirely reconfigure button mappings for each game separately and
+often there are community mappings already available for download.</p>
+<p>This experience was also a nice reality-check for the upcoming (?) Steam
+Machine. Valve advertises its <a href="https://store.steampowered.com/sale/steamcontroller">new
+controller</a> as being
+compatible with every steam game, thanks to built-in touchpads that enable
+playing games designed with mouse and keyboard in mind. However, a game not
+designed for the controller will remain a game not designed for the controller,
+no matter what controller you use. No touchpad or screen keyboard will change
+that. While they may make a game playable, I don’t imagine this being
+comfortable.</p>
+<h2 id="running-non-steam-games">Running non-Steam games</h2>
+<p>As mentioned earlier, it was crucial for me to be able to run games from my GOG
+library; being able to run free games from Epic wouldn’t be bad either. I think
+the easiest way of doing this on the Steam Deck is using <a href="https://heroicgameslauncher.com/">Heroic Games
+Launcher</a> (HGL), which is able to install
+games from GOG, Epic, and Amazon Prime libraries. HGL interface clearly wasn’t
+designed with controller and small screens in mind, but it is serviceable and
+does the job of installing and updating games. HGL can add games automatically
+to Steam launcher, allowing to launch titles directly, rather than through HGL.
+This needs to be explicitly enabled in the settings and I have found the feature
+to be somewhat unreliable, occasionally requiring adding external games to Steam
+manually. Also, during my tests, games added by HGL to Steam launcher were not
+removed upon uninstalling, leaving dead entries in the launcher. Hopefully,
+future updates address these issues.</p>
+<p>I also experimented with running games not installed via any launcher, just
+copied from PC. Such games can be added in Desktop Mode via Steam Client’s “Add
+non-Steam Game” feature. I had to manually set the Proton version and all the
+artwork, but once that was done, games worked without any issues.</p>
+<h2 id="modding-the-steam-deck-using-decky-loader">Modding the Steam Deck using Decky Loader</h2>
+<p>Now I get to the best part. Since Steam Deck is largely an open ecosystem, it
+has quickly spawned an active modding community. That community has created
+<a href="https://decky.xyz">Decky Loader</a>, a softmod that enables loading plugins that
+modify Steam’s default launcher in all sorts of ways. I have almost immediately
+applied a bunch of layout modifications, that declutter the launcher from things
+like recommendations, achievements, friends information, etc. I also installed
+some utility plugins, such as integration with <a href="https://howlongtobeat.com/">How Long To
+Beat</a>. Here is what final results look like.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/home_screen.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/home_screen.jpg" /></a>
+</figure>
+<figcaption>
+Home screen looks clean thanks to several CSS Loader themes.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/launch_screen.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/launch_screen.jpg" /></a>
+</figure>
+<figcaption>
+Game launch screen also decluttered using CSS Loader. Added HLTB integration.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/library.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/library.jpg" /></a>
+</figure>
+<figcaption>
+More cleanups in the Library view. Tabs customized using TabMaster plugin.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/plugins_view.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/plugins_view.jpg" /></a>
+</figure>
+<figcaption>
+Decky plugin management view.
+</figcaption>
+</div>
+<p>Note the “Pause Games” plugin in the last screenshot above. This one solves
+what I perceive as a usability problem: it pauses a running game when the Steam
+menu is opened. Normally, if you open the game menu to, say, change controller
+configuration, the game runs in the background and only pauses upon opening the
+Library. I really appreciate how plugins allow to tweak behaviour of the Deck
+and address all sorts of usability requirements. But even without modding,
+available configuration options allow to access settings typically not available
+on consoles such as the Switch.</p>
+<p>Overall, most of the plugins I tested were stable, though I found some
+combinations of layout modifications to cause minor glitches. Oh, and by the
+way, these layout modifications are essentially CSS injects, and you can write
+your own CSS modifications by connecting to Steam Client running on the Deck
+with a remote Chrome debugging session. Pretty neat!</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/remote_debugging.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/remote_debugging.jpg" /></a>
+</figure>
+<figcaption>
+Steam Client remote debugging session.
+</figcaption>
+</div>
+<h2 id="screen">Screen</h2>
+<p>As far as technical specs of the Deck are concerned, the screen is my only
+complaint. It runs in a fairly low resolution of 800p (i.e. 1280x800) and it
+shows. I mean, the games don’t look horribly bad, but aliasing in 3D graphics
+and pixelation resulting from downscaling of 2D graphics can be visible to the
+naked eye. I can only speculate that this decision was made to extend the
+battery life, since an FHD screen has twice as many pixels, which in turn
+requires more GPU power to render.</p>
+<p>Furthermore, I don’t think that an aspect ratio of 16:10 is a good idea. Games
+with 2D graphics do not make any use of extra screen space. Even some 3D titles
+don’t seem to be able to handle it and also run in 16:9. So for the most part,
+the games just run in 16:9 aspect ratio with black stripes at the top and
+bottom. Thankfully, on an OLED screen these black stripes remain entirely
+invisible, and I only realized they were there after looking at the screenshots
+taken in-game.</p>
+<p>While searching for information about the Deck’s screen, I learned about
+something that is known as <em>PWM dimming</em> or <em>PWM flicker</em>. As it turns out,
+brightness adjustment in modern OLED screens is performed by quickly turning the
+screen off and on, or: black frame insertion. The lower the brightness, the
+more black frames get inserted. From what I am reading online, for this to work
+without causing issues to the users, the flickering should be done at very high
+refresh rates of up to 3000Hz (!), but many modern screens go for much lower
+frequencies, sometimes even as low as 240Hz. Apparently, <a href="https://github.com/ValveSoftware/SteamOS/issues/1392">OLED screen used in
+the Steam Deck is on the lower end of things and causes problems for many
+users</a>. Luckily for me, I
+do not seem to be affected, but browsing online forums shows, that many people
+are.</p>
+<center>
+<video controls width="80%">
+<source src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/pwm_flicker.mp4" type="video/mp4">
+</video>
+<figcaption>
+PWM flicker can be observed by recording the screen in slow-motion.
+</figcaption>
+</center>
+<h2 id="battery-life">Battery life</h2>
+<p>Battery life was one of my concerns, as it is a frequently raised criticism of
+the Deck. Thankfully, it isn’t as bad as I feared. I have not made exact
+measurements, but with 2D titles the battery lasts around 5 hours or so, which
+for me is quite good. However, more demanding 3D titles cut that time in half.
+Importantly, Deck’s settings allow adjusting the TDP, i.e. power draw of the
+APU. This can result in extra 30-45 minutes of play time, without going below
+60FPS. I played <em>Nier: Automata</em> and <em>Persona 3 Reload</em> with TDP limited from
+the default of 15W to 11W, and in both cases it worked well. Without limiting
+the TDP, both games were quite intensive on the APU, speeding the fan up to 5500
+RPM and turning the Deck into a small hairdryer.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/tdp_15W.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/tdp_15W.jpg" /></a>
+</figure>
+<figcaption>
+Without TDP limit, APU draws up to 15W, which speeds the fan up
+to 5200-5500 RPM.
+</figcaption>
+</div>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/tdp_11W.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/tdp_11W.jpg" /></a>
+</figure>
+<figcaption>
+Limiting TDP to 11W lowers the temperatures and slows down the fan
+by about 15-20%.
+</figcaption>
+</div>
+<p>Battery settings allow setting the charge limit. I have initially experimented
+with setting the limit to 80%, since this is supposedly the optimal value for
+extending battery longevity. But then I concluded that repeatedly giving up on
+the 20% of battery charge to prevent battery capacity from dropping by few
+percent in perspective of several years makes little sense — this just
+does not add up. Interestingly, the battery already does not charge to 100%,
+but to 99%. Sleep mode drains approximately 10% per day.</p>
+<h2 id="build-quality">Build quality</h2>
+<p>My initial impressions of the build quality were very good. With no loose
+elements, the Deck certainly made a better first impression than the Switch.
+Unfortunately, after a couple of weeks I had to revisit my opinion. I noticed
+that the shell around the microSD slot and the rear air intake mesh bends gently
+under pressure, producing an audible cracking noise. I acknowledge this could
+potentially be a result of me holding the Deck in one hand and using thumb as
+support near the microSD slot. That bending is barely noticeable, but the
+cracking sound is slightly irritating, especially that it can be heard when
+simply touching near the card slot. Not a big deal, but I would expect better.</p>
+<div class="thumbnail">
+<figure>
+<a href="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/rear_mesh_and_sd_slot.jpg"><img src="/images/posts/2026-04-14-four-months-with-the-steam-deck-experience-report/rear_mesh_and_sd_slot_thumbnail.jpg" /></a>
+</figure>
+<figcaption>
+Problematic area near the microSD slot and the rear air intake.
+</figcaption>
+</div>
+<h2 id="other-features">Other features</h2>
+<p><strong>Desktop mode</strong>. By default, Deck runs in gaming mode with the Steam Client,
+running in Big-picture mode, acting as the UI. However, it is also possible to
+boot the Deck into desktop mode, which runs KDE5 Plasma. At this point it
+becomes a Linux desktop that can run all the standard applications and services.
+On my Deck, I have set up Samba client, allowing me to access my local network
+resources and transfer files between the Deck and PC. I have also used the
+desktop mode to set up extra applications available in gaming mode, such as a
+media player and the already mentioned Heroic Games Launcher.</p>
+<p>That being said, working in desktop mode using an on-screen keyboard and a
+trackpad or touchscreen instead of mouse is very uncomfortable. It can work in
+emergency situations, when one just needs to set up a new component and then
+return to gaming mode. However, I do not imagine working in desktop mode for
+extended periods of time using only Deck’s built-in controls. For that, one
+needs a docking station that allows to connect external display, keyboard, and
+mouse. Unfortunately, official Valve docking station has been out of stock for
+the past couple of months and I feel reluctant to try a replacement.</p>
+<p><strong>Playing media</strong>. I want to be able to use the Deck for watching videos when
+away from home. Thanks to the microSD slot, it is possible to store media files
+without cluttering the high-speed internal drive. There remains the issue of
+selecting a media player. My first attempt was VLC, which is what I use on the
+desktop and on my phone. I want to be able to launch videos without having to
+boot into desktop mode, so I added VLC as an external application to the Steam
+launcher. Unfortunately, VLC turns out to be completely unsuitable for
+gamepad/touchscreen controls. I thus quickly gave up on VLC and decided to give
+Kodi a try. I already had some moderate success using it <a href="2022-12-26-recalbox-rgb-dual-some-impressions-after-six-months-of-usage.html">on my Raspberry Pi to
+play movies on a
+CRT</a>.
+Indeed, Kodi does a better job running from gaming mode. It isn’t perfect, but
+it is usable.</p>
+<p><strong>Multiple account support</strong>. I am occasionally sharing the Deck with my wife,
+so I wanted to be able to set up multiple user accounts such that each person
+has their own game saves. Unfortunately, the experience is not exactly what I
+hoped for. I mentioned already that the Deck can be used as a standard Linux
+PC. And that is true as long as you don’t try to create multiple Linux user
+accounts. Deck has a default system user called <code>deck</code> and, from what I read
+online, it tries hard to stop you from creating more users<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Instead, one is
+expected to add more user accounts in the Steam client and switch between those
+accounts. These different Steam users still share the same Linux user account
+though. So, does each user have their own saves? Testing with a couple of
+games shows that indeed each user has their own save files, at least when it
+comes to games that support saving via Steam API. For external games that, for
+example, store saves in their installation directory, save files are obviously
+shared. Overall, the experience of sharing the Deck between several users is
+not as smooth as it is for Nintendo Switch<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p><strong>Online requirement</strong>. One big concern I had when purchasing the Deck was the
+online nature of Steam. Thankfully, since Deck is after all a mobile device,
+that requirement is quite relaxed, and it is possible to play games while being
+offline for extended periods of time. Even Denuvo-protected games work in
+offline mode, though these can require periodic connections to Internet to
+regenerate the offline licence. My only complaint about offline mode is that
+tracking game time does not seem to work correctly.</p>
+<p><strong>Emulation</strong>. I am yet to try emulation on the Deck. For now, I have set up
+<a href="https://www.emudeck.com/">EmuDeck</a>, but other than having it installed, I
+have not used it.</p>
+<h2 id="summary">Summary</h2>
+<p>My experience with the Steam Deck over the past four months has been very
+positive. I really like its ergonomics and configurability, but most
+importantly I appreciate how it allows me to play PC games away from my desktop
+PC. Crucially, being able to suspend the device at any time makes it possible
+to conduct short, 20-30 minute gaming sessions in the evening. These gaming
+sessions would not have otherwise happened on a desktop. I was ignoring the
+Steam Deck for a couple of years after its release, but now that I bought it, I
+am very pleased with how it actually allows me to spend more time on gaming.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>In fact, <em>the</em> first handheld gaming PC.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>If a game has a Linux version, it is still possible that under SteamOS it
+will run the Windows version via Proton. This can happen if Valve
+decides during testing that using Proton works better than the native
+version.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>I am basing this on <a href="https://steamcommunity.com/app/1675200/discussions/0/3319736698849624249/">online community
+posts</a>
+and have not tried to replicate it on my Deck.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>On top of that, there is the usual Steam DRM that prevents you from
+playing the same game on two machines, but that is not unique to the Deck.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        <p><a href="../blog.html">Back</a></p>
+    </section>
+</article>
+]]></description>
+    <pubDate>14/04/2026</pubDate>
+    <guid>https://jstolarek.github.io/posts/2026-04-14-four-months-with-the-steam-deck-experience-report.html</guid>
+    <dc:creator>Jan Stolarek</dc:creator>
+</item>
+<item>
     <title>My Top 5 games of 2025</title>
     <link>https://jstolarek.github.io/posts/2026-01-17-my-top-5-games-of-2025.html</link>
     <description><![CDATA[<article>
@@ -1957,362 +2332,6 @@ the supposed reason being difficult partnership with nVidia.<a href="#fnref2" cl
 ]]></description>
     <pubDate>27/08/2024</pubDate>
     <guid>https://jstolarek.github.io/posts/2024-08-27-four-years-of-using-a-custom-built-small-form-factor-desktop-pc.html</guid>
-    <dc:creator>Jan Stolarek</dc:creator>
-</item>
-<item>
-    <title>Fremen Zone&#58; Creating a Website Using Only HTML and CSS</title>
-    <link>https://jstolarek.github.io/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html</link>
-    <description><![CDATA[<article>
-    <section class="header">
-        Posted on 21/08/2024
-    </section>
-    <section>
-        <h1 id="fremen-zone-creating-a-website-using-only-html-and-css">Fremen Zone: Creating a Website Using Only HTML and CSS</h1>
-<p>A year ago in July I wrote <a href="2023-07-12-all-the-things-ive-ever-done-wrong-with-my-websites.html">a post about all the websites that I have run in my
-life</a>. An
-important part of that list was Fremen Zone, a fansite dedicated to Frank
-Herbert’s “Dune”. It was my first website ever, which I created back in high
-school and have <a href="https://www.fremenzone.pl/legacy/index.htm">restored last year from backups on my hard
-drive</a>. I ended the post with an
-idea of creating a new version of Fremen Zone:</p>
-<blockquote>
-<p>Restoring the Fremen Zone back to life sparked a new desire in me. While I
-said I have no intention of updating it, I feel like re-doing the whole site
-from scratch. (…) And so I am slowly gathering material for a new Dune
-fanpage. All the lessons above have taught me to avoid complexity and stay as
-close to the basics as possible. And so my plan is to create a new website
-based on pure HTML and CSS.</p>
-</blockquote>
-<p>Since late June 2023 I have been hard at work to create a new version of Fremen
-Zone. The website went live on February 1st 2024 and is available at
-<a href="https://www.fremenzone.pl" class="uri">https://www.fremenzone.pl</a>. In this post I want to talk about the technical
-aspects of the new Fremen Zone page, in particular putting emphasis on
-simplicity and developing a dedicated static page generator.</p>
-<p>Now, one tiny detail before we move on. If you clicked on the link below, you
-already noticed that Fremen Zone is in Polish, not English. Google Translate
-does a decent job at translating it to English, but make sure to fold the
-translation bar. Otherwise it covers the top navigation bar.</p>
-<h2 id="keeping-things-simple">Keeping things simple</h2>
-<p>The primary principle driving the technical design of the new page was to keep
-technical solutions as simple as possible. I didn’t want to rely on any
-existing frameworks, content management systems, or anything of that sort.
-Instead, I wanted to create a website that uses only HTML5 and CSS, with no
-JavaScript. The goal was to make a page that is static, small (=quick to load),
-fast and responsive, without bloat, and also easy to deploy or move to a
-different hosting.</p>
-<p>The first step was layout design. The old Fremen Zone used frames, which nobody
-really relies on today. For the new version, I decided to go with a navigation
-menu placed at the top of the page. This layout looks clean and minimalistic,
-which is one of the things I wanted to achieve with the new website.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/navbar.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/navbar_thumbnail.png" /></a>
-<figcaption>
-The navigation bar highlights the current section. Below the navbar is a section logo.
-</figcaption>
-</figure>
-</div>
-<p>I haven’t done any front-end programming since my original work on Fremen Zone
-nearly quarter a century ago, so not only have I forgotten everything I learned
-about HTML and CSS back then, but also both standards have evolved over time.
-And so I was learning HTML5 and CSS from scratch as I worked on the new page
-design. An important change made to HTML since its early days is the
-introduction of tags that carry important semantic meaning. And so the
-navigation bar is enclosed in <code>&lt;nav&gt;&lt;/nav&gt;</code> tags, sub-page headers use
-<code>&lt;header&gt;&lt;/header&gt;</code> tag, and so on – whenever semantic tags were available I
-made sure to use them, though I didn’t get everything right on first attempt.
-More on that in a moment.</p>
-<h2 id="browser-compatibility">Browser compatibility</h2>
-<p>One of my top technical priorities was browser compatibility. I wanted to make
-sure that the website will work as intended, no matter the browser. This is
-something I have put a lot of attention to when designing the original Fremen
-Zone two decades ago. The difference is that back then I tested the page with
-Internet Explorer and Netscape Navigator, while now the tested browsers included
-Firefox (that’s my default browser), Chromium (I avoid Chrome like a plague, but
-acknowledge the fact that most people use it), <a href="https://www.palemoon.org/">Pale
-Moon</a>
-(pre-<a href="https://blog.mozilla.org/en/mozilla/introducing-firefox-quantum/">Quantum</a>
-fork of Firefox), <a href="http://links.twibright.com/">links</a> and
-<a href="https://lynx.invisible-island.net/">lynx</a> (terminal-based text-only web
-browsers), <a href="https://dillo-browser.github.io/">Dillo</a> (an extremely minimalistic
-web browser), and <a href="https://www.torproject.org/">Tor</a> (privacy-focused web
-browser based on Firefox). Despite the multitude of modern browsers, the task
-was generally easier than 25 years ago.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/firefox.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/firefox_thumbnail.png" /></a>
-<figcaption>
-Intended page rendering in Firefox.
-</figcaption>
-</figure>
-</div>
-<p>The new version of Fremen Zone renders as intended in Firefox, Chromium and Pale
-Moon. However, the more obscure browsers don’t always render the page as
-intended. For example, Dillo does not correctly handle CSS margins and width
-attributes, resulting, among others, in misaligned section logo images and
-incorrect text width:</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/dillo.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/dillo_thumbnail.png" /></a>
-<figcaption>
-Dillo does not handle text flow as intended. As a bonus, the
-background of the main page logo has the wrong colour.
-</figcaption>
-</figure>
-</div>
-<p>Tor on the other hand, as part of its security measures, blocks web fonts. This
-results in incorrect rendering of the RSS icon on the right of the navigation
-bar (see <a href="#polishing-the-details">Polishing the details</a> section below for more
-details on web fonts).</p>
-<p>It was a fun exercise to get the page to look readable in text-based web
-browsers. These browsers are obviously quite limited at what they can do, but
-one thing they forced me to get right was correct semantic usage of HTML tags.
-For example, I first started out with using stylized <code>&lt;div&gt;</code> tags for the
-headers and sub-headers on the page. This looked as intended in graphical
-browsers, but in text-based ones the headers rendered as a one-line paragraphs
-of text and were indistinguishable from normal paragraphs. The solution was to
-switch to dedicated header tags, <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code>. In graphical browsers this
-makes no difference since the styling is handled with CSS. However, text-based
-browsers now interpret headers correctly and make them stand out from the rest
-of the text.</p>
-<div class="thumbnail">
-<figure>
-<a href="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/lynx.png"><img src="/images/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css/lynx_thumbnail.png" /></a>
-<figcaption>
-Fremen Zone rendering in Lynx. Note the repeated navbar.
-</figcaption>
-</figure>
-</div>
-<p>I also wanted Fremen Zone to display correctly on mobile devices. In principle,
-I don’t really care much about smartphones - I consider them a horrible way of
-interacting with the Internet and rarely use mine to browse the web. But at the
-same time, I thought of this as in interesting technical challenge and a
-learning opportunity.</p>
-<p>The biggest problem to overcome with rendering Fremen Zone on mobile was the
-navigation bar. Firstly, the navbar is structured differently on desktop and on
-mobile, forcing two copies of it to be defined in the source code. At any given
-time, only one of those copies is visible, which is controlled by the <code>@media</code>
-at-rules in CSS. Text-based browsers don’t handle <code>@media</code> at-rules as intended
-and display both copies of the menu at the same time. Hence, the repeated
-navbar in the screenshot above.</p>
-<p>The mobile version of the navigation bar, instead of a list of available page
-sections, contains only a “hamburger menu” icon. The proper menu becomes
-visible once the icon is clicked. Sadly, getting this behaviour to work
-requires a short JavaScript snippet attached via the <code>&lt;a&gt;</code> tag’s <code>onclick</code>
-property. It isn’t a long script, just a few lines of code to add or remove a
-CSS class that switches menu visibility, but it means that my goal of creating a
-website that does not use JavaScript at all was not possible to achieve. Not
-without giving up on mobile responsiveness, at least. I spent hours
-experimenting with different approaches, hoping I can get things to work with
-just CSS, but to no avail. I accepted that I need these few lines of JavaScript
-and moved on.</p>
-<p>Finally, there was the question of compatibility with various mobile browsers.
-Luckily, things went much smoother than on desktop. Essentially all browsers I
-tested - Firefox, DuckDuckGo, Vivaldi, Opera Mini, Edge - rendered the page as
-intended.</p>
-<h2 id="writing-a-custom-website-generator">Writing a custom website generator</h2>
-<p>I spent approximately two weeks prototyping the layout. Once the initial design
-was in place I began preliminary work on the contents. After creating several
-subpages it quickly became apparent that pages contain lots of repetition, in
-particular in the <code>&lt;head&gt;</code> and <code>&lt;navbar&gt;</code> tags. Surely, there were minor
-differences - each page had a different <code>&lt;title&gt;</code> and each subpage’s navbar
-highlighted a different current section - but the overall structure of each page
-was identical. It was clear at this point that this repetition must be
-eliminated. And so the next step was to write a custom static website
-generator.</p>
-<p>I decided to put each logical fragment of the page into a separate template
-file. For example, template for the page’s HTML header contains:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;author&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;Jan Stolarek&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;font&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;font/woff2&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/fonts/fa-solid-900.woff2&quot;</span><span class="ot"> crossorigin</span><span class="dt">&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;style&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/styl.css&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;preload&quot;</span><span class="ot"> as</span><span class="op">=</span><span class="st">&quot;image&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/png&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/img/SECTION.png&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/styl.css&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;icon&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/x-icon&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/favicon.png&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;license&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;RELPATH/LICENCJA.md&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>PAGETITLE<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>Putting all those repeating fragments into their own template files allowed me
-to reduce each page to just its proper contents enclosed inside a <code>&lt;div&gt;&lt;/div&gt;</code>
-block. Everything else - <code>&lt;head&gt;</code>, <code>&lt;navbar&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, etc. -
-is stored in template files. This way all the repetition in HTML sources is
-gone and changing, say, page’s <code>&lt;head&gt;</code> section requires modifying only the
-respective template file.</p>
-<p>I then wrote a bash script to assemble full HTML pages from templates and the
-proper source files. At the heart of the script are the following lines:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;!DOCTYPE html&gt;&quot;</span>        <span class="op">&gt;</span>  <span class="va">$HTMLFILE</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;html lang=</span><span class="dt">\&quot;</span><span class="st">pl</span><span class="dt">\&quot;</span><span class="st">&gt;&quot;</span>     <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/head.html    <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;body&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/scripts.html <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/navbar.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/header.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;main&gt;&quot;</span>                 <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span>         <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/main&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$TEMPLATEDIR</span>/footer.html  <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span>                       <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/body&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;&lt;/html&gt;&quot;</span>                <span class="op">&gt;&gt;</span> <span class="va">$HTMLFILE</span></span></code></pre></div>
-<p>There are some bash variables in here, but their names should be
-self-descriptive.</p>
-<p>You might be wondering about the <code>RELPATH</code>, <code>SECTION</code>, and <code>PAGETITLE</code> words
-used in the example template file above. These are reserved words that are
-replaced with page-specific values using <code>sed</code>. This allows not only to have
-page-specific titles and section logos, but also calculate relative paths:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert relative paths</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$FILEDIR</span><span class="st">&quot;</span> <span class="ot">=</span> <span class="st">&quot;.&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;.&quot;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">SLASHES</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${FILEDIR</span><span class="op">//</span><span class="ss">[^</span><span class="dt">\/</span><span class="ss">]</span><span class="va">}</span><span class="st">&quot;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">DIRDEPTH</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${</span><span class="op">#</span><span class="va">SLASHES}</span><span class="st">&quot;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">RELPATH</span><span class="op">=</span><span class="st">&quot;..&quot;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 1 <span class="va">$DIRDEPTH)</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">RELPATH</span><span class="op">=</span><span class="va">$RELPATH</span><span class="st">&quot;/..&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,RELPATH,</span><span class="va">$RELPATH</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
-<p>or insert last modification date from <code>git</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add last modification date</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">LASTMODIFIED</span><span class="op">=</span><span class="kw">`</span><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--pretty</span><span class="op">=</span><span class="st">&quot;format:%cs&quot;</span> <span class="va">$SRCDIR</span>/<span class="va">$FILEPATH</span><span class="kw">`</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">--in-place</span> <span class="st">&quot;s,LASTMODIFIED,</span><span class="va">$LASTMODIFIED</span><span class="st">,g&quot;</span> <span class="st">&quot;</span><span class="va">$HTMLFILE</span><span class="st">&quot;</span></span></code></pre></div>
-<p>I like to keep all my projects organized, and so files that comprise the website
-are placed into dedicated directories. For example, all images are placed in
-<code>img</code> directory, while all kinds of resources (e.g. web fonts, a unique
-non-generated 404 page, favicon) are in the <code>res</code> folder:</p>
-<pre><code>fremenzone
-├── css
-├── docs
-├── img
-├── res
-├── src
-└── templates</code></pre>
-<p>In order for all these files to form a coherent page that can be displayed in a
-browser, they must be assembled into one directory - <code>docs</code>. This was initially
-done by the same bash script that generated the pages from templates. The
-script would first copy all images, resources and CSS files to <code>docs</code>, and then
-it would proceed to generate <em>all</em> HTML pages, regardless of whether they were
-changed or not.</p>
-<p>This approach was very easy to program and worked well at first. However, as I
-added more subpages, the approach of rebuilding every HTML page became a bit too
-slow. Obviously, it wasn’t very slow, but slow enough that I had to
-deliberately pause before pressing F5 in the browser after making changes to the
-sources. It was time to write a proper <code>Makefile</code> for the page.</p>
-<p>With a <code>Makefile</code> in place, only the modified files are regenerated. No more
-rebuilding of all the HTML sources or copying of the whole image directory.
-Switching the build process to <code>make</code> made rebuilding the modified sources two
-orders of magnitude faster. The caveat is that rebuilding the whole website,
-for example after calling <code>make clean</code>, is actually several times slower than
-with the bash script. However, that is a corner case that happens very rarely.
-What matters is that the most common use case has been optimized.</p>
-<h2 id="polishing-the-details">Polishing the details</h2>
-<p>At various moments during Fremen Zone development, I’ve spent quite significant
-amounts of time on getting the various details right.</p>
-<h3 id="html-validation">HTML validation</h3>
-<p>First and foremost, I wanted to ensure that I write correct HTML. To this end,
-I wrote a bash script that checks all the generated pages using
-<a href="https://www.html-tidy.org/">html-tidy</a>, and created a dedicated <code>make</code> target
-to be able to call it easily. The next step was to set up a GitHub action that
-calls the script on every commit, just in case I miss something during local
-development. Additionally, just to be extra sure, I’ve set up a <a href="https://github.com/Cyb3r-Jak3/html5validator-action">GitHub
-action</a> that checks
-generated pages using
-<a href="https://github.com/svenkreiss/html5validator">html5validator</a>.</p>
-<h3 id="rss-feed">RSS feed</h3>
-<p>One of the things I absolutely wanted to have on my page was an RSS feed.
-Again, I didn’t want to rely on any generators - this might not have even been
-possible, given that Fremen Zone does not take a format of a blog - which forced
-me to dive into <a href="https://cyber.harvard.edu/rss/rss.html">RSS specification</a>.
-Luckily, it’s not that complex, but it took some effort to make things work as
-intended. Not everything was clear from the specification, forcing me to peek
-into various generated feeds, such as the one generated by Hakyll for this blog.
-I also mixed in elements of
-<a href="https://validator.w3.org/feed/docs/atom.html">Atom</a>, so the feed isn’t purely
-in the RSS format.</p>
-<h3 id="web-fonts">Web fonts</h3>
-<p>Once an RSS feed was ready, I wanted to have an RSS icon in the navigation bar.
-This was surprisingly tricky to get right. After quite a substantial amount of
-research and experimentation, I figured out that the only reliable method that
-works on multiple different browsers is to use a dedicated glyph from an
-embedded web font. I went with an older version (5.15.4) of
-<a href="https://github.com/FortAwesome/Font-Awesome/">FontAwesome</a> web fonts in two
-different formats, <a href="https://caniuse.com/woff">woff</a> and
-<a href="https://caniuse.com/woff2">woff2</a>, the former one for those poor souls that use
-unbelievably outdated web browsers. Using a web font also solved the problem of
-displaying an icon for “hamburger menu” on mobile devices.</p>
-<h3 id="optimizing-loading-times">Optimizing loading times</h3>
-<p>At some point, I spent quite a significant amount of time on figuring out how to
-optimize Fremen Zone for faster loading. I admit that I am a beginner when it
-comes to the topic and I had to rely on pieces of advice found online - often
-conflicting, forcing me to dive deeper into HTML5 specification and browser
-documentation. One simple thing was to use a CSS minifier, a program that
-strips whitespaces and comments from a CSS file, making it more than 50%
-smaller. I also experimented with HTML minifiers, but couldn’t find one that
-would actually work without breaking the page and violating the HTML5 standard.</p>
-<p>The next step in optimizing the loading times was related to embedded web fonts.
-Firstly, it is possible to strip the redundant glyphs from a font file. I only
-needed two glyphs from each of the two font files (woff, woff2), which allowed
-me to reduce file sizes from 40-50kB, to less than a kilobyte. Secondly, it is
-possible to preload the web fonts, i.e. instruct the browser in the HTML header
-to start loading the font files before the rest of the page is parsed and the
-glyphs from the font are actually requested. It is also possible to preload the
-CSS and other resources, which I did. I’m not exactly sure whether this has any
-benefits - the measurements I made using the browser’s developer tools were
-inconclusive. However, there seems to be no costs of attempting a preload, so I
-decided to keep it. For a brief moment I also experimented with <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">lazy image
-loading</a>,
-but realized that’s one of the features I absolutely hate on the web and dropped
-the whole idea.</p>
-<h3 id="improving-accessibility-with-alt-attributes">Improving accessibility with <code>alt</code> attributes</h3>
-<p>When I set up the HTML validators, I got a bunch of warnings about missing <code>alt</code>
-attributes for the <code>&lt;img&gt;</code> tags. This turned out to be another rabbit hole, as
-I spent several hours trying to understand what <code>alt</code> attribute should contain.
-And then I spent even more time writing the contents of those attributes. Long
-story short, <code>alt</code> attribute should describe the contents of an image. Just
-imagine someone asking you “what’s in this picture?” and you go to describe what
-the image depicts. In the future, I’d like to learn more about making a web page
-accessible for people using screen readers. Providing meaningful <code>alt</code> tags is
-a small first step towards that goal.</p>
-<h2 id="hosting-the-site">Hosting the site</h2>
-<p>I don’t expect Fremen Zone to generate large traffic, and so for the time being
-I decided GitHub Pages should suffice as a hosting provider. There was a small
-catch, though. GitHub Pages can only host websites available in a public
-repository, at least on the free plan. However, I didn’t want to expose any of
-the in-progress work, notes, etc. The solution was handed to my by a colleague
-from work and is in fact trivial: use two repositories, a private one for
-development and a public one for hosting. For this reason, if you go to <a href="https://github.com/jstolarek/fremenzone">Fremen
-Zone repository</a> you will only find the
-generated HTML files, LICENSE and README files as well as definitions of GitHub
-workflows. All the scripts discussed in this post are in the private repo.</p>
-<p>To make updating of the public repository easier I created another dedicated
-script that performs a bunch of safety checks (no untracked files, no
-uncommitted changes, no unaddressed TODOs, etc.), and, if those pass, builds the
-page from sources and copies the resulting files to the public repository. I
-then need to manually commit and push the changes, which is another safety
-measure against publishing something unintended.</p>
-<h2 id="summary">Summary</h2>
-<p>Front-end development is definitely not my cup of tee, but creating a website
-from scratch using only HTML and CSS was actually quite a lot of fun. By
-relying on the most basic technologies, I expect the site to be future-proof and
-easy to move to different hosting, once such a need arises.</p>
-
-        <p><a href="../blog.html">Back</a></p>
-    </section>
-</article>
-]]></description>
-    <pubDate>21/08/2024</pubDate>
-    <guid>https://jstolarek.github.io/posts/2024-08-21-fremen-zone-creating-a-website-using-only-html-and-css.html</guid>
     <dc:creator>Jan Stolarek</dc:creator>
 </item>
 
