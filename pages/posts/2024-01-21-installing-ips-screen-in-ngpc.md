@@ -8,11 +8,11 @@ Installing an IPS-screen in a NeoGeo Pocket Color
 
 About a year ago I bought two rather obscure handheld consoles: a NeoGeo Pocket
 Color (NGPC) and a WonderSwan Color (WSC).  Both were competitors to the GameBoy
-Color (GBC) and both lost.  Due to their smaller popularity they are not as well
-known as the GameBoy and also command higher prices today, since there were
-fever of them produces.  Also, neither the NGPC nor the WSC had a backlit
-screen, so in order to be used comfortably they need an IPS mod.  Today I will
-write about installing a modern IPS panel in the NGPC.
+Color (GBC) and both lost.  Due to their smaller popularity, they are not as
+well known as the GameBoy and also command higher prices today, since fever of
+them were produced.  Also, neither the NGPC nor the WSC had a backlit screen, so
+in order to be used comfortably they need an IPS mod.  Today I will write about
+installing a modern IPS panel in the NGPC.
 
 <div class="thumbnail">
 <figure>
@@ -27,7 +27,7 @@ on the market for about a year (1998-1999) and never officially left Japan.
 Then there is the NeoGeo Pocket Color that I will be talking about in this post.
 It was distributed worldwide, even if only for a couple of months, but mine is a
 Japanese unit.  Finally, there's a smaller version of NGPC, officially known as
-the New NeoGeo Pocket Color.  These days people commonly refer to it as NGPC
+the New NeoGeo Pocket Color.  These days, people commonly refer to it as NGPC
 Slim.  Due to smaller size NGPC Slim is more difficult to mod.
 
 

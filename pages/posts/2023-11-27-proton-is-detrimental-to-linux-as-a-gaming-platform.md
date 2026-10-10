@@ -186,5 +186,5 @@ frequently than a decade ago, and it feels like a huge step back for Linux.
 [^3]: By the way, System Shock remake is another example where the developer
       doesn't care about providing a native Linux port, despite it being funded
       as the first stretch goal in the 2016 Kickstarter campaign.  But of course
-      that campaign before Proton, and now Nightdive Studios doesn't even bother
-      to keep their promise.
+      that campaign was funded before Proton was a thing, and now Nightdive
+      Studios doesn't even bother to keep their promise.
